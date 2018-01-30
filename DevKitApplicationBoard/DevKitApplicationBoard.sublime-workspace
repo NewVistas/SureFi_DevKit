@@ -1,0 +1,1916 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"paylo",
+				"payloadBuffer"
+			],
+			[
+				"ackData",
+				"ackDataLength"
+			],
+			[
+				"AppCmd_",
+				"AppCmd_StatusUpdate\tCustom Constant"
+			],
+			[
+				"APP_PA",
+				"APP_PAYLOAD_SIZE\tCustom Constant"
+			],
+			[
+				"Transim",
+				"TransmitQueuePush\t(payloadSize, payload, callback)"
+			],
+			[
+				"QueueState",
+				"QueueState_Idle\tCustom Constant"
+			],
+			[
+				"ackPack",
+				"ackPacketBuffer"
+			],
+			[
+				"QUEUELE",
+				"TRANSMIT_QUEUE_PAYLOAD_SIZE\tCustom Constant"
+			],
+			[
+				"SureAckPac",
+				"SureAckPacketLength\tCustom Global"
+			],
+			[
+				"ackDa",
+				"ackDataLength"
+			],
+			[
+				"SureGotACk",
+				"SureGotAckPacket\tCustom Global"
+			],
+			[
+				"QueuStatee",
+				"QueueState_Idle\tCustom Constant"
+			],
+			[
+				"SureFailr",
+				"SureFailureCmd\tCustom Global"
+			],
+			[
+				"SureGotAck",
+				"SureGotAckPacket\tCustom Global"
+			],
+			[
+				"RadioState",
+				"RadioState_Receiving\tCustom Constant"
+			],
+			[
+				"queue",
+				"queueState"
+			],
+			[
+				"TRASN",
+				"TRANSMIT_QUEUE_PAYLOAD_SIZE\tCustom Constant"
+			],
+			[
+				"payload",
+				"payloadSize"
+			],
+			[
+				"ackd",
+				"ackDataLength"
+			],
+			[
+				"other",
+				"otherButtonDown"
+			],
+			[
+				"PAYLOAD",
+				"APP_PAYLOAD_SIZE\tCustom Constant"
+			],
+			[
+				"SureTransmit",
+				"SureTransmitData\t(payloadLength, payloadPntr)"
+			],
+			[
+				"pack",
+				"packetPntr"
+			],
+			[
+				"buttonchage",
+				"buttonChangedCallbackPntr"
+			],
+			[
+				"buttonChage",
+				"buttonChangedCallbackPntr"
+			],
+			[
+				"SureRxPa",
+				"SureRxPacket\tCustom Global"
+			],
+			[
+				"SureGotRx",
+				"SureGotRxPacket\tCustom Global"
+			],
+			[
+				"receivePack",
+				"receivedPacketCallback"
+			],
+			[
+				"SureGetReceive",
+				"SureGetReceiveInfo\t()"
+			],
+			[
+				"ClearStat",
+				"SureClearStatusFlags\t(u8 mask)"
+			],
+			[
+				"ClearableFla",
+				"ClearableFlags_RxPacketReadyBit\tCustom Constant"
+			],
+			[
+				"ClearableFlags_",
+				"ClearableFlags_WasResetBit\tCustom Constant"
+			],
+			[
+				"StateFlags_",
+				"StateFlags_RxInProgressBit\tCustom Constant"
+			],
+			[
+				"conf",
+				"configurationFinished"
+			],
+			[
+				"GotModu",
+				"SureGotModuleStatus\tCustom Global"
+			],
+			[
+				"DefaultS",
+				"SureDefaultSettings\t()"
+			],
+			[
+				"ConfigFla",
+				"ConfigFlags_AutoClearFlagsBit\tCustom Constant"
+			],
+			[
+				"ButtonConfig",
+				"ButtonConfig_SendAckData\tCustom Constant"
+			],
+			[
+				"SureRxPac",
+				"SureRxPacketLength\tCustom Global"
+			],
+			[
+				"SureRxp",
+				"SureRxPacketLength\tCustom Global"
+			],
+			[
+				"SureACkData",
+				"SureAckDataLength\tCustom Global"
+			],
+			[
+				"SureGotRece",
+				"SureGotReceivePacketSize\tCustom Global"
+			],
+			[
+				"SureReceiveUi",
+				"SureReceiveUidLength\tCustom Global"
+			],
+			[
+				"SureGotRadio",
+				"SureGotRadioMode\tCustom Global"
+			],
+			[
+				"SureGotBut",
+				"SureGotButtonConfig\tCustom Global"
+			],
+			[
+				"SureGotButton",
+				"SureGotButtonHoldTime\tCustom Global"
+			],
+			[
+				"SureButton",
+				"SureButtonHoldTime\tCustom Global"
+			],
+			[
+				"SureGotModu",
+				"SureGotModuleVersion\tCustom Global"
+			],
+			[
+				"SureMod",
+				"SureModuleVersion\tCustom Global"
+			],
+			[
+				"module",
+				"ModuleVersion_t\tCustom Type"
+			],
+			[
+				"RxInfo",
+				"SureRxInfo\tCustom Global"
+			],
+			[
+				"hi",
+				"highest"
+			],
+			[
+				"Parse",
+				"ParseHexByte\t(const char* chars)"
+			],
+			[
+				"PrintS",
+				"PrintSureResponses\tCustom Global"
+			],
+			[
+				"SureCmd_PAcketSi",
+				"SureCmd_SetReceivePacketSize\tCustom Constant"
+			],
+			[
+				"SureCmd_GetRecei",
+				"SureCmd_GetReceivePacketSize\tCustom Constant"
+			],
+			[
+				"SureCmd_GetTra",
+				"SureCmd_GetTransmitUID\tCustom Constant"
+			],
+			[
+				"SureCmd_GetRe",
+				"SureCmd_GetReceiveUID\tCustom Constant"
+			],
+			[
+				"SureCmd_GetPack",
+				"SureCmd_GetPacketTimeOnAir\tCustom Constant"
+			],
+			[
+				"bytes",
+				"bytesPntr"
+			],
+			[
+				"command",
+				"commandBuffer"
+			],
+			[
+				"AppUart",
+				"AppUart_SureFiRadio\tCustom Constant"
+			],
+			[
+				"RadioState_",
+				"RadioState_Initializing\tCustom Constant"
+			],
+			[
+				"Echo",
+				"EchoSureResponses\tCustom Global"
+			],
+			[
+				"GetMod",
+				"GetLastModuleStatus\t()"
+			],
+			[
+				"AppUartPop",
+				"AppUartPopRxByte\t(AppUart_t uart)"
+			],
+			[
+				"AppUartP",
+				"AppUartPopRxByte\t(AppUart_t uart)"
+			],
+			[
+				"buff",
+				"bufferOut"
+			],
+			[
+				"AppURad",
+				"AppUart_SureFiRadio\tCustom Constant"
+			],
+			[
+				"Radio",
+				"AppUart_SureFiRadio\tCustom Constant"
+			],
+			[
+				"Clear",
+				"ClearRadioUartHistory\t()"
+			],
+			[
+				"Print",
+				"PrintRadioUartHistory\t()"
+			],
+			[
+				"RxFi",
+				"RxHistoryFifo\tCustom Global"
+			],
+			[
+				"UartFifo",
+				"UartFifoPush\t(UartFifo_t* fifoPntr, u8 newByte)"
+			],
+			[
+				"SureF",
+				"AppUart_SureFiRadio\tCustom Constant"
+			],
+			[
+				"Debounce",
+				"JumperDebounceCountdown\tCustom Global"
+			],
+			[
+				"TC_CPC",
+				"TC_IER_CPCS\tCustom Constant"
+			],
+			[
+				"CPC",
+				"TC_CMR_CPCTRG\tCustom Constant"
+			],
+			[
+				"Micron",
+				"MicroEnableInterrupts\t()"
+			],
+			[
+				"USART",
+				"USART1_Handler"
+			],
+			[
+				"Windows",
+				"AppUart_WindowsInterface\tCustom Constant"
+			],
+			[
+				"Pinrt",
+				"PrintUartString\t(uart, formatStr, args)"
+			],
+			[
+				"JumperBit",
+				"JumperBit_Embedded\tCustom Constant"
+			],
+			[
+				"jumper",
+				"jumperStatus"
+			],
+			[
+				"POWER_",
+				"POWER_LED_PORT\tCustom Constant"
+			],
+			[
+				"newJ",
+				"newJumperStatus"
+			],
+			[
+				"chan",
+				"changedBits"
+			],
+			[
+				"jump",
+				"jumperStatus"
+			],
+			[
+				"GetJ",
+				"GetJumperOptionStr\t(JumperOption_t jumperOption)"
+			],
+			[
+				"JumperOp",
+				"JumperOption_Embedded\tCustom Constant"
+			],
+			[
+				"jum",
+				"jumperOption"
+			],
+			[
+				"UartSure",
+				"AppUart_SureFiRadio\tCustom Constant"
+			],
+			[
+				"Handle",
+				"HandleDebugCommand\t(const char* commandStr)"
+			],
+			[
+				"deubgInput",
+				"debugInputBuffer"
+			],
+			[
+				"debugI",
+				"debugInputLength"
+			],
+			[
+				"debugInput",
+				"debugInputBuffer"
+			],
+			[
+				"debugIn",
+				"debugInputLength"
+			],
+			[
+				"DebuOutput",
+				"AppUart_DebugOutput\tCustom Constant"
+			],
+			[
+				"GetUart",
+				"GetUartRxNumBytes\t(AppUart_t uart)"
+			],
+			[
+				"UartFifoP",
+				"UartFifoPop\t(UartFifo_t* fifoPntr)"
+			],
+			[
+				"UartF",
+				"UartFifoGetByte\t(UartFifo_t* fifoPntr, u16 index)"
+			],
+			[
+				"tempFi",
+				"tempFilePath"
+			],
+			[
+				"verisonFi",
+				"versionFilePath"
+			],
+			[
+				"versionFi",
+				"versionFilePath"
+			],
+			[
+				"DEbugOut",
+				"DebugOutput\t(outputLevel, functionName, charPntr, numChars)"
+			],
+			[
+				"curr",
+				"currentVersion"
+			],
+			[
+				"curre",
+				"currentVersionStr"
+			],
+			[
+				"regex",
+				"searchRegex"
+			],
+			[
+				"cure",
+				"currentVersionStr"
+			],
+			[
+				"sear",
+				"searchResult"
+			],
+			[
+				"define",
+				"defineName"
+			],
+			[
+				"found",
+				"foundVersionNumber"
+			],
+			[
+				"version",
+				"versionFile"
+			],
+			[
+				"verion",
+				"versionFile"
+			],
+			[
+				"NEW_STR",
+				"NEW_LINE_STR_LENGTH\tCustom Constant"
+			],
+			[
+				"DebugOut",
+				"DebugOutput\t(level, functionName, charPntr, numChars)"
+			],
+			[
+				"DebugOutput",
+				"AppUart_DebugOutput\tCustom Constant"
+			],
+			[
+				"SendUar",
+				"SendUartData\t(uart, dataPntr, numBytes)"
+			],
+			[
+				"DEbugOutput",
+				"AppUart_DebugOutput\tCustom Constant"
+			],
+			[
+				"DebugOPu",
+				"AppUart_DebugOutput\tCustom Constant"
+			],
+			[
+				"AppUar",
+				"AppUart_t\tCustom Type"
+			],
+			[
+				"UartFif",
+				"UartFifoRx\tCustom Global"
+			],
+			[
+				"test",
+				"testCommand2"
+			],
+			[
+				"testC",
+				"testCommand1"
+			],
+			[
+				"AppUartSure",
+				"AppUart_SureFiRadio\tCustom Constant"
+			],
+			[
+				"System",
+				"SystemCoreClockUpdate"
+			],
+			[
+				"DEBUG",
+				"DEBUG_LED1_MASK\tCustom Constant"
+			],
+			[
+				"DEBUG_LED",
+				"DEBUG_LED1_PORT\tCustom Constant"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "DevKitApplicationBoard/source/app.c",
+			"settings":
+			{
+				"buffer_size": 9185,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Love2D"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: File"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: Project"
+				]
+			],
+			[
+				"Packages/Lua Love/LuaLove.sublime-build",
+				"Love2D"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"my C",
+				"Set Syntax: My C Syntax"
+			],
+			[
+				"todo",
+				"Set Syntax: TODO List Syntax"
+			],
+			[
+				"intel he",
+				"Set Syntax: Intel HEX"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"linker",
+				"Set Syntax: Linker Script"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"My C",
+				"Set Syntax: My C Syntax"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"to tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"word ",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"to tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"tot",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"to spaces",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"My c",
+				"Set Syntax: My C Syntax"
+			],
+			[
+				"Syntax C",
+				"Set Syntax: C"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"date",
+				"InsertDate: Default"
+			],
+			[
+				"MyC",
+				"Set Syntax: My C Syntax"
+			],
+			[
+				"syntax C",
+				"Set Syntax: C"
+			],
+			[
+				"My",
+				"Set Syntax: My C Syntax"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"orgmo",
+				"Set Syntax: orgmode"
+			],
+			[
+				"syntax pla",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"open",
+				"Terminal: Open in project folder"
+			],
+			[
+				"align",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"bookmark",
+				"SublimeBookmarks: Goto Next Bookmark"
+			],
+			[
+				"bookmar",
+				"SublimeBookmarks: Add Bookmark"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Init"
+			],
+			[
+				"settings",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"setting",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"plugin",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"error",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 540.0
+	},
+	"console":
+	{
+		"height": 231.0,
+		"history":
+		[
+			"window.run_command(\"open_header\")",
+			"open_header",
+			"asd",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard"
+	],
+	"file_history":
+	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/IncrementBuildNumber.py",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/sureResponses.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/transmitQueue.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/sureCommands.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/syscalls/gcc/syscalls.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/app.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/app.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/transmitQueue.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/surefiModule.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/sureResponses.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/uartFifos.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/defines.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/sam4s16b.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/asf.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/board.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/Config/conf_clock.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/main.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/debugCommands.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/tickTimer.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/tickTimer.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/jumper.c",
+		"/C/MyStuff/SureFi/Other/AX88772C_772B_772A_760_772_178_LINUX_Driver_v4.11.0_Source/asix.c",
+		"/C/MyStuff/SureFi/Other/AX88772C_772B_772A_760_772_178_LINUX_Driver_v4.11.0_Source/readme",
+		"/C/MyStuff/SureFi/Other/AX88772C_772B_772A_760_772_178_LINUX_Driver_v4.11.0_Source/Makefile",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/micro.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/micro.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/sureCommands.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/jumper.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/helpers.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/debug.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/helpers.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/uartFifos.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/debugCommands.h",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/surefiModule.h",
+		"/C/MyStuff/Programs/ConstPort/Resources/Configuration/GlobalConfig.json",
+		"/C/MyStuff/Programs/ConstPort/ConstPortSave_2018-00-23_8-49-17.txt",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/RTT_EXAMPLE1/RTT_EXAMPLE1/src/rtt_example.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/component/component_tc.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/rtt/rtt.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/tc/tc.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/tc/tc.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/sam4s16b.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/TC_TC_CAPTURE_WAVEFORM_EXAMPLE1/src/config/conf_board.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/TC_TC_CAPTURE_WAVEFORM_EXAMPLE1/src/tc_capture_waveform_example.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/myUart.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/usart/usart.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/component/component_usart.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/component/component_uart.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/thirdparty/CMSIS/Include/core_cm4.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/utils/interrupt/interrupt_sam_nvic.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/Device_Startup/startup_sam4s.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/thirdparty/CMSIS/Include/core_cmFunc.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/myUart.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/debug.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/utils/interrupt.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/usart/usart.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/uart/uart.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/serial/sam_uart/uart_serial.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/IncrementBuildNumber.py",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/version.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/version_backup.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/wdt.h",
+		"/C/Users/robbitay/AppData/Local/Temp/Rar$DRa0.713/watchdog.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/component/component_rstc.h",
+		"/C/MyStuff/SureFi/Projects/HvacBridge/EquipApp.X/IncrementVersionNumber.py",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/clock/sam4s/sysclk.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/clock/sam4s/sysclk.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/clock/sysclk.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/Device_Startup/sam4s_sram.ld",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/Device_Startup/sam4s16b_sram.ld",
+		"/C/Users/robbitay/AppData/Local/Temp/Rar$DRa0.916/snprintf_2.2/test.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/snprintf.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/snprintf.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/component/component_pmc.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/clock/sam4s/pll.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/Device_Startup/system_sam4s.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/ioport/ioport.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/common/services/ioport/sam/ioport_pio.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/drivers/uart/uart.c",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/templates/main.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/micro.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/main.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/defines.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/micro.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/board.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/uart.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/src/ASF/sam/utils/cmsis/sam4s/include/system_sam4s.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/instance/uart0.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/myUart.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest/myUart.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/pio.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/pio/sam4s16b.h",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/common.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/.gitignore",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/matrix.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/Device_Startup/system_sam4s.c",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/main.c",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/templates/library.c",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/sam.h",
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/efc.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/ioport/sam/ioport_pio.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/ioport/ioport.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/boards/sam4s_xplained_pro/init.c",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/cmsis/sam4s/include/system_sam4s.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject3/GccBoardProject3/src/ASF/common/boards/board.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/compiler.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/asf.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/main.c",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/cmsis/sam4s/include/component/component_pio.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/preprocessor/preprocessor.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/utils/parts.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/boards/sam4s_xplained_pro/sam4s_xplained_pro.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/clock/sam4s/sysclk.c",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/config/conf_clock.h",
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/clock/sam4s/sysclk.h",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/component/pio.h",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s16b.h",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s.h",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/SureFiModuleApp/src/main.c",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/instance/pioa.h",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/pio/sam4s16b.h",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.c",
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.uvprojx",
+		"/D/Stamp/GPIO.c",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/AcBridgeRadio/ExternalApp.X/source/sureInterface.c",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/AcBridgeRadio/ExternalApp.X/source/radio.c",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/AcBridgeRadio/ExternalApp.X/source/sure.c",
+		"/C/MyStuff/SureFi/Projects/AccessControlBridge/AcBridgeRadio/ExternalApp.X/source/debugCommands.c"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 125.0,
+		"where_history":
+		[
+			"*.c",
+			"*.h",
+			"*.c",
+			"*.h",
+			"__ram_end__",
+			"*.c",
+			"*.h",
+			"*.c",
+			"",
+			"*.h",
+			"*.c",
+			"*.h",
+			"*.",
+			"*.c",
+			"",
+			"*.h",
+			"*.c",
+			"*.h",
+			"*.c",
+			"",
+			"*.c",
+			"*.h",
+			"*.c",
+			"*.h",
+			"*.c",
+			"ExternalApp.X/*",
+			"ExternalApp*",
+			"",
+			"*.[ch]",
+			"*.c",
+			"*.h",
+			"*.c",
+			"",
+			"*.c",
+			"*c",
+			"",
+			"*.c",
+			"",
+			"*.c",
+			"",
+			"*.c",
+			"*.h",
+			"",
+			"*.h",
+			"*.c",
+			"",
+			"*.h",
+			"*.c",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"TC0",
+			"TC1",
+			"tc_init",
+			"mode",
+			"DeviceVectors",
+			"US_IER",
+			"DeviceVectors",
+			"US_IER",
+			"_DeviceVectors",
+			"_vect",
+			"} Tc",
+			"SystemCoreClock",
+			"CONFIG_SYSCLK_SOURCE",
+			"_sheap",
+			"_sbrk",
+			"__ram_end__",
+			"PMC_PCER0",
+			"PLL_SRC_MAINCK_XTAL",
+			"CONFIG_SYSCLK_SOURCE",
+			"sysclk_init",
+			"CONFIG_SYSCLK_SOURCE",
+			"SystemCoreClock",
+			"PCER0",
+			"uart_init",
+			"SystemCoreClock",
+			"CCFG_SYSIO",
+			"PIOA",
+			"SAM4S_XPLAINED",
+			"SAM4S",
+			"CONF_BOARD_UART_CONSOLE",
+			"sysclk_init",
+			"CONFIG_SYSCLK_SOURCE",
+			"sysclk_init",
+			"CONFIG_SYSCLK_SOURCE",
+			"__NOP",
+			"ID_PIOC",
+			"GPIO",
+			"Pio",
+			"GPIO",
+			"inclu",
+			"HandleDebugCommand",
+			"Bit\\b",
+			"Bit",
+			"RADIO_Get",
+			"Version",
+			"AckRSSI",
+			"ModuleStatus_RxDataReadyBit",
+			"Mask",
+			"ModuleStatus\\_[A-Za-z]*Mask",
+			"Mask",
+			"FhssSfBwTablesEnabled",
+			"startEncryptionSending",
+			"ExtRsp_DecryptFailure",
+			"BleConnected",
+			"BluetoothConnected",
+			"Indication",
+			"Packet",
+			"TRANSMIT_PIN",
+			"BleConnected",
+			"#include \"ring_buf.h\"",
+			"#include \"version.h\"",
+			"VERSION",
+			"#include \"version.h\"",
+			"#include \"main.h\"",
+			"KeepAwake",
+			"LED_ReceiveSet",
+			"LED_TransmitSet",
+			"QOS_SetLEDs",
+			"QOS_AllOff",
+			"IsTransmitting",
+			"#include \"SureFiModule.h\"",
+			"USE_SMALL_PRINTF",
+			"CRAIG_DEBUG_MODE",
+			"PRINT_RADIO_REGS",
+			"DO_INDICATIONS",
+			"DEBUG_UART_ENABLED",
+			"CRAIG_DEBUG_MODE",
+			"Data",
+			"SURE_Hash",
+			"sureData",
+			"fhInfo",
+			"SfBwTablesEnabled",
+			"hopIndexWas",
+			"fhCheckTimeout",
+			"B2",
+			"INT3EP",
+			"FORCE_LDR_ENABLED",
+			"PR1",
+			"timerElapsed",
+			"CLKSEL",
+			"RP(IN|O)R",
+			"RP(IN|OUT)R",
+			"_ODCA",
+			"_CNPDA",
+			"_TRISC",
+			"_TRISA",
+			"SureUartTxPut",
+			"SureUartTxPutBytes",
+			"1E",
+			"_RCON",
+			"_RNMICON",
+			"RNMICONbits",
+			"_RNMICON",
+			"_OSCTUN",
+			"Oscillator",
+			"PLLICLK",
+			"DO_INDICATIONS",
+			"CRAIG_DEBUG_MODE",
+			"RADIO_REGISTER_FUNCTIONS",
+			"USE_RADIO_ENCRYPTION",
+			"CAD_CHECK",
+			"LIBRARY_DEBUG_OUT",
+			"PRINT_RADIO_REGS",
+			"RADIO_REGS_LORA",
+			"RADIO_REGS_FSK",
+			"SX1276_CLKOUT",
+			"CAD_DETECT_ENABLED",
+			"TCXO",
+			"DUMMY",
+			"_ZTAL",
+			"_XTAL_FREQ",
+			"PA_VPC_",
+			"DEBUG_MODE_ENABLED",
+			"#include \"appDefines.h\"",
+			"#include \"defines.h\"",
+			"MAX_UID_LENGTH",
+			"MAX_RETRY_WAIT_PACKETS",
+			"RADIO_TURNAROUND_TIME"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"#include \"main.h\"",
+			"#ifdef USING_256_CHIP",
+			"$1 | $2 | $3 | $4 | $1$2$3$4",
+			"if (BleConnected) { SendOperatingValues = true; gSendOperatingValuesTimer = OPER_VAL_BUFFER_DELAY; }",
+			"(u32)FailSafeTimeout * 60 * 1000;",
+			"(u32)FailSafeTimeout * 60 * 60;",
+			"RegistrationData_t",
+			"Assert(false);",
+			"DisableInterrupts",
+			"EnableInterrupts",
+			"Assert",
+			"u64",
+			"u32",
+			"u16",
+			"u8",
+			", 0x",
+			"$1",
+			"0x$1, 0x$2,",
+			"0x$1,",
+			"0x$1, 0x$2",
+			"RADIO_GetTimeOnAir",
+			"ALERT_Write",
+			"ALERT_Print",
+			"ALERT_Write",
+			"ALERT_Print",
+			"ALERT_Write",
+			"ALERT_Print",
+			"INFO_Print",
+			"INFO_Write",
+			"ALERT_Write",
+			"INFO_Print",
+			"ALERT_Print",
+			"ALERT_Write",
+			",\t",
+			"game_controller_state",
+			"GlobalRunning",
+			"empty"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "DevKitApplicationBoard/source/app.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								918,
+								918
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CustomConstants":
+	{
+		"height": 100.0
+	},
+	"output.CustomGlobals":
+	{
+		"height": 100.0
+	},
+	"output.CustomTypes":
+	{
+		"height": 118.0
+	},
+	"output.exec":
+	{
+		"height": 237.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "DevKitApplicationBoard.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"incre",
+				"DevKitApplicationBoard\\IncrementBuildNumber.py"
+			],
+			[
+				"app.c",
+				"DevKitApplicationBoard\\source\\app.c"
+			],
+			[
+				"syscalls",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\utils\\syscalls\\gcc\\syscalls.c"
+			],
+			[
+				"board",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\board.h"
+			],
+			[
+				"asf.h",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\asf.h"
+			],
+			[
+				"conf_c",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\Config\\conf_clock.h"
+			],
+			[
+				"tick",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\tickTimer.c"
+			],
+			[
+				"debugcommands",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\debugCommands.c"
+			],
+			[
+				"microc",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\micro.c"
+			],
+			[
+				"ticktimer",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\tickTimer.c"
+			],
+			[
+				"jumper",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\jumper.c"
+			],
+			[
+				"helpers",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\helpers.c"
+			],
+			[
+				"suref",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\surefiModule.h"
+			],
+			[
+				"debug",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\debug.c"
+			],
+			[
+				"ticktim",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\tickTimer.c"
+			],
+			[
+				"myuart",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\myUart.c"
+			],
+			[
+				"confclo",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\Config\\conf_clock.h"
+			],
+			[
+				"debugcomm",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\debugCommands.c"
+			],
+			[
+				"micro",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\micro.c"
+			],
+			[
+				"conf",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\Config\\conf_clock.h"
+			],
+			[
+				"compontc.h",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\utils\\cmsis\\sam4s\\include\\component\\component_tc.h"
+			],
+			[
+				"tccapture",
+				"AtmelStudioTest\\TC_TC_CAPTURE_WAVEFORM_EXAMPLE1\\src\\tc_capture_waveform_example.c"
+			],
+			[
+				"compnuart",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\utils\\cmsis\\sam4s\\include\\component\\component_uart.h"
+			],
+			[
+				"usart.c",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\drivers\\usart\\usart.c"
+			],
+			[
+				"micrc",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\micro.c"
+			],
+			[
+				"interrupt/interrupt_sam_nvic.h",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\common\\utils\\interrupt\\interrupt_sam_nvic.h"
+			],
+			[
+				"interr",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\common\\utils\\interrupt.h"
+			],
+			[
+				"tc.c",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\drivers\\tc\\tc.c"
+			],
+			[
+				"usart.h",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\drivers\\usart\\usart.h"
+			],
+			[
+				"uarth",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\drivers\\uart\\uart.h"
+			],
+			[
+				"version",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\version.h"
+			],
+			[
+				"wdt",
+				"sam4s\\include\\component\\wdt.h"
+			],
+			[
+				"defines.h",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\defines.h"
+			],
+			[
+				"sysclk",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\common\\services\\clock\\sysclk.h"
+			],
+			[
+				"sam4s_sram.ld",
+				"AtmelStudioTest\\AtmelStudioTest\\Device_Startup\\sam4s_sram.ld"
+			],
+			[
+				".ld",
+				"AtmelStudioTest\\AtmelStudioTest\\Device_Startup\\sam4s16b_sram.ld"
+			],
+			[
+				"syscallsc",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\utils\\syscalls\\gcc\\syscalls.c"
+			],
+			[
+				"snprintf",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\snprintf.c"
+			],
+			[
+				"usart",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\drivers\\usart\\usart.h"
+			],
+			[
+				"myu",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\myUart.c"
+			],
+			[
+				"defines",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\defines.h"
+			],
+			[
+				"main.c",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\main.c"
+			],
+			[
+				"mainc",
+				"sam4s\\templates\\main.c"
+			],
+			[
+				"uartc",
+				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\sam\\drivers\\uart\\uart.c"
+			],
+			[
+				"instance/uart0.h",
+				"sam4s\\include\\instance\\uart0.h"
+			],
+			[
+				"component/uart.h",
+				"sam4s\\include\\component\\uart.h"
+			],
+			[
+				"component/pio.h",
+				"sam4s\\include\\component\\pio.h"
+			],
+			[
+				"sam4s16b.h",
+				"sam4s\\include\\sam4s16b.h"
+			],
+			[
+				"sam.h",
+				"sam4s\\include\\sam.h"
+			],
+			[
+				"preprocessor.h",
+				"GccBoardProject1\\src\\ASF\\sam\\utils\\preprocessor\\preprocessor.h"
+			],
+			[
+				"parts.h",
+				"GccBoardProject1\\src\\ASF\\common\\utils\\parts.h"
+			],
+			[
+				"compiler.h",
+				"GccBoardProject1\\src\\ASF\\sam\\utils\\compiler.h"
+			],
+			[
+				"sam4s_xplained/sam4s_xplained.h",
+				"GccBoardProject1\\src\\ASF\\sam\\boards\\sam4s_xplained_pro\\sam4s_xplained_pro.h"
+			],
+			[
+				"system_sam4s.h",
+				"GccBoardProject1\\src\\ASF\\sam\\utils\\cmsis\\sam4s\\include\\system_sam4s.h"
+			],
+			[
+				"sam/ioport_pio.h",
+				"GccBoardProject1\\src\\ASF\\common\\services\\ioport\\sam\\ioport_pio.h"
+			],
+			[
+				"pio/sam4s16b.h",
+				"SAM4S\\pio\\sam4s16b.h"
+			],
+			[
+				"instance/pioa.h",
+				"SAM4S\\instance\\pioa.h"
+			],
+			[
+				"sam4s.h",
+				"SAM4S\\sam4s.h"
+			],
+			[
+				"todo",
+				"Files\\Firmware.todo"
+			],
+			[
+				"timer",
+				"AcBridgeRadio\\ExternalApp.X\\source\\tickTimer.c"
+			],
+			[
+				"oldcomm",
+				"AcBridgeRadio\\ExternalApp.X\\source\\oldCommands.c"
+			],
+			[
+				"mainh",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\main.h"
+			],
+			[
+				".lst",
+				"AcBridgeRadio\\ExternalApp.X\\list.lst"
+			],
+			[
+				".map",
+				"AcBridgeRadio\\ExternalApp.X\\dist\\smaller_chip\\production\\ExternalApp.X.production.map"
+			],
+			[
+				"debugcomma",
+				"AcBridgeRadio\\ExternalApp.X\\source\\debugCommands.c"
+			],
+			[
+				"radiointerf",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\radioInterface.h"
+			],
+			[
+				"qualt",
+				"AcBridgeRadio\\ExternalApp.X\\source\\qualityOfService.c"
+			],
+			[
+				"oldcomman",
+				"AcBridgeRadio\\ExternalApp.X\\source\\oldCommands.c"
+			],
+			[
+				"p32",
+				"Files\\p32mm0064gpl036.h"
+			],
+			[
+				"surefimod",
+				"Common\\surefiModule.h"
+			],
+			[
+				"debugcom",
+				"AcBridgeRadio\\ExternalApp.X\\source\\debugCommands.c"
+			],
+			[
+				"firmwa",
+				"Files\\Firmware.todo"
+			],
+			[
+				"micrco",
+				"AcBridgeRadio\\ExternalApp.X\\source\\micro.c"
+			],
+			[
+				"sureinterface",
+				"AcBridgeRadio\\ExternalApp.X\\source\\sureInterface.c"
+			],
+			[
+				"callbacks",
+				"AcBridgeRadio\\ExternalApp.X\\source\\sureCallbacks.c"
+			],
+			[
+				"sureinter",
+				"AcBridgeRadio\\ExternalApp.X\\source\\sureInterface.c"
+			],
+			[
+				"quali",
+				"AcBridgeRadio\\ExternalApp.X\\source\\qualityOfService.c"
+			],
+			[
+				"tic",
+				"AcBridgeRadio\\ExternalApp.X\\source\\tickTimer.c"
+			],
+			[
+				"radiointerface",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radioInterface.c"
+			],
+			[
+				"fhss",
+				"AcBridgeRadio\\ExternalApp.X\\source\\fhss.c"
+			],
+			[
+				"radioc",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radio.c"
+			],
+			[
+				"oldcom",
+				"AcBridgeRadio\\ExternalApp.X\\source\\oldCommands.c"
+			],
+			[
+				"p32mz",
+				"Files\\p32mz2048efm144.h"
+			],
+			[
+				"flashh",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\flash.h"
+			],
+			[
+				"flash",
+				"AcBridgeRadio\\ExternalBoot.X\\source\\flash.h"
+			],
+			[
+				"sure.c",
+				"AcBridgeRadio\\ExternalApp.X\\source\\sure.c"
+			],
+			[
+				"bootver",
+				"AcBridgeRadio\\ExternalBoot.X\\source\\bootVersion.h"
+			],
+			[
+				"flshh",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\flash.h"
+			],
+			[
+				"radio.c",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radio.c"
+			],
+			[
+				"firmwar",
+				"Files\\Firmware.todo"
+			],
+			[
+				"dbug",
+				"AcBridgeRadio\\ExternalApp.X\\source\\debugCommands.c"
+			],
+			[
+				"isrs",
+				"AcBridgeRadio\\ExternalApp.X\\source\\ISRs.c"
+			],
+			[
+				"debuguar",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\debugUART.h"
+			],
+			[
+				"firmware",
+				"Files\\Firmware.todo"
+			],
+			[
+				"debuguart",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\debugUART.h"
+			],
+			[
+				"printf.h",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\printf.h"
+			],
+			[
+				"debugu",
+				"AcBridgeRadio\\ExternalApp.X\\source\\debugUART.c"
+			],
+			[
+				"flashc",
+				"AcBridgeRadio\\ExternalBoot.X\\source\\flash.c"
+			],
+			[
+				"radiointerfa",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\radioInterface.h"
+			],
+			[
+				"utit",
+				"AcBridgeRadio\\ExternalApp.X\\source\\utilities.c"
+			],
+			[
+				"ency",
+				"AcBridgeRadio\\ExternalApp.X\\source\\encryption.c"
+			],
+			[
+				"fhssc",
+				"AcBridgeRadio\\ExternalApp.X\\source\\fhss.c"
+			],
+			[
+				"p32mm",
+				"Files\\p32mm0064gpl036.h"
+			],
+			[
+				"isr",
+				"AcBridgeRadio\\ExternalApp.X\\source\\ISRs.c"
+			],
+			[
+				"globals",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\globals.h"
+			],
+			[
+				"surefimo",
+				"AcBridgeRadio\\ExternalApp.X\\source\\SureFiModule.c"
+			],
+			[
+				"micr",
+				"AcBridgeRadio\\ExternalApp.X\\source\\micro.c"
+			],
+			[
+				"surecommands",
+				"AcBridgeRadio\\ExternalApp.X\\source\\sureCommands.c"
+			],
+			[
+				"printf",
+				"AcBridgeRadio\\ExternalApp.X\\source\\printf.c"
+			],
+			[
+				"debugua",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\debugUART.h"
+			],
+			[
+				"gpsin",
+				"AcBridgeRadio\\ExternalApp.X\\source\\gpsInterface.c"
+			],
+			[
+				"surec",
+				"AcBridgeRadio\\ExternalApp.X\\source\\sureCommands.c"
+			],
+			[
+				"postbui",
+				"AcBridgeRadio\\ExternalApp.X\\post_build.py"
+			],
+			[
+				"lst",
+				"AcBridgeRadio\\ExternalApp.X\\list.lst"
+			],
+			[
+				"sui",
+				"AcBridgeRadio\\ExternalApp.X\\source\\SureFiModule.c"
+			],
+			[
+				"spi.h",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\radioSPI.h"
+			],
+			[
+				"interface",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radioInterface.c"
+			],
+			[
+				"radiosp",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radioSPI.c"
+			],
+			[
+				"radiointer",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radioInterface.c"
+			],
+			[
+				"radiospi",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radioSPI.c"
+			],
+			[
+				"radio",
+				"AcBridgeRadio\\ExternalApp.X\\source\\radio.c"
+			],
+			[
+				"pinmac",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\pin_macros.h"
+			],
+			[
+				"deub",
+				"AcBridgeRadio\\ExternalApp.X\\source\\debugUART.c"
+			],
+			[
+				"debu",
+				"AcBridgeRadio\\ExternalApp.X\\source\\debugUART.c"
+			],
+			[
+				"project",
+				"AcBridgeRadio\\AcBridgeRadio.sublime-project"
+			],
+			[
+				"preb",
+				"AcBridgeRadio\\ExternalApp.X\\pre_build.py"
+			],
+			[
+				"appdef",
+				"AcBridgeRadio\\ExternalApp.X\\source\\include\\appDefines.h"
+			],
+			[
+				"mainae",
+				"AcBridgeRadio\\ExternalApp.X\\source\\main_aes_128.c"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 104.0,
+		"last_filter": "NVIC_Ena",
+		"selected_items":
+		[
+			[
+				"NVIC_Ena",
+				"NVIC_EnableIRQ"
+			],
+			[
+				"ISR",
+				"ISR"
+			],
+			[
+				"WDT",
+				"WDT"
+			],
+			[
+				"rst_Watchdog",
+				"rst_Watchdog"
+			],
+			[
+				"watch",
+				"RSTC_SR_RSTTYP_WatchdogReset"
+			],
+			[
+				"usart_serialinit",
+				"usart_serial_init"
+			],
+			[
+				"MR_PAR",
+				"UART_MR_PAR"
+			],
+			[
+				"PA7",
+				"PIO_PA7"
+			],
+			[
+				"TRAS",
+				"TRANSMIT_PIN"
+			],
+			[
+				"parse",
+				"TryParseInt32"
+			],
+			[
+				"UART Init",
+				"UART2 Initialization"
+			],
+			[
+				"RADIOMAX",
+				"RADIO_PLD_SIZE_MAX"
+			],
+			[
+				"disableint",
+				"DisableInterrupts"
+			],
+			[
+				"portini",
+				"PORT_Initialize"
+			],
+			[
+				"RegU",
+				"SYSTEM_RegUnlock"
+			],
+			[
+				"Encry",
+				"ENCRYPTION_KEY_LENGTH"
+			],
+			[
+				"TryPar",
+				"TryParseInt32"
+			],
+			[
+				"Parse",
+				"TryParseInt32"
+			],
+			[
+				"MicroDete",
+				"MicroDetectResetCause"
+			],
+			[
+				"MicroDelay",
+				"MicroDelay"
+			],
+			[
+				"version",
+				"FW_MAJOR_VERSION"
+			]
+		],
+		"width": 460.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 322.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
