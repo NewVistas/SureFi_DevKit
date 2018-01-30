@@ -519,14 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "DevKitApplicationBoard/source/app.c",
-			"settings":
-			{
-				"buffer_size": 9185,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
@@ -796,10 +788,11 @@
 	},
 	"expanded_folders":
 	[
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard"
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitWindowsApp"
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/app.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard.sublime-project",
 		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest.sublime-project",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/README.md",
@@ -926,8 +919,7 @@
 		"/C/MyStuff/SureFi/Projects/AccessControlBridge/SureFiModuleApp/src/main.c",
 		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/instance/pioa.h",
 		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/pio/sam4s16b.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.c",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.uvprojx"
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.c"
 	],
 	"find":
 	{
@@ -1176,37 +1168,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "DevKitApplicationBoard/source/app.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								180,
-								180
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1270,7 +1233,7 @@
 		"height": 100.0
 	},
 	"pinned_build_system": "Packages/Python/Python.sublime-build",
-	"project": "DevKitApplicationBoard.sublime-project",
+	"project": "DevKitWindowsApp.sublime-project",
 	"replace":
 	{
 		"height": 50.0
