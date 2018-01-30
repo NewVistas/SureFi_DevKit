@@ -7,8 +7,8 @@ Contains an Atmel Studio project that acts as a starting point for people to exp
 # DevKitWindowsApp
 Contains the source code of the Visual Studio project for the Windows application. It's written in C# and allows you to configure the Module through an FTDI cable connected to the Application Board's windows interface UART.
 
+# DevKitIOSApp
+Contains the source code of the XCode project for the iOS application. It's written in Swift3 and allows you to configure the Module through the BLE chip using an iPhone or iPad.
+
 # DevKitAndroidApp
 Contains the source code of the Android Studio project for the Android application. It's written in Kotlin and allows you to configure the Module through the BLE chip using an Android phone.
-
-# DevKitIosApp
-Contains the source code of the XCode project for the iOS application. It's written in Swift3 and allows you to configure the Module through the BLE chip using an iPhone or iPad.
