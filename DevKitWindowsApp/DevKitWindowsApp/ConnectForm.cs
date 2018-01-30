@@ -79,7 +79,7 @@ namespace DevKitWindowsApp
 			UpdateComList();
 		}
 		
-		private void MainForm_OnConnectionFinished(object sender, bool success)
+		private void MainForm_OnConnectionFinished(object sender, bool success, string message)
 		{
 			ConnectButton.Enabled = true;
 			ConnectButton.Text = "Connect";
@@ -92,7 +92,7 @@ namespace DevKitWindowsApp
 			}
 			else
 			{
-				MessageBox.Show(this, "Could not connect to COM port");
+				MessageBox.Show(this, message, "Could not connect to COM port");
 			}
 		}
 		
