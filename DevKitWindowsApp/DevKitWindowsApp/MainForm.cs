@@ -134,5 +134,20 @@ namespace DevKitWindowsApp
 		{
 			this.OutputTextbox.Clear();
 		}
+
+		private void LedCombo6_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (LedCombo6.SelectedIndex == 0)
+			{
+				LedLabel6.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+				LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			}
+			else
+			{
+				LedLabel6.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+				LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.Control);
+			}
+			LedLabel6.Text = LedCombo6.SelectedIndex.ToString();
+		}
 	}
 }
