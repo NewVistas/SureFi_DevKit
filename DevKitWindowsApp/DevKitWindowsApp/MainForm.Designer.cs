@@ -34,6 +34,8 @@
 			this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.TickTimer = new System.Windows.Forms.Timer(this.components);
 			this.OutputTextbox = new System.Windows.Forms.TextBox();
+			this.DisconnectButton = new System.Windows.Forms.Button();
+			this.FormatResponsesCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusBar.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -61,21 +63,55 @@
 			// 
 			// OutputTextbox
 			// 
-			this.OutputTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+			this.OutputTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.OutputTextbox.Location = new System.Drawing.Point(12, 12);
+			this.OutputTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.Default;
+			this.OutputTextbox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.OutputTextbox.Location = new System.Drawing.Point(595, 27);
 			this.OutputTextbox.Multiline = true;
 			this.OutputTextbox.Name = "OutputTextbox";
 			this.OutputTextbox.ReadOnly = true;
-			this.OutputTextbox.Size = new System.Drawing.Size(744, 521);
+			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.OutputTextbox.Size = new System.Drawing.Size(161, 489);
 			this.OutputTextbox.TabIndex = 2;
+			this.OutputTextbox.TabStop = false;
+			this.OutputTextbox.Text = "[7E] 40 04 12 AB CD EF";
+			// 
+			// DisconnectButton
+			// 
+			this.DisconnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.DisconnectButton.Location = new System.Drawing.Point(595, 522);
+			this.DisconnectButton.Name = "DisconnectButton";
+			this.DisconnectButton.Size = new System.Drawing.Size(144, 23);
+			this.DisconnectButton.TabIndex = 3;
+			this.DisconnectButton.Text = "Disconnect";
+			this.DisconnectButton.UseVisualStyleBackColor = true;
+			this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
+			// 
+			// FormatResponsesCheckbox
+			// 
+			this.FormatResponsesCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.FormatResponsesCheckbox.AutoSize = true;
+			this.FormatResponsesCheckbox.Checked = true;
+			this.FormatResponsesCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.FormatResponsesCheckbox.Location = new System.Drawing.Point(595, 7);
+			this.FormatResponsesCheckbox.Name = "FormatResponsesCheckbox";
+			this.FormatResponsesCheckbox.Size = new System.Drawing.Size(114, 17);
+			this.FormatResponsesCheckbox.TabIndex = 4;
+			this.FormatResponsesCheckbox.Text = "Format Responses";
+			this.FormatResponsesCheckbox.UseVisualStyleBackColor = true;
+			this.FormatResponsesCheckbox.CheckedChanged += new System.EventHandler(this.FormatResponsesCheckbox_CheckedChanged);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(768, 570);
+			this.Controls.Add(this.FormatResponsesCheckbox);
+			this.Controls.Add(this.DisconnectButton);
 			this.Controls.Add(this.OutputTextbox);
 			this.Controls.Add(this.StatusBar);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -94,6 +130,8 @@
 		private System.Windows.Forms.StatusStrip StatusBar;
 		private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
 		private System.Windows.Forms.Timer TickTimer;
-		private System.Windows.Forms.TextBox OutputTextbox;
+		private System.Windows.Forms.Button DisconnectButton;
+		public System.Windows.Forms.TextBox OutputTextbox;
+		public System.Windows.Forms.CheckBox FormatResponsesCheckbox;
 	}
 }

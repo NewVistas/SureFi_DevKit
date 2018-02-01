@@ -16,8 +16,10 @@ namespace DevKitWindowsApp
 		// +==============================+
 		// |       Member Variables       |
 		// +==============================+
-		SerialPort port;
-		string portName;
+		ConnectForm connectForm;
+		PortFifo port;
+		// SerialPort port;
+		// string portName;
 		
 		public delegate void ConnectionResultHandler(object sender, bool success, string message);
 		public event ConnectionResultHandler OnConnectionFinished;
@@ -42,35 +44,33 @@ namespace DevKitWindowsApp
 		// +==============================+
 		// |         Form Events          |
 		// +==============================+
-		public MainForm(string portName, ConnectionResultHandler connectionFinishedCallback)
+		public MainForm(ConnectForm connectForm)
 		{
 			InitializeComponent();
 			
-			OnConnectionFinished += connectionFinishedCallback;
-			
-			try
+			this.connectForm = connectForm;
+		}
+		
+		public void TryConnectToPort(string portName)
+		{
+			if (this.port != null && this.port.isOpen)
 			{
-				this.port = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One);
-				this.port.Open();
-				
-				if (this.port.IsOpen)
-				{
-					this.portName = portName;
-				}
-				else
-				{
-					ReportConnectionResult(false, "Could not open " + portName);
-					return;
-				}
-			}
-			catch (Exception exception)
-			{
-				ReportConnectionResult(false, "Exception hit while connecting to port: " + exception.ToString());
+				ReportConnectionResult(false, "Port is already open");
 				return;
 			}
 			
-			ReportConnectionResult(true, "");
-			StatusUpdate("Connected to " + this.portName + "!");
+			this.port = new PortFifo(this, portName);
+			if (this.port.isOpen)
+			{
+				ReportConnectionResult(true, "");
+				StatusUpdate("Connected to " + portName + "!");
+			}
+			else
+			{
+				ReportConnectionResult(false, this.port.connectFailureString);
+			}
+			
+			this.OutputTextbox.Text = "";
 		}
 		
 		private void MainForm_Load(object sender, EventArgs e)
@@ -80,35 +80,41 @@ namespace DevKitWindowsApp
 		
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (this.port.IsOpen)
+			if (this.port != null)
 			{
 				this.port.Close();
-				this.portName = "";
 			}
 		}
 		
 		private void TickTimer_Tick(object sender, EventArgs e)
 		{
-			if (this.port != null && this.port.IsOpen)
+			if (this.port != null)
 			{
-				if (this.port.BytesToRead > 0)
+				bool wasOpen = this.port.isOpen;
+				
+				this.port.Update();
+				
+				if (wasOpen && !this.port.isOpen)
 				{
-					char[] newBytes = new char[this.port.BytesToRead];
-					this.port.Read(newBytes, 0, this.port.BytesToRead);
+					this.Hide();
+					connectForm.Show();
+					ReportConnectionResult(false, this.port.connectFailureString);
+					this.Close();
+					return;
+				}
+				
+				List<byte> newCommand = this.port.PopRxCommand();
+				while (newCommand != null)
+				{
+					// Console.Write("Got " + newCommand.Count.ToString() + " byte command { ");
+					// foreach (byte b in newCommand)
+					// {
+					// 	Console.Write(b.ToString("X2") + " ");
+					// }
+					// Console.WriteLine("}");
+					SureFi.ProcessResponse(this, newCommand);
 					
-					string newString = "";
-					foreach (char c in newBytes)
-					{
-						if (c == 0x7E)
-						{
-							newString += "\r\n";
-						}
-						
-						byte b = Convert.ToByte(c);
-						newString += b.ToString("X2") + " ";
-					}
-					
-					OutputTextbox.Text += newString;
+					newCommand = this.port.PopRxCommand();
 				}
 			}
 		}
@@ -116,5 +122,17 @@ namespace DevKitWindowsApp
 		// +==============================+
 		// |        Control Events        |
 		// +==============================+
+		
+		private void DisconnectButton_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			this.connectForm.Show();
+			this.Close();
+		}
+		
+		private void FormatResponsesCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			this.OutputTextbox.Clear();
+		}
 	}
 }

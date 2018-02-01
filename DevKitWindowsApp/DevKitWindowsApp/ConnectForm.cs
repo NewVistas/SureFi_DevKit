@@ -15,6 +15,11 @@ namespace DevKitWindowsApp
 	public partial class ConnectForm : Form
 	{
 		// +==============================+
+		// |       Member Variables       |
+		// +==============================+
+		MainForm mainForm;
+		
+		// +==============================+
 		// |       Helper Functions       |
 		// +==============================+
 		int CompareComNames(string a, string b)
@@ -62,8 +67,10 @@ namespace DevKitWindowsApp
 			ConnectButton.Enabled = false;
 			ConnectButton.Text = "Connecting...";
 			
-			MainForm mainForm = new MainForm(portName, MainForm_OnConnectionFinished);
-			mainForm.FormClosed += MainForm_FormClosed;
+			this.mainForm = new MainForm(this);
+			this.mainForm.OnConnectionFinished += MainForm_OnConnectionFinished;
+			this.mainForm.FormClosed += MainForm_FormClosed;
+			this.mainForm.TryConnectToPort(portName);
 		}
 		
 		// +==============================+
@@ -86,20 +93,26 @@ namespace DevKitWindowsApp
 			
 			if (success)
 			{
-				MainForm mainForm = (MainForm)sender;
-				mainForm.Show();
+				this.mainForm.Show();
 				this.Hide();
 			}
 			else
 			{
 				MessageBox.Show(this, message, "Could not connect to COM port");
+				this.mainForm = null;
 			}
 		}
 		
 		private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			UpdateComList();
-			this.Show();
+			if (this.Visible)
+			{
+				UpdateComList();
+			}
+			else
+			{
+				this.Close();
+			}
 		}
 		
 		// +==============================+
