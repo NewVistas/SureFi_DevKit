@@ -41,6 +41,55 @@ namespace DevKitWindowsApp
 			StatusLabel.Text = statusMessage;
 		}
 		
+		public void SetStatusBit(int statusByte, byte bit, bool filled)
+		{
+			Label bitLabel = null;
+			if (statusByte == 0)
+			{
+				if (bit == 0x01) { bitLabel = this.RadioStateBit1;      }
+				if (bit == 0x02) { bitLabel = this.RadioStateBit2;      }
+				if (bit == 0x04) { bitLabel = this.RadioStateBit3;      }
+				if (bit == 0x08) { bitLabel = this.RadioStateBit4;      }
+				if (bit == 0x10) { bitLabel = this.BusyBit;             }
+				if (bit == 0x20) { bitLabel = this.EncryptionActiveBit; }
+				if (bit == 0x40) { bitLabel = this.RxInProgressBit;     }
+				if (bit == 0x80) { bitLabel = this.SettingsPendingBit;  }
+			}
+			if (statusByte == 1)
+			{
+				if (bit == 0x01) { bitLabel = this.DoingLightshowBit;   }
+				if (bit == 0x02) { bitLabel = this.ShowingQosBit;       }
+				if (bit == 0x04) { bitLabel = this.ButtonDownBit;       }
+			}
+			if (statusByte == 2)
+			{
+				if (bit == 0x01) { bitLabel = this.WasResetBit;         }
+				if (bit == 0x02) { bitLabel = this.TransmitFinishedBit; }
+				if (bit == 0x04) { bitLabel = this.RxPacketReadyBit;    }
+				if (bit == 0x08) { bitLabel = this.AckPacketReadyBit;   }
+				if (bit == 0x10) { bitLabel = this.ChecksumErrorBit;    }
+				if (bit == 0x20) { bitLabel = this.EncryptionRekeyBit;  }
+				if (bit == 0x40) { bitLabel = this.ButtonPressedBit;    }
+				if (bit == 0x80) { bitLabel = this.ButtonHeldBit;       }
+			}
+			if (statusByte == 3)
+			{
+				if (bit == 0x01) { bitLabel = this.InterruptDrivenBit; }
+				if (bit == 0x02) { bitLabel = this.AutoClearFlagsBit;  }
+				if (bit == 0x04) { bitLabel = this.RxLedModeBit;       }
+				if (bit == 0x08) { bitLabel = this.TxLedModeBit;       }
+				if (bit == 0x10) { bitLabel = this.AutoRekeyBit;       }
+			}
+			
+			string newText = filled ? "1" : "0";
+			if (bitLabel != null && bitLabel.Text != newText)
+			{
+				bitLabel.Text = newText;
+				bitLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.DeepSkyBlue : KnownColor.Transparent);
+				bitLabel.ForeColor = Color.FromKnownColor(filled ? KnownColor.Control : KnownColor.ControlText);
+			}
+		}
+		
 		// +==============================+
 		// |         Form Events          |
 		// +==============================+
@@ -130,7 +179,7 @@ namespace DevKitWindowsApp
 			this.Close();
 		}
 		
-		private void FormatResponsesCheckbox_CheckedChanged(object sender, EventArgs e)
+		private void HumanReadableCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			this.OutputTextbox.Clear();
 		}
@@ -148,6 +197,24 @@ namespace DevKitWindowsApp
 				LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.Control);
 			}
 			LedLabel6.Text = LedCombo6.SelectedIndex.ToString();
+		}
+
+		private void AutoClearFlagsCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (AutoClearFlagsCheckbox.Checked)
+			{
+				ClearFlagsButton.Enabled = false;
+				AutoClearFlagsBit.Text = "1";
+				AutoClearFlagsBit.BackColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				AutoClearFlagsBit.ForeColor = Color.FromKnownColor(KnownColor.Control);
+			}
+			else
+			{
+				ClearFlagsButton.Enabled = true;
+				AutoClearFlagsBit.Text = "0";
+				AutoClearFlagsBit.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+				AutoClearFlagsBit.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			}
 		}
 	}
 }

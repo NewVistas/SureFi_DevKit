@@ -90,23 +90,21 @@ namespace DevKitWindowsApp
 			{
 				if (this.port.BytesToRead > 0)
 				{
-					char[] newBytes = new char[this.port.BytesToRead];
+					byte[] newBytes = new byte[this.port.BytesToRead];
 					this.port.Read(newBytes, 0, this.port.BytesToRead);
 					
 					string newString = "";
-					foreach (char c in newBytes)
+					foreach (byte b in newBytes)
 					{
-						byte b = Convert.ToByte(c);
-						
-						if (!mainForm.FormatResponsesCheckbox.Checked)
+						if (!mainForm.HumanReadableCheckbox.Checked)
 						{
-							if (c == 0x7E && mainForm.OutputTextbox.Text != "")
+							if (b == 0x7E && mainForm.OutputTextbox.Text != "")
 							{
 								newString += "\r\n";
 							}
 							
 							string byteStr = b.ToString("X2");
-							if (c == 0x7E)
+							if (b == 0x7E)
 							{
 								byteStr = "[" + byteStr + "]";
 							}

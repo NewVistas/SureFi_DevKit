@@ -524,6 +524,24 @@
 			"settings":
 			{
 				"buffer_size": 9185,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/sureResponses.c",
+			"settings":
+			{
+				"buffer_size": 30570,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/sureCommands.c",
+			"settings":
+			{
+				"buffer_size": 17373,
 				"line_ending": "Windows"
 			}
 		}
@@ -1192,8 +1210,8 @@
 						"selection":
 						[
 							[
-								180,
-								180
+								1292,
+								1292
 							]
 						],
 						"settings":
@@ -1201,10 +1219,66 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "DevKitApplicationBoard/source/sureResponses.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30570,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								857,
+								857
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "DevKitApplicationBoard/source/sureCommands.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9092,
+								9108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6835.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1282,6 +1356,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"surecommands",
+				"DevKitApplicationBoard\\source\\sureCommands.c"
+			],
+			[
+				"surerespon",
+				"DevKitApplicationBoard\\source\\sureResponses.c"
+			],
 			[
 				"project",
 				"DevKitApplicationBoard.sublime-project"
@@ -1719,10 +1801,6 @@
 				"AcBridgeRadio\\ExternalApp.X\\source\\micro.c"
 			],
 			[
-				"surecommands",
-				"AcBridgeRadio\\ExternalApp.X\\source\\sureCommands.c"
-			],
-			[
 				"printf",
 				"AcBridgeRadio\\ExternalApp.X\\source\\printf.c"
 			],
@@ -1789,10 +1867,6 @@
 			[
 				"preb",
 				"AcBridgeRadio\\ExternalApp.X\\pre_build.py"
-			],
-			[
-				"appdef",
-				"AcBridgeRadio\\ExternalApp.X\\source\\include\\appDefines.h"
 			]
 		],
 		"width": 0.0

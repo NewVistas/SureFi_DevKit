@@ -35,16 +35,9 @@
 			this.TickTimer = new System.Windows.Forms.Timer(this.components);
 			this.OutputTextbox = new System.Windows.Forms.TextBox();
 			this.DisconnectButton = new System.Windows.Forms.Button();
-			this.FormatResponsesCheckbox = new System.Windows.Forms.CheckBox();
+			this.HumanReadableCheckbox = new System.Windows.Forms.CheckBox();
 			this.MainTabControl = new System.Windows.Forms.TabControl();
 			this.TabPageRadio = new System.Windows.Forms.TabPage();
-			this.label16 = new System.Windows.Forms.Label();
-			this.ShowQosButton = new System.Windows.Forms.Button();
-			this.LightshowButton = new System.Windows.Forms.Button();
-			this.DefaultSettingsButton = new System.Windows.Forms.Button();
-			this.SleepButton = new System.Windows.Forms.Button();
-			this.ResetButton = new System.Windows.Forms.Button();
-			this.StartEncryptionButton = new System.Windows.Forms.Button();
 			this.label15 = new System.Windows.Forms.Label();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -71,6 +64,19 @@
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.RxUidTextbox = new System.Windows.Forms.TextBox();
 			this.TabPageOther = new System.Windows.Forms.TabPage();
+			this.label24 = new System.Windows.Forms.Label();
+			this.LedCombo1 = new System.Windows.Forms.ComboBox();
+			this.LedLabel1 = new System.Windows.Forms.Label();
+			this.LedCombo2 = new System.Windows.Forms.ComboBox();
+			this.LedLabel2 = new System.Windows.Forms.Label();
+			this.LedCombo3 = new System.Windows.Forms.ComboBox();
+			this.LedLabel3 = new System.Windows.Forms.Label();
+			this.LedCombo4 = new System.Windows.Forms.ComboBox();
+			this.LedLabel4 = new System.Windows.Forms.Label();
+			this.LedCombo5 = new System.Windows.Forms.ComboBox();
+			this.LedLabel5 = new System.Windows.Forms.Label();
+			this.LedCombo6 = new System.Windows.Forms.ComboBox();
+			this.LedLabel6 = new System.Windows.Forms.Label();
 			this.label22 = new System.Windows.Forms.Label();
 			this.label21 = new System.Windows.Forms.Label();
 			this.TxLedModeCombobox = new System.Windows.Forms.ComboBox();
@@ -82,7 +88,67 @@
 			this.ButtonHoldTimeNumeric = new System.Windows.Forms.NumericUpDown();
 			this.label17 = new System.Windows.Forms.Label();
 			this.QosConfigCombobox = new System.Windows.Forms.ComboBox();
+			this.TabPageCommands = new System.Windows.Forms.TabPage();
+			this.ShowQosButton = new System.Windows.Forms.Button();
+			this.LightshowButton = new System.Windows.Forms.Button();
+			this.RefreshSettingsButton = new System.Windows.Forms.Button();
+			this.DefaultSettingsButton = new System.Windows.Forms.Button();
+			this.SleepButton = new System.Windows.Forms.Button();
+			this.ResetButton = new System.Windows.Forms.Button();
+			this.StartEncryptionButton = new System.Windows.Forms.Button();
 			this.TabPageStatus = new System.Windows.Forms.TabPage();
+			this.ClearFlagsButton = new System.Windows.Forms.Button();
+			this.AutoClearFlagsCheckbox = new System.Windows.Forms.CheckBox();
+			this.StatusConfigLabel = new System.Windows.Forms.Label();
+			this.StatusClearableLabel = new System.Windows.Forms.Label();
+			this.StatusOtherLabel = new System.Windows.Forms.Label();
+			this.StatusStateLabel = new System.Windows.Forms.Label();
+			this.label70 = new System.Windows.Forms.Label();
+			this.label85 = new System.Windows.Forms.Label();
+			this.label69 = new System.Windows.Forms.Label();
+			this.label37 = new System.Windows.Forms.Label();
+			this.label68 = new System.Windows.Forms.Label();
+			this.label83 = new System.Windows.Forms.Label();
+			this.label67 = new System.Windows.Forms.Label();
+			this.label45 = new System.Windows.Forms.Label();
+			this.label36 = new System.Windows.Forms.Label();
+			this.label66 = new System.Windows.Forms.Label();
+			this.label81 = new System.Windows.Forms.Label();
+			this.label65 = new System.Windows.Forms.Label();
+			this.label44 = new System.Windows.Forms.Label();
+			this.label35 = new System.Windows.Forms.Label();
+			this.label80 = new System.Windows.Forms.Label();
+			this.label64 = new System.Windows.Forms.Label();
+			this.label79 = new System.Windows.Forms.Label();
+			this.label63 = new System.Windows.Forms.Label();
+			this.label43 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.RadioStateStrLabel = new System.Windows.Forms.Label();
+			this.label32 = new System.Windows.Forms.Label();
+			this.ButtonHeldBit = new System.Windows.Forms.Label();
+			this.TxLedModeBit = new System.Windows.Forms.Label();
+			this.AckPacketReadyBit = new System.Windows.Forms.Label();
+			this.SettingsPendingBit = new System.Windows.Forms.Label();
+			this.ButtonPressedBit = new System.Windows.Forms.Label();
+			this.RadioStateBit4 = new System.Windows.Forms.Label();
+			this.RxLedModeBit = new System.Windows.Forms.Label();
+			this.RxPacketReadyBit = new System.Windows.Forms.Label();
+			this.ButtonDownBit = new System.Windows.Forms.Label();
+			this.RxInProgressBit = new System.Windows.Forms.Label();
+			this.EncryptionRekeyBit = new System.Windows.Forms.Label();
+			this.AutoClearFlagsBit = new System.Windows.Forms.Label();
+			this.RadioStateBit3 = new System.Windows.Forms.Label();
+			this.TransmitFinishedBit = new System.Windows.Forms.Label();
+			this.AutoRekeyBit = new System.Windows.Forms.Label();
+			this.ChecksumErrorBit = new System.Windows.Forms.Label();
+			this.ShowingQosBit = new System.Windows.Forms.Label();
+			this.InterruptDrivenBit = new System.Windows.Forms.Label();
+			this.WasResetBit = new System.Windows.Forms.Label();
+			this.EncryptionActiveBit = new System.Windows.Forms.Label();
+			this.DoingLightshowBit = new System.Windows.Forms.Label();
+			this.RadioStateBit2 = new System.Windows.Forms.Label();
+			this.BusyBit = new System.Windows.Forms.Label();
+			this.RadioStateBit1 = new System.Windows.Forms.Label();
 			this.TabPageInt = new System.Windows.Forms.TabPage();
 			this.TxTextbox = new System.Windows.Forms.TextBox();
 			this.TransmitButton = new System.Windows.Forms.Button();
@@ -107,19 +173,6 @@
 			this.TxSnrLabel = new System.Windows.Forms.Label();
 			this.RxRssiLabel = new System.Windows.Forms.Label();
 			this.RxSnrLabel = new System.Windows.Forms.Label();
-			this.LedLabel6 = new System.Windows.Forms.Label();
-			this.LedCombo6 = new System.Windows.Forms.ComboBox();
-			this.label24 = new System.Windows.Forms.Label();
-			this.LedLabel5 = new System.Windows.Forms.Label();
-			this.LedCombo5 = new System.Windows.Forms.ComboBox();
-			this.LedLabel4 = new System.Windows.Forms.Label();
-			this.LedCombo4 = new System.Windows.Forms.ComboBox();
-			this.LedLabel3 = new System.Windows.Forms.Label();
-			this.LedCombo3 = new System.Windows.Forms.ComboBox();
-			this.LedLabel2 = new System.Windows.Forms.Label();
-			this.LedCombo2 = new System.Windows.Forms.ComboBox();
-			this.LedLabel1 = new System.Windows.Forms.Label();
-			this.LedCombo1 = new System.Windows.Forms.ComboBox();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -128,15 +181,17 @@
 			((System.ComponentModel.ISupportInitialize)(this.PayloadSizeNumeric)).BeginInit();
 			this.TabPageOther.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ButtonHoldTimeNumeric)).BeginInit();
+			this.TabPageCommands.SuspendLayout();
+			this.TabPageStatus.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// StatusBar
 			// 
 			this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel});
-			this.StatusBar.Location = new System.Drawing.Point(0, 339);
+			this.StatusBar.Location = new System.Drawing.Point(0, 430);
 			this.StatusBar.Name = "StatusBar";
-			this.StatusBar.Size = new System.Drawing.Size(642, 22);
+			this.StatusBar.Size = new System.Drawing.Size(754, 22);
 			this.StatusBar.TabIndex = 1;
 			this.StatusBar.Text = "statusStrip1";
 			// 
@@ -160,12 +215,12 @@
 			this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.Default;
 			this.OutputTextbox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OutputTextbox.Location = new System.Drawing.Point(469, 27);
+			this.OutputTextbox.Location = new System.Drawing.Point(581, 27);
 			this.OutputTextbox.Multiline = true;
 			this.OutputTextbox.Name = "OutputTextbox";
 			this.OutputTextbox.ReadOnly = true;
 			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.OutputTextbox.Size = new System.Drawing.Size(161, 280);
+			this.OutputTextbox.Size = new System.Drawing.Size(161, 371);
 			this.OutputTextbox.TabIndex = 2;
 			this.OutputTextbox.TabStop = false;
 			this.OutputTextbox.Text = "[7E] 40 04 12 AB CD EF";
@@ -173,7 +228,7 @@
 			// DisconnectButton
 			// 
 			this.DisconnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.DisconnectButton.Location = new System.Drawing.Point(469, 313);
+			this.DisconnectButton.Location = new System.Drawing.Point(581, 404);
 			this.DisconnectButton.Name = "DisconnectButton";
 			this.DisconnectButton.Size = new System.Drawing.Size(144, 23);
 			this.DisconnectButton.TabIndex = 3;
@@ -181,19 +236,19 @@
 			this.DisconnectButton.UseVisualStyleBackColor = true;
 			this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
 			// 
-			// FormatResponsesCheckbox
+			// HumanReadableCheckbox
 			// 
-			this.FormatResponsesCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.FormatResponsesCheckbox.AutoSize = true;
-			this.FormatResponsesCheckbox.Checked = true;
-			this.FormatResponsesCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.FormatResponsesCheckbox.Location = new System.Drawing.Point(469, 7);
-			this.FormatResponsesCheckbox.Name = "FormatResponsesCheckbox";
-			this.FormatResponsesCheckbox.Size = new System.Drawing.Size(114, 17);
-			this.FormatResponsesCheckbox.TabIndex = 4;
-			this.FormatResponsesCheckbox.Text = "Format Responses";
-			this.FormatResponsesCheckbox.UseVisualStyleBackColor = true;
-			this.FormatResponsesCheckbox.CheckedChanged += new System.EventHandler(this.FormatResponsesCheckbox_CheckedChanged);
+			this.HumanReadableCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.HumanReadableCheckbox.AutoSize = true;
+			this.HumanReadableCheckbox.Checked = true;
+			this.HumanReadableCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.HumanReadableCheckbox.Location = new System.Drawing.Point(586, 7);
+			this.HumanReadableCheckbox.Name = "HumanReadableCheckbox";
+			this.HumanReadableCheckbox.Size = new System.Drawing.Size(109, 17);
+			this.HumanReadableCheckbox.TabIndex = 4;
+			this.HumanReadableCheckbox.Text = "Human Readable";
+			this.HumanReadableCheckbox.UseVisualStyleBackColor = true;
+			this.HumanReadableCheckbox.CheckedChanged += new System.EventHandler(this.HumanReadableCheckbox_CheckedChanged);
 			// 
 			// MainTabControl
 			// 
@@ -202,23 +257,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.MainTabControl.Controls.Add(this.TabPageRadio);
 			this.MainTabControl.Controls.Add(this.TabPageOther);
+			this.MainTabControl.Controls.Add(this.TabPageCommands);
 			this.MainTabControl.Controls.Add(this.TabPageStatus);
 			this.MainTabControl.Controls.Add(this.TabPageInt);
 			this.MainTabControl.Location = new System.Drawing.Point(0, 0);
 			this.MainTabControl.Name = "MainTabControl";
 			this.MainTabControl.SelectedIndex = 0;
-			this.MainTabControl.Size = new System.Drawing.Size(463, 270);
+			this.MainTabControl.Size = new System.Drawing.Size(575, 361);
 			this.MainTabControl.TabIndex = 5;
 			// 
 			// TabPageRadio
 			// 
-			this.TabPageRadio.Controls.Add(this.label16);
-			this.TabPageRadio.Controls.Add(this.ShowQosButton);
-			this.TabPageRadio.Controls.Add(this.LightshowButton);
-			this.TabPageRadio.Controls.Add(this.DefaultSettingsButton);
-			this.TabPageRadio.Controls.Add(this.SleepButton);
-			this.TabPageRadio.Controls.Add(this.ResetButton);
-			this.TabPageRadio.Controls.Add(this.StartEncryptionButton);
 			this.TabPageRadio.Controls.Add(this.label15);
 			this.TabPageRadio.Controls.Add(this.numericUpDown1);
 			this.TabPageRadio.Controls.Add(this.comboBox1);
@@ -247,82 +296,10 @@
 			this.TabPageRadio.Location = new System.Drawing.Point(4, 22);
 			this.TabPageRadio.Name = "TabPageRadio";
 			this.TabPageRadio.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageRadio.Size = new System.Drawing.Size(455, 244);
+			this.TabPageRadio.Size = new System.Drawing.Size(567, 335);
 			this.TabPageRadio.TabIndex = 0;
 			this.TabPageRadio.Text = "Radio Settings";
 			this.TabPageRadio.UseVisualStyleBackColor = true;
-			// 
-			// label16
-			// 
-			this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(5, 170);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(108, 13);
-			this.label16.TabIndex = 23;
-			this.label16.Text = "Run-Time Commands";
-			// 
-			// ShowQosButton
-			// 
-			this.ShowQosButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.ShowQosButton.Location = new System.Drawing.Point(304, 215);
-			this.ShowQosButton.Name = "ShowQosButton";
-			this.ShowQosButton.Size = new System.Drawing.Size(145, 23);
-			this.ShowQosButton.TabIndex = 22;
-			this.ShowQosButton.Text = "Show QOS";
-			this.ShowQosButton.UseVisualStyleBackColor = true;
-			// 
-			// LightshowButton
-			// 
-			this.LightshowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.LightshowButton.Location = new System.Drawing.Point(5, 215);
-			this.LightshowButton.Name = "LightshowButton";
-			this.LightshowButton.Size = new System.Drawing.Size(118, 23);
-			this.LightshowButton.TabIndex = 21;
-			this.LightshowButton.Text = "Lightshow";
-			this.LightshowButton.UseVisualStyleBackColor = true;
-			// 
-			// DefaultSettingsButton
-			// 
-			this.DefaultSettingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.DefaultSettingsButton.Location = new System.Drawing.Point(129, 185);
-			this.DefaultSettingsButton.Name = "DefaultSettingsButton";
-			this.DefaultSettingsButton.Size = new System.Drawing.Size(169, 23);
-			this.DefaultSettingsButton.TabIndex = 20;
-			this.DefaultSettingsButton.Text = "Default Settings";
-			this.DefaultSettingsButton.UseVisualStyleBackColor = true;
-			// 
-			// SleepButton
-			// 
-			this.SleepButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.SleepButton.Location = new System.Drawing.Point(304, 185);
-			this.SleepButton.Name = "SleepButton";
-			this.SleepButton.Size = new System.Drawing.Size(145, 23);
-			this.SleepButton.TabIndex = 15;
-			this.SleepButton.Text = "Sleep";
-			this.SleepButton.UseVisualStyleBackColor = true;
-			// 
-			// ResetButton
-			// 
-			this.ResetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.ResetButton.Location = new System.Drawing.Point(5, 186);
-			this.ResetButton.Name = "ResetButton";
-			this.ResetButton.Size = new System.Drawing.Size(118, 23);
-			this.ResetButton.TabIndex = 15;
-			this.ResetButton.Text = "Reset";
-			this.ResetButton.UseVisualStyleBackColor = true;
-			// 
-			// StartEncryptionButton
-			// 
-			this.StartEncryptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.StartEncryptionButton.Location = new System.Drawing.Point(129, 214);
-			this.StartEncryptionButton.Name = "StartEncryptionButton";
-			this.StartEncryptionButton.Size = new System.Drawing.Size(169, 23);
-			this.StartEncryptionButton.TabIndex = 14;
-			this.StartEncryptionButton.Text = "Start Encryption";
-			this.StartEncryptionButton.UseVisualStyleBackColor = true;
 			// 
 			// label15
 			// 
@@ -631,15 +608,211 @@
 			this.TabPageOther.Location = new System.Drawing.Point(4, 22);
 			this.TabPageOther.Name = "TabPageOther";
 			this.TabPageOther.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageOther.Size = new System.Drawing.Size(455, 244);
+			this.TabPageOther.Size = new System.Drawing.Size(567, 335);
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
 			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Location = new System.Drawing.Point(6, 6);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(58, 13);
+			this.label24.TabIndex = 13;
+			this.label24.Text = "Indications";
+			// 
+			// LedCombo1
+			// 
+			this.LedCombo1.FormattingEnabled = true;
+			this.LedCombo1.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Blink 1Hz",
+            "Blink 2Hz",
+            "Blink 1 Time",
+            "Blink 2 Times",
+            "Blink 3 Times",
+            "Blink 4 Times"});
+			this.LedCombo1.Location = new System.Drawing.Point(29, 143);
+			this.LedCombo1.Name = "LedCombo1";
+			this.LedCombo1.Size = new System.Drawing.Size(83, 21);
+			this.LedCombo1.TabIndex = 12;
+			this.LedCombo1.Text = "Off";
+			// 
+			// LedLabel1
+			// 
+			this.LedLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.LedLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LedLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LedLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.LedLabel1.Location = new System.Drawing.Point(8, 143);
+			this.LedLabel1.Name = "LedLabel1";
+			this.LedLabel1.Size = new System.Drawing.Size(21, 21);
+			this.LedLabel1.TabIndex = 11;
+			this.LedLabel1.Text = "0";
+			this.LedLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LedCombo2
+			// 
+			this.LedCombo2.FormattingEnabled = true;
+			this.LedCombo2.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Blink 1Hz",
+            "Blink 2Hz",
+            "Blink 1 Time",
+            "Blink 2 Times",
+            "Blink 3 Times",
+            "Blink 4 Times"});
+			this.LedCombo2.Location = new System.Drawing.Point(29, 118);
+			this.LedCombo2.Name = "LedCombo2";
+			this.LedCombo2.Size = new System.Drawing.Size(83, 21);
+			this.LedCombo2.TabIndex = 12;
+			this.LedCombo2.Text = "Off";
+			// 
+			// LedLabel2
+			// 
+			this.LedLabel2.BackColor = System.Drawing.Color.Transparent;
+			this.LedLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LedLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LedLabel2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.LedLabel2.Location = new System.Drawing.Point(8, 118);
+			this.LedLabel2.Name = "LedLabel2";
+			this.LedLabel2.Size = new System.Drawing.Size(21, 21);
+			this.LedLabel2.TabIndex = 11;
+			this.LedLabel2.Text = "0";
+			this.LedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LedCombo3
+			// 
+			this.LedCombo3.FormattingEnabled = true;
+			this.LedCombo3.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Blink 1Hz",
+            "Blink 2Hz",
+            "Blink 1 Time",
+            "Blink 2 Times",
+            "Blink 3 Times",
+            "Blink 4 Times"});
+			this.LedCombo3.Location = new System.Drawing.Point(29, 94);
+			this.LedCombo3.Name = "LedCombo3";
+			this.LedCombo3.Size = new System.Drawing.Size(83, 21);
+			this.LedCombo3.TabIndex = 12;
+			this.LedCombo3.Text = "Off";
+			// 
+			// LedLabel3
+			// 
+			this.LedLabel3.BackColor = System.Drawing.Color.Transparent;
+			this.LedLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LedLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LedLabel3.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.LedLabel3.Location = new System.Drawing.Point(8, 94);
+			this.LedLabel3.Name = "LedLabel3";
+			this.LedLabel3.Size = new System.Drawing.Size(21, 21);
+			this.LedLabel3.TabIndex = 11;
+			this.LedLabel3.Text = "0";
+			this.LedLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LedCombo4
+			// 
+			this.LedCombo4.FormattingEnabled = true;
+			this.LedCombo4.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Blink 1Hz",
+            "Blink 2Hz",
+            "Blink 1 Time",
+            "Blink 2 Times",
+            "Blink 3 Times",
+            "Blink 4 Times"});
+			this.LedCombo4.Location = new System.Drawing.Point(29, 70);
+			this.LedCombo4.Name = "LedCombo4";
+			this.LedCombo4.Size = new System.Drawing.Size(83, 21);
+			this.LedCombo4.TabIndex = 12;
+			this.LedCombo4.Text = "Off";
+			// 
+			// LedLabel4
+			// 
+			this.LedLabel4.BackColor = System.Drawing.Color.Transparent;
+			this.LedLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LedLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LedLabel4.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.LedLabel4.Location = new System.Drawing.Point(8, 70);
+			this.LedLabel4.Name = "LedLabel4";
+			this.LedLabel4.Size = new System.Drawing.Size(21, 21);
+			this.LedLabel4.TabIndex = 11;
+			this.LedLabel4.Text = "0";
+			this.LedLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LedCombo5
+			// 
+			this.LedCombo5.FormattingEnabled = true;
+			this.LedCombo5.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Blink 1Hz",
+            "Blink 2Hz",
+            "Blink 1 Time",
+            "Blink 2 Times",
+            "Blink 3 Times",
+            "Blink 4 Times"});
+			this.LedCombo5.Location = new System.Drawing.Point(29, 46);
+			this.LedCombo5.Name = "LedCombo5";
+			this.LedCombo5.Size = new System.Drawing.Size(83, 21);
+			this.LedCombo5.TabIndex = 12;
+			this.LedCombo5.Text = "Off";
+			// 
+			// LedLabel5
+			// 
+			this.LedLabel5.BackColor = System.Drawing.Color.Transparent;
+			this.LedLabel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LedLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LedLabel5.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.LedLabel5.Location = new System.Drawing.Point(8, 46);
+			this.LedLabel5.Name = "LedLabel5";
+			this.LedLabel5.Size = new System.Drawing.Size(21, 21);
+			this.LedLabel5.TabIndex = 11;
+			this.LedLabel5.Text = "0";
+			this.LedLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LedCombo6
+			// 
+			this.LedCombo6.FormattingEnabled = true;
+			this.LedCombo6.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Blink 1Hz",
+            "Blink 2Hz",
+            "Blink 1 Time",
+            "Blink 2 Times",
+            "Blink 3 Times",
+            "Blink 4 Times"});
+			this.LedCombo6.Location = new System.Drawing.Point(29, 22);
+			this.LedCombo6.Name = "LedCombo6";
+			this.LedCombo6.Size = new System.Drawing.Size(83, 21);
+			this.LedCombo6.TabIndex = 12;
+			this.LedCombo6.Text = "Off";
+			this.LedCombo6.SelectedIndexChanged += new System.EventHandler(this.LedCombo6_SelectedIndexChanged);
+			// 
+			// LedLabel6
+			// 
+			this.LedLabel6.BackColor = System.Drawing.Color.Transparent;
+			this.LedLabel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LedLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LedLabel6.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.LedLabel6.Location = new System.Drawing.Point(8, 22);
+			this.LedLabel6.Name = "LedLabel6";
+			this.LedLabel6.Size = new System.Drawing.Size(21, 21);
+			this.LedLabel6.TabIndex = 11;
+			this.LedLabel6.Text = "0";
+			this.LedLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// label22
 			// 
 			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(354, 6);
+			this.label22.Location = new System.Drawing.Point(225, 92);
 			this.label22.Name = "label22";
 			this.label22.Size = new System.Drawing.Size(73, 13);
 			this.label22.TabIndex = 10;
@@ -648,7 +821,7 @@
 			// label21
 			// 
 			this.label21.AutoSize = true;
-			this.label21.Location = new System.Drawing.Point(253, 6);
+			this.label21.Location = new System.Drawing.Point(124, 92);
 			this.label21.Name = "label21";
 			this.label21.Size = new System.Drawing.Size(74, 13);
 			this.label21.TabIndex = 10;
@@ -660,7 +833,7 @@
 			this.TxLedModeCombobox.Items.AddRange(new object[] {
             "Default",
             "During Tx"});
-			this.TxLedModeCombobox.Location = new System.Drawing.Point(357, 22);
+			this.TxLedModeCombobox.Location = new System.Drawing.Point(228, 108);
 			this.TxLedModeCombobox.Name = "TxLedModeCombobox";
 			this.TxLedModeCombobox.Size = new System.Drawing.Size(95, 21);
 			this.TxLedModeCombobox.TabIndex = 9;
@@ -672,7 +845,7 @@
 			this.RxLedModeCombobox.Items.AddRange(new object[] {
             "Default",
             "During Rx"});
-			this.RxLedModeCombobox.Location = new System.Drawing.Point(256, 22);
+			this.RxLedModeCombobox.Location = new System.Drawing.Point(127, 108);
 			this.RxLedModeCombobox.Name = "RxLedModeCombobox";
 			this.RxLedModeCombobox.Size = new System.Drawing.Size(95, 21);
 			this.RxLedModeCombobox.TabIndex = 9;
@@ -764,37 +937,741 @@
 			this.QosConfigCombobox.TabIndex = 2;
 			this.QosConfigCombobox.Text = "On Both";
 			// 
+			// TabPageCommands
+			// 
+			this.TabPageCommands.Controls.Add(this.ShowQosButton);
+			this.TabPageCommands.Controls.Add(this.LightshowButton);
+			this.TabPageCommands.Controls.Add(this.RefreshSettingsButton);
+			this.TabPageCommands.Controls.Add(this.DefaultSettingsButton);
+			this.TabPageCommands.Controls.Add(this.SleepButton);
+			this.TabPageCommands.Controls.Add(this.ResetButton);
+			this.TabPageCommands.Controls.Add(this.StartEncryptionButton);
+			this.TabPageCommands.Location = new System.Drawing.Point(4, 22);
+			this.TabPageCommands.Name = "TabPageCommands";
+			this.TabPageCommands.Size = new System.Drawing.Size(567, 335);
+			this.TabPageCommands.TabIndex = 4;
+			this.TabPageCommands.Text = "Commands";
+			this.TabPageCommands.UseVisualStyleBackColor = true;
+			// 
+			// ShowQosButton
+			// 
+			this.ShowQosButton.Location = new System.Drawing.Point(160, 92);
+			this.ShowQosButton.Name = "ShowQosButton";
+			this.ShowQosButton.Size = new System.Drawing.Size(145, 23);
+			this.ShowQosButton.TabIndex = 29;
+			this.ShowQosButton.Text = "Show QOS";
+			this.ShowQosButton.UseVisualStyleBackColor = true;
+			// 
+			// LightshowButton
+			// 
+			this.LightshowButton.Location = new System.Drawing.Point(9, 92);
+			this.LightshowButton.Name = "LightshowButton";
+			this.LightshowButton.Size = new System.Drawing.Size(145, 23);
+			this.LightshowButton.TabIndex = 28;
+			this.LightshowButton.Text = "Lightshow";
+			this.LightshowButton.UseVisualStyleBackColor = true;
+			// 
+			// RefreshSettingsButton
+			// 
+			this.RefreshSettingsButton.Location = new System.Drawing.Point(9, 9);
+			this.RefreshSettingsButton.Name = "RefreshSettingsButton";
+			this.RefreshSettingsButton.Size = new System.Drawing.Size(145, 48);
+			this.RefreshSettingsButton.TabIndex = 26;
+			this.RefreshSettingsButton.Text = "Refresh Settings";
+			this.RefreshSettingsButton.UseVisualStyleBackColor = true;
+			// 
+			// DefaultSettingsButton
+			// 
+			this.DefaultSettingsButton.Location = new System.Drawing.Point(160, 9);
+			this.DefaultSettingsButton.Name = "DefaultSettingsButton";
+			this.DefaultSettingsButton.Size = new System.Drawing.Size(145, 48);
+			this.DefaultSettingsButton.TabIndex = 27;
+			this.DefaultSettingsButton.Text = "Default Settings";
+			this.DefaultSettingsButton.UseVisualStyleBackColor = true;
+			// 
+			// SleepButton
+			// 
+			this.SleepButton.Location = new System.Drawing.Point(9, 63);
+			this.SleepButton.Name = "SleepButton";
+			this.SleepButton.Size = new System.Drawing.Size(145, 23);
+			this.SleepButton.TabIndex = 24;
+			this.SleepButton.Text = "Sleep";
+			this.SleepButton.UseVisualStyleBackColor = true;
+			// 
+			// ResetButton
+			// 
+			this.ResetButton.Location = new System.Drawing.Point(160, 63);
+			this.ResetButton.Name = "ResetButton";
+			this.ResetButton.Size = new System.Drawing.Size(145, 23);
+			this.ResetButton.TabIndex = 25;
+			this.ResetButton.Text = "Reset";
+			this.ResetButton.UseVisualStyleBackColor = true;
+			// 
+			// StartEncryptionButton
+			// 
+			this.StartEncryptionButton.Location = new System.Drawing.Point(9, 121);
+			this.StartEncryptionButton.Name = "StartEncryptionButton";
+			this.StartEncryptionButton.Size = new System.Drawing.Size(296, 23);
+			this.StartEncryptionButton.TabIndex = 23;
+			this.StartEncryptionButton.Text = "Start Encryption";
+			this.StartEncryptionButton.UseVisualStyleBackColor = true;
+			// 
 			// TabPageStatus
 			// 
+			this.TabPageStatus.Controls.Add(this.ClearFlagsButton);
+			this.TabPageStatus.Controls.Add(this.AutoClearFlagsCheckbox);
+			this.TabPageStatus.Controls.Add(this.StatusConfigLabel);
+			this.TabPageStatus.Controls.Add(this.StatusClearableLabel);
+			this.TabPageStatus.Controls.Add(this.StatusOtherLabel);
+			this.TabPageStatus.Controls.Add(this.StatusStateLabel);
+			this.TabPageStatus.Controls.Add(this.label70);
+			this.TabPageStatus.Controls.Add(this.label85);
+			this.TabPageStatus.Controls.Add(this.label69);
+			this.TabPageStatus.Controls.Add(this.label37);
+			this.TabPageStatus.Controls.Add(this.label68);
+			this.TabPageStatus.Controls.Add(this.label83);
+			this.TabPageStatus.Controls.Add(this.label67);
+			this.TabPageStatus.Controls.Add(this.label45);
+			this.TabPageStatus.Controls.Add(this.label36);
+			this.TabPageStatus.Controls.Add(this.label66);
+			this.TabPageStatus.Controls.Add(this.label81);
+			this.TabPageStatus.Controls.Add(this.label65);
+			this.TabPageStatus.Controls.Add(this.label44);
+			this.TabPageStatus.Controls.Add(this.label35);
+			this.TabPageStatus.Controls.Add(this.label80);
+			this.TabPageStatus.Controls.Add(this.label64);
+			this.TabPageStatus.Controls.Add(this.label79);
+			this.TabPageStatus.Controls.Add(this.label63);
+			this.TabPageStatus.Controls.Add(this.label43);
+			this.TabPageStatus.Controls.Add(this.label34);
+			this.TabPageStatus.Controls.Add(this.RadioStateStrLabel);
+			this.TabPageStatus.Controls.Add(this.label32);
+			this.TabPageStatus.Controls.Add(this.ButtonHeldBit);
+			this.TabPageStatus.Controls.Add(this.TxLedModeBit);
+			this.TabPageStatus.Controls.Add(this.AckPacketReadyBit);
+			this.TabPageStatus.Controls.Add(this.SettingsPendingBit);
+			this.TabPageStatus.Controls.Add(this.ButtonPressedBit);
+			this.TabPageStatus.Controls.Add(this.RadioStateBit4);
+			this.TabPageStatus.Controls.Add(this.RxLedModeBit);
+			this.TabPageStatus.Controls.Add(this.RxPacketReadyBit);
+			this.TabPageStatus.Controls.Add(this.ButtonDownBit);
+			this.TabPageStatus.Controls.Add(this.RxInProgressBit);
+			this.TabPageStatus.Controls.Add(this.EncryptionRekeyBit);
+			this.TabPageStatus.Controls.Add(this.AutoClearFlagsBit);
+			this.TabPageStatus.Controls.Add(this.RadioStateBit3);
+			this.TabPageStatus.Controls.Add(this.TransmitFinishedBit);
+			this.TabPageStatus.Controls.Add(this.AutoRekeyBit);
+			this.TabPageStatus.Controls.Add(this.ChecksumErrorBit);
+			this.TabPageStatus.Controls.Add(this.ShowingQosBit);
+			this.TabPageStatus.Controls.Add(this.InterruptDrivenBit);
+			this.TabPageStatus.Controls.Add(this.WasResetBit);
+			this.TabPageStatus.Controls.Add(this.EncryptionActiveBit);
+			this.TabPageStatus.Controls.Add(this.DoingLightshowBit);
+			this.TabPageStatus.Controls.Add(this.RadioStateBit2);
+			this.TabPageStatus.Controls.Add(this.BusyBit);
+			this.TabPageStatus.Controls.Add(this.RadioStateBit1);
 			this.TabPageStatus.Location = new System.Drawing.Point(4, 22);
 			this.TabPageStatus.Name = "TabPageStatus";
-			this.TabPageStatus.Size = new System.Drawing.Size(455, 244);
+			this.TabPageStatus.Size = new System.Drawing.Size(567, 335);
 			this.TabPageStatus.TabIndex = 2;
 			this.TabPageStatus.Text = "Status";
 			this.TabPageStatus.UseVisualStyleBackColor = true;
+			// 
+			// ClearFlagsButton
+			// 
+			this.ClearFlagsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.ClearFlagsButton.Location = new System.Drawing.Point(461, 283);
+			this.ClearFlagsButton.Name = "ClearFlagsButton";
+			this.ClearFlagsButton.Size = new System.Drawing.Size(103, 23);
+			this.ClearFlagsButton.TabIndex = 22;
+			this.ClearFlagsButton.Text = "Clear Flags";
+			this.ClearFlagsButton.UseVisualStyleBackColor = true;
+			// 
+			// AutoClearFlagsCheckbox
+			// 
+			this.AutoClearFlagsCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AutoClearFlagsCheckbox.AutoSize = true;
+			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(461, 260);
+			this.AutoClearFlagsCheckbox.Name = "AutoClearFlagsCheckbox";
+			this.AutoClearFlagsCheckbox.Size = new System.Drawing.Size(103, 17);
+			this.AutoClearFlagsCheckbox.TabIndex = 21;
+			this.AutoClearFlagsCheckbox.Text = "Auto-Clear Flags";
+			this.AutoClearFlagsCheckbox.UseVisualStyleBackColor = true;
+			this.AutoClearFlagsCheckbox.CheckedChanged += new System.EventHandler(this.AutoClearFlagsCheckbox_CheckedChanged);
+			// 
+			// StatusConfigLabel
+			// 
+			this.StatusConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.StatusConfigLabel.AutoSize = true;
+			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 317);
+			this.StatusConfigLabel.Name = "StatusConfigLabel";
+			this.StatusConfigLabel.Size = new System.Drawing.Size(66, 13);
+			this.StatusConfigLabel.TabIndex = 20;
+			this.StatusConfigLabel.Text = "Config: 0x00";
+			// 
+			// StatusClearableLabel
+			// 
+			this.StatusClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.StatusClearableLabel.AutoSize = true;
+			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 317);
+			this.StatusClearableLabel.Name = "StatusClearableLabel";
+			this.StatusClearableLabel.Size = new System.Drawing.Size(80, 13);
+			this.StatusClearableLabel.TabIndex = 20;
+			this.StatusClearableLabel.Text = "Clearable: 0x00";
+			// 
+			// StatusOtherLabel
+			// 
+			this.StatusOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.StatusOtherLabel.AutoSize = true;
+			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 317);
+			this.StatusOtherLabel.Name = "StatusOtherLabel";
+			this.StatusOtherLabel.Size = new System.Drawing.Size(62, 13);
+			this.StatusOtherLabel.TabIndex = 20;
+			this.StatusOtherLabel.Text = "Other: 0x00";
+			// 
+			// StatusStateLabel
+			// 
+			this.StatusStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.StatusStateLabel.AutoSize = true;
+			this.StatusStateLabel.Location = new System.Drawing.Point(8, 317);
+			this.StatusStateLabel.Name = "StatusStateLabel";
+			this.StatusStateLabel.Size = new System.Drawing.Size(61, 13);
+			this.StatusStateLabel.TabIndex = 19;
+			this.StatusStateLabel.Text = "State: 0x00";
+			// 
+			// label70
+			// 
+			this.label70.AutoSize = true;
+			this.label70.Location = new System.Drawing.Point(276, 181);
+			this.label70.Name = "label70";
+			this.label70.Size = new System.Drawing.Size(63, 13);
+			this.label70.TabIndex = 18;
+			this.label70.Text = "Button Held";
+			// 
+			// label85
+			// 
+			this.label85.AutoSize = true;
+			this.label85.Location = new System.Drawing.Point(406, 81);
+			this.label85.Name = "label85";
+			this.label85.Size = new System.Drawing.Size(73, 13);
+			this.label85.TabIndex = 18;
+			this.label85.Text = "Tx LED Mode";
+			// 
+			// label69
+			// 
+			this.label69.AutoSize = true;
+			this.label69.Location = new System.Drawing.Point(276, 81);
+			this.label69.Name = "label69";
+			this.label69.Size = new System.Drawing.Size(97, 13);
+			this.label69.TabIndex = 18;
+			this.label69.Text = "Ack Packet Ready";
+			// 
+			// label37
+			// 
+			this.label37.AutoSize = true;
+			this.label37.Location = new System.Drawing.Point(35, 173);
+			this.label37.Name = "label37";
+			this.label37.Size = new System.Drawing.Size(87, 13);
+			this.label37.TabIndex = 18;
+			this.label37.Text = "Settings Pending";
+			// 
+			// label68
+			// 
+			this.label68.AutoSize = true;
+			this.label68.Location = new System.Drawing.Point(276, 158);
+			this.label68.Name = "label68";
+			this.label68.Size = new System.Drawing.Size(79, 13);
+			this.label68.TabIndex = 17;
+			this.label68.Text = "Button Pressed";
+			// 
+			// label83
+			// 
+			this.label83.AutoSize = true;
+			this.label83.Location = new System.Drawing.Point(406, 58);
+			this.label83.Name = "label83";
+			this.label83.Size = new System.Drawing.Size(74, 13);
+			this.label83.TabIndex = 17;
+			this.label83.Text = "Rx LED Mode";
+			// 
+			// label67
+			// 
+			this.label67.AutoSize = true;
+			this.label67.Location = new System.Drawing.Point(276, 58);
+			this.label67.Name = "label67";
+			this.label67.Size = new System.Drawing.Size(91, 13);
+			this.label67.TabIndex = 17;
+			this.label67.Text = "Rx Packet Ready";
+			// 
+			// label45
+			// 
+			this.label45.AutoSize = true;
+			this.label45.Location = new System.Drawing.Point(156, 54);
+			this.label45.Name = "label45";
+			this.label45.Size = new System.Drawing.Size(69, 13);
+			this.label45.TabIndex = 17;
+			this.label45.Text = "Button Down";
+			// 
+			// label36
+			// 
+			this.label36.AutoSize = true;
+			this.label36.Location = new System.Drawing.Point(35, 150);
+			this.label36.Name = "label36";
+			this.label36.Size = new System.Drawing.Size(76, 13);
+			this.label36.TabIndex = 17;
+			this.label36.Text = "Rx In Progress";
+			// 
+			// label66
+			// 
+			this.label66.AutoSize = true;
+			this.label66.Location = new System.Drawing.Point(276, 135);
+			this.label66.Name = "label66";
+			this.label66.Size = new System.Drawing.Size(91, 13);
+			this.label66.TabIndex = 16;
+			this.label66.Text = "Encryption Rekey";
+			// 
+			// label81
+			// 
+			this.label81.AutoSize = true;
+			this.label81.Location = new System.Drawing.Point(406, 35);
+			this.label81.Name = "label81";
+			this.label81.Size = new System.Drawing.Size(84, 13);
+			this.label81.TabIndex = 16;
+			this.label81.Text = "Auto-Clear Flags";
+			// 
+			// label65
+			// 
+			this.label65.AutoSize = true;
+			this.label65.Location = new System.Drawing.Point(276, 35);
+			this.label65.Name = "label65";
+			this.label65.Size = new System.Drawing.Size(89, 13);
+			this.label65.TabIndex = 16;
+			this.label65.Text = "Transmit Finished";
+			// 
+			// label44
+			// 
+			this.label44.AutoSize = true;
+			this.label44.Location = new System.Drawing.Point(156, 31);
+			this.label44.Name = "label44";
+			this.label44.Size = new System.Drawing.Size(74, 13);
+			this.label44.TabIndex = 16;
+			this.label44.Text = "Showing QOS";
+			// 
+			// label35
+			// 
+			this.label35.AutoSize = true;
+			this.label35.Location = new System.Drawing.Point(35, 127);
+			this.label35.Name = "label35";
+			this.label35.Size = new System.Drawing.Size(90, 13);
+			this.label35.TabIndex = 16;
+			this.label35.Text = "Encryption Active";
+			// 
+			// label80
+			// 
+			this.label80.AutoSize = true;
+			this.label80.Location = new System.Drawing.Point(406, 112);
+			this.label80.Name = "label80";
+			this.label80.Size = new System.Drawing.Size(63, 13);
+			this.label80.TabIndex = 15;
+			this.label80.Text = "Auto Rekey";
+			// 
+			// label64
+			// 
+			this.label64.AutoSize = true;
+			this.label64.Location = new System.Drawing.Point(276, 112);
+			this.label64.Name = "label64";
+			this.label64.Size = new System.Drawing.Size(82, 13);
+			this.label64.TabIndex = 15;
+			this.label64.Text = "Checksum Error";
+			// 
+			// label79
+			// 
+			this.label79.AutoSize = true;
+			this.label79.Location = new System.Drawing.Point(406, 12);
+			this.label79.Name = "label79";
+			this.label79.Size = new System.Drawing.Size(80, 13);
+			this.label79.TabIndex = 15;
+			this.label79.Text = "Interrupt Driven";
+			// 
+			// label63
+			// 
+			this.label63.AutoSize = true;
+			this.label63.Location = new System.Drawing.Point(276, 12);
+			this.label63.Name = "label63";
+			this.label63.Size = new System.Drawing.Size(60, 13);
+			this.label63.TabIndex = 15;
+			this.label63.Text = "Was Reset";
+			// 
+			// label43
+			// 
+			this.label43.AutoSize = true;
+			this.label43.Location = new System.Drawing.Point(156, 8);
+			this.label43.Name = "label43";
+			this.label43.Size = new System.Drawing.Size(86, 13);
+			this.label43.TabIndex = 15;
+			this.label43.Text = "Doing Lightshow";
+			// 
+			// label34
+			// 
+			this.label34.AutoSize = true;
+			this.label34.Location = new System.Drawing.Point(35, 104);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(30, 13);
+			this.label34.TabIndex = 15;
+			this.label34.Text = "Busy";
+			// 
+			// RadioStateStrLabel
+			// 
+			this.RadioStateStrLabel.AutoSize = true;
+			this.RadioStateStrLabel.Location = new System.Drawing.Point(44, 41);
+			this.RadioStateStrLabel.Name = "RadioStateStrLabel";
+			this.RadioStateStrLabel.Size = new System.Drawing.Size(55, 13);
+			this.RadioStateStrLabel.TabIndex = 14;
+			this.RadioStateStrLabel.Text = "Receiving";
+			// 
+			// label32
+			// 
+			this.label32.AutoSize = true;
+			this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label32.Location = new System.Drawing.Point(35, 26);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(74, 13);
+			this.label32.TabIndex = 13;
+			this.label32.Text = "RadioState:";
+			// 
+			// ButtonHeldBit
+			// 
+			this.ButtonHeldBit.BackColor = System.Drawing.Color.Transparent;
+			this.ButtonHeldBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ButtonHeldBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ButtonHeldBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ButtonHeldBit.Location = new System.Drawing.Point(249, 177);
+			this.ButtonHeldBit.Name = "ButtonHeldBit";
+			this.ButtonHeldBit.Size = new System.Drawing.Size(21, 21);
+			this.ButtonHeldBit.TabIndex = 12;
+			this.ButtonHeldBit.Text = "0";
+			this.ButtonHeldBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// TxLedModeBit
+			// 
+			this.TxLedModeBit.BackColor = System.Drawing.Color.Transparent;
+			this.TxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.TxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.TxLedModeBit.Location = new System.Drawing.Point(379, 77);
+			this.TxLedModeBit.Name = "TxLedModeBit";
+			this.TxLedModeBit.Size = new System.Drawing.Size(21, 21);
+			this.TxLedModeBit.TabIndex = 12;
+			this.TxLedModeBit.Text = "0";
+			this.TxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// AckPacketReadyBit
+			// 
+			this.AckPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
+			this.AckPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.AckPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AckPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.AckPacketReadyBit.Location = new System.Drawing.Point(249, 77);
+			this.AckPacketReadyBit.Name = "AckPacketReadyBit";
+			this.AckPacketReadyBit.Size = new System.Drawing.Size(21, 21);
+			this.AckPacketReadyBit.TabIndex = 12;
+			this.AckPacketReadyBit.Text = "0";
+			this.AckPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// SettingsPendingBit
+			// 
+			this.SettingsPendingBit.BackColor = System.Drawing.Color.Transparent;
+			this.SettingsPendingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.SettingsPendingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SettingsPendingBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.SettingsPendingBit.Location = new System.Drawing.Point(8, 169);
+			this.SettingsPendingBit.Name = "SettingsPendingBit";
+			this.SettingsPendingBit.Size = new System.Drawing.Size(21, 21);
+			this.SettingsPendingBit.TabIndex = 12;
+			this.SettingsPendingBit.Text = "0";
+			this.SettingsPendingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ButtonPressedBit
+			// 
+			this.ButtonPressedBit.BackColor = System.Drawing.Color.Transparent;
+			this.ButtonPressedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ButtonPressedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ButtonPressedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ButtonPressedBit.Location = new System.Drawing.Point(249, 154);
+			this.ButtonPressedBit.Name = "ButtonPressedBit";
+			this.ButtonPressedBit.Size = new System.Drawing.Size(21, 21);
+			this.ButtonPressedBit.TabIndex = 12;
+			this.ButtonPressedBit.Text = "0";
+			this.ButtonPressedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RadioStateBit4
+			// 
+			this.RadioStateBit4.BackColor = System.Drawing.Color.Transparent;
+			this.RadioStateBit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RadioStateBit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadioStateBit4.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RadioStateBit4.Location = new System.Drawing.Point(8, 67);
+			this.RadioStateBit4.Name = "RadioStateBit4";
+			this.RadioStateBit4.Size = new System.Drawing.Size(21, 21);
+			this.RadioStateBit4.TabIndex = 12;
+			this.RadioStateBit4.Text = "0";
+			this.RadioStateBit4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RxLedModeBit
+			// 
+			this.RxLedModeBit.BackColor = System.Drawing.Color.Transparent;
+			this.RxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RxLedModeBit.Location = new System.Drawing.Point(379, 54);
+			this.RxLedModeBit.Name = "RxLedModeBit";
+			this.RxLedModeBit.Size = new System.Drawing.Size(21, 21);
+			this.RxLedModeBit.TabIndex = 12;
+			this.RxLedModeBit.Text = "0";
+			this.RxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RxPacketReadyBit
+			// 
+			this.RxPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
+			this.RxPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RxPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RxPacketReadyBit.Location = new System.Drawing.Point(249, 54);
+			this.RxPacketReadyBit.Name = "RxPacketReadyBit";
+			this.RxPacketReadyBit.Size = new System.Drawing.Size(21, 21);
+			this.RxPacketReadyBit.TabIndex = 12;
+			this.RxPacketReadyBit.Text = "0";
+			this.RxPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ButtonDownBit
+			// 
+			this.ButtonDownBit.BackColor = System.Drawing.Color.Transparent;
+			this.ButtonDownBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ButtonDownBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ButtonDownBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ButtonDownBit.Location = new System.Drawing.Point(129, 50);
+			this.ButtonDownBit.Name = "ButtonDownBit";
+			this.ButtonDownBit.Size = new System.Drawing.Size(21, 21);
+			this.ButtonDownBit.TabIndex = 12;
+			this.ButtonDownBit.Text = "0";
+			this.ButtonDownBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RxInProgressBit
+			// 
+			this.RxInProgressBit.BackColor = System.Drawing.Color.Transparent;
+			this.RxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RxInProgressBit.Location = new System.Drawing.Point(8, 146);
+			this.RxInProgressBit.Name = "RxInProgressBit";
+			this.RxInProgressBit.Size = new System.Drawing.Size(21, 21);
+			this.RxInProgressBit.TabIndex = 12;
+			this.RxInProgressBit.Text = "0";
+			this.RxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// EncryptionRekeyBit
+			// 
+			this.EncryptionRekeyBit.BackColor = System.Drawing.Color.Transparent;
+			this.EncryptionRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.EncryptionRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EncryptionRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.EncryptionRekeyBit.Location = new System.Drawing.Point(249, 131);
+			this.EncryptionRekeyBit.Name = "EncryptionRekeyBit";
+			this.EncryptionRekeyBit.Size = new System.Drawing.Size(21, 21);
+			this.EncryptionRekeyBit.TabIndex = 12;
+			this.EncryptionRekeyBit.Text = "0";
+			this.EncryptionRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// AutoClearFlagsBit
+			// 
+			this.AutoClearFlagsBit.BackColor = System.Drawing.Color.Transparent;
+			this.AutoClearFlagsBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.AutoClearFlagsBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AutoClearFlagsBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.AutoClearFlagsBit.Location = new System.Drawing.Point(379, 31);
+			this.AutoClearFlagsBit.Name = "AutoClearFlagsBit";
+			this.AutoClearFlagsBit.Size = new System.Drawing.Size(21, 21);
+			this.AutoClearFlagsBit.TabIndex = 12;
+			this.AutoClearFlagsBit.Text = "0";
+			this.AutoClearFlagsBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RadioStateBit3
+			// 
+			this.RadioStateBit3.BackColor = System.Drawing.Color.Transparent;
+			this.RadioStateBit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RadioStateBit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadioStateBit3.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RadioStateBit3.Location = new System.Drawing.Point(8, 47);
+			this.RadioStateBit3.Name = "RadioStateBit3";
+			this.RadioStateBit3.Size = new System.Drawing.Size(21, 21);
+			this.RadioStateBit3.TabIndex = 12;
+			this.RadioStateBit3.Text = "0";
+			this.RadioStateBit3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// TransmitFinishedBit
+			// 
+			this.TransmitFinishedBit.BackColor = System.Drawing.Color.Transparent;
+			this.TransmitFinishedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.TransmitFinishedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TransmitFinishedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.TransmitFinishedBit.Location = new System.Drawing.Point(249, 31);
+			this.TransmitFinishedBit.Name = "TransmitFinishedBit";
+			this.TransmitFinishedBit.Size = new System.Drawing.Size(21, 21);
+			this.TransmitFinishedBit.TabIndex = 12;
+			this.TransmitFinishedBit.Text = "0";
+			this.TransmitFinishedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// AutoRekeyBit
+			// 
+			this.AutoRekeyBit.BackColor = System.Drawing.Color.Transparent;
+			this.AutoRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.AutoRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AutoRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.AutoRekeyBit.Location = new System.Drawing.Point(379, 108);
+			this.AutoRekeyBit.Name = "AutoRekeyBit";
+			this.AutoRekeyBit.Size = new System.Drawing.Size(21, 21);
+			this.AutoRekeyBit.TabIndex = 12;
+			this.AutoRekeyBit.Text = "0";
+			this.AutoRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ChecksumErrorBit
+			// 
+			this.ChecksumErrorBit.BackColor = System.Drawing.Color.Transparent;
+			this.ChecksumErrorBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ChecksumErrorBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChecksumErrorBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ChecksumErrorBit.Location = new System.Drawing.Point(249, 108);
+			this.ChecksumErrorBit.Name = "ChecksumErrorBit";
+			this.ChecksumErrorBit.Size = new System.Drawing.Size(21, 21);
+			this.ChecksumErrorBit.TabIndex = 12;
+			this.ChecksumErrorBit.Text = "0";
+			this.ChecksumErrorBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ShowingQosBit
+			// 
+			this.ShowingQosBit.BackColor = System.Drawing.Color.Transparent;
+			this.ShowingQosBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ShowingQosBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ShowingQosBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ShowingQosBit.Location = new System.Drawing.Point(129, 27);
+			this.ShowingQosBit.Name = "ShowingQosBit";
+			this.ShowingQosBit.Size = new System.Drawing.Size(21, 21);
+			this.ShowingQosBit.TabIndex = 12;
+			this.ShowingQosBit.Text = "0";
+			this.ShowingQosBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// InterruptDrivenBit
+			// 
+			this.InterruptDrivenBit.BackColor = System.Drawing.Color.Transparent;
+			this.InterruptDrivenBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.InterruptDrivenBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.InterruptDrivenBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.InterruptDrivenBit.Location = new System.Drawing.Point(379, 8);
+			this.InterruptDrivenBit.Name = "InterruptDrivenBit";
+			this.InterruptDrivenBit.Size = new System.Drawing.Size(21, 21);
+			this.InterruptDrivenBit.TabIndex = 12;
+			this.InterruptDrivenBit.Text = "0";
+			this.InterruptDrivenBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// WasResetBit
+			// 
+			this.WasResetBit.BackColor = System.Drawing.Color.Transparent;
+			this.WasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.WasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.WasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.WasResetBit.Location = new System.Drawing.Point(249, 8);
+			this.WasResetBit.Name = "WasResetBit";
+			this.WasResetBit.Size = new System.Drawing.Size(21, 21);
+			this.WasResetBit.TabIndex = 12;
+			this.WasResetBit.Text = "0";
+			this.WasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// EncryptionActiveBit
+			// 
+			this.EncryptionActiveBit.BackColor = System.Drawing.Color.Transparent;
+			this.EncryptionActiveBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.EncryptionActiveBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EncryptionActiveBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.EncryptionActiveBit.Location = new System.Drawing.Point(8, 123);
+			this.EncryptionActiveBit.Name = "EncryptionActiveBit";
+			this.EncryptionActiveBit.Size = new System.Drawing.Size(21, 21);
+			this.EncryptionActiveBit.TabIndex = 12;
+			this.EncryptionActiveBit.Text = "0";
+			this.EncryptionActiveBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// DoingLightshowBit
+			// 
+			this.DoingLightshowBit.BackColor = System.Drawing.Color.Transparent;
+			this.DoingLightshowBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.DoingLightshowBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DoingLightshowBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.DoingLightshowBit.Location = new System.Drawing.Point(129, 4);
+			this.DoingLightshowBit.Name = "DoingLightshowBit";
+			this.DoingLightshowBit.Size = new System.Drawing.Size(21, 21);
+			this.DoingLightshowBit.TabIndex = 12;
+			this.DoingLightshowBit.Text = "0";
+			this.DoingLightshowBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RadioStateBit2
+			// 
+			this.RadioStateBit2.BackColor = System.Drawing.Color.Transparent;
+			this.RadioStateBit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RadioStateBit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadioStateBit2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RadioStateBit2.Location = new System.Drawing.Point(8, 27);
+			this.RadioStateBit2.Name = "RadioStateBit2";
+			this.RadioStateBit2.Size = new System.Drawing.Size(21, 21);
+			this.RadioStateBit2.TabIndex = 12;
+			this.RadioStateBit2.Text = "0";
+			this.RadioStateBit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BusyBit
+			// 
+			this.BusyBit.BackColor = System.Drawing.Color.Transparent;
+			this.BusyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BusyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BusyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BusyBit.Location = new System.Drawing.Point(8, 100);
+			this.BusyBit.Name = "BusyBit";
+			this.BusyBit.Size = new System.Drawing.Size(21, 21);
+			this.BusyBit.TabIndex = 12;
+			this.BusyBit.Text = "0";
+			this.BusyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RadioStateBit1
+			// 
+			this.RadioStateBit1.BackColor = System.Drawing.Color.Transparent;
+			this.RadioStateBit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RadioStateBit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadioStateBit1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RadioStateBit1.Location = new System.Drawing.Point(8, 7);
+			this.RadioStateBit1.Name = "RadioStateBit1";
+			this.RadioStateBit1.Size = new System.Drawing.Size(21, 21);
+			this.RadioStateBit1.TabIndex = 12;
+			this.RadioStateBit1.Text = "0";
+			this.RadioStateBit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// TabPageInt
 			// 
 			this.TabPageInt.Location = new System.Drawing.Point(4, 22);
 			this.TabPageInt.Name = "TabPageInt";
-			this.TabPageInt.Size = new System.Drawing.Size(455, 244);
+			this.TabPageInt.Size = new System.Drawing.Size(567, 335);
 			this.TabPageInt.TabIndex = 3;
-			this.TabPageInt.Text = "Int Enable Bits";
+			this.TabPageInt.Text = "Interrupt Bits";
 			this.TabPageInt.UseVisualStyleBackColor = true;
 			// 
 			// TxTextbox
 			// 
 			this.TxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TxTextbox.Location = new System.Drawing.Point(29, 282);
+			this.TxTextbox.Location = new System.Drawing.Point(29, 373);
 			this.TxTextbox.Name = "TxTextbox";
-			this.TxTextbox.Size = new System.Drawing.Size(172, 20);
+			this.TxTextbox.Size = new System.Drawing.Size(284, 20);
 			this.TxTextbox.TabIndex = 6;
 			// 
 			// TransmitButton
 			// 
 			this.TransmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.TransmitButton.Location = new System.Drawing.Point(201, 281);
+			this.TransmitButton.Location = new System.Drawing.Point(313, 372);
 			this.TransmitButton.Name = "TransmitButton";
 			this.TransmitButton.Size = new System.Drawing.Size(75, 23);
 			this.TransmitButton.TabIndex = 7;
@@ -805,16 +1682,16 @@
 			// 
 			this.RxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxTextbox.Location = new System.Drawing.Point(29, 315);
+			this.RxTextbox.Location = new System.Drawing.Point(29, 406);
 			this.RxTextbox.Name = "RxTextbox";
 			this.RxTextbox.ReadOnly = true;
-			this.RxTextbox.Size = new System.Drawing.Size(120, 20);
+			this.RxTextbox.Size = new System.Drawing.Size(232, 20);
 			this.RxTextbox.TabIndex = 11;
 			// 
 			// RxClearButton
 			// 
 			this.RxClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxClearButton.Location = new System.Drawing.Point(149, 314);
+			this.RxClearButton.Location = new System.Drawing.Point(261, 405);
 			this.RxClearButton.Name = "RxClearButton";
 			this.RxClearButton.Size = new System.Drawing.Size(40, 23);
 			this.RxClearButton.TabIndex = 12;
@@ -827,7 +1704,7 @@
 			this.TxHexCheckbox.AutoSize = true;
 			this.TxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.TxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 280);
+			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 371);
 			this.TxHexCheckbox.Name = "TxHexCheckbox";
 			this.TxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.TxHexCheckbox.TabIndex = 13;
@@ -837,7 +1714,7 @@
 			// textBox1
 			// 
 			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(262, 315);
+			this.textBox1.Location = new System.Drawing.Point(374, 406);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
 			this.textBox1.Size = new System.Drawing.Size(156, 20);
@@ -846,7 +1723,7 @@
 			// AckClearButton
 			// 
 			this.AckClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AckClearButton.Location = new System.Drawing.Point(418, 313);
+			this.AckClearButton.Location = new System.Drawing.Point(530, 404);
 			this.AckClearButton.Name = "AckClearButton";
 			this.AckClearButton.Size = new System.Drawing.Size(45, 23);
 			this.AckClearButton.TabIndex = 15;
@@ -857,7 +1734,7 @@
 			// 
 			this.TxInfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxInfoLabel.AutoSize = true;
-			this.TxInfoLabel.Location = new System.Drawing.Point(282, 286);
+			this.TxInfoLabel.Location = new System.Drawing.Point(394, 377);
 			this.TxInfoLabel.Name = "TxInfoLabel";
 			this.TxInfoLabel.Size = new System.Drawing.Size(104, 13);
 			this.TxInfoLabel.TabIndex = 17;
@@ -868,7 +1745,7 @@
 			this.TxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxLengthLabel.AutoSize = true;
 			this.TxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxLengthLabel.Location = new System.Drawing.Point(115, 273);
+			this.TxLengthLabel.Location = new System.Drawing.Point(227, 364);
 			this.TxLengthLabel.Name = "TxLengthLabel";
 			this.TxLengthLabel.Size = new System.Drawing.Size(39, 9);
 			this.TxLengthLabel.TabIndex = 18;
@@ -879,7 +1756,7 @@
 			this.TxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxCountLabel.AutoSize = true;
 			this.TxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxCountLabel.Location = new System.Drawing.Point(158, 273);
+			this.TxCountLabel.Location = new System.Drawing.Point(270, 364);
 			this.TxCountLabel.Name = "TxCountLabel";
 			this.TxCountLabel.Size = new System.Drawing.Size(41, 9);
 			this.TxCountLabel.TabIndex = 18;
@@ -890,7 +1767,7 @@
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(29, 305);
+			this.label3.Location = new System.Drawing.Point(29, 396);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(33, 9);
 			this.label3.TabIndex = 18;
@@ -901,7 +1778,7 @@
 			this.RxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxLengthLabel.AutoSize = true;
 			this.RxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxLengthLabel.Location = new System.Drawing.Point(67, 305);
+			this.RxLengthLabel.Location = new System.Drawing.Point(179, 396);
 			this.RxLengthLabel.Name = "RxLengthLabel";
 			this.RxLengthLabel.Size = new System.Drawing.Size(39, 9);
 			this.RxLengthLabel.TabIndex = 18;
@@ -912,7 +1789,7 @@
 			this.RxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxCountLabel.AutoSize = true;
 			this.RxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxCountLabel.Location = new System.Drawing.Point(108, 305);
+			this.RxCountLabel.Location = new System.Drawing.Point(220, 396);
 			this.RxCountLabel.Name = "RxCountLabel";
 			this.RxCountLabel.Size = new System.Drawing.Size(41, 9);
 			this.RxCountLabel.TabIndex = 18;
@@ -923,7 +1800,7 @@
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(29, 273);
+			this.label6.Location = new System.Drawing.Point(29, 364);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(36, 9);
 			this.label6.TabIndex = 18;
@@ -935,7 +1812,7 @@
 			this.RxHexCheckbox.AutoSize = true;
 			this.RxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.RxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxHexCheckbox.Location = new System.Drawing.Point(4, 313);
+			this.RxHexCheckbox.Location = new System.Drawing.Point(4, 404);
 			this.RxHexCheckbox.Name = "RxHexCheckbox";
 			this.RxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.RxHexCheckbox.TabIndex = 13;
@@ -947,7 +1824,7 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(260, 305);
+			this.label1.Location = new System.Drawing.Point(372, 396);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(67, 9);
 			this.label1.TabIndex = 18;
@@ -959,7 +1836,7 @@
 			this.AckHexCheckbox.AutoSize = true;
 			this.AckHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.AckHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckHexCheckbox.Location = new System.Drawing.Point(236, 313);
+			this.AckHexCheckbox.Location = new System.Drawing.Point(350, 404);
 			this.AckHexCheckbox.Name = "AckHexCheckbox";
 			this.AckHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.AckHexCheckbox.TabIndex = 13;
@@ -971,7 +1848,7 @@
 			this.AckLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckLengthLabel.AutoSize = true;
 			this.AckLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckLengthLabel.Location = new System.Drawing.Point(335, 305);
+			this.AckLengthLabel.Location = new System.Drawing.Point(447, 396);
 			this.AckLengthLabel.Name = "AckLengthLabel";
 			this.AckLengthLabel.Size = new System.Drawing.Size(39, 9);
 			this.AckLengthLabel.TabIndex = 18;
@@ -982,7 +1859,7 @@
 			this.AckCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckCountLabel.AutoSize = true;
 			this.AckCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckCountLabel.Location = new System.Drawing.Point(377, 305);
+			this.AckCountLabel.Location = new System.Drawing.Point(489, 396);
 			this.AckCountLabel.Name = "AckCountLabel";
 			this.AckCountLabel.Size = new System.Drawing.Size(41, 9);
 			this.AckCountLabel.TabIndex = 18;
@@ -993,7 +1870,7 @@
 			this.TxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxRssiLabel.AutoSize = true;
 			this.TxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxRssiLabel.Location = new System.Drawing.Point(394, 279);
+			this.TxRssiLabel.Location = new System.Drawing.Point(506, 370);
 			this.TxRssiLabel.Name = "TxRssiLabel";
 			this.TxRssiLabel.Size = new System.Drawing.Size(50, 12);
 			this.TxRssiLabel.TabIndex = 19;
@@ -1004,7 +1881,7 @@
 			this.TxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxSnrLabel.AutoSize = true;
 			this.TxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxSnrLabel.Location = new System.Drawing.Point(396, 290);
+			this.TxSnrLabel.Location = new System.Drawing.Point(508, 381);
 			this.TxSnrLabel.Name = "TxSnrLabel";
 			this.TxSnrLabel.Size = new System.Drawing.Size(38, 12);
 			this.TxSnrLabel.TabIndex = 19;
@@ -1015,7 +1892,7 @@
 			this.RxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxRssiLabel.AutoSize = true;
 			this.RxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxRssiLabel.Location = new System.Drawing.Point(190, 314);
+			this.RxRssiLabel.Location = new System.Drawing.Point(302, 405);
 			this.RxRssiLabel.Name = "RxRssiLabel";
 			this.RxRssiLabel.Size = new System.Drawing.Size(50, 12);
 			this.RxRssiLabel.TabIndex = 19;
@@ -1026,214 +1903,18 @@
 			this.RxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxSnrLabel.AutoSize = true;
 			this.RxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxSnrLabel.Location = new System.Drawing.Point(192, 325);
+			this.RxSnrLabel.Location = new System.Drawing.Point(304, 416);
 			this.RxSnrLabel.Name = "RxSnrLabel";
 			this.RxSnrLabel.Size = new System.Drawing.Size(38, 12);
 			this.RxSnrLabel.TabIndex = 19;
 			this.RxSnrLabel.Text = "SNR: -4";
-			// 
-			// LedLabel6
-			// 
-			this.LedLabel6.BackColor = System.Drawing.Color.Transparent;
-			this.LedLabel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LedLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LedLabel6.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.LedLabel6.Location = new System.Drawing.Point(8, 22);
-			this.LedLabel6.Name = "LedLabel6";
-			this.LedLabel6.Size = new System.Drawing.Size(21, 21);
-			this.LedLabel6.TabIndex = 11;
-			this.LedLabel6.Text = "0";
-			this.LedLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// LedCombo6
-			// 
-			this.LedCombo6.FormattingEnabled = true;
-			this.LedCombo6.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Blink 1Hz",
-            "Blink 2Hz",
-            "Blink 1 Time",
-            "Blink 2 Times",
-            "Blink 3 Times",
-            "Blink 4 Times"});
-			this.LedCombo6.Location = new System.Drawing.Point(29, 22);
-			this.LedCombo6.Name = "LedCombo6";
-			this.LedCombo6.Size = new System.Drawing.Size(83, 21);
-			this.LedCombo6.TabIndex = 12;
-			this.LedCombo6.Text = "Off";
-			this.LedCombo6.SelectedIndexChanged += new System.EventHandler(this.LedCombo6_SelectedIndexChanged);
-			// 
-			// label24
-			// 
-			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(6, 6);
-			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(58, 13);
-			this.label24.TabIndex = 13;
-			this.label24.Text = "Indications";
-			// 
-			// LedLabel5
-			// 
-			this.LedLabel5.BackColor = System.Drawing.Color.Transparent;
-			this.LedLabel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LedLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LedLabel5.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.LedLabel5.Location = new System.Drawing.Point(8, 46);
-			this.LedLabel5.Name = "LedLabel5";
-			this.LedLabel5.Size = new System.Drawing.Size(21, 21);
-			this.LedLabel5.TabIndex = 11;
-			this.LedLabel5.Text = "0";
-			this.LedLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// LedCombo5
-			// 
-			this.LedCombo5.FormattingEnabled = true;
-			this.LedCombo5.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Blink 1Hz",
-            "Blink 2Hz",
-            "Blink 1 Time",
-            "Blink 2 Times",
-            "Blink 3 Times",
-            "Blink 4 Times"});
-			this.LedCombo5.Location = new System.Drawing.Point(29, 46);
-			this.LedCombo5.Name = "LedCombo5";
-			this.LedCombo5.Size = new System.Drawing.Size(83, 21);
-			this.LedCombo5.TabIndex = 12;
-			this.LedCombo5.Text = "Off";
-			// 
-			// LedLabel4
-			// 
-			this.LedLabel4.BackColor = System.Drawing.Color.Transparent;
-			this.LedLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LedLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LedLabel4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.LedLabel4.Location = new System.Drawing.Point(8, 70);
-			this.LedLabel4.Name = "LedLabel4";
-			this.LedLabel4.Size = new System.Drawing.Size(21, 21);
-			this.LedLabel4.TabIndex = 11;
-			this.LedLabel4.Text = "0";
-			this.LedLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// LedCombo4
-			// 
-			this.LedCombo4.FormattingEnabled = true;
-			this.LedCombo4.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Blink 1Hz",
-            "Blink 2Hz",
-            "Blink 1 Time",
-            "Blink 2 Times",
-            "Blink 3 Times",
-            "Blink 4 Times"});
-			this.LedCombo4.Location = new System.Drawing.Point(29, 70);
-			this.LedCombo4.Name = "LedCombo4";
-			this.LedCombo4.Size = new System.Drawing.Size(83, 21);
-			this.LedCombo4.TabIndex = 12;
-			this.LedCombo4.Text = "Off";
-			// 
-			// LedLabel3
-			// 
-			this.LedLabel3.BackColor = System.Drawing.Color.Transparent;
-			this.LedLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LedLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LedLabel3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.LedLabel3.Location = new System.Drawing.Point(8, 94);
-			this.LedLabel3.Name = "LedLabel3";
-			this.LedLabel3.Size = new System.Drawing.Size(21, 21);
-			this.LedLabel3.TabIndex = 11;
-			this.LedLabel3.Text = "0";
-			this.LedLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// LedCombo3
-			// 
-			this.LedCombo3.FormattingEnabled = true;
-			this.LedCombo3.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Blink 1Hz",
-            "Blink 2Hz",
-            "Blink 1 Time",
-            "Blink 2 Times",
-            "Blink 3 Times",
-            "Blink 4 Times"});
-			this.LedCombo3.Location = new System.Drawing.Point(29, 94);
-			this.LedCombo3.Name = "LedCombo3";
-			this.LedCombo3.Size = new System.Drawing.Size(83, 21);
-			this.LedCombo3.TabIndex = 12;
-			this.LedCombo3.Text = "Off";
-			// 
-			// LedLabel2
-			// 
-			this.LedLabel2.BackColor = System.Drawing.Color.Transparent;
-			this.LedLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LedLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LedLabel2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.LedLabel2.Location = new System.Drawing.Point(8, 118);
-			this.LedLabel2.Name = "LedLabel2";
-			this.LedLabel2.Size = new System.Drawing.Size(21, 21);
-			this.LedLabel2.TabIndex = 11;
-			this.LedLabel2.Text = "0";
-			this.LedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// LedCombo2
-			// 
-			this.LedCombo2.FormattingEnabled = true;
-			this.LedCombo2.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Blink 1Hz",
-            "Blink 2Hz",
-            "Blink 1 Time",
-            "Blink 2 Times",
-            "Blink 3 Times",
-            "Blink 4 Times"});
-			this.LedCombo2.Location = new System.Drawing.Point(29, 118);
-			this.LedCombo2.Name = "LedCombo2";
-			this.LedCombo2.Size = new System.Drawing.Size(83, 21);
-			this.LedCombo2.TabIndex = 12;
-			this.LedCombo2.Text = "Off";
-			// 
-			// LedLabel1
-			// 
-			this.LedLabel1.BackColor = System.Drawing.Color.Transparent;
-			this.LedLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LedLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LedLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.LedLabel1.Location = new System.Drawing.Point(8, 143);
-			this.LedLabel1.Name = "LedLabel1";
-			this.LedLabel1.Size = new System.Drawing.Size(21, 21);
-			this.LedLabel1.TabIndex = 11;
-			this.LedLabel1.Text = "0";
-			this.LedLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// LedCombo1
-			// 
-			this.LedCombo1.FormattingEnabled = true;
-			this.LedCombo1.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Blink 1Hz",
-            "Blink 2Hz",
-            "Blink 1 Time",
-            "Blink 2 Times",
-            "Blink 3 Times",
-            "Blink 4 Times"});
-			this.LedCombo1.Location = new System.Drawing.Point(29, 143);
-			this.LedCombo1.Name = "LedCombo1";
-			this.LedCombo1.Size = new System.Drawing.Size(83, 21);
-			this.LedCombo1.TabIndex = 12;
-			this.LedCombo1.Text = "Off";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(642, 361);
+			this.ClientSize = new System.Drawing.Size(754, 452);
 			this.Controls.Add(this.RxSnrLabel);
 			this.Controls.Add(this.RxRssiLabel);
 			this.Controls.Add(this.TxSnrLabel);
@@ -1258,7 +1939,7 @@
 			this.Controls.Add(this.TransmitButton);
 			this.Controls.Add(this.TxTextbox);
 			this.Controls.Add(this.MainTabControl);
-			this.Controls.Add(this.FormatResponsesCheckbox);
+			this.Controls.Add(this.HumanReadableCheckbox);
 			this.Controls.Add(this.DisconnectButton);
 			this.Controls.Add(this.OutputTextbox);
 			this.Controls.Add(this.StatusBar);
@@ -1279,6 +1960,9 @@
 			this.TabPageOther.ResumeLayout(false);
 			this.TabPageOther.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ButtonHoldTimeNumeric)).EndInit();
+			this.TabPageCommands.ResumeLayout(false);
+			this.TabPageStatus.ResumeLayout(false);
+			this.TabPageStatus.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1290,7 +1974,7 @@
 		private System.Windows.Forms.Timer TickTimer;
 		private System.Windows.Forms.Button DisconnectButton;
 		public System.Windows.Forms.TextBox OutputTextbox;
-		public System.Windows.Forms.CheckBox FormatResponsesCheckbox;
+		public System.Windows.Forms.CheckBox HumanReadableCheckbox;
 		private System.Windows.Forms.TabControl MainTabControl;
 		private System.Windows.Forms.TabPage TabPageRadio;
 		private System.Windows.Forms.TabPage TabPageOther;
@@ -1344,13 +2028,6 @@
 		private System.Windows.Forms.Label TxSnrLabel;
 		private System.Windows.Forms.Label RxRssiLabel;
 		private System.Windows.Forms.Label RxSnrLabel;
-		private System.Windows.Forms.Button DefaultSettingsButton;
-		private System.Windows.Forms.Button ResetButton;
-		private System.Windows.Forms.Button StartEncryptionButton;
-		private System.Windows.Forms.Button ShowQosButton;
-		private System.Windows.Forms.Button LightshowButton;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.Button SleepButton;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.Label label21;
 		private System.Windows.Forms.ComboBox TxLedModeCombobox;
@@ -1375,5 +2052,65 @@
 		private System.Windows.Forms.Label LedLabel5;
 		private System.Windows.Forms.ComboBox LedCombo6;
 		private System.Windows.Forms.Label LedLabel6;
+		private System.Windows.Forms.Button ClearFlagsButton;
+		private System.Windows.Forms.Label label70;
+		private System.Windows.Forms.Label label85;
+		private System.Windows.Forms.Label label69;
+		private System.Windows.Forms.Label label37;
+		private System.Windows.Forms.Label label68;
+		private System.Windows.Forms.Label label83;
+		private System.Windows.Forms.Label label67;
+		private System.Windows.Forms.Label label45;
+		private System.Windows.Forms.Label label36;
+		private System.Windows.Forms.Label label66;
+		private System.Windows.Forms.Label label81;
+		private System.Windows.Forms.Label label65;
+		private System.Windows.Forms.Label label44;
+		private System.Windows.Forms.Label label35;
+		private System.Windows.Forms.Label label80;
+		private System.Windows.Forms.Label label64;
+		private System.Windows.Forms.Label label79;
+		private System.Windows.Forms.Label label63;
+		private System.Windows.Forms.Label label43;
+		private System.Windows.Forms.Label label34;
+		private System.Windows.Forms.Label RadioStateStrLabel;
+		private System.Windows.Forms.Label label32;
+		private System.Windows.Forms.TabPage TabPageCommands;
+		private System.Windows.Forms.Button ShowQosButton;
+		private System.Windows.Forms.Button LightshowButton;
+		private System.Windows.Forms.Button RefreshSettingsButton;
+		private System.Windows.Forms.Button DefaultSettingsButton;
+		private System.Windows.Forms.Button SleepButton;
+		private System.Windows.Forms.Button ResetButton;
+		private System.Windows.Forms.Button StartEncryptionButton;
+		public System.Windows.Forms.CheckBox AutoClearFlagsCheckbox;
+		public System.Windows.Forms.Label StatusConfigLabel;
+		public System.Windows.Forms.Label StatusClearableLabel;
+		public System.Windows.Forms.Label StatusOtherLabel;
+		public System.Windows.Forms.Label StatusStateLabel;
+		private System.Windows.Forms.Label ButtonHeldBit;
+		private System.Windows.Forms.Label TxLedModeBit;
+		private System.Windows.Forms.Label AckPacketReadyBit;
+		private System.Windows.Forms.Label SettingsPendingBit;
+		private System.Windows.Forms.Label ButtonPressedBit;
+		private System.Windows.Forms.Label RadioStateBit4;
+		private System.Windows.Forms.Label RxLedModeBit;
+		private System.Windows.Forms.Label RxPacketReadyBit;
+		private System.Windows.Forms.Label ButtonDownBit;
+		private System.Windows.Forms.Label RxInProgressBit;
+		private System.Windows.Forms.Label EncryptionRekeyBit;
+		private System.Windows.Forms.Label AutoClearFlagsBit;
+		private System.Windows.Forms.Label RadioStateBit3;
+		private System.Windows.Forms.Label TransmitFinishedBit;
+		private System.Windows.Forms.Label AutoRekeyBit;
+		private System.Windows.Forms.Label ChecksumErrorBit;
+		private System.Windows.Forms.Label ShowingQosBit;
+		private System.Windows.Forms.Label InterruptDrivenBit;
+		private System.Windows.Forms.Label WasResetBit;
+		private System.Windows.Forms.Label EncryptionActiveBit;
+		private System.Windows.Forms.Label DoingLightshowBit;
+		private System.Windows.Forms.Label RadioStateBit2;
+		private System.Windows.Forms.Label BusyBit;
+		private System.Windows.Forms.Label RadioStateBit1;
 	}
 }

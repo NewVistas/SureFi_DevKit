@@ -14,6 +14,7 @@ Description:
 #include "tickTimer.h"
 #include "helpers.h"
 #include "sureCommands.h"
+#include "app.h"
 
 // +--------------------------------------------------------------+
 // |                        Public Globals                        |
@@ -143,40 +144,43 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 			}
 			else if (PrintSureResponses) { WriteLine_D(""); }
 			
-			if (!rsp->payload.status.autoClearFlags &&
-				rsp->payload.status.clearableFlags != 0x00)
+			if (AppRunning)
 			{
-				WriteLine_D("Clearing flags");
-				SureClearStatusFlags(0xFF);
-			}
-			
-			if (rsp->payload.status.wasReset)
-			{
-				WriteLine_E("Module was reset!");
-				if (moduleResetCallbackPntr != nullptr) { moduleResetCallbackPntr(); }
-			}
-			
-			if (statusChanged.buttonDown)
-			{
-				if (buttonChangedCallbackPntr != nullptr) { buttonChangedCallbackPntr(rsp->payload.status.buttonDown); }
-			}
-			
-			if (rsp->payload.status.transmitFinished)
-			{
-				WriteLine_D("Transmit Finished");
-				SureGotTransmitFinished = true;
-				SureGetTransmitInfo();
-			}
-			if (rsp->payload.status.ackPacketReady)
-			{
-				SureGetAckPacket();
-			}
-			if (rsp->payload.status.rxPacketReady)
-			{
-				SureGotRxPacket = false;
-				SureGotRxInfo = false;
-				SureGetPacket();
-				SureGetReceiveInfo();
+				if (!rsp->payload.status.autoClearFlags &&
+					rsp->payload.status.clearableFlags != 0x00)
+				{
+					WriteLine_D("Clearing flags");
+					SureClearStatusFlags(0xFF);
+				}
+				
+				if (statusChanged.buttonDown)
+				{
+					if (buttonChangedCallbackPntr != nullptr) { buttonChangedCallbackPntr(rsp->payload.status.buttonDown); }
+				}
+				
+				if (rsp->payload.status.wasReset)
+				{
+					WriteLine_E("Module was reset!");
+					if (moduleResetCallbackPntr != nullptr) { moduleResetCallbackPntr(); }
+				}
+				
+				if (rsp->payload.status.transmitFinished)
+				{
+					WriteLine_D("Transmit Finished");
+					SureGotTransmitFinished = true;
+					SureGetTransmitInfo();
+				}
+				if (rsp->payload.status.ackPacketReady)
+				{
+					SureGetAckPacket();
+				}
+				if (rsp->payload.status.rxPacketReady)
+				{
+					SureGotRxPacket = false;
+					SureGotRxInfo = false;
+					SureGetPacket();
+					SureGetReceiveInfo();
+				}
 			}
 			
 			SureModuleStatus = rsp->payload.status;
