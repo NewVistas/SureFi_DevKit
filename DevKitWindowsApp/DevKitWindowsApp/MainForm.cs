@@ -110,7 +110,7 @@ namespace DevKitWindowsApp
 		
 		bool TryParseHexString(string hexString, out byte[] bytesOut)
 		{
-			if (hexString.Length < 2) { bytesOut = null; return false; }
+			// if (hexString.Length < 2) { bytesOut = null; return false; }
 			if ((hexString.Length%2) != 0) { bytesOut = null; return false; }
 			bytesOut = new byte[hexString.Length/2];
 			
@@ -259,15 +259,108 @@ namespace DevKitWindowsApp
 		}
 		
 		// +==============================+
+		// |    Encryption Ready Label    |
+		// +==============================+
+		private void UpdateEncryptionReady()
+		{
+			bool rxUidSizeGood = false;
+			bool txUidSizeGood = false;
+			bool packetSizeGood = false;
+			
+			int packetSize = 0;
+			byte[] uid = null;
+			if (TryParseHexString(RxUidTextbox.Text, out uid))
+			{
+				if (uid.Length > 0)
+				{
+					rxUidSizeGood = true;
+				}
+				
+				packetSize += uid.Length;
+				packetSize += (int)PayloadSizeNumeric.Value;
+				if (packetSize > 0 && packetSize <= 64 &&
+					((packetSize+1) % 8) == 0)
+				{
+					packetSizeGood = true;
+				}
+			}
+			if (TryParseHexString(TxUidTextbox.Text, out uid))
+			{
+				if (uid.Length > 0)
+				{
+					txUidSizeGood = true;
+				}
+			}
+			
+			if (!rxUidSizeGood)
+			{
+				EncryptionReadyLabel.Text = "X Encryption: Rx UID is 0 bytes";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+			else if (!txUidSizeGood)
+			{
+				EncryptionReadyLabel.Text = "X Encryption: Tx UID is 0 bytes";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+			else if (!packetSizeGood)
+			{
+				EncryptionReadyLabel.Text = "✓ Encryption: PacketSize+1 is not multiple of 8";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.Orange);
+			}
+			else
+			{
+				EncryptionReadyLabel.Text = "✓ Encryption: Ready";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+			}
+		}
+		
+		// +==============================+
+		// |        Rx Packet Size        |
+		// +==============================+
+		private void PushPacketSizeChange(bool onlyLabel)
+		{
+			int packetSize = 0;
+			byte[] rxUid = null;
+			if (TryParseHexString(RxUidTextbox.Text, out rxUid))
+			{
+				packetSize += rxUid.Length;
+				packetSize += (int)PayloadSizeNumeric.Value;
+				
+				if (packetSize > 0 && packetSize <= 64)
+				{
+					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
+					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					
+					if (!onlyLabel)
+					{
+						byte[] payload = { (byte)packetSize };
+						port.PushTxCommand(SureCmd.SetReceivePacketSize, payload);
+					}
+				}
+				else
+				{
+					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
+					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				}
+				
+			}
+			else
+			{
+				RxPacketSizeLabel.Text = "? byte ReceivePacketSize";
+				RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+		}
+		
+		// +==============================+
 		// |        Rx UID Textbox        |
 		// +==============================+
 		private bool rxUidChanged = false;
 		private void PushRxUidChange()
 		{
-			byte[] payload = null;
-			if (TryParseHexString(RxUidTextbox.Text, out payload))
+			byte[] uid = null;
+			if (TryParseHexString(RxUidTextbox.Text, out uid))
 			{
-				port.PushTxCommand(SureCmd.SetReceiveUID, payload);
+				port.PushTxCommand(SureCmd.SetReceiveUID, uid);
 				RxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
 			}
 			else
@@ -300,6 +393,9 @@ namespace DevKitWindowsApp
 				{
 					RxUidLengthLabel.Text = hexValues.Length.ToString() + " bytes";
 					RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					
+					PushPacketSizeChange(true);
+					UpdateEncryptionReady();
 				}
 				else
 				{
@@ -316,6 +412,8 @@ namespace DevKitWindowsApp
 			if (rxUidChanged)
 			{
 				rxUidChanged = false;
+				PushPacketSizeChange(false);
+				UpdateEncryptionReady();
 				PushRxUidChange();
 			}
 		}
@@ -324,6 +422,8 @@ namespace DevKitWindowsApp
 			if (e.KeyCode == Keys.Enter)// && rxUidChanged)
 			{
 				rxUidChanged = false;
+				PushPacketSizeChange(false);
+				UpdateEncryptionReady();
 				PushRxUidChange();
 			}
 		}
@@ -334,10 +434,10 @@ namespace DevKitWindowsApp
 		private bool txUidChanged = false;
 		private void PushTxUidChange()
 		{
-			byte[] payload = null;
-			if (TryParseHexString(TxUidTextbox.Text, out payload))
+			byte[] uid = null;
+			if (TryParseHexString(TxUidTextbox.Text, out uid))
 			{
-				port.PushTxCommand(SureCmd.SetTransmitUID, payload);
+				port.PushTxCommand(SureCmd.SetTransmitUID, uid);
 				TxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
 			}
 			else
@@ -388,6 +488,7 @@ namespace DevKitWindowsApp
 			if (txUidChanged)
 			{
 				txUidChanged = false;
+				UpdateEncryptionReady();
 				PushTxUidChange();
 			}
 		}
@@ -397,7 +498,31 @@ namespace DevKitWindowsApp
 			if (e.KeyCode == Keys.Enter)// && txUidChanged)
 			{
 				txUidChanged = false;
+				UpdateEncryptionReady();
 				PushTxUidChange();
+			}
+		}
+		
+		// +==============================+
+		// |     Payload Size Numeric     |
+		// +==============================+
+		private void PayloadSizeNumeric_ValueChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				updatingElement = true;
+				if (PayloadSizeNumeric.Value < 0)
+				{
+					PayloadSizeNumeric.Value = 0;
+				}
+				if (PayloadSizeNumeric.Value > 64)
+				{
+					PayloadSizeNumeric.Value = 64;
+				}
+				updatingElement = false;
+				
+				UpdateEncryptionReady();
+				PushPacketSizeChange(false);
 			}
 		}
 	}

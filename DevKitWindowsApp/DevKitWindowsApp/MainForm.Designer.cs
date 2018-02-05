@@ -50,7 +50,7 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.TransmitPowerCombobox = new System.Windows.Forms.ComboBox();
-			this.RxPacketLengthLabel = new System.Windows.Forms.Label();
+			this.RxPacketSizeLabel = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -173,6 +173,9 @@
 			this.TxSnrLabel = new System.Windows.Forms.Label();
 			this.RxRssiLabel = new System.Windows.Forms.Label();
 			this.RxSnrLabel = new System.Windows.Forms.Label();
+			this.EncryptionReadyLabel = new System.Windows.Forms.Label();
+			this.OutputClearButton = new System.Windows.Forms.Button();
+			this.AcksEnabledCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -268,6 +271,8 @@
 			// 
 			// TabPageRadio
 			// 
+			this.TabPageRadio.Controls.Add(this.AcksEnabledCheckbox);
+			this.TabPageRadio.Controls.Add(this.EncryptionReadyLabel);
 			this.TabPageRadio.Controls.Add(this.label15);
 			this.TabPageRadio.Controls.Add(this.numericUpDown1);
 			this.TabPageRadio.Controls.Add(this.comboBox1);
@@ -280,7 +285,7 @@
 			this.TabPageRadio.Controls.Add(this.label14);
 			this.TabPageRadio.Controls.Add(this.label10);
 			this.TabPageRadio.Controls.Add(this.TransmitPowerCombobox);
-			this.TabPageRadio.Controls.Add(this.RxPacketLengthLabel);
+			this.TabPageRadio.Controls.Add(this.RxPacketSizeLabel);
 			this.TabPageRadio.Controls.Add(this.label9);
 			this.TabPageRadio.Controls.Add(this.label2);
 			this.TabPageRadio.Controls.Add(this.label8);
@@ -461,14 +466,14 @@
 			this.TransmitPowerCombobox.TabIndex = 6;
 			this.TransmitPowerCombobox.Text = "30 dBm (1 W)";
 			// 
-			// RxPacketLengthLabel
+			// RxPacketSizeLabel
 			// 
-			this.RxPacketLengthLabel.AutoSize = true;
-			this.RxPacketLengthLabel.Location = new System.Drawing.Point(204, 27);
-			this.RxPacketLengthLabel.Name = "RxPacketLengthLabel";
-			this.RxPacketLengthLabel.Size = new System.Drawing.Size(125, 13);
-			this.RxPacketLengthLabel.TabIndex = 5;
-			this.RxPacketLengthLabel.Text = "64 byte RxPacketLength";
+			this.RxPacketSizeLabel.AutoSize = true;
+			this.RxPacketSizeLabel.Location = new System.Drawing.Point(204, 27);
+			this.RxPacketSizeLabel.Name = "RxPacketSizeLabel";
+			this.RxPacketSizeLabel.Size = new System.Drawing.Size(139, 13);
+			this.RxPacketSizeLabel.TabIndex = 5;
+			this.RxPacketSizeLabel.Text = "64 byte ReceivePacketSize";
 			// 
 			// label9
 			// 
@@ -482,7 +487,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(276, 84);
+			this.label2.Location = new System.Drawing.Point(6, 165);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(50, 13);
 			this.label2.TabIndex = 10;
@@ -499,7 +504,7 @@
 			// 
 			// NumRetriesNumeric
 			// 
-			this.NumRetriesNumeric.Location = new System.Drawing.Point(279, 100);
+			this.NumRetriesNumeric.Location = new System.Drawing.Point(8, 178);
 			this.NumRetriesNumeric.Name = "NumRetriesNumeric";
 			this.NumRetriesNumeric.Size = new System.Drawing.Size(62, 20);
 			this.NumRetriesNumeric.TabIndex = 9;
@@ -517,6 +522,7 @@
 			this.PayloadSizeNumeric.Size = new System.Drawing.Size(65, 20);
 			this.PayloadSizeNumeric.TabIndex = 3;
 			this.PayloadSizeNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.PayloadSizeNumeric.ValueChanged += new System.EventHandler(this.PayloadSizeNumeric_ValueChanged);
 			// 
 			// RxUidLengthLabel
 			// 
@@ -1915,12 +1921,42 @@
 			this.RxSnrLabel.TabIndex = 19;
 			this.RxSnrLabel.Text = "SNR: -4";
 			// 
+			// EncryptionReadyLabel
+			// 
+			this.EncryptionReadyLabel.AutoSize = true;
+			this.EncryptionReadyLabel.ForeColor = System.Drawing.Color.DarkGreen;
+			this.EncryptionReadyLabel.Location = new System.Drawing.Point(208, 180);
+			this.EncryptionReadyLabel.Name = "EncryptionReadyLabel";
+			this.EncryptionReadyLabel.Size = new System.Drawing.Size(102, 13);
+			this.EncryptionReadyLabel.TabIndex = 14;
+			this.EncryptionReadyLabel.Text = "✓ Encryption Ready";
+			// 
+			// OutputClearButton
+			// 
+			this.OutputClearButton.Location = new System.Drawing.Point(691, 3);
+			this.OutputClearButton.Name = "OutputClearButton";
+			this.OutputClearButton.Size = new System.Drawing.Size(51, 23);
+			this.OutputClearButton.TabIndex = 20;
+			this.OutputClearButton.Text = "Clear";
+			this.OutputClearButton.UseVisualStyleBackColor = true;
+			// 
+			// AcksEnabledCheckbox
+			// 
+			this.AcksEnabledCheckbox.AutoSize = true;
+			this.AcksEnabledCheckbox.Location = new System.Drawing.Point(76, 179);
+			this.AcksEnabledCheckbox.Name = "AcksEnabledCheckbox";
+			this.AcksEnabledCheckbox.Size = new System.Drawing.Size(92, 17);
+			this.AcksEnabledCheckbox.TabIndex = 15;
+			this.AcksEnabledCheckbox.Text = "Acks Enabled";
+			this.AcksEnabledCheckbox.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(754, 452);
+			this.Controls.Add(this.OutputClearButton);
 			this.Controls.Add(this.RxSnrLabel);
 			this.Controls.Add(this.RxRssiLabel);
 			this.Controls.Add(this.TxSnrLabel);
@@ -2005,7 +2041,7 @@
 		private System.Windows.Forms.CheckBox AckHexCheckbox;
 		private System.Windows.Forms.Label AckLengthLabel;
 		private System.Windows.Forms.Label AckCountLabel;
-		private System.Windows.Forms.Label RxPacketLengthLabel;
+		private System.Windows.Forms.Label RxPacketSizeLabel;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.NumericUpDown PayloadSizeNumeric;
@@ -2118,5 +2154,8 @@
 		private System.Windows.Forms.Label RadioStateBit2;
 		private System.Windows.Forms.Label BusyBit;
 		private System.Windows.Forms.Label RadioStateBit1;
+		private System.Windows.Forms.Label EncryptionReadyLabel;
+		private System.Windows.Forms.CheckBox AcksEnabledCheckbox;
+		private System.Windows.Forms.Button OutputClearButton;
 	}
 }
