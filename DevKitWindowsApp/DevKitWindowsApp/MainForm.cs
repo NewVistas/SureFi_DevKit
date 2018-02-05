@@ -261,7 +261,7 @@ namespace DevKitWindowsApp
 		// +==============================+
 		// |    Encryption Ready Label    |
 		// +==============================+
-		private void UpdateEncryptionReady()
+		public void UpdateEncryptionReady()
 		{
 			bool rxUidSizeGood = false;
 			bool txUidSizeGood = false;
@@ -317,7 +317,7 @@ namespace DevKitWindowsApp
 		// +==============================+
 		// |        Rx Packet Size        |
 		// +==============================+
-		private void PushPacketSizeChange(bool onlyLabel)
+		public void PushPacketSizeChange(bool onlyLabel)
 		{
 			int packetSize = 0;
 			byte[] rxUid = null;

@@ -374,13 +374,14 @@
 			// 
 			// BandwidthCombobox
 			// 
+			this.BandwidthCombobox.Enabled = false;
 			this.BandwidthCombobox.FormattingEnabled = true;
 			this.BandwidthCombobox.Items.AddRange(new object[] {
-            "500 kHz",
-            "250 kHz",
+            "31.25 kHz",
+            "62.5kHz",
             "125 kHz",
-            "62.5 kHz",
-            "31.25 kHz"});
+            "250 kHz",
+            "500 kHz"});
 			this.BandwidthCombobox.Location = new System.Drawing.Point(261, 141);
 			this.BandwidthCombobox.Name = "BandwidthCombobox";
 			this.BandwidthCombobox.Size = new System.Drawing.Size(110, 21);
@@ -390,6 +391,7 @@
 			// 
 			// SpreadingFactorCombobox
 			// 
+			this.SpreadingFactorCombobox.Enabled = false;
 			this.SpreadingFactorCombobox.FormattingEnabled = true;
 			this.SpreadingFactorCombobox.Items.AddRange(new object[] {
             "SF7",
@@ -2161,7 +2163,6 @@
 		private System.Windows.Forms.TabPage TabPageOther;
 		private System.Windows.Forms.TextBox TxTextbox;
 		public System.Windows.Forms.Button TransmitButton;
-		private System.Windows.Forms.NumericUpDown NumRetriesNumeric;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox RxTextbox;
 		private System.Windows.Forms.Button RxClearButton;
@@ -2183,27 +2184,16 @@
 		private System.Windows.Forms.Label RxPacketSizeLabel;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.NumericUpDown PayloadSizeNumeric;
-		private System.Windows.Forms.Label RxUidLengthLabel;
-		private System.Windows.Forms.Label TxUidLengthLabel;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox TxUidTextbox;
-		private System.Windows.Forms.TextBox RxUidTextbox;
 		private System.Windows.Forms.TabPage TabPageStatus;
 		private System.Windows.Forms.TabPage TabPageInt;
-		private System.Windows.Forms.ComboBox BandwidthCombobox;
-		private System.Windows.Forms.ComboBox SpreadingFactorCombobox;
-		private System.Windows.Forms.ComboBox RadioModeCombobox;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.ComboBox TransmitPowerCombobox;
 		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.NumericUpDown FhssTableNumeric;
-		private System.Windows.Forms.ComboBox PolarityCombobox;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label TxRssiLabel;
 		private System.Windows.Forms.Label TxSnrLabel;
@@ -2294,7 +2284,6 @@
 		private System.Windows.Forms.Label BusyBit;
 		private System.Windows.Forms.Label RadioStateBit1;
 		private System.Windows.Forms.Label EncryptionReadyLabel;
-		private System.Windows.Forms.CheckBox AcksEnabledCheckbox;
 		private System.Windows.Forms.Button OutputClearButton;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.Button GetTimeOnAirButton;
@@ -2307,5 +2296,18 @@
 		private System.Windows.Forms.Label label23;
 		public System.Windows.Forms.Label TimeOnAirLabel;
 		public System.Windows.Forms.Label RandomNumberLabel;
+		public System.Windows.Forms.NumericUpDown NumRetriesNumeric;
+		public System.Windows.Forms.NumericUpDown PayloadSizeNumeric;
+		public System.Windows.Forms.TextBox TxUidTextbox;
+		public System.Windows.Forms.TextBox RxUidTextbox;
+		public System.Windows.Forms.ComboBox BandwidthCombobox;
+		public System.Windows.Forms.ComboBox SpreadingFactorCombobox;
+		public System.Windows.Forms.ComboBox RadioModeCombobox;
+		public System.Windows.Forms.ComboBox TransmitPowerCombobox;
+		public System.Windows.Forms.NumericUpDown FhssTableNumeric;
+		public System.Windows.Forms.ComboBox PolarityCombobox;
+		public System.Windows.Forms.CheckBox AcksEnabledCheckbox;
+		public System.Windows.Forms.Label RxUidLengthLabel;
+		public System.Windows.Forms.Label TxUidLengthLabel;
 	}
 }

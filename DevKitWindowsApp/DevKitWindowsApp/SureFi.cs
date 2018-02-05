@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace DevKitWindowsApp
 {
@@ -299,7 +300,39 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AllSettings:
 				{
-					
+					if (rspPayload.Count == 13)
+					{
+						byte radioMode         = rspPayload[0];
+						byte fhssTable         = rspPayload[1];
+						byte receivePacketSize = rspPayload[2];
+						byte radioPolarity     = rspPayload[3];
+						byte transmitPower     = rspPayload[4];
+						byte qosConfig         = rspPayload[5];
+						byte[] indications     = rspPayload.GetRange(6, 3).ToArray();
+						byte quietMode         = rspPayload[9];
+						byte buttonConfig      = rspPayload[10];
+						byte acksEnabled       = rspPayload[11];
+						byte numRetries        = rspPayload[12];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.FhssTableNumeric.Value = (Decimal)fhssTable;
+						int payloadSize = receivePacketSize - mainForm.RxUidTextbox.Text.Length/2;
+						mainForm.PayloadSizeNumeric.Value = (Decimal)payloadSize;
+						mainForm.PushPacketSizeChange(true);
+						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
+						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
+						
+						//TODO: Fill the rest of the stuff
+						
+						mainForm.AcksEnabledCheckbox.Checked = (acksEnabled != 0x00);
+						mainForm.NumRetriesNumeric.Enabled = mainForm.AcksEnabledCheckbox.Checked;
+						mainForm.NumRetriesNumeric.Value = (Decimal)numRetries;
+						
+						mainForm.UpdateEncryptionReady();
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -307,7 +340,34 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.RadioMode:
 				{
-					
+					if (rspPayload.Count == 1 && rspPayload[0] <= 0x04)
+					{
+						byte radioMode = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.RadioModeCombobox.SelectedIndex = radioMode - 0x01;
+						mainForm.SpreadingFactorCombobox.Enabled = false;
+						mainForm.BandwidthCombobox.Enabled = false;
+						
+						mainForm.updatingElement = false;
+					}
+					else if (rspPayload.Count == 3 && rspPayload[0] == 0x07)
+					{
+						byte radioMode       = rspPayload[0];
+						byte spreadingFactor = rspPayload[1];
+						byte bandwidth       = rspPayload[2];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.RadioModeCombobox.SelectedIndex = 0x04;
+						mainForm.SpreadingFactorCombobox.SelectedIndex = spreadingFactor - 0x01;
+						mainForm.BandwidthCombobox.SelectedIndex = bandwidth - 0x01;
+						mainForm.SpreadingFactorCombobox.Enabled = true;
+						mainForm.BandwidthCombobox.Enabled = true;
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -315,7 +375,16 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.FhssTable:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte fhssTable = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.FhssTableNumeric.Value = (Decimal)fhssTable;
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -323,7 +392,19 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ReceiveUID:
 				{
+					string uidString = "";
+					foreach (byte b in rspPayload)
+					{
+						uidString += b.ToString("X2");
+					}
 					
+					mainForm.updatingElement = true;
+					
+					mainForm.RxUidTextbox.Text = uidString;
+					mainForm.RxUidLengthLabel.Text = rspPayload.Count.ToString() + " bytes";
+					mainForm.RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					
+					mainForm.updatingElement = false;
 				} break;
 				
 				// +==============================+
@@ -331,7 +412,19 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.TransmitUID:
 				{
+					string uidString = "";
+					foreach (byte b in rspPayload)
+					{
+						uidString += b.ToString("X2");
+					}
 					
+					mainForm.updatingElement = true;
+					
+					mainForm.TxUidTextbox.Text = uidString;
+					mainForm.TxUidLengthLabel.Text = rspPayload.Count.ToString() + " bytes";
+					mainForm.TxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					
+					mainForm.updatingElement = false;
 				} break;
 				
 				// +==============================+
@@ -339,7 +432,18 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ReceivePacketSize:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte rxPacketSize = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						int payloadSize = rxPacketSize - mainForm.RxUidTextbox.Text.Length/2;
+						mainForm.PayloadSizeNumeric.Value = (Decimal)payloadSize;
+						mainForm.PushPacketSizeChange(true);
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -347,7 +451,16 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.RadioPolarity:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte radioPolarity = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -355,7 +468,16 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.TransmitPower:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte transmitPower = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -403,7 +525,17 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AcksEnabled:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte acksEnabled = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.AcksEnabledCheckbox.Checked = (acksEnabled != 0x00);
+						mainForm.NumRetriesNumeric.Enabled = mainForm.AcksEnabledCheckbox.Checked;
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				// +==============================+
@@ -411,7 +543,16 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.NumRetries:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte numRetries = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.NumRetriesNumeric.Value = (Decimal)numRetries;
+						
+						mainForm.updatingElement = false;
+					}
 				} break;
 				
 				default:
