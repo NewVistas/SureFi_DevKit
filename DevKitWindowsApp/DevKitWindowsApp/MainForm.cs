@@ -18,12 +18,17 @@ namespace DevKitWindowsApp
 		// +==============================+
 		ConnectForm connectForm;
 		PortFifo port;
-		// SerialPort port;
-		// string portName;
 		
 		public delegate void ConnectionResultHandler(object sender, bool success, string message);
 		public event ConnectionResultHandler OnConnectionFinished;
 		
+		//NOTE: This variable prevents many of the "ValueChanged" call backs from taking action
+		//		It should be set whenever you want to programmatically change the value of a UI element without causing unintended effects
+		public bool updatingElement = false;
+		
+		// +==============================+
+		// |       Helper Functions       |
+		// +==============================+
 		void ReportConnectionResult(bool success, string message)
 		{
 			Console.WriteLine("Connection " + (success ? "Succeeded" : "Failed") + "!");
@@ -33,9 +38,6 @@ namespace DevKitWindowsApp
 			if (!success) { this.Close(); }
 		}
 		
-		// +==============================+
-		// |       Helper Functions       |
-		// +==============================+
 		void StatusUpdate(string statusMessage)
 		{
 			StatusLabel.Text = statusMessage;
@@ -88,6 +90,45 @@ namespace DevKitWindowsApp
 				bitLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.DeepSkyBlue : KnownColor.Transparent);
 				bitLabel.ForeColor = Color.FromKnownColor(filled ? KnownColor.Control : KnownColor.ControlText);
 			}
+		}
+		
+		bool IsHexChar(char c)
+		{
+			if (c >= '0' && c <= '9') { return true; }
+			if (c >= 'a' && c <= 'f') { return true; }
+			if (c >= 'A' && c <= 'F') { return true; }
+			return false;
+		}
+		
+		byte GetHexCharValue(char c)
+		{
+			if (c >= '0' && c <= '9') { return (byte)(c - '0'); }
+			if (c >= 'a' && c <= 'f') { return (byte)((c - 'a') + 10); }
+			if (c >= 'A' && c <= 'F') { return (byte)((c - 'A') + 10); }
+			return 0;
+		}
+		
+		bool TryParseHexString(string hexString, out byte[] bytesOut)
+		{
+			if (hexString.Length < 2) { bytesOut = null; return false; }
+			if ((hexString.Length%2) != 0) { bytesOut = null; return false; }
+			bytesOut = new byte[hexString.Length/2];
+			
+			int bIndex = 0;
+			for (int cIndex = 0; cIndex+2 <= hexString.Length; cIndex += 2)
+			{
+				char c1 = hexString[cIndex];
+				char c2 = hexString[cIndex+1];
+				if (!IsHexChar(c1)) { return false; }
+				if (!IsHexChar(c2)) { return false; }
+				byte hexValue = GetHexCharValue(c1);
+				hexValue = (byte)(hexValue << 4);
+				hexValue += GetHexCharValue(c2);
+				bytesOut[bIndex] = hexValue;
+				bIndex++;
+			}
+			
+			return true;
 		}
 		
 		// +==============================+
@@ -183,7 +224,7 @@ namespace DevKitWindowsApp
 		{
 			this.OutputTextbox.Clear();
 		}
-
+		
 		private void LedCombo6_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (LedCombo6.SelectedIndex == 0)
@@ -198,7 +239,7 @@ namespace DevKitWindowsApp
 			}
 			LedLabel6.Text = LedCombo6.SelectedIndex.ToString();
 		}
-
+		
 		private void AutoClearFlagsCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			if (AutoClearFlagsCheckbox.Checked)
@@ -214,6 +255,149 @@ namespace DevKitWindowsApp
 				AutoClearFlagsBit.Text = "0";
 				AutoClearFlagsBit.BackColor = Color.FromKnownColor(KnownColor.Transparent);
 				AutoClearFlagsBit.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			}
+		}
+		
+		// +==============================+
+		// |        Rx UID Textbox        |
+		// +==============================+
+		private bool rxUidChanged = false;
+		private void PushRxUidChange()
+		{
+			byte[] payload = null;
+			if (TryParseHexString(RxUidTextbox.Text, out payload))
+			{
+				port.PushTxCommand(SureCmd.SetReceiveUID, payload);
+				RxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			}
+			else
+			{
+				RxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+		}
+		private void RxUidTextbox_TextChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				// Console.WriteLine("Rx Uid Text Changed");
+				
+				//Crop the text down to 8 bytes
+				if (RxUidTextbox.Text.Length > 8*2)//TODO: MAX_UID_LENGTH define?
+				{
+					updatingElement = true;
+					
+					int selectionPos = RxUidTextbox.SelectionStart;
+					RxUidTextbox.Text = RxUidTextbox.Text.Substring(0, 8*2);//TODO: MAX_UID_LENGTH define?
+					if (selectionPos > RxUidTextbox.Text.Length) { selectionPos = RxUidTextbox.Text.Length; }
+					RxUidTextbox.SelectionStart = selectionPos;
+					RxUidTextbox.SelectionLength = 0;
+					
+					updatingElement = false;
+				}
+				
+				byte[] hexValues = null;
+				if (TryParseHexString(RxUidTextbox.Text, out hexValues))
+				{
+					RxUidLengthLabel.Text = hexValues.Length.ToString() + " bytes";
+					RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					RxUidLengthLabel.Text = "Invalid";
+					RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				}
+				
+				RxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+				rxUidChanged = true;
+			}
+		}
+		private void RxUidTextbox_Leave(object sender, EventArgs e)
+		{
+			if (rxUidChanged)
+			{
+				rxUidChanged = false;
+				PushRxUidChange();
+			}
+		}
+		private void RxUidTextbox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)// && rxUidChanged)
+			{
+				rxUidChanged = false;
+				PushRxUidChange();
+			}
+		}
+		
+		// +==============================+
+		// |        Tx UID Textbox        |
+		// +==============================+
+		private bool txUidChanged = false;
+		private void PushTxUidChange()
+		{
+			byte[] payload = null;
+			if (TryParseHexString(TxUidTextbox.Text, out payload))
+			{
+				port.PushTxCommand(SureCmd.SetTransmitUID, payload);
+				TxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			}
+			else
+			{
+				TxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+		}
+		
+		private void TxUidTextbox_TextChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				// Console.WriteLine("Tx Uid Text Changed");
+				
+				//Crop the text down to 8 bytes
+				if (TxUidTextbox.Text.Length > 8*2)//TODO: MAX_UID_LENGTH define?
+				{
+					updatingElement = true;
+					
+					int selectionPos = TxUidTextbox.SelectionStart;
+					TxUidTextbox.Text = TxUidTextbox.Text.Substring(0, 8*2);//TODO: MAX_UID_LENGTH define?
+					if (selectionPos > TxUidTextbox.Text.Length) { selectionPos = TxUidTextbox.Text.Length; }
+					TxUidTextbox.SelectionStart = selectionPos;
+					TxUidTextbox.SelectionLength = 0;
+					
+					updatingElement = false;
+				}
+				
+				byte[] hexValues = null;
+				if (TryParseHexString(TxUidTextbox.Text, out hexValues))
+				{
+					TxUidLengthLabel.Text = hexValues.Length.ToString() + " bytes";
+					TxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					TxUidLengthLabel.Text = "Invalid";
+					TxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				}
+				
+				TxUidTextbox.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+				txUidChanged = true;
+			}
+		}
+		
+		private void TxUidTextbox_Leave(object sender, EventArgs e)
+		{
+			if (txUidChanged)
+			{
+				txUidChanged = false;
+				PushTxUidChange();
+			}
+		}
+		
+		private void TxUidTextbox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)// && txUidChanged)
+			{
+				txUidChanged = false;
+				PushTxUidChange();
 			}
 		}
 	}

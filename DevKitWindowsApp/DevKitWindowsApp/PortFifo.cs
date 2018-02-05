@@ -96,7 +96,7 @@ namespace DevKitWindowsApp
 					string newString = "";
 					foreach (byte b in newBytes)
 					{
-						if (!mainForm.HumanReadableCheckbox.Checked)
+						if (mainForm != null && !mainForm.HumanReadableCheckbox.Checked)
 						{
 							if (b == 0x7E && mainForm.OutputTextbox.Text != "")
 							{
@@ -114,7 +114,7 @@ namespace DevKitWindowsApp
 						this.rxFifo.Add(b);
 					}
 					
-					mainForm.OutputTextbox.Text += newString;
+					if (mainForm != null) { mainForm.OutputTextbox.Text += newString; }
 				}
 			}
 		}
@@ -173,6 +173,40 @@ namespace DevKitWindowsApp
 			{
 				return null;
 			}
+		}
+		
+		public void PushTxBytes(byte[] txBytes)
+		{
+			if (this.isOpen)
+			{
+				port.Write(txBytes, 0, txBytes.Length);
+			}
+		}
+		
+		public void FlushTxBytes()
+		{
+			while (this.port.BytesToWrite > 0)
+			{
+				//Idle
+			}
+		}
+		
+		public void PushTxCommandNoBytes(SureCmd cmd)
+		{
+			byte[] command = { 0x7E, (byte)cmd, 0x00 };
+			PushTxBytes(command);
+		}
+		
+		public void PushTxCommand(SureCmd cmd, byte[] payload)
+		{
+			if (payload.Length > 255)
+			{
+				Console.WriteLine("WARNING: Payload is too large for command!");
+				return;
+			}
+			byte[] command = {0x7E, (byte)cmd, (byte)payload.Length };
+			PushTxBytes(command);
+			PushTxBytes(payload);
 		}
 	}
 }

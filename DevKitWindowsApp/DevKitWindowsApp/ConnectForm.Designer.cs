@@ -42,14 +42,14 @@
 			this.ComListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.ComListBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ComListBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ComListBox.FormattingEnabled = true;
-			this.ComListBox.ItemHeight = 23;
+			this.ComListBox.ItemHeight = 16;
 			this.ComListBox.Items.AddRange(new object[] {
             "Scanning..."});
 			this.ComListBox.Location = new System.Drawing.Point(12, 24);
 			this.ComListBox.Name = "ComListBox";
-			this.ComListBox.Size = new System.Drawing.Size(171, 280);
+			this.ComListBox.Size = new System.Drawing.Size(260, 276);
 			this.ComListBox.TabIndex = 0;
 			this.ComListBox.SelectedIndexChanged += new System.EventHandler(this.ComListBox_SelectedIndexChanged);
 			// 
@@ -57,7 +57,7 @@
 			// 
 			this.ConnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.ConnectButton.Enabled = false;
-			this.ConnectButton.Location = new System.Drawing.Point(189, 249);
+			this.ConnectButton.Location = new System.Drawing.Point(278, 249);
 			this.ConnectButton.Name = "ConnectButton";
 			this.ConnectButton.Size = new System.Drawing.Size(109, 55);
 			this.ConnectButton.TabIndex = 1;
@@ -68,7 +68,7 @@
 			// RefreshButton
 			// 
 			this.RefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.RefreshButton.Location = new System.Drawing.Point(189, 24);
+			this.RefreshButton.Location = new System.Drawing.Point(278, 24);
 			this.RefreshButton.Name = "RefreshButton";
 			this.RefreshButton.Size = new System.Drawing.Size(109, 28);
 			this.RefreshButton.TabIndex = 2;
@@ -81,7 +81,7 @@
 			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
 			this.pictureBox1.InitialImage = null;
-			this.pictureBox1.Location = new System.Drawing.Point(189, 134);
+			this.pictureBox1.Location = new System.Drawing.Point(278, 134);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(109, 109);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -101,7 +101,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(310, 320);
+			this.ClientSize = new System.Drawing.Size(399, 320);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.RefreshButton);

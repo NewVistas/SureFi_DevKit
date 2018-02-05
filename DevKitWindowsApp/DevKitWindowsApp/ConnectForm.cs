@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using System.IO.Ports;
 
@@ -18,6 +19,7 @@ namespace DevKitWindowsApp
 		// |       Member Variables       |
 		// +==============================+
 		MainForm mainForm;
+		List<string> portNames = null;
 		
 		// +==============================+
 		// |       Helper Functions       |
@@ -47,8 +49,87 @@ namespace DevKitWindowsApp
 			return 0;
 		}
 		
+		string GetComModuleName(string portName)
+		{
+			string result = null;
+			
+			PortFifo testPort = new PortFifo(null, portName);
+			if (testPort.isOpen)
+			{
+				result = portName;
+				
+				testPort.PushTxCommandNoBytes(SureCmd.GetStatus);
+				testPort.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
+				testPort.FlushTxBytes();
+				
+				int numMs = 50;
+				bool gotStatus = false;
+				while (numMs > 0)
+				{
+					testPort.Update();
+					List<byte> response = testPort.PopRxCommand();
+					if (response != null)
+					{
+						byte rspCmd = response[1];
+						byte rspLength = response[2];
+						List<byte> payload = response.GetRange(3, response.Count-3);
+						
+						if (rspCmd == (byte)SureRsp.Status)
+						{
+							if (rspLength == 4)
+							{
+								Console.WriteLine("Got Status Response");
+								gotStatus = true;
+							}
+							else
+							{
+								Console.WriteLine("Got " + rspLength.ToString() + " byte Status Response");
+							}
+						}
+						else if (rspCmd == (byte)SureRsp.ReceiveUID)
+						{
+							if (gotStatus)
+							{
+								Console.WriteLine("Got " + rspLength.ToString() + " byte ReceiveUID Response");
+								
+								result = "Sure-Fi Module-";
+								if (payload.Count == 0)
+								{
+									result += "No UID";
+								}
+								else
+								{
+									for (int bIndex = 0; bIndex < payload.Count; bIndex++)
+									{
+										result += payload[bIndex].ToString("X2");
+									}
+								}
+								break;
+							}
+							else
+							{
+								Console.WriteLine("Got ReceiveUID Response before Status Response");
+							}
+						}
+						else
+						{
+							Console.WriteLine("Got other " + rspLength.ToString() + " byte command " + rspCmd.ToString("X2"));
+						}
+					}
+					
+					Thread.Sleep(1);
+					numMs--;
+				}
+			}
+			
+			if (result == portName) { Console.WriteLine("Timed out on " + portName); }
+			testPort.Close();
+			return result;
+		}
+		
 		void UpdateComList()
 		{
+			portNames = new List<string>();
 			string[] ports = SerialPort.GetPortNames();
 			Comparison<string> comparison = new Comparison<string>(CompareComNames);
 			Array.Sort(ports, comparison);
@@ -56,7 +137,16 @@ namespace DevKitWindowsApp
 			ComListBox.Items.Clear();
 			foreach (string port in ports)
 			{
-				ComListBox.Items.Insert(ComListBox.Items.Count, port);
+				string moduleName = GetComModuleName(port);
+				if (moduleName != null)
+				{
+					ComListBox.Items.Insert(ComListBox.Items.Count, moduleName);
+				}
+				else
+				{
+					ComListBox.Items.Insert(ComListBox.Items.Count, port + " [In Use]");
+				}
+				portNames.Add(port);
 			}
 			
 			ConnectButton.Enabled = false;
@@ -135,7 +225,7 @@ namespace DevKitWindowsApp
 		{
 			if (ComListBox.SelectedIndex >= 0)
 			{
-				string connectPortName = ComListBox.SelectedItem.ToString();
+				string connectPortName = portNames[ComListBox.SelectedIndex];
 				Console.WriteLine("Connecting to \"" + connectPortName + "\"");
 				ConnectToPort(connectPortName);
 			}

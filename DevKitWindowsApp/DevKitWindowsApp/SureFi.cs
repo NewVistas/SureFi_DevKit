@@ -114,12 +114,12 @@ namespace DevKitWindowsApp
 			byte rspLength = responseBytes[2];
 			List<byte> rspPayload = responseBytes.GetRange(3, responseBytes.Count-3);
 			
-			string rspString = rspCmd.ToString() + "[" + rspLength.ToString() + "] { ";
+			string rspString = rspCmd.ToString() + "[" + rspLength.ToString() + "]";
 			foreach (byte b in rspPayload)
 			{
-				rspString += b.ToString("X2") + " ";
+				rspString += " " + b.ToString("X2");
 			}
-			rspString += "}";
+			// rspString += "}";
 			
 			Console.WriteLine("Got " + rspString);
 			if (mainForm.HumanReadableCheckbox.Checked)
@@ -131,7 +131,7 @@ namespace DevKitWindowsApp
 			{
 				case SureRsp.Status:
 				{
-					Console.WriteLine("Got status!");
+					// Console.WriteLine("Got status!");
 					for (int bIndex = 0; bIndex < 4; bIndex++)
 					{
 						if (bIndex == 0) { mainForm.StatusStateLabel.Text     = "State: 0x"     + rspPayload[bIndex].ToString("X2"); }
@@ -142,7 +142,7 @@ namespace DevKitWindowsApp
 						{
 							byte bit = (byte)(0x01 << bitIndex);
 							bool isBitSet = (rspPayload[bIndex] & bit) > 0;
-							Console.WriteLine("Setting " + bIndex.ToString() + "." + bit.ToString("X2") + " to " + isBitSet.ToString());
+							// Console.WriteLine("Setting " + bIndex.ToString() + "." + bit.ToString("X2") + " to " + isBitSet.ToString());
 							mainForm.SetStatusBit(bIndex, bit, isBitSet);
 						}
 					}

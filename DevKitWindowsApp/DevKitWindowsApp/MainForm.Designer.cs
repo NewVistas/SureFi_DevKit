@@ -61,7 +61,7 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.TxUidTextbox = new System.Windows.Forms.TextBox();
 			this.RxUidTextbox = new System.Windows.Forms.TextBox();
 			this.TabPageOther = new System.Windows.Forms.TabPage();
 			this.label24 = new System.Windows.Forms.Label();
@@ -291,7 +291,7 @@
 			this.TabPageRadio.Controls.Add(this.label7);
 			this.TabPageRadio.Controls.Add(this.label5);
 			this.TabPageRadio.Controls.Add(this.label4);
-			this.TabPageRadio.Controls.Add(this.textBox3);
+			this.TabPageRadio.Controls.Add(this.TxUidTextbox);
 			this.TabPageRadio.Controls.Add(this.RxUidTextbox);
 			this.TabPageRadio.Location = new System.Drawing.Point(4, 22);
 			this.TabPageRadio.Name = "TabPageRadio";
@@ -563,13 +563,16 @@
 			this.label4.TabIndex = 1;
 			this.label4.Text = "Rx UID";
 			// 
-			// textBox3
+			// TxUidTextbox
 			// 
-			this.textBox3.Location = new System.Drawing.Point(8, 61);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(102, 20);
-			this.textBox3.TabIndex = 0;
-			this.textBox3.Text = "200001";
+			this.TxUidTextbox.Location = new System.Drawing.Point(8, 61);
+			this.TxUidTextbox.Name = "TxUidTextbox";
+			this.TxUidTextbox.Size = new System.Drawing.Size(102, 20);
+			this.TxUidTextbox.TabIndex = 0;
+			this.TxUidTextbox.Text = "200001";
+			this.TxUidTextbox.TextChanged += new System.EventHandler(this.TxUidTextbox_TextChanged);
+			this.TxUidTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxUidTextbox_KeyDown);
+			this.TxUidTextbox.Leave += new System.EventHandler(this.TxUidTextbox_Leave);
 			// 
 			// RxUidTextbox
 			// 
@@ -578,6 +581,9 @@
 			this.RxUidTextbox.Size = new System.Drawing.Size(100, 20);
 			this.RxUidTextbox.TabIndex = 0;
 			this.RxUidTextbox.Text = "100001";
+			this.RxUidTextbox.TextChanged += new System.EventHandler(this.RxUidTextbox_TextChanged);
+			this.RxUidTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RxUidTextbox_KeyDown);
+			this.RxUidTextbox.Leave += new System.EventHandler(this.RxUidTextbox_Leave);
 			// 
 			// TabPageOther
 			// 
@@ -2008,7 +2014,7 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox TxUidTextbox;
 		private System.Windows.Forms.TextBox RxUidTextbox;
 		private System.Windows.Forms.TabPage TabPageStatus;
 		private System.Windows.Forms.TabPage TabPageInt;
