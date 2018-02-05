@@ -525,5 +525,178 @@ namespace DevKitWindowsApp
 				PushPacketSizeChange(false);
 			}
 		}
+		
+		// +==============================+
+		// |   Transmit Power Combobox    |
+		// +==============================+
+		private void PushTransmitPower()
+		{
+			byte[] payload = { (byte)(TransmitPowerCombobox.SelectedIndex + 1) };
+			this.port.PushTxCommand(SureCmd.SetTransmitPower, payload);
+		}
+		private void TransmitPowerCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushTransmitPower();
+			}
+		}
+		
+		// +==============================+
+		// |      Polarity Combobox       |
+		// +==============================+
+		private void PushPolarity()
+		{
+			if (PolarityCombobox.SelectedIndex == 0) //Disabled
+			{
+				byte[] payload = { 0x00 };
+				this.port.PushTxCommand(SureCmd.SetRadioPolarity, payload);
+			}
+			else if (PolarityCombobox.SelectedIndex == 1) //Up
+			{
+				byte[] payload = { 0x01 };
+				this.port.PushTxCommand(SureCmd.SetRadioPolarity, payload);
+			}
+			else if (PolarityCombobox.SelectedIndex == 2) //Down
+			{
+				byte[] payload = { 0x02 };
+				this.port.PushTxCommand(SureCmd.SetRadioPolarity, payload);
+			}
+		}
+		private void PolarityCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushPolarity();
+			}
+		}
+		
+		// +==============================+
+		// |     FHSS Table Combobox      |
+		// +==============================+
+		private void PushFhssTable()
+		{
+			byte[] payload = { (byte)FhssTableNumeric.Value };
+			this.port.PushTxCommand(SureCmd.SetFhssTable, payload);
+		}
+		private void FhssTableNumeric_ValueChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				updatingElement = true;
+				if (FhssTableNumeric.Value < 0)
+				{
+					FhssTableNumeric.Value = 0;
+				}
+				if (FhssTableNumeric.Value >= 216)
+				{
+					FhssTableNumeric.Value = 215;
+				}
+				updatingElement = false;
+				
+				PushFhssTable();
+			}
+		}
+		
+		// +==============================+
+		// |     Radio Mode Combobox      |
+		// +==============================+
+		private void PushRadioMode()
+		{
+			if (RadioModeCombobox.SelectedIndex == 4) //Custom
+			{
+				byte[] payload = { 0x07, (byte)(SpreadingFactorCombobox.SelectedIndex+1), (byte)(BandwidthCombobox.SelectedIndex+1) };
+				this.port.PushTxCommand(SureCmd.SetRadioMode, payload);
+			}
+			else
+			{
+				byte[] payload = { (byte)(RadioModeCombobox.SelectedIndex+1) };
+				this.port.PushTxCommand(SureCmd.SetRadioMode, payload);
+			}
+		}
+		private void RadioModeCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				if (RadioModeCombobox.SelectedIndex == 4) //Custom
+				{
+					SpreadingFactorCombobox.Enabled = true;
+					BandwidthCombobox.Enabled = true;
+				}
+				else
+				{
+					SpreadingFactorCombobox.Enabled = false;
+					BandwidthCombobox.Enabled = false;
+				}
+				
+				PushRadioMode();
+			}
+		}
+		private void SpreadingFactorCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushRadioMode();
+			}
+		}
+		private void BandwidthCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushRadioMode();
+			}
+		}
+		
+		// +==============================+
+		// |     Num Retries Combobox     |
+		// +==============================+
+		private void PushNumRetries()
+		{
+			byte[] payload = { (byte)NumRetriesNumeric.Value };
+			this.port.PushTxCommand(SureCmd.SetNumRetries, payload);
+		}
+		private void NumRetriesNumeric_ValueChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				updatingElement = true;
+				if (NumRetriesNumeric.Value < 0)
+				{
+					NumRetriesNumeric.Value = 0;
+				}
+				if (NumRetriesNumeric.Value >= 216)
+				{
+					NumRetriesNumeric.Value = 215;
+				}
+				updatingElement = false;
+				
+				PushNumRetries();
+			}
+		}
+		
+		// +==============================+
+		// |     Acks Enable Checkbox     |
+		// +==============================+
+		private void PushAcksEnabled()
+		{
+			byte[] payload = { (byte)(AcksEnabledCheckbox.Checked ? 0x01 : 0x00) };
+			this.port.PushTxCommand(SureCmd.SetAcksEnabled, payload);
+		}
+		private void AcksEnabledCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				if (AcksEnabledCheckbox.Checked)
+				{
+					NumRetriesNumeric.Enabled = true;
+				}
+				else
+				{
+					NumRetriesNumeric.Enabled = false;
+				}
+				
+				PushAcksEnabled();
+			}
+		}
 	}
 }

@@ -38,9 +38,11 @@
 			this.HumanReadableCheckbox = new System.Windows.Forms.CheckBox();
 			this.MainTabControl = new System.Windows.Forms.TabControl();
 			this.TabPageRadio = new System.Windows.Forms.TabPage();
+			this.AcksEnabledCheckbox = new System.Windows.Forms.CheckBox();
+			this.EncryptionReadyLabel = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.FhssTableNumeric = new System.Windows.Forms.NumericUpDown();
+			this.PolarityCombobox = new System.Windows.Forms.ComboBox();
 			this.BandwidthCombobox = new System.Windows.Forms.ComboBox();
 			this.SpreadingFactorCombobox = new System.Windows.Forms.ComboBox();
 			this.RadioModeCombobox = new System.Windows.Forms.ComboBox();
@@ -89,6 +91,17 @@
 			this.label17 = new System.Windows.Forms.Label();
 			this.QosConfigCombobox = new System.Windows.Forms.ComboBox();
 			this.TabPageCommands = new System.Windows.Forms.TabPage();
+			this.GetRandomNumberButton = new System.Windows.Forms.Button();
+			this.label23 = new System.Windows.Forms.Label();
+			this.label28 = new System.Windows.Forms.Label();
+			this.FirmwareVersionLabel = new System.Windows.Forms.Label();
+			this.RandomNumberLabel = new System.Windows.Forms.Label();
+			this.TimeOnAirLabel = new System.Windows.Forms.Label();
+			this.MicroVersionLabel = new System.Windows.Forms.Label();
+			this.GetTimeOnAirButton = new System.Windows.Forms.Button();
+			this.HardwareVersionLabel = new System.Windows.Forms.Label();
+			this.GetModuleVersionButton = new System.Windows.Forms.Button();
+			this.label16 = new System.Windows.Forms.Label();
 			this.ShowQosButton = new System.Windows.Forms.Button();
 			this.LightshowButton = new System.Windows.Forms.Button();
 			this.RefreshSettingsButton = new System.Windows.Forms.Button();
@@ -173,13 +186,11 @@
 			this.TxSnrLabel = new System.Windows.Forms.Label();
 			this.RxRssiLabel = new System.Windows.Forms.Label();
 			this.RxSnrLabel = new System.Windows.Forms.Label();
-			this.EncryptionReadyLabel = new System.Windows.Forms.Label();
 			this.OutputClearButton = new System.Windows.Forms.Button();
-			this.AcksEnabledCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.FhssTableNumeric)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NumRetriesNumeric)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.PayloadSizeNumeric)).BeginInit();
 			this.TabPageOther.SuspendLayout();
@@ -192,9 +203,9 @@
 			// 
 			this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel});
-			this.StatusBar.Location = new System.Drawing.Point(0, 430);
+			this.StatusBar.Location = new System.Drawing.Point(0, 416);
 			this.StatusBar.Name = "StatusBar";
-			this.StatusBar.Size = new System.Drawing.Size(754, 22);
+			this.StatusBar.Size = new System.Drawing.Size(685, 22);
 			this.StatusBar.TabIndex = 1;
 			this.StatusBar.Text = "statusStrip1";
 			// 
@@ -218,12 +229,12 @@
 			this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.Default;
 			this.OutputTextbox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OutputTextbox.Location = new System.Drawing.Point(581, 27);
+			this.OutputTextbox.Location = new System.Drawing.Point(512, 27);
 			this.OutputTextbox.Multiline = true;
 			this.OutputTextbox.Name = "OutputTextbox";
 			this.OutputTextbox.ReadOnly = true;
 			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.OutputTextbox.Size = new System.Drawing.Size(161, 371);
+			this.OutputTextbox.Size = new System.Drawing.Size(161, 291);
 			this.OutputTextbox.TabIndex = 2;
 			this.OutputTextbox.TabStop = false;
 			this.OutputTextbox.Text = "[7E] 40 04 12 AB CD EF";
@@ -231,7 +242,7 @@
 			// DisconnectButton
 			// 
 			this.DisconnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.DisconnectButton.Location = new System.Drawing.Point(581, 404);
+			this.DisconnectButton.Location = new System.Drawing.Point(512, 324);
 			this.DisconnectButton.Name = "DisconnectButton";
 			this.DisconnectButton.Size = new System.Drawing.Size(144, 23);
 			this.DisconnectButton.TabIndex = 3;
@@ -245,7 +256,7 @@
 			this.HumanReadableCheckbox.AutoSize = true;
 			this.HumanReadableCheckbox.Checked = true;
 			this.HumanReadableCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.HumanReadableCheckbox.Location = new System.Drawing.Point(586, 7);
+			this.HumanReadableCheckbox.Location = new System.Drawing.Point(517, 7);
 			this.HumanReadableCheckbox.Name = "HumanReadableCheckbox";
 			this.HumanReadableCheckbox.Size = new System.Drawing.Size(109, 17);
 			this.HumanReadableCheckbox.TabIndex = 4;
@@ -266,7 +277,7 @@
 			this.MainTabControl.Location = new System.Drawing.Point(0, 0);
 			this.MainTabControl.Name = "MainTabControl";
 			this.MainTabControl.SelectedIndex = 0;
-			this.MainTabControl.Size = new System.Drawing.Size(575, 361);
+			this.MainTabControl.Size = new System.Drawing.Size(506, 347);
 			this.MainTabControl.TabIndex = 5;
 			// 
 			// TabPageRadio
@@ -274,8 +285,8 @@
 			this.TabPageRadio.Controls.Add(this.AcksEnabledCheckbox);
 			this.TabPageRadio.Controls.Add(this.EncryptionReadyLabel);
 			this.TabPageRadio.Controls.Add(this.label15);
-			this.TabPageRadio.Controls.Add(this.numericUpDown1);
-			this.TabPageRadio.Controls.Add(this.comboBox1);
+			this.TabPageRadio.Controls.Add(this.FhssTableNumeric);
+			this.TabPageRadio.Controls.Add(this.PolarityCombobox);
 			this.TabPageRadio.Controls.Add(this.BandwidthCombobox);
 			this.TabPageRadio.Controls.Add(this.SpreadingFactorCombobox);
 			this.TabPageRadio.Controls.Add(this.RadioModeCombobox);
@@ -301,10 +312,33 @@
 			this.TabPageRadio.Location = new System.Drawing.Point(4, 22);
 			this.TabPageRadio.Name = "TabPageRadio";
 			this.TabPageRadio.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageRadio.Size = new System.Drawing.Size(567, 335);
+			this.TabPageRadio.Size = new System.Drawing.Size(498, 321);
 			this.TabPageRadio.TabIndex = 0;
 			this.TabPageRadio.Text = "Radio Settings";
 			this.TabPageRadio.UseVisualStyleBackColor = true;
+			// 
+			// AcksEnabledCheckbox
+			// 
+			this.AcksEnabledCheckbox.AutoSize = true;
+			this.AcksEnabledCheckbox.Checked = true;
+			this.AcksEnabledCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.AcksEnabledCheckbox.Location = new System.Drawing.Point(76, 179);
+			this.AcksEnabledCheckbox.Name = "AcksEnabledCheckbox";
+			this.AcksEnabledCheckbox.Size = new System.Drawing.Size(92, 17);
+			this.AcksEnabledCheckbox.TabIndex = 15;
+			this.AcksEnabledCheckbox.Text = "Acks Enabled";
+			this.AcksEnabledCheckbox.UseVisualStyleBackColor = true;
+			this.AcksEnabledCheckbox.CheckedChanged += new System.EventHandler(this.AcksEnabledCheckbox_CheckedChanged);
+			// 
+			// EncryptionReadyLabel
+			// 
+			this.EncryptionReadyLabel.AutoSize = true;
+			this.EncryptionReadyLabel.ForeColor = System.Drawing.Color.DarkGreen;
+			this.EncryptionReadyLabel.Location = new System.Drawing.Point(208, 180);
+			this.EncryptionReadyLabel.Name = "EncryptionReadyLabel";
+			this.EncryptionReadyLabel.Size = new System.Drawing.Size(102, 13);
+			this.EncryptionReadyLabel.TabIndex = 14;
+			this.EncryptionReadyLabel.Text = "✓ Encryption Ready";
 			// 
 			// label15
 			// 
@@ -315,26 +349,28 @@
 			this.label15.TabIndex = 13;
 			this.label15.Text = "FHSS Table";
 			// 
-			// numericUpDown1
+			// FhssTableNumeric
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(211, 101);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(62, 20);
-			this.numericUpDown1.TabIndex = 12;
-			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.FhssTableNumeric.Location = new System.Drawing.Point(211, 101);
+			this.FhssTableNumeric.Name = "FhssTableNumeric";
+			this.FhssTableNumeric.Size = new System.Drawing.Size(62, 20);
+			this.FhssTableNumeric.TabIndex = 12;
+			this.FhssTableNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.FhssTableNumeric.ValueChanged += new System.EventHandler(this.FhssTableNumeric_ValueChanged);
 			// 
-			// comboBox1
+			// PolarityCombobox
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
+			this.PolarityCombobox.FormattingEnabled = true;
+			this.PolarityCombobox.Items.AddRange(new object[] {
             "Disabled",
             "Up",
             "Down"});
-			this.comboBox1.Location = new System.Drawing.Point(125, 100);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(80, 21);
-			this.comboBox1.TabIndex = 11;
-			this.comboBox1.Text = "Disabled";
+			this.PolarityCombobox.Location = new System.Drawing.Point(125, 100);
+			this.PolarityCombobox.Name = "PolarityCombobox";
+			this.PolarityCombobox.Size = new System.Drawing.Size(80, 21);
+			this.PolarityCombobox.TabIndex = 11;
+			this.PolarityCombobox.Text = "Disabled";
+			this.PolarityCombobox.SelectedIndexChanged += new System.EventHandler(this.PolarityCombobox_SelectedIndexChanged);
 			// 
 			// BandwidthCombobox
 			// 
@@ -350,20 +386,24 @@
 			this.BandwidthCombobox.Size = new System.Drawing.Size(110, 21);
 			this.BandwidthCombobox.TabIndex = 10;
 			this.BandwidthCombobox.Text = "500 kHz";
+			this.BandwidthCombobox.SelectedIndexChanged += new System.EventHandler(this.BandwidthCombobox_SelectedIndexChanged);
 			// 
 			// SpreadingFactorCombobox
 			// 
 			this.SpreadingFactorCombobox.FormattingEnabled = true;
 			this.SpreadingFactorCombobox.Items.AddRange(new object[] {
-            "SF12",
-            "SF11",
+            "SF7",
+            "SF8",
+            "SF9",
             "SF10",
-            "SF9"});
+            "SF11",
+            "SF12"});
 			this.SpreadingFactorCombobox.Location = new System.Drawing.Point(156, 141);
 			this.SpreadingFactorCombobox.Name = "SpreadingFactorCombobox";
 			this.SpreadingFactorCombobox.Size = new System.Drawing.Size(99, 21);
 			this.SpreadingFactorCombobox.TabIndex = 9;
 			this.SpreadingFactorCombobox.Text = "SF11";
+			this.SpreadingFactorCombobox.SelectedIndexChanged += new System.EventHandler(this.SpreadingFactorCombobox_SelectedIndexChanged);
 			// 
 			// RadioModeCombobox
 			// 
@@ -379,6 +419,7 @@
 			this.RadioModeCombobox.Size = new System.Drawing.Size(142, 21);
 			this.RadioModeCombobox.TabIndex = 8;
 			this.RadioModeCombobox.Text = "Mode 2 (Long Range)";
+			this.RadioModeCombobox.SelectedIndexChanged += new System.EventHandler(this.RadioModeCombobox_SelectedIndexChanged);
 			// 
 			// label13
 			// 
@@ -465,6 +506,7 @@
 			this.TransmitPowerCombobox.Size = new System.Drawing.Size(111, 21);
 			this.TransmitPowerCombobox.TabIndex = 6;
 			this.TransmitPowerCombobox.Text = "30 dBm (1 W)";
+			this.TransmitPowerCombobox.SelectedIndexChanged += new System.EventHandler(this.TransmitPowerCombobox_SelectedIndexChanged);
 			// 
 			// RxPacketSizeLabel
 			// 
@@ -514,6 +556,7 @@
             0,
             0,
             0});
+			this.NumRetriesNumeric.ValueChanged += new System.EventHandler(this.NumRetriesNumeric_ValueChanged);
 			// 
 			// PayloadSizeNumeric
 			// 
@@ -620,7 +663,7 @@
 			this.TabPageOther.Location = new System.Drawing.Point(4, 22);
 			this.TabPageOther.Name = "TabPageOther";
 			this.TabPageOther.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageOther.Size = new System.Drawing.Size(567, 335);
+			this.TabPageOther.Size = new System.Drawing.Size(498, 321);
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
@@ -951,6 +994,17 @@
 			// 
 			// TabPageCommands
 			// 
+			this.TabPageCommands.Controls.Add(this.GetRandomNumberButton);
+			this.TabPageCommands.Controls.Add(this.label23);
+			this.TabPageCommands.Controls.Add(this.label28);
+			this.TabPageCommands.Controls.Add(this.FirmwareVersionLabel);
+			this.TabPageCommands.Controls.Add(this.RandomNumberLabel);
+			this.TabPageCommands.Controls.Add(this.TimeOnAirLabel);
+			this.TabPageCommands.Controls.Add(this.MicroVersionLabel);
+			this.TabPageCommands.Controls.Add(this.GetTimeOnAirButton);
+			this.TabPageCommands.Controls.Add(this.HardwareVersionLabel);
+			this.TabPageCommands.Controls.Add(this.GetModuleVersionButton);
+			this.TabPageCommands.Controls.Add(this.label16);
 			this.TabPageCommands.Controls.Add(this.ShowQosButton);
 			this.TabPageCommands.Controls.Add(this.LightshowButton);
 			this.TabPageCommands.Controls.Add(this.RefreshSettingsButton);
@@ -960,10 +1014,112 @@
 			this.TabPageCommands.Controls.Add(this.StartEncryptionButton);
 			this.TabPageCommands.Location = new System.Drawing.Point(4, 22);
 			this.TabPageCommands.Name = "TabPageCommands";
-			this.TabPageCommands.Size = new System.Drawing.Size(567, 335);
+			this.TabPageCommands.Size = new System.Drawing.Size(498, 321);
 			this.TabPageCommands.TabIndex = 4;
 			this.TabPageCommands.Text = "Commands";
 			this.TabPageCommands.UseVisualStyleBackColor = true;
+			// 
+			// GetRandomNumberButton
+			// 
+			this.GetRandomNumberButton.Location = new System.Drawing.Point(9, 231);
+			this.GetRandomNumberButton.Name = "GetRandomNumberButton";
+			this.GetRandomNumberButton.Size = new System.Drawing.Size(75, 23);
+			this.GetRandomNumberButton.TabIndex = 34;
+			this.GetRandomNumberButton.Text = "Get";
+			this.GetRandomNumberButton.UseVisualStyleBackColor = true;
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label23.Location = new System.Drawing.Point(90, 236);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(104, 13);
+			this.label23.TabIndex = 33;
+			this.label23.Text = "Random Number:";
+			// 
+			// label28
+			// 
+			this.label28.AutoSize = true;
+			this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label28.Location = new System.Drawing.Point(90, 207);
+			this.label28.Name = "label28";
+			this.label28.Size = new System.Drawing.Size(121, 13);
+			this.label28.TabIndex = 33;
+			this.label28.Text = "Packet Time On Air:";
+			// 
+			// FirmwareVersionLabel
+			// 
+			this.FirmwareVersionLabel.AutoSize = true;
+			this.FirmwareVersionLabel.Location = new System.Drawing.Point(90, 160);
+			this.FirmwareVersionLabel.Name = "FirmwareVersionLabel";
+			this.FirmwareVersionLabel.Size = new System.Drawing.Size(94, 13);
+			this.FirmwareVersionLabel.TabIndex = 32;
+			this.FirmwareVersionLabel.Text = "Firmware: 1.0(100)";
+			// 
+			// RandomNumberLabel
+			// 
+			this.RandomNumberLabel.AutoSize = true;
+			this.RandomNumberLabel.Location = new System.Drawing.Point(192, 237);
+			this.RandomNumberLabel.Name = "RandomNumberLabel";
+			this.RandomNumberLabel.Size = new System.Drawing.Size(66, 13);
+			this.RandomNumberLabel.TabIndex = 32;
+			this.RandomNumberLabel.Text = "0x00000000";
+			// 
+			// TimeOnAirLabel
+			// 
+			this.TimeOnAirLabel.AutoSize = true;
+			this.TimeOnAirLabel.Location = new System.Drawing.Point(208, 208);
+			this.TimeOnAirLabel.Name = "TimeOnAirLabel";
+			this.TimeOnAirLabel.Size = new System.Drawing.Size(47, 13);
+			this.TimeOnAirLabel.TabIndex = 32;
+			this.TimeOnAirLabel.Text = "1234 ms";
+			// 
+			// MicroVersionLabel
+			// 
+			this.MicroVersionLabel.AutoSize = true;
+			this.MicroVersionLabel.Location = new System.Drawing.Point(90, 186);
+			this.MicroVersionLabel.Name = "MicroVersionLabel";
+			this.MicroVersionLabel.Size = new System.Drawing.Size(124, 13);
+			this.MicroVersionLabel.TabIndex = 32;
+			this.MicroVersionLabel.Text = "Micro: 0x0000000 (0x00)";
+			// 
+			// GetTimeOnAirButton
+			// 
+			this.GetTimeOnAirButton.Location = new System.Drawing.Point(9, 202);
+			this.GetTimeOnAirButton.Name = "GetTimeOnAirButton";
+			this.GetTimeOnAirButton.Size = new System.Drawing.Size(75, 23);
+			this.GetTimeOnAirButton.TabIndex = 31;
+			this.GetTimeOnAirButton.Text = "Get";
+			this.GetTimeOnAirButton.UseVisualStyleBackColor = true;
+			// 
+			// HardwareVersionLabel
+			// 
+			this.HardwareVersionLabel.AutoSize = true;
+			this.HardwareVersionLabel.Location = new System.Drawing.Point(90, 173);
+			this.HardwareVersionLabel.Name = "HardwareVersionLabel";
+			this.HardwareVersionLabel.Size = new System.Drawing.Size(74, 13);
+			this.HardwareVersionLabel.TabIndex = 32;
+			this.HardwareVersionLabel.Text = "Hardware: 1.0";
+			// 
+			// GetModuleVersionButton
+			// 
+			this.GetModuleVersionButton.Location = new System.Drawing.Point(9, 160);
+			this.GetModuleVersionButton.Name = "GetModuleVersionButton";
+			this.GetModuleVersionButton.Size = new System.Drawing.Size(75, 23);
+			this.GetModuleVersionButton.TabIndex = 31;
+			this.GetModuleVersionButton.Text = "Get";
+			this.GetModuleVersionButton.UseVisualStyleBackColor = true;
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label16.Location = new System.Drawing.Point(90, 147);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(98, 13);
+			this.label16.TabIndex = 30;
+			this.label16.Text = "Module Version:";
 			// 
 			// ShowQosButton
 			// 
@@ -1084,7 +1240,7 @@
 			this.TabPageStatus.Controls.Add(this.RadioStateBit1);
 			this.TabPageStatus.Location = new System.Drawing.Point(4, 22);
 			this.TabPageStatus.Name = "TabPageStatus";
-			this.TabPageStatus.Size = new System.Drawing.Size(567, 335);
+			this.TabPageStatus.Size = new System.Drawing.Size(498, 321);
 			this.TabPageStatus.TabIndex = 2;
 			this.TabPageStatus.Text = "Status";
 			this.TabPageStatus.UseVisualStyleBackColor = true;
@@ -1092,7 +1248,7 @@
 			// ClearFlagsButton
 			// 
 			this.ClearFlagsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.ClearFlagsButton.Location = new System.Drawing.Point(461, 283);
+			this.ClearFlagsButton.Location = new System.Drawing.Point(392, 269);
 			this.ClearFlagsButton.Name = "ClearFlagsButton";
 			this.ClearFlagsButton.Size = new System.Drawing.Size(103, 23);
 			this.ClearFlagsButton.TabIndex = 22;
@@ -1103,7 +1259,7 @@
 			// 
 			this.AutoClearFlagsCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AutoClearFlagsCheckbox.AutoSize = true;
-			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(461, 260);
+			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(392, 246);
 			this.AutoClearFlagsCheckbox.Name = "AutoClearFlagsCheckbox";
 			this.AutoClearFlagsCheckbox.Size = new System.Drawing.Size(103, 17);
 			this.AutoClearFlagsCheckbox.TabIndex = 21;
@@ -1115,7 +1271,7 @@
 			// 
 			this.StatusConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusConfigLabel.AutoSize = true;
-			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 317);
+			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 303);
 			this.StatusConfigLabel.Name = "StatusConfigLabel";
 			this.StatusConfigLabel.Size = new System.Drawing.Size(66, 13);
 			this.StatusConfigLabel.TabIndex = 20;
@@ -1125,7 +1281,7 @@
 			// 
 			this.StatusClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusClearableLabel.AutoSize = true;
-			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 317);
+			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 303);
 			this.StatusClearableLabel.Name = "StatusClearableLabel";
 			this.StatusClearableLabel.Size = new System.Drawing.Size(80, 13);
 			this.StatusClearableLabel.TabIndex = 20;
@@ -1135,7 +1291,7 @@
 			// 
 			this.StatusOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusOtherLabel.AutoSize = true;
-			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 317);
+			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 303);
 			this.StatusOtherLabel.Name = "StatusOtherLabel";
 			this.StatusOtherLabel.Size = new System.Drawing.Size(62, 13);
 			this.StatusOtherLabel.TabIndex = 20;
@@ -1145,7 +1301,7 @@
 			// 
 			this.StatusStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusStateLabel.AutoSize = true;
-			this.StatusStateLabel.Location = new System.Drawing.Point(8, 317);
+			this.StatusStateLabel.Location = new System.Drawing.Point(8, 303);
 			this.StatusStateLabel.Name = "StatusStateLabel";
 			this.StatusStateLabel.Size = new System.Drawing.Size(61, 13);
 			this.StatusStateLabel.TabIndex = 19;
@@ -1666,7 +1822,7 @@
 			// 
 			this.TabPageInt.Location = new System.Drawing.Point(4, 22);
 			this.TabPageInt.Name = "TabPageInt";
-			this.TabPageInt.Size = new System.Drawing.Size(567, 335);
+			this.TabPageInt.Size = new System.Drawing.Size(498, 321);
 			this.TabPageInt.TabIndex = 3;
 			this.TabPageInt.Text = "Interrupt Bits";
 			this.TabPageInt.UseVisualStyleBackColor = true;
@@ -1675,15 +1831,15 @@
 			// 
 			this.TxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TxTextbox.Location = new System.Drawing.Point(29, 373);
+			this.TxTextbox.Location = new System.Drawing.Point(29, 359);
 			this.TxTextbox.Name = "TxTextbox";
-			this.TxTextbox.Size = new System.Drawing.Size(284, 20);
+			this.TxTextbox.Size = new System.Drawing.Size(327, 20);
 			this.TxTextbox.TabIndex = 6;
 			// 
 			// TransmitButton
 			// 
 			this.TransmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.TransmitButton.Location = new System.Drawing.Point(313, 372);
+			this.TransmitButton.Location = new System.Drawing.Point(362, 356);
 			this.TransmitButton.Name = "TransmitButton";
 			this.TransmitButton.Size = new System.Drawing.Size(75, 23);
 			this.TransmitButton.TabIndex = 7;
@@ -1694,16 +1850,16 @@
 			// 
 			this.RxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxTextbox.Location = new System.Drawing.Point(29, 406);
+			this.RxTextbox.Location = new System.Drawing.Point(29, 392);
 			this.RxTextbox.Name = "RxTextbox";
 			this.RxTextbox.ReadOnly = true;
-			this.RxTextbox.Size = new System.Drawing.Size(232, 20);
+			this.RxTextbox.Size = new System.Drawing.Size(327, 20);
 			this.RxTextbox.TabIndex = 11;
 			// 
 			// RxClearButton
 			// 
 			this.RxClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxClearButton.Location = new System.Drawing.Point(261, 405);
+			this.RxClearButton.Location = new System.Drawing.Point(362, 389);
 			this.RxClearButton.Name = "RxClearButton";
 			this.RxClearButton.Size = new System.Drawing.Size(40, 23);
 			this.RxClearButton.TabIndex = 12;
@@ -1716,7 +1872,7 @@
 			this.TxHexCheckbox.AutoSize = true;
 			this.TxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.TxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 371);
+			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 357);
 			this.TxHexCheckbox.Name = "TxHexCheckbox";
 			this.TxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.TxHexCheckbox.TabIndex = 13;
@@ -1726,7 +1882,7 @@
 			// textBox1
 			// 
 			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(374, 406);
+			this.textBox1.Location = new System.Drawing.Point(470, 392);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
 			this.textBox1.Size = new System.Drawing.Size(156, 20);
@@ -1735,7 +1891,7 @@
 			// AckClearButton
 			// 
 			this.AckClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AckClearButton.Location = new System.Drawing.Point(530, 404);
+			this.AckClearButton.Location = new System.Drawing.Point(632, 392);
 			this.AckClearButton.Name = "AckClearButton";
 			this.AckClearButton.Size = new System.Drawing.Size(45, 23);
 			this.AckClearButton.TabIndex = 15;
@@ -1746,7 +1902,8 @@
 			// 
 			this.TxInfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxInfoLabel.AutoSize = true;
-			this.TxInfoLabel.Location = new System.Drawing.Point(394, 377);
+			this.TxInfoLabel.ForeColor = System.Drawing.Color.DarkGreen;
+			this.TxInfoLabel.Location = new System.Drawing.Point(443, 362);
 			this.TxInfoLabel.Name = "TxInfoLabel";
 			this.TxInfoLabel.Size = new System.Drawing.Size(104, 13);
 			this.TxInfoLabel.TabIndex = 17;
@@ -1757,7 +1914,7 @@
 			this.TxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxLengthLabel.AutoSize = true;
 			this.TxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxLengthLabel.Location = new System.Drawing.Point(227, 364);
+			this.TxLengthLabel.Location = new System.Drawing.Point(272, 350);
 			this.TxLengthLabel.Name = "TxLengthLabel";
 			this.TxLengthLabel.Size = new System.Drawing.Size(39, 9);
 			this.TxLengthLabel.TabIndex = 18;
@@ -1768,7 +1925,7 @@
 			this.TxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxCountLabel.AutoSize = true;
 			this.TxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxCountLabel.Location = new System.Drawing.Point(270, 364);
+			this.TxCountLabel.Location = new System.Drawing.Point(315, 350);
 			this.TxCountLabel.Name = "TxCountLabel";
 			this.TxCountLabel.Size = new System.Drawing.Size(41, 9);
 			this.TxCountLabel.TabIndex = 18;
@@ -1779,7 +1936,7 @@
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(29, 396);
+			this.label3.Location = new System.Drawing.Point(29, 382);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(33, 9);
 			this.label3.TabIndex = 18;
@@ -1790,7 +1947,7 @@
 			this.RxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxLengthLabel.AutoSize = true;
 			this.RxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxLengthLabel.Location = new System.Drawing.Point(179, 396);
+			this.RxLengthLabel.Location = new System.Drawing.Point(274, 382);
 			this.RxLengthLabel.Name = "RxLengthLabel";
 			this.RxLengthLabel.Size = new System.Drawing.Size(39, 9);
 			this.RxLengthLabel.TabIndex = 18;
@@ -1801,7 +1958,7 @@
 			this.RxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxCountLabel.AutoSize = true;
 			this.RxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxCountLabel.Location = new System.Drawing.Point(220, 396);
+			this.RxCountLabel.Location = new System.Drawing.Point(315, 382);
 			this.RxCountLabel.Name = "RxCountLabel";
 			this.RxCountLabel.Size = new System.Drawing.Size(41, 9);
 			this.RxCountLabel.TabIndex = 18;
@@ -1812,7 +1969,7 @@
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(29, 364);
+			this.label6.Location = new System.Drawing.Point(29, 350);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(36, 9);
 			this.label6.TabIndex = 18;
@@ -1824,7 +1981,7 @@
 			this.RxHexCheckbox.AutoSize = true;
 			this.RxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.RxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxHexCheckbox.Location = new System.Drawing.Point(4, 404);
+			this.RxHexCheckbox.Location = new System.Drawing.Point(4, 390);
 			this.RxHexCheckbox.Name = "RxHexCheckbox";
 			this.RxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.RxHexCheckbox.TabIndex = 13;
@@ -1836,7 +1993,7 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(372, 396);
+			this.label1.Location = new System.Drawing.Point(468, 382);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(67, 9);
 			this.label1.TabIndex = 18;
@@ -1848,7 +2005,7 @@
 			this.AckHexCheckbox.AutoSize = true;
 			this.AckHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.AckHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckHexCheckbox.Location = new System.Drawing.Point(350, 404);
+			this.AckHexCheckbox.Location = new System.Drawing.Point(446, 391);
 			this.AckHexCheckbox.Name = "AckHexCheckbox";
 			this.AckHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.AckHexCheckbox.TabIndex = 13;
@@ -1860,7 +2017,7 @@
 			this.AckLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckLengthLabel.AutoSize = true;
 			this.AckLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckLengthLabel.Location = new System.Drawing.Point(447, 396);
+			this.AckLengthLabel.Location = new System.Drawing.Point(543, 382);
 			this.AckLengthLabel.Name = "AckLengthLabel";
 			this.AckLengthLabel.Size = new System.Drawing.Size(39, 9);
 			this.AckLengthLabel.TabIndex = 18;
@@ -1871,7 +2028,7 @@
 			this.AckCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckCountLabel.AutoSize = true;
 			this.AckCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckCountLabel.Location = new System.Drawing.Point(489, 396);
+			this.AckCountLabel.Location = new System.Drawing.Point(585, 382);
 			this.AckCountLabel.Name = "AckCountLabel";
 			this.AckCountLabel.Size = new System.Drawing.Size(41, 9);
 			this.AckCountLabel.TabIndex = 18;
@@ -1882,7 +2039,7 @@
 			this.TxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxRssiLabel.AutoSize = true;
 			this.TxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxRssiLabel.Location = new System.Drawing.Point(506, 370);
+			this.TxRssiLabel.Location = new System.Drawing.Point(555, 357);
 			this.TxRssiLabel.Name = "TxRssiLabel";
 			this.TxRssiLabel.Size = new System.Drawing.Size(50, 12);
 			this.TxRssiLabel.TabIndex = 19;
@@ -1893,7 +2050,7 @@
 			this.TxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxSnrLabel.AutoSize = true;
 			this.TxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxSnrLabel.Location = new System.Drawing.Point(508, 381);
+			this.TxSnrLabel.Location = new System.Drawing.Point(557, 368);
 			this.TxSnrLabel.Name = "TxSnrLabel";
 			this.TxSnrLabel.Size = new System.Drawing.Size(38, 12);
 			this.TxSnrLabel.TabIndex = 19;
@@ -1904,7 +2061,7 @@
 			this.RxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxRssiLabel.AutoSize = true;
 			this.RxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxRssiLabel.Location = new System.Drawing.Point(302, 405);
+			this.RxRssiLabel.Location = new System.Drawing.Point(401, 389);
 			this.RxRssiLabel.Name = "RxRssiLabel";
 			this.RxRssiLabel.Size = new System.Drawing.Size(50, 12);
 			this.RxRssiLabel.TabIndex = 19;
@@ -1915,47 +2072,28 @@
 			this.RxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxSnrLabel.AutoSize = true;
 			this.RxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxSnrLabel.Location = new System.Drawing.Point(304, 416);
+			this.RxSnrLabel.Location = new System.Drawing.Point(403, 400);
 			this.RxSnrLabel.Name = "RxSnrLabel";
 			this.RxSnrLabel.Size = new System.Drawing.Size(38, 12);
 			this.RxSnrLabel.TabIndex = 19;
 			this.RxSnrLabel.Text = "SNR: -4";
 			// 
-			// EncryptionReadyLabel
-			// 
-			this.EncryptionReadyLabel.AutoSize = true;
-			this.EncryptionReadyLabel.ForeColor = System.Drawing.Color.DarkGreen;
-			this.EncryptionReadyLabel.Location = new System.Drawing.Point(208, 180);
-			this.EncryptionReadyLabel.Name = "EncryptionReadyLabel";
-			this.EncryptionReadyLabel.Size = new System.Drawing.Size(102, 13);
-			this.EncryptionReadyLabel.TabIndex = 14;
-			this.EncryptionReadyLabel.Text = "✓ Encryption Ready";
-			// 
 			// OutputClearButton
 			// 
-			this.OutputClearButton.Location = new System.Drawing.Point(691, 3);
+			this.OutputClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.OutputClearButton.Location = new System.Drawing.Point(622, 3);
 			this.OutputClearButton.Name = "OutputClearButton";
 			this.OutputClearButton.Size = new System.Drawing.Size(51, 23);
 			this.OutputClearButton.TabIndex = 20;
 			this.OutputClearButton.Text = "Clear";
 			this.OutputClearButton.UseVisualStyleBackColor = true;
 			// 
-			// AcksEnabledCheckbox
-			// 
-			this.AcksEnabledCheckbox.AutoSize = true;
-			this.AcksEnabledCheckbox.Location = new System.Drawing.Point(76, 179);
-			this.AcksEnabledCheckbox.Name = "AcksEnabledCheckbox";
-			this.AcksEnabledCheckbox.Size = new System.Drawing.Size(92, 17);
-			this.AcksEnabledCheckbox.TabIndex = 15;
-			this.AcksEnabledCheckbox.Text = "Acks Enabled";
-			this.AcksEnabledCheckbox.UseVisualStyleBackColor = true;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(754, 452);
+			this.ClientSize = new System.Drawing.Size(685, 438);
 			this.Controls.Add(this.OutputClearButton);
 			this.Controls.Add(this.RxSnrLabel);
 			this.Controls.Add(this.RxRssiLabel);
@@ -1986,7 +2124,7 @@
 			this.Controls.Add(this.OutputTextbox);
 			this.Controls.Add(this.StatusBar);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MinimumSize = new System.Drawing.Size(658, 400);
+			this.MinimumSize = new System.Drawing.Size(520, 415);
 			this.Name = "MainForm";
 			this.Text = "Sure-Fi Module Developer";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -1996,13 +2134,14 @@
 			this.MainTabControl.ResumeLayout(false);
 			this.TabPageRadio.ResumeLayout(false);
 			this.TabPageRadio.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.FhssTableNumeric)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NumRetriesNumeric)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.PayloadSizeNumeric)).EndInit();
 			this.TabPageOther.ResumeLayout(false);
 			this.TabPageOther.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ButtonHoldTimeNumeric)).EndInit();
 			this.TabPageCommands.ResumeLayout(false);
+			this.TabPageCommands.PerformLayout();
 			this.TabPageStatus.ResumeLayout(false);
 			this.TabPageStatus.PerformLayout();
 			this.ResumeLayout(false);
@@ -2063,8 +2202,8 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.ComboBox TransmitPowerCombobox;
 		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.NumericUpDown FhssTableNumeric;
+		private System.Windows.Forms.ComboBox PolarityCombobox;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label TxRssiLabel;
 		private System.Windows.Forms.Label TxSnrLabel;
@@ -2157,5 +2296,16 @@
 		private System.Windows.Forms.Label EncryptionReadyLabel;
 		private System.Windows.Forms.CheckBox AcksEnabledCheckbox;
 		private System.Windows.Forms.Button OutputClearButton;
+		private System.Windows.Forms.Label label28;
+		private System.Windows.Forms.Button GetTimeOnAirButton;
+		private System.Windows.Forms.Button GetModuleVersionButton;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.Button GetRandomNumberButton;
+		public System.Windows.Forms.Label FirmwareVersionLabel;
+		public System.Windows.Forms.Label MicroVersionLabel;
+		public System.Windows.Forms.Label HardwareVersionLabel;
+		private System.Windows.Forms.Label label23;
+		public System.Windows.Forms.Label TimeOnAirLabel;
+		public System.Windows.Forms.Label RandomNumberLabel;
 	}
 }
