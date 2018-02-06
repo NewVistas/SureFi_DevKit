@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace DevKitWindowsApp
 {
-	enum SureCmd : byte
+	public enum SureCmd : byte
 	{
 		DefaultSettings = 0x30,
 		ClearStatusFlags,
@@ -66,7 +66,7 @@ namespace DevKitWindowsApp
 		GetNumRetries,
 	};
 	
-	enum SureRsp : byte
+	public enum SureRsp : byte
 	{
 		Status = 0x40,
 		IntEnableBits,
@@ -101,12 +101,168 @@ namespace DevKitWindowsApp
 		NumRetries,
 	};
 	
+	public enum SureError : byte
+	{
+		ValueTooLow = 0x01,
+		ValueTooHigh,
+		InvalidValue,
+		PayloadTooLarge,
+		PayloadTooSmall,
+		Busy,
+		InvalidSettings,
+		NotFccApproved,
+		AlreadyStarted,
+	};
+	
+	public enum RadioState : byte
+	{
+		Initializing = 0x00,
+		Receiving,
+		Transmitting,
+		WaitingForAck,
+		Acknowledging,
+		Sleeping,
+	};
+	
+	public enum QosConfig : byte
+	{
+		Manual = 0x01,
+		OnReceive,
+		OnTransmit,
+		OnReceiveAndTransmit,
+	};
+	
+	public enum ButtonConfig : byte
+	{
+		NoAction = 0x01,
+		SendZeroes,
+		SendAckData,
+	};
+	
+	public enum Indication : byte
+	{
+		Off = 0x0,
+		On,
+		Blink1Hz,
+		Blink2Hz,
+		Pattern1,
+		Pattern2,
+		Pattern3,
+		Pattern4,
+	}
+	
 	class SureFi
 	{
+		public static byte StateFlags_RadioStateBits          = 0x0F;
+		public static byte StateFlags_BusyBit                 = 0x10;
+		public static byte StateFlags_EncryptionActiveBit     = 0x20;
+		public static byte StateFlags_RxInProgressBit         = 0x40;
+		public static byte StateFlags_SettingsPendingBit      = 0x80;
+		
+		public static byte OtherFlags_DoingLightshowBit       = 0x01;
+		public static byte OtherFlags_ShowingQosBit           = 0x02;
+		public static byte OtherFlags_ButtonDownBit           = 0x04;
+		
+		public static byte ClearableFlags_WasResetBit         = 0x01;
+		public static byte ClearableFlags_TransmitFinishedBit = 0x02;
+		public static byte ClearableFlags_RxPacketReadyBit    = 0x04;
+		public static byte ClearableFlags_AckPacketReadyBit   = 0x08;
+		public static byte ClearableFlags_ChecksumErrorBit    = 0x10;
+		public static byte ClearableFlags_EncryptionRekeyBit  = 0x20;
+		public static byte ClearableFlags_ButtonPressedBit    = 0x40;
+		public static byte ClearableFlags_ButtonHeldBit       = 0x80;
+		
+		public static byte ConfigFlags_InterruptDrivenBit     = 0x01;
+		public static byte ConfigFlags_AutoClearFlagsBit      = 0x02;
+		public static byte ConfigFlags_RxLedModeBit           = 0x04;
+		public static byte ConfigFlags_TxLedModeBit           = 0x08;
+		public static byte ConfigFlags_AutoRekeyBit           = 0x10;
+		
+		public static bool gotModuleStatus      = false;
+		public static bool gotIntEnableBits     = false;
+		public static bool gotModuleVersion     = false;
+		public static bool gotPacketTimeOnAir   = false;
+		public static bool gotRandomNumber      = false;
+		public static bool gotRxPacket          = false;
+		public static bool gotAckPacket         = false;
+		public static bool gotRxInfo            = false;
+		public static bool gotTxInfo            = false;
+		public static bool gotAllSettings       = false;
+		public static bool gotRadioMode         = false;
+		public static bool gotFhssTable         = false;
+		public static bool gotReceiveUid        = false;
+		public static bool gotTransmitUid       = false;
+		public static bool gotReceivePacketSize = false;
+		public static bool gotRadioPolarity     = false;
+		public static bool gotTransmitPower     = false;
+		public static bool gotAckData           = false;
+		public static bool gotQosConfig         = false;
+		public static bool gotIndications       = false;
+		public static bool gotQuietMode         = false;
+		public static bool gotButtonConfig      = false;
+		public static bool gotAcksEnabled       = false;
+		public static bool gotNumRetries        = false;
+		
+		public static void ClearGotFlags()
+		{
+			gotModuleStatus      = false;
+			gotIntEnableBits     = false;
+			gotModuleVersion     = false;
+			gotPacketTimeOnAir   = false;
+			gotRandomNumber      = false;
+			gotRxPacket          = false;
+			gotAckPacket         = false;
+			gotRxInfo            = false;
+			gotTxInfo            = false;
+			gotAllSettings       = false;
+			gotRadioMode         = false;
+			gotFhssTable         = false;
+			gotReceiveUid        = false;
+			gotTransmitUid       = false;
+			gotReceivePacketSize = false;
+			gotRadioPolarity     = false;
+			gotTransmitPower     = false;
+			gotAckData           = false;
+			gotQosConfig         = false;
+			gotIndications       = false;
+			gotQuietMode         = false;
+			gotButtonConfig      = false;
+			gotAcksEnabled       = false;
+			gotNumRetries        = false;
+		}
+		
 		static byte TruncateInt(int intValue)
 		{
 			if (intValue < 0) { return 0; }
 			return (byte)(intValue % 256);
+		}
+		
+		static bool AreBytesAscii(byte[] byteArray)
+		{
+			bool foundNullTerm = false;
+			for (int bIndex = 0; bIndex < byteArray.Length; bIndex++)
+			{
+				byte newByte = byteArray[bIndex];
+				if (newByte == 0x00)
+				{
+					foundNullTerm = true;
+				}
+				else if ((newByte >= 0x20 && newByte <= 0x7E) || newByte == 0x09)//tab
+				{
+					if (foundNullTerm)
+					{
+						//Found ascii characters after the first null-terminator
+						return false;
+					}
+				}
+				else
+				{
+					//Found non-ascii character
+					return false;
+				}
+			}
+			
+			return true;
 		}
 		
 		public static void ProcessResponse(MainForm mainForm, List<byte> responseBytes)
@@ -152,6 +308,14 @@ namespace DevKitWindowsApp
 								mainForm.SetStatusBit(bIndex, bit, isBitSet);
 							}
 						}
+						
+						byte stateFlags    = rspPayload[0];
+						byte otherFlags     = rspPayload[1];
+						byte clearableFlags = rspPayload[2];
+						byte configFlags    = rspPayload[3];
+						mainForm.HandleStatusUpdate(stateFlags, otherFlags, clearableFlags, configFlags);
+						
+						gotModuleStatus = true;
 					}
 				} break;
 				
@@ -163,6 +327,8 @@ namespace DevKitWindowsApp
 					if (rspPayload.Count == 4)
 					{
 						//TODO: Implement me
+						
+						gotIntEnableBits = true;
 					}
 				} break;
 				
@@ -194,6 +360,8 @@ namespace DevKitWindowsApp
 						mainForm.FirmwareVersionLabel.Text = "Firmware: " + firmwareMajor.ToString() + "." + firmwareMinor.ToString() + " (" + firmwareBuild.ToString() + ")";
 						mainForm.HardwareVersionLabel.Text = "Hardware: " + hardwareMajor.ToString() + "." + hardwareMinor.ToString();
 						mainForm.MicroVersionLabel.Text = "Micro: 0x" + microId.ToString("X7") + " (0x" + microRevision.ToString("X2") + ")";
+						
+						gotModuleVersion = true;
 					}
 				} break;
 				
@@ -210,6 +378,8 @@ namespace DevKitWindowsApp
 						);
 						
 						mainForm.TimeOnAirLabel.Text = timeOnAir.ToString() + " ms";
+						
+						gotPacketTimeOnAir = true;
 					}
 				} break;
 				
@@ -228,6 +398,8 @@ namespace DevKitWindowsApp
 						);
 						
 						mainForm.RandomNumberLabel.Text = "0x" + randomNumber.ToString("X8");
+						
+						gotRandomNumber = true;
 					}
 				} break;
 				
@@ -236,7 +408,51 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Packet:
 				{
+					//TODO: This won't be necassary in the future when
+					//		the responses come back without the UID
+					int rxUidLength = 0;
+					byte[] rxUid = null;
+					if (mainForm.TryParseHexString(mainForm.RxUidTextbox.Text, out rxUid))
+					{
+						rxUidLength = rxUid.Length;
+					}
+					byte[] radioPayload = rspPayload.GetRange(rxUidLength, rspPayload.Count - rxUidLength).ToArray();
+					bool isHexStr = (mainForm.RxHexCheckbox.Checked || !AreBytesAscii(radioPayload));
 					
+					mainForm.updatingElement = true;
+					
+					int numBytes = 0;
+					if (isHexStr)
+					{
+						//Auto-Check the HEX checkbox
+						mainForm.RxHexCheckbox.Checked = true;
+						
+						mainForm.RxTextbox.Text = "";
+						foreach (byte b in radioPayload)
+						{
+							mainForm.RxTextbox.Text += b.ToString("X2");
+							numBytes++;
+						}
+					}
+					else
+					{
+						mainForm.RxTextbox.Text = "";
+						foreach (byte b in radioPayload)
+						{
+							if (b == 0x00)
+							{
+								break;
+							}
+							mainForm.RxTextbox.Text += (char)b;
+							numBytes++;
+						}
+					}
+					mainForm.RxLengthLabel.Text = "Length: " + numBytes.ToString();
+					mainForm.IncrementCount(mainForm.RxCountLabel);
+					
+					mainForm.updatingElement = false;
+					
+					gotRxPacket = true;
 				} break;
 				
 				// +==============================+
@@ -245,6 +461,7 @@ namespace DevKitWindowsApp
 				case SureRsp.AckPacket:
 				{
 					
+					gotAckPacket = true;
 				} break;
 				
 				// +==============================+
@@ -252,7 +469,23 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ReceiveInfo:
 				{
+					if (rspPayload.Count == 4)
+					{
+						byte succcessByte  = rspPayload[0];
+						short rssi         = (short)(rspPayload[1] + (rspPayload[2] << 8));
+						sbyte snr          = (sbyte)(rspPayload[3]);
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.RxRssiLabel.Text = "RSSI: " + rssi.ToString();
+						mainForm.RxSnrLabel.Text  = "SNR: " + snr.ToString();
+						
+						mainForm.updatingElement = false;
+						
+						gotTxInfo = true;
+					}
 					
+					gotRxInfo = true;
 				} break;
 				
 				// +==============================+
@@ -260,7 +493,38 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.TransmitInfo:
 				{
-					
+					if (rspPayload.Count == 6)
+					{
+						byte succcessByte  = rspPayload[0];
+						short rssi         = (short)(rspPayload[1] + (rspPayload[2] << 8));
+						sbyte snr          = (sbyte)(rspPayload[3]);
+						byte numRetries    = rspPayload[4];
+						byte ackDataLength = rspPayload[5];
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.TxRssiLabel.Text = "RSSI: " + rssi.ToString();
+						mainForm.TxSnrLabel.Text  = "SNR: " + snr.ToString();
+						mainForm.TxRetriesLabel.Text = numRetries.ToString() + "/" + mainForm.NumRetriesNumeric.Value.ToString() + " retries";
+						if (succcessByte != 0x00)
+						{
+							mainForm.TxSuccessLabel.Text = "Success";
+							mainForm.TxSuccessLabel.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+							mainForm.TxRetriesLabel.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+						}
+						else
+						{
+							mainForm.TxSuccessLabel.Text = "Failure";
+							mainForm.TxSuccessLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+							mainForm.TxRetriesLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+						}
+						mainForm.TransmitButton.Text = "Transmit";
+						mainForm.TransmitButton.Enabled = true;
+						
+						mainForm.updatingElement = false;
+						
+						gotTxInfo = true;
+					}
 				} break;
 				
 				// +==============================+
@@ -268,7 +532,13 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Success:
 				{
-					
+					if (rspPayload.Count == 1)
+					{
+						byte cmdByte = rspPayload[0];
+						SureCmd sureCmd = (SureCmd)cmdByte;
+						
+						mainForm.HandleSuccessResponse(sureCmd);
+					}
 				} break;
 				
 				// +==============================+
@@ -276,7 +546,15 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Failure:
 				{
-					
+					if (rspPayload.Count == 2)
+					{
+						byte cmdByte = rspPayload[0];
+						byte errorByte = rspPayload[1];
+						SureCmd sureCmd = (SureCmd)cmdByte;
+						SureError sureError = (SureError)errorByte;
+						
+						mainForm.HandleFailureResponse(sureCmd, sureError);
+					}
 				} break;
 				
 				// +==============================+
@@ -319,7 +597,7 @@ namespace DevKitWindowsApp
 						mainForm.FhssTableNumeric.Value = (Decimal)fhssTable;
 						int payloadSize = receivePacketSize - mainForm.RxUidTextbox.Text.Length/2;
 						mainForm.PayloadSizeNumeric.Value = (Decimal)payloadSize;
-						mainForm.PushPacketSizeChange(true);
+						mainForm.UpdatePacketSize();
 						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
 						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
 						
@@ -332,6 +610,8 @@ namespace DevKitWindowsApp
 						mainForm.UpdateEncryptionReady();
 						
 						mainForm.updatingElement = false;
+						
+						gotAllSettings = true;
 					}
 				} break;
 				
@@ -351,6 +631,8 @@ namespace DevKitWindowsApp
 						mainForm.BandwidthCombobox.Enabled = false;
 						
 						mainForm.updatingElement = false;
+						
+						gotRadioMode = true;
 					}
 					else if (rspPayload.Count == 3 && rspPayload[0] == 0x07)
 					{
@@ -367,6 +649,8 @@ namespace DevKitWindowsApp
 						mainForm.BandwidthCombobox.Enabled = true;
 						
 						mainForm.updatingElement = false;
+						
+						gotRadioMode = true;
 					}
 				} break;
 				
@@ -384,6 +668,8 @@ namespace DevKitWindowsApp
 						mainForm.FhssTableNumeric.Value = (Decimal)fhssTable;
 						
 						mainForm.updatingElement = false;
+						
+						gotFhssTable = true;
 					}
 				} break;
 				
@@ -403,8 +689,12 @@ namespace DevKitWindowsApp
 					mainForm.RxUidTextbox.Text = uidString;
 					mainForm.RxUidLengthLabel.Text = rspPayload.Count.ToString() + " bytes";
 					mainForm.RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					mainForm.UpdatePacketSize();
+					mainForm.UpdateEncryptionReady();
 					
 					mainForm.updatingElement = false;
+					
+					gotReceiveUid = true;
 				} break;
 				
 				// +==============================+
@@ -423,8 +713,11 @@ namespace DevKitWindowsApp
 					mainForm.TxUidTextbox.Text = uidString;
 					mainForm.TxUidLengthLabel.Text = rspPayload.Count.ToString() + " bytes";
 					mainForm.TxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					mainForm.UpdateEncryptionReady();
 					
 					mainForm.updatingElement = false;
+					
+					gotTransmitUid = true;
 				} break;
 				
 				// +==============================+
@@ -440,9 +733,12 @@ namespace DevKitWindowsApp
 						
 						int payloadSize = rxPacketSize - mainForm.RxUidTextbox.Text.Length/2;
 						mainForm.PayloadSizeNumeric.Value = (Decimal)payloadSize;
-						mainForm.PushPacketSizeChange(true);
+						mainForm.UpdatePacketSize();
+						mainForm.UpdateEncryptionReady();
 						
 						mainForm.updatingElement = false;
+						
+						gotReceivePacketSize = true;
 					}
 				} break;
 				
@@ -460,6 +756,8 @@ namespace DevKitWindowsApp
 						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
 						
 						mainForm.updatingElement = false;
+						
+						gotRadioPolarity = true;
 					}
 				} break;
 				
@@ -477,6 +775,8 @@ namespace DevKitWindowsApp
 						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
 						
 						mainForm.updatingElement = false;
+						
+						gotTransmitPower = true;
 					}
 				} break;
 				
@@ -485,7 +785,44 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AckData:
 				{
+					string ackDataStr = "";
+					bool isHexStr = !AreBytesAscii(rspPayload.ToArray());
+					int numBytes = 0;
+					if (rspPayload.Count > 0)
+					{
+						if (isHexStr)
+						{
+							foreach (byte b in rspPayload)
+							{
+								ackDataStr += b.ToString("X2");
+								numBytes++;
+							}
+						}
+						else
+						{
+							foreach (byte b in rspPayload)
+							{
+								if (b == 0x00) { break; }
+								else
+								{
+									ackDataStr += (char)b;
+									numBytes++;
+								}
+							}
+						}
+					}
 					
+					mainForm.updatingElement = true;
+					
+					mainForm.AckDataTextbox.Text = ackDataStr;
+					mainForm.AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					mainForm.AckDataLengthLabel.Text = "Length: " + numBytes.ToString() + " / " + mainForm.PayloadSizeNumeric.Value.ToString();
+					mainForm.AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					mainForm.AckDataHexCheckbox.Checked = isHexStr;
+					
+					mainForm.updatingElement = false;
+					
+					gotAckData = true;
 				} break;
 				
 				// +==============================+
@@ -494,6 +831,7 @@ namespace DevKitWindowsApp
 				case SureRsp.QosConfig:
 				{
 					
+					gotQosConfig = true;
 				} break;
 				
 				// +==============================+
@@ -502,6 +840,7 @@ namespace DevKitWindowsApp
 				case SureRsp.Indications:
 				{
 					
+					gotIndications = true;
 				} break;
 				
 				// +==============================+
@@ -510,6 +849,7 @@ namespace DevKitWindowsApp
 				case SureRsp.QuietMode:
 				{
 					
+					gotQuietMode = true;
 				} break;
 				
 				// +==============================+
@@ -518,6 +858,7 @@ namespace DevKitWindowsApp
 				case SureRsp.ButtonConfig:
 				{
 					
+					gotButtonConfig = true;
 				} break;
 				
 				// +==============================+
@@ -535,6 +876,8 @@ namespace DevKitWindowsApp
 						mainForm.NumRetriesNumeric.Enabled = mainForm.AcksEnabledCheckbox.Checked;
 						
 						mainForm.updatingElement = false;
+						
+						gotAcksEnabled = true;
 					}
 				} break;
 				
@@ -552,6 +895,8 @@ namespace DevKitWindowsApp
 						mainForm.NumRetriesNumeric.Value = (Decimal)numRetries;
 						
 						mainForm.updatingElement = false;
+						
+						gotNumRetries = true;
 					}
 				} break;
 				

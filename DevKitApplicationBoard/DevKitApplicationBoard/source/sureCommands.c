@@ -295,14 +295,14 @@ void SureSetNumRetries(u8 numRetries)
 
 void SureGetAllSettings()
 {
-	SureSendNoPayload(SureCmd_GetAllSettings);
-	
 	//NOTE: These are all variable length and do not come in the allSettings response
 	//		automatically so we have to request them seperately
 	SureGetRadioMode();
 	SureGetReceiveUID();
 	SureGetTransmitUID();
 	SureGetAckData();
+	
+	SureSendNoPayload(SureCmd_GetAllSettings);
 }
 
 void SureGetRadioMode()

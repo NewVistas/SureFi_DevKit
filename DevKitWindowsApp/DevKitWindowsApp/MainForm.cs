@@ -18,6 +18,12 @@ namespace DevKitWindowsApp
 		// +==============================+
 		ConnectForm connectForm;
 		PortFifo port;
+		int connectionTimeout = 0;
+		bool isConnecting = false;
+		byte savedStateFlags = 0x00;
+		byte savedOtherFlags = 0x00;
+		byte savedClearableFlags = 0x00;
+		byte savedConfigFlags = 0x00;
 		
 		public delegate void ConnectionResultHandler(object sender, bool success, string message);
 		public event ConnectionResultHandler OnConnectionFinished;
@@ -92,6 +98,18 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		public void IncrementCount(Label label)
+		{
+			int currentCount = 0;
+			if (label.Text.Length > 7)
+			{
+				string numString = label.Text.Substring(7, label.Text.Length - 7);
+				int.TryParse(numString, out currentCount);
+			}
+			currentCount++;
+			label.Text = "Count: " + currentCount.ToString();
+		}
+		
 		bool IsHexChar(char c)
 		{
 			if (c >= '0' && c <= '9') { return true; }
@@ -108,7 +126,7 @@ namespace DevKitWindowsApp
 			return 0;
 		}
 		
-		bool TryParseHexString(string hexString, out byte[] bytesOut)
+		public bool TryParseHexString(string hexString, out byte[] bytesOut)
 		{
 			// if (hexString.Length < 2) { bytesOut = null; return false; }
 			if ((hexString.Length%2) != 0) { bytesOut = null; return false; }
@@ -129,6 +147,107 @@ namespace DevKitWindowsApp
 			}
 			
 			return true;
+		}
+		
+		public void HandleSuccessResponse(SureCmd cmd)
+		{
+			if (cmd == SureCmd.TransmitData)
+			{
+				TransmitButton.Text = "Started...";
+				
+				IncrementCount(this.TxCountLabel);
+			}
+		}
+		public void HandleFailureResponse(SureCmd cmd, SureError error)
+		{
+			//TODO: Show a messagebox
+			
+			if (cmd == SureCmd.TransmitData)
+			{
+				TransmitButton.Text = "Transmit";
+				TransmitButton.Enabled = true;
+			}
+		}
+		
+		public void HandleStatusUpdate(byte stateFlags, byte otherFlags, byte clearableFlags, byte configFlags)
+		{
+			byte stateChanged     = (byte)(stateFlags ^ this.savedStateFlags);
+			byte otherChanged     = (byte)(stateFlags ^ this.savedOtherFlags);
+			byte clearableChanged = (byte)(stateFlags ^ this.savedClearableFlags);
+			byte configChanged    = (byte)(stateFlags ^ this.savedConfigFlags);
+			
+			if ((stateChanged & SureFi.StateFlags_BusyBit) != 0)
+			{
+				if ((stateFlags & SureFi.StateFlags_BusyBit) != 0)
+				{
+					Console.WriteLine("Module is Busy");
+				}
+				else
+				{
+					Console.WriteLine("Module is Not Busy");
+				}
+			}
+			
+			RadioState radioState = (RadioState)(stateFlags & 0x0F);
+			if (radioState == RadioState.Transmitting || radioState == RadioState.WaitingForAck)
+			{
+				this.TransmitButton.Text = "Transmitting...";
+				this.TransmitButton.Enabled = false;
+			}
+			
+			byte flagsToClear = 0x00;
+			
+			if ((clearableFlags & SureFi.ClearableFlags_WasResetBit) != 0)
+			{
+				Console.WriteLine("Module was reset. Getting all settings again");
+				SureFi.ClearGotFlags();
+				this.port.PushTxCommandNoBytes(SureCmd.GetModuleVersion);
+				this.port.PushTxCommandNoBytes(SureCmd.GetStatus);
+				this.port.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
+				this.port.PushTxCommandNoBytes(SureCmd.GetTransmitUID);
+				this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
+				this.port.PushTxCommandNoBytes(SureCmd.GetAllSettings);
+				this.port.PushTxCommandNoBytes(SureCmd.GetAckData);
+				
+				flagsToClear |= SureFi.ClearableFlags_WasResetBit;
+			}
+			
+			if ((clearableFlags & SureFi.ClearableFlags_TransmitFinishedBit) != 0)
+			{
+				Console.WriteLine("Transmit finished");
+				this.port.PushTxCommandNoBytes(SureCmd.GetTransmitInfo);
+				flagsToClear |= SureFi.ClearableFlags_TransmitFinishedBit;
+				
+				this.TransmitButton.Text = "Getting Info...";
+			}
+			
+			if ((clearableFlags & SureFi.ClearableFlags_RxPacketReadyBit) != 0)
+			{
+				Console.WriteLine("Packet Received");
+				this.port.PushTxCommandNoBytes(SureCmd.GetReceiveInfo);
+				this.port.PushTxCommandNoBytes(SureCmd.GetPacket);
+				flagsToClear |= SureFi.ClearableFlags_RxPacketReadyBit;
+			}
+			
+			if ((clearableFlags & SureFi.ClearableFlags_AckPacketReadyBit) != 0)
+			{
+				Console.WriteLine("Ack Packet Received");
+				this.port.PushTxCommandNoBytes(SureCmd.GetAckPacket);
+				flagsToClear |= SureFi.ClearableFlags_AckPacketReadyBit;
+			}
+			
+			if ((configFlags & SureFi.ConfigFlags_AutoClearFlagsBit) == 0 &&
+				flagsToClear != 0x00)
+			{
+				Console.WriteLine("Manually clearing flags: 0x" + flagsToClear.ToString("X2"));
+				byte[] payload = { flagsToClear };
+				this.port.PushTxCommand(SureCmd.ClearStatusFlags, payload);
+			}
+			
+			this.savedStateFlags     = stateFlags;
+			this.savedOtherFlags     = otherFlags;
+			this.savedClearableFlags = clearableFlags;
+			this.savedConfigFlags    = configFlags;
 		}
 		
 		// +==============================+
@@ -152,15 +271,32 @@ namespace DevKitWindowsApp
 			this.port = new PortFifo(this, portName);
 			if (this.port.isOpen)
 			{
-				ReportConnectionResult(true, "");
-				StatusUpdate("Connected to " + portName + "!");
+				StatusUpdate("Connecting to " + portName + "...");
 			}
 			else
 			{
 				ReportConnectionResult(false, this.port.connectFailureString);
+				return;
 			}
 			
+			this.savedStateFlags = 0x00;
+			this.savedOtherFlags = 0x00;
+			this.savedClearableFlags = 0x00;
+			this.savedConfigFlags = 0x00;
+			
+			SureFi.ClearGotFlags();
+			this.port.PushTxCommandNoBytes(SureCmd.GetModuleVersion);
+			this.port.PushTxCommandNoBytes(SureCmd.GetStatus);
+			this.port.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
+			this.port.PushTxCommandNoBytes(SureCmd.GetTransmitUID);
+			this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
+			this.port.PushTxCommandNoBytes(SureCmd.GetAllSettings);
+			this.port.PushTxCommandNoBytes(SureCmd.GetAckData);
+			
 			this.OutputTextbox.Text = "";
+			this.isConnecting = true;
+			this.connectionTimeout = 2000/this.TickTimer.Interval;
+			this.TickTimer.Enabled = true;
 		}
 		
 		private void MainForm_Load(object sender, EventArgs e)
@@ -206,6 +342,36 @@ namespace DevKitWindowsApp
 					
 					newCommand = this.port.PopRxCommand();
 				}
+				
+				if (this.isConnecting)
+				{
+					if (SureFi.gotModuleVersion &&
+						SureFi.gotModuleStatus &&
+						SureFi.gotReceiveUid &&
+						SureFi.gotTransmitUid &&
+						SureFi.gotAckData &&
+						SureFi.gotRadioMode &&
+						SureFi.gotAllSettings)
+					{
+						Console.WriteLine("Got all responses from the module");
+						this.isConnecting = false;
+						ReportConnectionResult(true, "");
+						StatusUpdate("Connected to " + this.port.portName + "!");
+					}
+				}
+			}
+			
+			if (this.connectionTimeout > 0)
+			{
+				this.connectionTimeout--;
+			}
+			
+			if (this.isConnecting && this.connectionTimeout <= 0)
+			{
+				this.isConnecting = false;
+				Console.WriteLine("Connection timed out");
+				ReportConnectionResult(false, "Connection timed out before receiving all responses");
+				this.port.Close();
 			}
 		}
 		
@@ -315,43 +481,6 @@ namespace DevKitWindowsApp
 		}
 		
 		// +==============================+
-		// |        Rx Packet Size        |
-		// +==============================+
-		public void PushPacketSizeChange(bool onlyLabel)
-		{
-			int packetSize = 0;
-			byte[] rxUid = null;
-			if (TryParseHexString(RxUidTextbox.Text, out rxUid))
-			{
-				packetSize += rxUid.Length;
-				packetSize += (int)PayloadSizeNumeric.Value;
-				
-				if (packetSize > 0 && packetSize <= 64)
-				{
-					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
-					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
-					
-					if (!onlyLabel)
-					{
-						byte[] payload = { (byte)packetSize };
-						port.PushTxCommand(SureCmd.SetReceivePacketSize, payload);
-					}
-				}
-				else
-				{
-					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
-					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
-				}
-				
-			}
-			else
-			{
-				RxPacketSizeLabel.Text = "? byte ReceivePacketSize";
-				RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
-			}
-		}
-		
-		// +==============================+
 		// |        Rx UID Textbox        |
 		// +==============================+
 		private bool rxUidChanged = false;
@@ -394,7 +523,7 @@ namespace DevKitWindowsApp
 					RxUidLengthLabel.Text = hexValues.Length.ToString() + " bytes";
 					RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
 					
-					PushPacketSizeChange(true);
+					UpdatePacketSize();
 					UpdateEncryptionReady();
 				}
 				else
@@ -506,6 +635,43 @@ namespace DevKitWindowsApp
 		// +==============================+
 		// |     Payload Size Numeric     |
 		// +==============================+
+		public void PushPacketSizeChange(bool onlyLabel)
+		{
+			int packetSize = 0;
+			byte[] rxUid = null;
+			if (TryParseHexString(RxUidTextbox.Text, out rxUid))
+			{
+				packetSize += rxUid.Length;
+				packetSize += (int)PayloadSizeNumeric.Value;
+				
+				if (packetSize > 0 && packetSize <= 64)
+				{
+					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
+					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					
+					if (!onlyLabel)
+					{
+						byte[] payload = { (byte)packetSize };
+						port.PushTxCommand(SureCmd.SetReceivePacketSize, payload);
+					}
+				}
+				else
+				{
+					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
+					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				}
+				
+			}
+			else
+			{
+				RxPacketSizeLabel.Text = "? byte ReceivePacketSize";
+				RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+		}
+		public void UpdatePacketSize()
+		{
+			PushPacketSizeChange(true);
+		}
 		private void PayloadSizeNumeric_ValueChanged(object sender, EventArgs e)
 		{
 			if (!updatingElement)
@@ -698,5 +864,354 @@ namespace DevKitWindowsApp
 				PushAcksEnabled();
 			}
 		}
+		
+		// +==============================+
+		// |  Transmit UI Element Events  |
+		// +==============================+
+		public void PushTransmit()
+		{
+			int payloadSize = (int)PayloadSizeNumeric.Value;
+			byte[] payload = null;
+			if (TxHexCheckbox.Checked)
+			{
+				if (TryParseHexString(TxTextbox.Text, out payload))
+				{
+					if (payload.Length < payloadSize)
+					{
+						payload = null;
+					}
+				}
+				else
+				{
+					payload = null;
+				}
+			}
+			else
+			{
+				payload = Encoding.ASCII.GetBytes(TxTextbox.Text);
+			}
+			
+			bool sentCommand = false;
+			if (payload != null)
+			{
+				if (payload.Length < payloadSize)
+				{
+					byte[] paddedPayload = new byte[payloadSize];
+					for (int bIndex = 0; bIndex < payloadSize; bIndex++)
+					{
+						if (bIndex < payload.Length) { paddedPayload[bIndex] = payload[bIndex]; }
+						else { paddedPayload[bIndex] = 0x00; }
+					}
+					port.PushTxCommand(SureCmd.TransmitData, paddedPayload);
+					TxTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					sentCommand = true;
+				}
+				else if (payload.Length == payloadSize)
+				{
+					port.PushTxCommand(SureCmd.TransmitData, payload);
+					TxTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					sentCommand = true;
+				}
+				else
+				{
+					TxTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				}
+			}
+			else
+			{
+				TxTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+			
+			if (sentCommand)
+			{
+				TransmitButton.Text = "Sending Cmd";
+				TransmitButton.Enabled = false;
+			}
+		}
+		private void TxHexCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				TxTextbox.Clear();
+			}
+		}
+		private void TxTextbox_TextChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				int payloadSize = (int)PayloadSizeNumeric.Value;
+				if (TxHexCheckbox.Checked)
+				{
+					//Keep them from typing in too long of a payload
+					if (TxTextbox.Text.Length > payloadSize*2)
+					{
+						updatingElement = true;
+						
+						int selectionPos = TxTextbox.SelectionStart;
+						TxTextbox.Text = TxTextbox.Text.Substring(0, payloadSize*2);
+						if (selectionPos > TxTextbox.Text.Length) { selectionPos = TxTextbox.Text.Length; }
+						TxTextbox.SelectionStart = selectionPos;
+						TxTextbox.SelectionLength = 0;
+						
+						updatingElement = false;
+					}
+					
+					byte[] hexValues = null;
+					if (TryParseHexString(TxTextbox.Text, out hexValues))
+					{
+						TxLengthLabel.Text = "Length: " + hexValues.Length.ToString() + " / " + payloadSize.ToString();
+						
+						if (hexValues.Length == 0)
+						{
+							TxLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+						}
+						else if (hexValues.Length == payloadSize)
+						{
+							TxLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+						}
+						else
+						{
+							TxLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+						}
+					}
+					else
+					{
+						TxLengthLabel.Text = "Length: ? / " + payloadSize.ToString();
+						TxLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+					}
+				}
+				else
+				{
+					if (TxTextbox.Text.Length > payloadSize)
+					{
+						updatingElement = true;
+						
+						int selectionPos = TxTextbox.SelectionStart;
+						TxTextbox.Text = TxTextbox.Text.Substring(0, payloadSize);
+						if (selectionPos > TxTextbox.Text.Length) { selectionPos = TxTextbox.Text.Length; }
+						TxTextbox.SelectionStart = selectionPos;
+						TxTextbox.SelectionLength = 0;
+						
+						updatingElement = false;
+					}
+					
+					byte[] hexValues = Encoding.ASCII.GetBytes(TxTextbox.Text);
+					TxLengthLabel.Text = "Length: " + hexValues.Length.ToString() + " / " + payloadSize.ToString();
+					
+					if (hexValues.Length <= payloadSize)
+					{
+						TxLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					}
+					else
+					{
+						TxLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+					}
+				}
+				
+				TxTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			}
+		}
+		private void TransmitButton_Click(object sender, EventArgs e)
+		{
+			PushTransmit();
+		}
+		private void TxTextbox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter && TransmitButton.Enabled)
+			{
+				PushTransmit();
+			}
+		}
+		
+		// +==============================+
+		// |    Ack UI Element Events     |
+		// +==============================+
+		private void AckHexCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		private void AckClearButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		// +==============================+
+		// |  Ack Data UI Element Events  |
+		// +==============================+
+		private bool ackDataChanged = false;
+		public void PushAckDataChange()
+		{
+			int payloadSize = (int)PayloadSizeNumeric.Value;
+			byte[] ackData = null;
+			if (AckDataHexCheckbox.Checked)
+			{
+				if (AckDataTextbox.Text.Length == 0)
+				{
+					ackData = new byte[0];
+				}
+				else if (TryParseHexString(AckDataTextbox.Text, out ackData))
+				{
+					if (ackData.Length < payloadSize)
+					{
+						ackData = null;
+					}
+				}
+				else
+				{
+					ackData = null;
+				}
+			}
+			else
+			{
+				ackData = Encoding.ASCII.GetBytes(AckDataTextbox.Text);
+			}
+			
+			if (ackData != null)
+			{
+				if (ackData.Length == 0)
+				{
+					port.PushTxCommandNoBytes(SureCmd.SetAckData);
+					AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else if (ackData.Length < payloadSize)
+				{
+					byte[] paddedAckData = new byte[payloadSize];
+					for (int bIndex = 0; bIndex < payloadSize; bIndex++)
+					{
+						if (bIndex < ackData.Length) { paddedAckData[bIndex] = ackData[bIndex]; }
+						else { paddedAckData[bIndex] = 0x00; }
+					}
+					port.PushTxCommand(SureCmd.SetAckData, paddedAckData);
+					AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else if (ackData.Length == payloadSize)
+				{
+					port.PushTxCommand(SureCmd.SetAckData, ackData);
+					AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+				}
+			}
+			else
+			{
+				AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+		}
+		private void AckDataHexCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				AckDataTextbox.Clear();
+			}
+		}
+		private void AckDataTextbox_TextChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				int payloadSize = (int)PayloadSizeNumeric.Value;
+				if (AckDataHexCheckbox.Checked)
+				{
+					//Keep them from typing in too long of a payload
+					if (AckDataTextbox.Text.Length > payloadSize*2)
+					{
+						updatingElement = true;
+						
+						int selectionPos = AckDataTextbox.SelectionStart;
+						AckDataTextbox.Text = AckDataTextbox.Text.Substring(0, payloadSize*2);
+						if (selectionPos > AckDataTextbox.Text.Length) { selectionPos = AckDataTextbox.Text.Length; }
+						AckDataTextbox.SelectionStart = selectionPos;
+						AckDataTextbox.SelectionLength = 0;
+						
+						updatingElement = false;
+					}
+					
+					byte[] hexValues = null;
+					if (TryParseHexString(AckDataTextbox.Text, out hexValues))
+					{
+						AckDataLengthLabel.Text = "Length: " + hexValues.Length.ToString() + " / " + payloadSize.ToString();
+						
+						if (hexValues.Length == 0)
+						{
+							AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+						}
+						else if (hexValues.Length == payloadSize)
+						{
+							AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+						}
+						else
+						{
+							AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+						}
+					}
+					else
+					{
+						AckDataLengthLabel.Text = "Length: ? / " + payloadSize.ToString();
+						AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+					}
+				}
+				else
+				{
+					//Keep them from typing in too long of a payload
+					if (AckDataTextbox.Text.Length > payloadSize)
+					{
+						updatingElement = true;
+						
+						int selectionPos = AckDataTextbox.SelectionStart;
+						AckDataTextbox.Text = AckDataTextbox.Text.Substring(0, payloadSize);
+						if (selectionPos > AckDataTextbox.Text.Length) { selectionPos = AckDataTextbox.Text.Length; }
+						AckDataTextbox.SelectionStart = selectionPos;
+						AckDataTextbox.SelectionLength = 0;
+						
+						updatingElement = false;
+					}
+					
+					byte[] hexValues = Encoding.ASCII.GetBytes(AckDataTextbox.Text);
+					AckDataLengthLabel.Text = "Length: " + hexValues.Length.ToString() + " / " + payloadSize.ToString();
+					
+					if (hexValues.Length <= payloadSize)
+					{
+						AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					}
+					else
+					{
+						AckDataLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+					}
+				}
+				
+				AckDataTextbox.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+				ackDataChanged = true;
+			}
+		}
+		private void AckDataTextbox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				ackDataChanged = false;
+				PushAckDataChange();
+			}
+		}
+		private void AckDataTextbox_Leave(object sender, EventArgs e)
+		{
+			if (ackDataChanged)
+			{
+				ackDataChanged = false;
+				PushAckDataChange();
+			}
+		}
+		
+		// +==============================+
+		// |  Receive UI Element Events   |
+		// +==============================+
+		private void RxHexCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		private void RxClearButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		
 	}
 }

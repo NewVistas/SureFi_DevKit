@@ -50,7 +50,7 @@ static bool ourModuleButtonDown = false;
 static bool otherButtonDown = false;
 static bool otherModuleButtonDown = false;
 
-#if 1
+#if 0
 static const u8 rxUid[APP_UID_SIZE] = { 0x11, 0x11, 0x11 };
 static const u8 txUid[APP_UID_SIZE] = { 0x22, 0x22, 0x22 };
 #else

@@ -168,9 +168,9 @@
 			this.RxTextbox = new System.Windows.Forms.TextBox();
 			this.RxClearButton = new System.Windows.Forms.Button();
 			this.TxHexCheckbox = new System.Windows.Forms.CheckBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.AckTextbox = new System.Windows.Forms.TextBox();
 			this.AckClearButton = new System.Windows.Forms.Button();
-			this.TxInfoLabel = new System.Windows.Forms.Label();
+			this.TxSuccessLabel = new System.Windows.Forms.Label();
 			this.TxLengthLabel = new System.Windows.Forms.Label();
 			this.TxCountLabel = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -187,6 +187,11 @@
 			this.RxRssiLabel = new System.Windows.Forms.Label();
 			this.RxSnrLabel = new System.Windows.Forms.Label();
 			this.OutputClearButton = new System.Windows.Forms.Button();
+			this.AckDataTextbox = new System.Windows.Forms.TextBox();
+			this.AckDataLengthLabel = new System.Windows.Forms.Label();
+			this.AckDataHexCheckbox = new System.Windows.Forms.CheckBox();
+			this.TxRetriesLabel = new System.Windows.Forms.Label();
+			this.label27 = new System.Windows.Forms.Label();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -205,7 +210,7 @@
             this.StatusLabel});
 			this.StatusBar.Location = new System.Drawing.Point(0, 416);
 			this.StatusBar.Name = "StatusBar";
-			this.StatusBar.Size = new System.Drawing.Size(685, 22);
+			this.StatusBar.Size = new System.Drawing.Size(755, 22);
 			this.StatusBar.TabIndex = 1;
 			this.StatusBar.Text = "statusStrip1";
 			// 
@@ -217,7 +222,6 @@
 			// 
 			// TickTimer
 			// 
-			this.TickTimer.Enabled = true;
 			this.TickTimer.Interval = 60;
 			this.TickTimer.Tick += new System.EventHandler(this.TickTimer_Tick);
 			// 
@@ -229,12 +233,12 @@
 			this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.Default;
 			this.OutputTextbox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OutputTextbox.Location = new System.Drawing.Point(512, 27);
+			this.OutputTextbox.Location = new System.Drawing.Point(582, 27);
 			this.OutputTextbox.Multiline = true;
 			this.OutputTextbox.Name = "OutputTextbox";
 			this.OutputTextbox.ReadOnly = true;
 			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.OutputTextbox.Size = new System.Drawing.Size(161, 291);
+			this.OutputTextbox.Size = new System.Drawing.Size(161, 276);
 			this.OutputTextbox.TabIndex = 2;
 			this.OutputTextbox.TabStop = false;
 			this.OutputTextbox.Text = "[7E] 40 04 12 AB CD EF";
@@ -242,9 +246,9 @@
 			// DisconnectButton
 			// 
 			this.DisconnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.DisconnectButton.Location = new System.Drawing.Point(512, 324);
+			this.DisconnectButton.Location = new System.Drawing.Point(582, 309);
 			this.DisconnectButton.Name = "DisconnectButton";
-			this.DisconnectButton.Size = new System.Drawing.Size(144, 23);
+			this.DisconnectButton.Size = new System.Drawing.Size(161, 23);
 			this.DisconnectButton.TabIndex = 3;
 			this.DisconnectButton.Text = "Disconnect";
 			this.DisconnectButton.UseVisualStyleBackColor = true;
@@ -256,7 +260,7 @@
 			this.HumanReadableCheckbox.AutoSize = true;
 			this.HumanReadableCheckbox.Checked = true;
 			this.HumanReadableCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.HumanReadableCheckbox.Location = new System.Drawing.Point(517, 7);
+			this.HumanReadableCheckbox.Location = new System.Drawing.Point(587, 7);
 			this.HumanReadableCheckbox.Name = "HumanReadableCheckbox";
 			this.HumanReadableCheckbox.Size = new System.Drawing.Size(109, 17);
 			this.HumanReadableCheckbox.TabIndex = 4;
@@ -277,7 +281,7 @@
 			this.MainTabControl.Location = new System.Drawing.Point(0, 0);
 			this.MainTabControl.Name = "MainTabControl";
 			this.MainTabControl.SelectedIndex = 0;
-			this.MainTabControl.Size = new System.Drawing.Size(506, 347);
+			this.MainTabControl.Size = new System.Drawing.Size(576, 332);
 			this.MainTabControl.TabIndex = 5;
 			// 
 			// TabPageRadio
@@ -312,7 +316,7 @@
 			this.TabPageRadio.Location = new System.Drawing.Point(4, 22);
 			this.TabPageRadio.Name = "TabPageRadio";
 			this.TabPageRadio.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageRadio.Size = new System.Drawing.Size(498, 321);
+			this.TabPageRadio.Size = new System.Drawing.Size(568, 306);
 			this.TabPageRadio.TabIndex = 0;
 			this.TabPageRadio.Text = "Radio Settings";
 			this.TabPageRadio.UseVisualStyleBackColor = true;
@@ -378,7 +382,7 @@
 			this.BandwidthCombobox.FormattingEnabled = true;
 			this.BandwidthCombobox.Items.AddRange(new object[] {
             "31.25 kHz",
-            "62.5kHz",
+            "62.5 kHz",
             "125 kHz",
             "250 kHz",
             "500 kHz"});
@@ -665,7 +669,7 @@
 			this.TabPageOther.Location = new System.Drawing.Point(4, 22);
 			this.TabPageOther.Name = "TabPageOther";
 			this.TabPageOther.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageOther.Size = new System.Drawing.Size(498, 321);
+			this.TabPageOther.Size = new System.Drawing.Size(524, 321);
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
@@ -1833,40 +1837,43 @@
 			// 
 			this.TxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TxTextbox.Location = new System.Drawing.Point(29, 359);
+			this.TxTextbox.Location = new System.Drawing.Point(29, 350);
 			this.TxTextbox.Name = "TxTextbox";
-			this.TxTextbox.Size = new System.Drawing.Size(327, 20);
+			this.TxTextbox.Size = new System.Drawing.Size(289, 20);
 			this.TxTextbox.TabIndex = 6;
+			this.TxTextbox.TextChanged += new System.EventHandler(this.TxTextbox_TextChanged);
+			this.TxTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxTextbox_KeyDown);
 			// 
 			// TransmitButton
 			// 
 			this.TransmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.TransmitButton.Location = new System.Drawing.Point(362, 356);
+			this.TransmitButton.Location = new System.Drawing.Point(324, 348);
 			this.TransmitButton.Name = "TransmitButton";
 			this.TransmitButton.Size = new System.Drawing.Size(75, 23);
 			this.TransmitButton.TabIndex = 7;
 			this.TransmitButton.Text = "Transmit";
 			this.TransmitButton.UseVisualStyleBackColor = true;
+			this.TransmitButton.Click += new System.EventHandler(this.TransmitButton_Click);
 			// 
 			// RxTextbox
 			// 
-			this.RxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxTextbox.Location = new System.Drawing.Point(29, 392);
+			this.RxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.RxTextbox.Location = new System.Drawing.Point(481, 389);
 			this.RxTextbox.Name = "RxTextbox";
 			this.RxTextbox.ReadOnly = true;
-			this.RxTextbox.Size = new System.Drawing.Size(327, 20);
+			this.RxTextbox.Size = new System.Drawing.Size(215, 20);
 			this.RxTextbox.TabIndex = 11;
 			// 
 			// RxClearButton
 			// 
 			this.RxClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxClearButton.Location = new System.Drawing.Point(362, 389);
+			this.RxClearButton.Location = new System.Drawing.Point(701, 388);
 			this.RxClearButton.Name = "RxClearButton";
-			this.RxClearButton.Size = new System.Drawing.Size(40, 23);
+			this.RxClearButton.Size = new System.Drawing.Size(50, 23);
 			this.RxClearButton.TabIndex = 12;
 			this.RxClearButton.Text = "Clear";
 			this.RxClearButton.UseVisualStyleBackColor = true;
+			this.RxClearButton.Click += new System.EventHandler(this.RxClearButton_Click);
 			// 
 			// TxHexCheckbox
 			// 
@@ -1874,73 +1881,76 @@
 			this.TxHexCheckbox.AutoSize = true;
 			this.TxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.TxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 357);
+			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 348);
 			this.TxHexCheckbox.Name = "TxHexCheckbox";
 			this.TxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.TxHexCheckbox.TabIndex = 13;
 			this.TxHexCheckbox.Text = "HEX";
 			this.TxHexCheckbox.UseVisualStyleBackColor = true;
+			this.TxHexCheckbox.CheckedChanged += new System.EventHandler(this.TxHexCheckbox_CheckedChanged);
 			// 
-			// textBox1
+			// AckTextbox
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(470, 392);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(156, 20);
-			this.textBox1.TabIndex = 14;
+			this.AckTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.AckTextbox.Location = new System.Drawing.Point(29, 390);
+			this.AckTextbox.Name = "AckTextbox";
+			this.AckTextbox.ReadOnly = true;
+			this.AckTextbox.Size = new System.Drawing.Size(289, 20);
+			this.AckTextbox.TabIndex = 14;
 			// 
 			// AckClearButton
 			// 
 			this.AckClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AckClearButton.Location = new System.Drawing.Point(632, 392);
+			this.AckClearButton.Location = new System.Drawing.Point(324, 388);
 			this.AckClearButton.Name = "AckClearButton";
-			this.AckClearButton.Size = new System.Drawing.Size(45, 23);
+			this.AckClearButton.Size = new System.Drawing.Size(75, 23);
 			this.AckClearButton.TabIndex = 15;
 			this.AckClearButton.Text = "Clear";
 			this.AckClearButton.UseVisualStyleBackColor = true;
+			this.AckClearButton.Click += new System.EventHandler(this.AckClearButton_Click);
 			// 
-			// TxInfoLabel
+			// TxSuccessLabel
 			// 
-			this.TxInfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.TxInfoLabel.AutoSize = true;
-			this.TxInfoLabel.ForeColor = System.Drawing.Color.DarkGreen;
-			this.TxInfoLabel.Location = new System.Drawing.Point(443, 362);
-			this.TxInfoLabel.Name = "TxInfoLabel";
-			this.TxInfoLabel.Size = new System.Drawing.Size(104, 13);
-			this.TxInfoLabel.TabIndex = 17;
-			this.TxInfoLabel.Text = "Success 2/2 Retries";
+			this.TxSuccessLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.TxSuccessLabel.AutoSize = true;
+			this.TxSuccessLabel.ForeColor = System.Drawing.Color.DarkGreen;
+			this.TxSuccessLabel.Location = new System.Drawing.Point(405, 347);
+			this.TxSuccessLabel.Name = "TxSuccessLabel";
+			this.TxSuccessLabel.Size = new System.Drawing.Size(48, 13);
+			this.TxSuccessLabel.TabIndex = 17;
+			this.TxSuccessLabel.Text = "Success";
 			// 
 			// TxLengthLabel
 			// 
 			this.TxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxLengthLabel.AutoSize = true;
-			this.TxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxLengthLabel.Location = new System.Drawing.Point(272, 350);
+			this.TxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxLengthLabel.Location = new System.Drawing.Point(186, 337);
 			this.TxLengthLabel.Name = "TxLengthLabel";
-			this.TxLengthLabel.Size = new System.Drawing.Size(39, 9);
+			this.TxLengthLabel.Size = new System.Drawing.Size(69, 13);
 			this.TxLengthLabel.TabIndex = 18;
-			this.TxLengthLabel.Text = "Length: 20";
+			this.TxLengthLabel.Text = "Length: 0 / 0";
 			// 
 			// TxCountLabel
 			// 
 			this.TxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxCountLabel.AutoSize = true;
-			this.TxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxCountLabel.Location = new System.Drawing.Point(315, 350);
+			this.TxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxCountLabel.Location = new System.Drawing.Point(272, 337);
 			this.TxCountLabel.Name = "TxCountLabel";
-			this.TxCountLabel.Size = new System.Drawing.Size(41, 9);
+			this.TxCountLabel.Size = new System.Drawing.Size(47, 13);
 			this.TxCountLabel.TabIndex = 18;
-			this.TxCountLabel.Text = "Count: 100";
+			this.TxCountLabel.Text = "Count: 0";
 			// 
 			// label3
 			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(29, 382);
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(479, 376);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(33, 9);
+			this.label3.Size = new System.Drawing.Size(47, 13);
 			this.label3.TabIndex = 18;
 			this.label3.Text = "Receive";
 			// 
@@ -1948,155 +1958,217 @@
 			// 
 			this.RxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxLengthLabel.AutoSize = true;
-			this.RxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxLengthLabel.Location = new System.Drawing.Point(274, 382);
+			this.RxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxLengthLabel.Location = new System.Drawing.Point(590, 376);
 			this.RxLengthLabel.Name = "RxLengthLabel";
-			this.RxLengthLabel.Size = new System.Drawing.Size(39, 9);
+			this.RxLengthLabel.Size = new System.Drawing.Size(52, 13);
 			this.RxLengthLabel.TabIndex = 18;
-			this.RxLengthLabel.Text = "Length: 20";
+			this.RxLengthLabel.Text = "Length: 0";
 			// 
 			// RxCountLabel
 			// 
 			this.RxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxCountLabel.AutoSize = true;
-			this.RxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxCountLabel.Location = new System.Drawing.Point(315, 382);
+			this.RxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxCountLabel.Location = new System.Drawing.Point(650, 376);
 			this.RxCountLabel.Name = "RxCountLabel";
-			this.RxCountLabel.Size = new System.Drawing.Size(41, 9);
+			this.RxCountLabel.Size = new System.Drawing.Size(47, 13);
 			this.RxCountLabel.TabIndex = 18;
-			this.RxCountLabel.Text = "Count: 100";
+			this.RxCountLabel.Text = "Count: 0";
 			// 
 			// label6
 			// 
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(29, 350);
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(29, 337);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(36, 9);
+			this.label6.Size = new System.Drawing.Size(47, 13);
 			this.label6.TabIndex = 18;
 			this.label6.Text = "Transmit";
 			// 
 			// RxHexCheckbox
 			// 
-			this.RxHexCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.RxHexCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxHexCheckbox.AutoSize = true;
 			this.RxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.RxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxHexCheckbox.Location = new System.Drawing.Point(4, 390);
+			this.RxHexCheckbox.Location = new System.Drawing.Point(456, 388);
 			this.RxHexCheckbox.Name = "RxHexCheckbox";
 			this.RxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.RxHexCheckbox.TabIndex = 13;
 			this.RxHexCheckbox.Text = "HEX";
 			this.RxHexCheckbox.UseVisualStyleBackColor = true;
+			this.RxHexCheckbox.CheckedChanged += new System.EventHandler(this.RxHexCheckbox_CheckedChanged);
 			// 
 			// label1
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(468, 382);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(27, 377);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(67, 9);
+			this.label1.Size = new System.Drawing.Size(95, 13);
 			this.label1.TabIndex = 18;
 			this.label1.Text = "Acknowledgement";
 			// 
 			// AckHexCheckbox
 			// 
-			this.AckHexCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AckHexCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.AckHexCheckbox.AutoSize = true;
 			this.AckHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.AckHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckHexCheckbox.Location = new System.Drawing.Point(446, 391);
+			this.AckHexCheckbox.Location = new System.Drawing.Point(5, 389);
 			this.AckHexCheckbox.Name = "AckHexCheckbox";
 			this.AckHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.AckHexCheckbox.TabIndex = 13;
 			this.AckHexCheckbox.Text = "HEX";
 			this.AckHexCheckbox.UseVisualStyleBackColor = true;
+			this.AckHexCheckbox.CheckedChanged += new System.EventHandler(this.AckHexCheckbox_CheckedChanged);
 			// 
 			// AckLengthLabel
 			// 
 			this.AckLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckLengthLabel.AutoSize = true;
-			this.AckLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckLengthLabel.Location = new System.Drawing.Point(543, 382);
+			this.AckLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AckLengthLabel.Location = new System.Drawing.Point(207, 377);
 			this.AckLengthLabel.Name = "AckLengthLabel";
-			this.AckLengthLabel.Size = new System.Drawing.Size(39, 9);
+			this.AckLengthLabel.Size = new System.Drawing.Size(52, 13);
 			this.AckLengthLabel.TabIndex = 18;
-			this.AckLengthLabel.Text = "Length: 20";
+			this.AckLengthLabel.Text = "Length: 0";
 			// 
 			// AckCountLabel
 			// 
 			this.AckCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckCountLabel.AutoSize = true;
-			this.AckCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckCountLabel.Location = new System.Drawing.Point(585, 382);
+			this.AckCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AckCountLabel.Location = new System.Drawing.Point(272, 377);
 			this.AckCountLabel.Name = "AckCountLabel";
-			this.AckCountLabel.Size = new System.Drawing.Size(41, 9);
+			this.AckCountLabel.Size = new System.Drawing.Size(47, 13);
 			this.AckCountLabel.TabIndex = 18;
-			this.AckCountLabel.Text = "Count: 100";
+			this.AckCountLabel.Text = "Count: 0";
 			// 
 			// TxRssiLabel
 			// 
 			this.TxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxRssiLabel.AutoSize = true;
 			this.TxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxRssiLabel.Location = new System.Drawing.Point(555, 357);
+			this.TxRssiLabel.Location = new System.Drawing.Point(400, 388);
 			this.TxRssiLabel.Name = "TxRssiLabel";
-			this.TxRssiLabel.Size = new System.Drawing.Size(50, 12);
+			this.TxRssiLabel.Size = new System.Drawing.Size(37, 12);
 			this.TxRssiLabel.TabIndex = 19;
-			this.TxRssiLabel.Text = "RSSI: -134";
+			this.TxRssiLabel.Text = "RSSI: 0";
 			// 
 			// TxSnrLabel
 			// 
 			this.TxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxSnrLabel.AutoSize = true;
 			this.TxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxSnrLabel.Location = new System.Drawing.Point(557, 368);
+			this.TxSnrLabel.Location = new System.Drawing.Point(402, 399);
 			this.TxSnrLabel.Name = "TxSnrLabel";
-			this.TxSnrLabel.Size = new System.Drawing.Size(38, 12);
+			this.TxSnrLabel.Size = new System.Drawing.Size(35, 12);
 			this.TxSnrLabel.TabIndex = 19;
-			this.TxSnrLabel.Text = "SNR: -4";
+			this.TxSnrLabel.Text = "SNR: 0";
 			// 
 			// RxRssiLabel
 			// 
 			this.RxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxRssiLabel.AutoSize = true;
 			this.RxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxRssiLabel.Location = new System.Drawing.Point(401, 389);
+			this.RxRssiLabel.Location = new System.Drawing.Point(700, 347);
 			this.RxRssiLabel.Name = "RxRssiLabel";
-			this.RxRssiLabel.Size = new System.Drawing.Size(50, 12);
+			this.RxRssiLabel.Size = new System.Drawing.Size(37, 12);
 			this.RxRssiLabel.TabIndex = 19;
-			this.RxRssiLabel.Text = "RSSI: -134";
+			this.RxRssiLabel.Text = "RSSI: 0";
 			// 
 			// RxSnrLabel
 			// 
 			this.RxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxSnrLabel.AutoSize = true;
 			this.RxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxSnrLabel.Location = new System.Drawing.Point(403, 400);
+			this.RxSnrLabel.Location = new System.Drawing.Point(702, 358);
 			this.RxSnrLabel.Name = "RxSnrLabel";
-			this.RxSnrLabel.Size = new System.Drawing.Size(38, 12);
+			this.RxSnrLabel.Size = new System.Drawing.Size(35, 12);
 			this.RxSnrLabel.TabIndex = 19;
-			this.RxSnrLabel.Text = "SNR: -4";
+			this.RxSnrLabel.Text = "SNR: 0";
 			// 
 			// OutputClearButton
 			// 
 			this.OutputClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.OutputClearButton.Location = new System.Drawing.Point(622, 3);
+			this.OutputClearButton.Location = new System.Drawing.Point(692, 3);
 			this.OutputClearButton.Name = "OutputClearButton";
 			this.OutputClearButton.Size = new System.Drawing.Size(51, 23);
 			this.OutputClearButton.TabIndex = 20;
 			this.OutputClearButton.Text = "Clear";
 			this.OutputClearButton.UseVisualStyleBackColor = true;
 			// 
+			// AckDataTextbox
+			// 
+			this.AckDataTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AckDataTextbox.Location = new System.Drawing.Point(481, 350);
+			this.AckDataTextbox.Name = "AckDataTextbox";
+			this.AckDataTextbox.Size = new System.Drawing.Size(215, 20);
+			this.AckDataTextbox.TabIndex = 16;
+			this.AckDataTextbox.TextChanged += new System.EventHandler(this.AckDataTextbox_TextChanged);
+			this.AckDataTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AckDataTextbox_KeyDown);
+			this.AckDataTextbox.Leave += new System.EventHandler(this.AckDataTextbox_Leave);
+			// 
+			// AckDataLengthLabel
+			// 
+			this.AckDataLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AckDataLengthLabel.AutoSize = true;
+			this.AckDataLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AckDataLengthLabel.Location = new System.Drawing.Point(615, 337);
+			this.AckDataLengthLabel.Name = "AckDataLengthLabel";
+			this.AckDataLengthLabel.Size = new System.Drawing.Size(69, 13);
+			this.AckDataLengthLabel.TabIndex = 17;
+			this.AckDataLengthLabel.Text = "Length: 0 / 0";
+			// 
+			// AckDataHexCheckbox
+			// 
+			this.AckDataHexCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AckDataHexCheckbox.AutoSize = true;
+			this.AckDataHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.AckDataHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AckDataHexCheckbox.Location = new System.Drawing.Point(456, 350);
+			this.AckDataHexCheckbox.Name = "AckDataHexCheckbox";
+			this.AckDataHexCheckbox.Size = new System.Drawing.Size(25, 27);
+			this.AckDataHexCheckbox.TabIndex = 13;
+			this.AckDataHexCheckbox.Text = "HEX";
+			this.AckDataHexCheckbox.UseVisualStyleBackColor = true;
+			this.AckDataHexCheckbox.CheckedChanged += new System.EventHandler(this.AckDataHexCheckbox_CheckedChanged);
+			// 
+			// TxRetriesLabel
+			// 
+			this.TxRetriesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.TxRetriesLabel.AutoSize = true;
+			this.TxRetriesLabel.ForeColor = System.Drawing.Color.DarkGreen;
+			this.TxRetriesLabel.Location = new System.Drawing.Point(402, 358);
+			this.TxRetriesLabel.Name = "TxRetriesLabel";
+			this.TxRetriesLabel.Size = new System.Drawing.Size(55, 13);
+			this.TxRetriesLabel.TabIndex = 17;
+			this.TxRetriesLabel.Text = "0/0 retries";
+			// 
+			// label27
+			// 
+			this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.label27.AutoSize = true;
+			this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label27.Location = new System.Drawing.Point(480, 337);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(52, 13);
+			this.label27.TabIndex = 18;
+			this.label27.Text = "Ack Data";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(685, 438);
+			this.ClientSize = new System.Drawing.Size(755, 438);
+			this.Controls.Add(this.AckDataLengthLabel);
 			this.Controls.Add(this.OutputClearButton);
+			this.Controls.Add(this.AckDataTextbox);
 			this.Controls.Add(this.RxSnrLabel);
 			this.Controls.Add(this.RxRssiLabel);
 			this.Controls.Add(this.TxSnrLabel);
@@ -2106,13 +2178,16 @@
 			this.Controls.Add(this.TxCountLabel);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label1);
+			this.Controls.Add(this.label27);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.RxLengthLabel);
 			this.Controls.Add(this.AckLengthLabel);
 			this.Controls.Add(this.TxLengthLabel);
-			this.Controls.Add(this.TxInfoLabel);
+			this.Controls.Add(this.TxRetriesLabel);
+			this.Controls.Add(this.TxSuccessLabel);
+			this.Controls.Add(this.AckDataHexCheckbox);
 			this.Controls.Add(this.AckClearButton);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.AckTextbox);
 			this.Controls.Add(this.AckHexCheckbox);
 			this.Controls.Add(this.RxHexCheckbox);
 			this.Controls.Add(this.TxHexCheckbox);
@@ -2126,7 +2201,7 @@
 			this.Controls.Add(this.OutputTextbox);
 			this.Controls.Add(this.StatusBar);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MinimumSize = new System.Drawing.Size(520, 415);
+			this.MinimumSize = new System.Drawing.Size(684, 415);
 			this.Name = "MainForm";
 			this.Text = "Sure-Fi Module Developer";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -2164,19 +2239,14 @@
 		private System.Windows.Forms.TextBox TxTextbox;
 		public System.Windows.Forms.Button TransmitButton;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox RxTextbox;
 		private System.Windows.Forms.Button RxClearButton;
 		private System.Windows.Forms.CheckBox TxHexCheckbox;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox AckTextbox;
 		private System.Windows.Forms.Button AckClearButton;
-		private System.Windows.Forms.Label TxInfoLabel;
 		private System.Windows.Forms.Label TxLengthLabel;
 		private System.Windows.Forms.Label TxCountLabel;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label RxLengthLabel;
-		private System.Windows.Forms.Label RxCountLabel;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.CheckBox RxHexCheckbox;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.CheckBox AckHexCheckbox;
 		private System.Windows.Forms.Label AckLengthLabel;
@@ -2195,10 +2265,6 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label TxRssiLabel;
-		private System.Windows.Forms.Label TxSnrLabel;
-		private System.Windows.Forms.Label RxRssiLabel;
-		private System.Windows.Forms.Label RxSnrLabel;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.Label label21;
 		private System.Windows.Forms.ComboBox TxLedModeCombobox;
@@ -2309,5 +2375,19 @@
 		public System.Windows.Forms.CheckBox AcksEnabledCheckbox;
 		public System.Windows.Forms.Label RxUidLengthLabel;
 		public System.Windows.Forms.Label TxUidLengthLabel;
+		public System.Windows.Forms.Label AckDataLengthLabel;
+		public System.Windows.Forms.TextBox AckDataTextbox;
+		public System.Windows.Forms.CheckBox AckDataHexCheckbox;
+		private System.Windows.Forms.Label label27;
+		public System.Windows.Forms.Label TxSuccessLabel;
+		public System.Windows.Forms.Label TxRetriesLabel;
+		public System.Windows.Forms.Label TxRssiLabel;
+		public System.Windows.Forms.Label TxSnrLabel;
+		public System.Windows.Forms.TextBox RxTextbox;
+		public System.Windows.Forms.CheckBox RxHexCheckbox;
+		public System.Windows.Forms.Label RxLengthLabel;
+		public System.Windows.Forms.Label RxCountLabel;
+		public System.Windows.Forms.Label RxRssiLabel;
+		public System.Windows.Forms.Label RxSnrLabel;
 	}
 }
