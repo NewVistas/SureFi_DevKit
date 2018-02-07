@@ -482,24 +482,6 @@ namespace DevKitWindowsApp
 			this.Close();
 		}
 		
-		private void AutoClearFlagsCheckbox_CheckedChanged(object sender, EventArgs e)
-		{
-			if (AutoClearFlagsCheckbox.Checked)
-			{
-				ClearFlagsButton.Enabled = false;
-				AutoClearFlagsBit.Text = "1";
-				AutoClearFlagsBit.BackColor = Color.FromKnownColor(KnownColor.OrangeRed);
-				AutoClearFlagsBit.ForeColor = Color.FromKnownColor(KnownColor.Control);
-			}
-			else
-			{
-				ClearFlagsButton.Enabled = true;
-				AutoClearFlagsBit.Text = "0";
-				AutoClearFlagsBit.BackColor = Color.FromKnownColor(KnownColor.Transparent);
-				AutoClearFlagsBit.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
-			}
-		}
-		
 		// +--------------------------------------------------------------+
 		// |                      Radio Settings Tab                      |
 		// +--------------------------------------------------------------+
@@ -1330,8 +1312,12 @@ namespace DevKitWindowsApp
 		// +--------------------------------------------------------------+
 		// |                      Other Settings Tab                      |
 		// +--------------------------------------------------------------+
+		
+		// +==============================+
+		// |  Indication Combobox Events  |
+		// +==============================+
 		private byte[] indications = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-		public void PushIndicationsChanged(bool labelsOnly)
+		public void PushIndications(bool labelsOnly)
 		{
 			byte[] newIndications = {
 				(byte)LedCombo1.SelectedIndex,
@@ -1438,45 +1424,44 @@ namespace DevKitWindowsApp
 		{
 			if (!updatingElement)
 			{
-				PushIndicationsChanged(false);
+				PushIndications(false);
 			}
 		}
 		private void LedCombo2_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (!updatingElement)
 			{
-				PushIndicationsChanged(false);
+				PushIndications(false);
 			}
 		}
 		private void LedCombo3_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (!updatingElement)
 			{
-				PushIndicationsChanged(false);
+				PushIndications(false);
 			}
 		}
 		private void LedCombo4_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (!updatingElement)
 			{
-				PushIndicationsChanged(false);
+				PushIndications(false);
 			}
 		}
 		private void LedCombo5_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (!updatingElement)
 			{
-				PushIndicationsChanged(false);
+				PushIndications(false);
 			}
 		}
 		private void LedCombo6_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (!updatingElement)
 			{
-				PushIndicationsChanged(false);
+				PushIndications(false);
 			}
 		}
-		
 		private void ClearIndicationsButton_Click(object sender, EventArgs e)
 		{
 			this.updatingElement = true;
@@ -1488,7 +1473,110 @@ namespace DevKitWindowsApp
 			LedCombo6.SelectedIndex = 0;
 			this.updatingElement = false;
 			
-			PushIndicationsChanged(false);
+			PushIndications(false);
+		}
+		
+		// +==============================+
+		// |  QOS Config Combobox Events  |
+		// +==============================+
+		private void PushQosConfig()
+		{
+			byte[] payload = { (byte)(0x01 + QosConfigCombobox.SelectedIndex) };
+			this.port.PushTxCommand(SureCmd.SetQosConfig, payload);
+		}
+		private void QosConfigCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushQosConfig();
+			}
+		}
+		
+		// +====================================+
+		// | Button Config and Hold Time Events |
+		// +====================================+
+		private void PushButtonConfig()
+		{
+			byte configValue = (byte)((0x01 + ButtonConfigCombobox.SelectedIndex) & 0x0F);
+			configValue += (byte)(((byte)ButtonHoldTimeNumeric.Value & 0x0F) << 4);
+			byte[] payload = { configValue };
+			this.port.PushTxCommand(SureCmd.SetButtonConfig, payload);
+		}
+		private void ButtonHoldTimeNumeric_ValueChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				this.updatingElement = true;
+				if (ButtonHoldTimeNumeric.Value < 1)  { ButtonHoldTimeNumeric.Value = 1;  }
+				if (ButtonHoldTimeNumeric.Value > 15) { ButtonHoldTimeNumeric.Value = 15; }
+				this.updatingElement = false;
+				
+				PushButtonConfig();
+			}
+		}
+		private void ButtonConfigCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushButtonConfig();
+			}
+		}
+		
+		// +====================================+
+		// | Rx and Tx Led Mode Combobox Events |
+		// +====================================+
+		private void PushConfigByte()
+		{
+			byte newValue = 0x00;
+			if (RxLedModeCombobox.SelectedIndex > 0) { newValue += SureFi.ConfigFlags_RxLedModeBit; }
+			if (TxLedModeCombobox.SelectedIndex > 0) { newValue += SureFi.ConfigFlags_TxLedModeBit; }
+			if (AutoClearFlagsCheckbox.Checked)      { newValue += SureFi.ConfigFlags_AutoClearFlagsBit; }
+			byte[] payload = { newValue };
+			this.port.PushTxCommand(SureCmd.WriteConfig, payload);
+		}
+		private void RxLedModeCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushConfigByte();
+			}
+		}
+		private void TxLedModeCombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushConfigByte();
+			}
+		}
+		
+		// +--------------------------------------------------------------+
+		// |                          Status Tab                          |
+		// +--------------------------------------------------------------+
+		private void AutoClearFlagsCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				if (AutoClearFlagsCheckbox.Checked)
+				{
+					ClearFlagsButton.Enabled = false;
+				}
+				else
+				{
+					ClearFlagsButton.Enabled = true;
+				}
+				PushConfigByte();
+			}
+		}
+		
+		private void ClearFlagsButton_Click(object sender, EventArgs e)
+		{
+			byte[] payload = { 0xFF };
+			this.port.PushTxCommand(SureCmd.ClearStatusFlags, payload);
+		}
+		
+		private void GetStatusButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.GetStatus);
 		}
 		
 		// +--------------------------------------------------------------+

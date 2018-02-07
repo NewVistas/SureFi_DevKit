@@ -153,30 +153,30 @@ namespace DevKitWindowsApp
 	
 	class SureFi
 	{
-		public static byte StateFlags_RadioStateBits          = 0x0F;
-		public static byte StateFlags_BusyBit                 = 0x10;
-		public static byte StateFlags_EncryptionActiveBit     = 0x20;
-		public static byte StateFlags_RxInProgressBit         = 0x40;
-		public static byte StateFlags_SettingsPendingBit      = 0x80;
+		public const byte StateFlags_RadioStateBits          = 0x0F;
+		public const byte StateFlags_BusyBit                 = 0x10;
+		public const byte StateFlags_EncryptionActiveBit     = 0x20;
+		public const byte StateFlags_RxInProgressBit         = 0x40;
+		public const byte StateFlags_SettingsPendingBit      = 0x80;
 		
-		public static byte OtherFlags_DoingLightshowBit       = 0x01;
-		public static byte OtherFlags_ShowingQosBit           = 0x02;
-		public static byte OtherFlags_ButtonDownBit           = 0x04;
+		public const byte OtherFlags_DoingLightshowBit       = 0x01;
+		public const byte OtherFlags_ShowingQosBit           = 0x02;
+		public const byte OtherFlags_ButtonDownBit           = 0x04;
 		
-		public static byte ClearableFlags_WasResetBit         = 0x01;
-		public static byte ClearableFlags_TransmitFinishedBit = 0x02;
-		public static byte ClearableFlags_RxPacketReadyBit    = 0x04;
-		public static byte ClearableFlags_AckPacketReadyBit   = 0x08;
-		public static byte ClearableFlags_ChecksumErrorBit    = 0x10;
-		public static byte ClearableFlags_EncryptionRekeyBit  = 0x20;
-		public static byte ClearableFlags_ButtonPressedBit    = 0x40;
-		public static byte ClearableFlags_ButtonHeldBit       = 0x80;
+		public const byte ClearableFlags_WasResetBit         = 0x01;
+		public const byte ClearableFlags_TransmitFinishedBit = 0x02;
+		public const byte ClearableFlags_RxPacketReadyBit    = 0x04;
+		public const byte ClearableFlags_AckPacketReadyBit   = 0x08;
+		public const byte ClearableFlags_ChecksumErrorBit    = 0x10;
+		public const byte ClearableFlags_EncryptionRekeyBit  = 0x20;
+		public const byte ClearableFlags_ButtonPressedBit    = 0x40;
+		public const byte ClearableFlags_ButtonHeldBit       = 0x80;
 		
-		public static byte ConfigFlags_InterruptDrivenBit     = 0x01;
-		public static byte ConfigFlags_AutoClearFlagsBit      = 0x02;
-		public static byte ConfigFlags_RxLedModeBit           = 0x04;
-		public static byte ConfigFlags_TxLedModeBit           = 0x08;
-		public static byte ConfigFlags_AutoRekeyBit           = 0x10;
+		public const byte ConfigFlags_InterruptDrivenBit     = 0x01;
+		public const byte ConfigFlags_AutoClearFlagsBit      = 0x02;
+		public const byte ConfigFlags_RxLedModeBit           = 0x04;
+		public const byte ConfigFlags_TxLedModeBit           = 0x08;
+		public const byte ConfigFlags_AutoRekeyBit           = 0x10;
 		
 		public static bool gotModuleStatus      = false;
 		public static bool gotIntEnableBits     = false;
@@ -402,10 +402,24 @@ namespace DevKitWindowsApp
 							}
 						}
 						
-						byte stateFlags    = rspPayload[0];
+						byte stateFlags     = rspPayload[0];
 						byte otherFlags     = rspPayload[1];
 						byte clearableFlags = rspPayload[2];
 						byte configFlags    = rspPayload[3];
+						
+						bool autoClearFlagsEnabled = ((configFlags & ConfigFlags_AutoClearFlagsBit) != 0x00);
+						bool rxLedMode             = ((configFlags & ConfigFlags_RxLedModeBit) != 0x00);
+						bool txLedMode             = ((configFlags & ConfigFlags_TxLedModeBit) != 0x00);
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.AutoClearFlagsCheckbox.Checked = autoClearFlagsEnabled;
+						mainForm.ClearFlagsButton.Enabled = !autoClearFlagsEnabled;
+						mainForm.RxLedModeCombobox.SelectedIndex = (rxLedMode ? 1 : 0);
+						mainForm.TxLedModeCombobox.SelectedIndex = (txLedMode ? 1 : 0);
+						
+						mainForm.updatingElement = false;
+						
 						mainForm.HandleStatusUpdate(stateFlags, otherFlags, clearableFlags, configFlags);
 						
 						gotModuleStatus = true;
@@ -745,17 +759,20 @@ namespace DevKitWindowsApp
 						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
 						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
 						
+						mainForm.QosConfigCombobox.SelectedIndex = (qosConfig - 0x01);
+						
 						mainForm.LedCombo1.SelectedIndex = indication1;
 						mainForm.LedCombo2.SelectedIndex = indication2;
 						mainForm.LedCombo3.SelectedIndex = indication3;
 						mainForm.LedCombo4.SelectedIndex = indication4;
 						mainForm.LedCombo5.SelectedIndex = indication5;
 						mainForm.LedCombo6.SelectedIndex = indication6;
-						mainForm.PushIndicationsChanged(true);
+						mainForm.PushIndications(true);
 						
 						mainForm.QuietModeCheckbox.Checked = quietModeEnabled;
 						
-						//TODO: Fill the rest of the stuff
+						mainForm.ButtonConfigCombobox.SelectedIndex = (buttonConfig - 0x01);
+						mainForm.ButtonHoldTimeNumeric.Value = (Decimal)buttonHoldTime;
 						
 						mainForm.AcksEnabledCheckbox.Checked = acksEnabled;
 						mainForm.NumRetriesNumeric.Enabled = mainForm.AcksEnabledCheckbox.Checked;
@@ -984,7 +1001,14 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.QosConfig:
 				{
-					
+					if (rspPayload.Length == 1)
+					{
+						byte qosConfig = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						mainForm.QosConfigCombobox.SelectedIndex = (qosConfig - 0x01);
+						mainForm.updatingElement = false;
+					}
 					gotQosConfig = true;
 				} break;
 				
@@ -1010,7 +1034,7 @@ namespace DevKitWindowsApp
 						mainForm.LedCombo4.SelectedIndex = indication4;
 						mainForm.LedCombo5.SelectedIndex = indication5;
 						mainForm.LedCombo6.SelectedIndex = indication6;
-						mainForm.PushIndicationsChanged(true);
+						mainForm.PushIndications(true);
 						
 						mainForm.updatingElement = false;
 					}
@@ -1038,7 +1062,18 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ButtonConfig:
 				{
-					
+					if (rspPayload.Length == 1)
+					{
+						byte buttonConfig   = (byte)((rspPayload[0]>>0) & 0x0F);
+						byte buttonHoldTime = (byte)((rspPayload[0]>>4) & 0x0F);
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.ButtonConfigCombobox.SelectedIndex = (buttonConfig - 0x01);
+						mainForm.ButtonHoldTimeNumeric.Value = (Decimal)buttonHoldTime;
+						
+						mainForm.updatingElement = false;
+					}
 					gotButtonConfig = true;
 				} break;
 				
