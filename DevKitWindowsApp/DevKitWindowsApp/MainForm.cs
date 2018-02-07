@@ -102,6 +102,55 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		public void SetIntEnableBit(int statusByte, byte bit, bool filled)
+		{
+			Label bitLabel = null;
+			if (statusByte == 0)
+			{
+				if (bit == 0x01) { bitLabel = this.IntRadioStateBit1;      }
+				if (bit == 0x02) { bitLabel = this.IntRadioStateBit2;      }
+				if (bit == 0x04) { bitLabel = this.IntRadioStateBit3;      }
+				if (bit == 0x08) { bitLabel = this.IntRadioStateBit4;      }
+				if (bit == 0x10) { bitLabel = this.IntBusyBit;             }
+				if (bit == 0x20) { bitLabel = this.IntEncryptionActiveBit; }
+				if (bit == 0x40) { bitLabel = this.IntRxInProgressBit;     }
+				if (bit == 0x80) { bitLabel = this.IntSettingsPendingBit;  }
+			}
+			if (statusByte == 1)
+			{
+				if (bit == 0x01) { bitLabel = this.IntDoingLightshowBit;   }
+				if (bit == 0x02) { bitLabel = this.IntShowingQosBit;       }
+				if (bit == 0x04) { bitLabel = this.IntButtonDownBit;       }
+			}
+			if (statusByte == 2)
+			{
+				if (bit == 0x01) { bitLabel = this.IntWasResetBit;         }
+				if (bit == 0x02) { bitLabel = this.IntTransmitFinishedBit; }
+				if (bit == 0x04) { bitLabel = this.IntRxPacketReadyBit;    }
+				if (bit == 0x08) { bitLabel = this.IntAckPacketReadyBit;   }
+				if (bit == 0x10) { bitLabel = this.IntChecksumErrorBit;    }
+				if (bit == 0x20) { bitLabel = this.IntEncryptionRekeyBit;  }
+				if (bit == 0x40) { bitLabel = this.IntButtonPressedBit;    }
+				if (bit == 0x80) { bitLabel = this.IntButtonHeldBit;       }
+			}
+			if (statusByte == 3)
+			{
+				if (bit == 0x01) { bitLabel = this.IntInterruptDrivenBit; }
+				if (bit == 0x02) { bitLabel = this.IntAutoClearFlagsBit;  }
+				if (bit == 0x04) { bitLabel = this.IntRxLedModeBit;       }
+				if (bit == 0x08) { bitLabel = this.IntTxLedModeBit;       }
+				if (bit == 0x10) { bitLabel = this.IntAutoRekeyBit;       }
+			}
+			
+			string newText = filled ? "E" : "D";
+			if (bitLabel != null && bitLabel.Text != newText)
+			{
+				bitLabel.Text = newText;
+				bitLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.DeepSkyBlue : KnownColor.Transparent);
+				bitLabel.ForeColor = Color.FromKnownColor(filled ? KnownColor.Control : KnownColor.ControlText);
+			}
+		}
+		
 		public void IncrementCount(Label label)
 		{
 			int currentCount = 0;
@@ -272,6 +321,7 @@ namespace DevKitWindowsApp
 				SureFi.ClearGotFlags();
 				this.port.PushTxCommandNoBytes(SureCmd.GetModuleVersion);
 				this.port.PushTxCommandNoBytes(SureCmd.GetStatus);
+				this.port.PushTxCommandNoBytes(SureCmd.GetIntEnableBits);
 				this.port.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
 				this.port.PushTxCommandNoBytes(SureCmd.GetTransmitUID);
 				this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
@@ -359,6 +409,7 @@ namespace DevKitWindowsApp
 			SureFi.ClearGotFlags();
 			this.port.PushTxCommandNoBytes(SureCmd.GetModuleVersion);
 			this.port.PushTxCommandNoBytes(SureCmd.GetStatus);
+			this.port.PushTxCommandNoBytes(SureCmd.GetIntEnableBits);
 			this.port.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
 			this.port.PushTxCommandNoBytes(SureCmd.GetTransmitUID);
 			this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
@@ -1639,6 +1690,192 @@ namespace DevKitWindowsApp
 		private void GetRandomNumberButton_Click(object sender, EventArgs e)
 		{
 			this.port.PushTxCommandNoBytes(SureCmd.GetRandomNumber);
+		}
+		
+		// +--------------------------------------------------------------+
+		// |                     Int Enable Bits Tab                      |
+		// +--------------------------------------------------------------+
+		public byte[] intEnableBits = {0x00, 0x00, 0x00, 0x00};
+		private void PushIntEnableBits()
+		{
+			for (int bIndex = 0; bIndex < 4; bIndex++)
+			{
+				for (int bitIndex = 0; bitIndex < 8; bitIndex++)
+				{
+					byte bit = (byte)(0x01 << bitIndex);
+					bool isBitSet = (intEnableBits[bIndex] & bit) > 0;
+					this.SetIntEnableBit(bIndex, bit, isBitSet);
+				}
+				
+			}
+			
+			this.IntStateLabel.Text     = "State: 0x"     + intEnableBits[0].ToString("X2");
+			this.IntOtherLabel.Text     = "Other: 0x"     + intEnableBits[1].ToString("X2");
+			this.IntClearableLabel.Text = "Clearable: 0x" + intEnableBits[2].ToString("X2");
+			this.IntConfigLabel.Text    = "Config: 0x"    + intEnableBits[3].ToString("X2");
+			
+			this.port.PushTxCommand(SureCmd.SetIntEnableBits, intEnableBits);
+		}
+		private void IntRadioStateBit1_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x01) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x01)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x01); }
+			PushIntEnableBits();
+		}
+		private void IntRadioStateBit2_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x02) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x02)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x02); }
+			PushIntEnableBits();
+		}
+		private void IntRadioStateBit3_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x04) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x04)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x04); }
+			PushIntEnableBits();
+		}
+		private void IntRadioStateBit4_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x08) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x08)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x08); }
+			PushIntEnableBits();
+		}
+		private void IntBusyBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x10) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x10)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x10); }
+			PushIntEnableBits();
+		}
+		private void IntEncryptionActiveBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x20) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x20)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x20); }
+			PushIntEnableBits();
+		}
+		private void IntRxInProgressBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x40) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x40)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x40); }
+			PushIntEnableBits();
+		}
+		private void IntSettingsPendingBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[0] & 0x80) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x80)); }
+			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x80); }
+			PushIntEnableBits();
+		}
+		private void IntDoingLightshowBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x01) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x01)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x01); }
+			PushIntEnableBits();
+		}
+		private void IntShowingQosBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x02) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x02)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x02); }
+			PushIntEnableBits();
+		}
+		private void IntButtonDownBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x04) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x04)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x04); }
+			PushIntEnableBits();
+		}
+		private void IntWasResetBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x01) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x01)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x01); }
+			PushIntEnableBits();
+		}
+		private void IntTransmitFinishedBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x02) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x02)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x02); }
+			PushIntEnableBits();
+		}
+		private void IntRxPacketReadyBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x04) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x04)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x04); }
+			PushIntEnableBits();
+		}
+		private void IntAckPacketReadyBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x08) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x08)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x08); }
+			PushIntEnableBits();
+		}
+		private void IntChecksumErrorBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x10) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x10)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x10); }
+			PushIntEnableBits();
+		}
+		private void IntEncryptionRekeyBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x20) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x20)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x20); }
+			PushIntEnableBits();
+		}
+		private void IntButtonPressedBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x40) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x40)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x40); }
+			PushIntEnableBits();
+		}
+		private void IntButtonHeldBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[2] & 0x80) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x80)); }
+			else { intEnableBits[2] = (byte)(intEnableBits[2] | 0x80); }
+			PushIntEnableBits();
+		}
+		private void IntInterruptDrivenBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[3] & 0x01) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x01)); }
+			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x01); }
+			PushIntEnableBits();
+		}
+		private void IntAutoClearFlagsBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[3] & 0x02) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x02)); }
+			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x02); }
+			PushIntEnableBits();
+		}
+		private void IntRxLedModeBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[3] & 0x04) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x04)); }
+			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x04); }
+			PushIntEnableBits();
+		}
+		private void IntTxLedModeBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[3] & 0x08) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x08)); }
+			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x08); }
+			PushIntEnableBits();
+		}
+		private void IntAutoRekeyBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[3] & 0x10) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x10)); }
+			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x10); }
+			PushIntEnableBits();
+		}
+		
+		private void EnableAllIntButton_Click(object sender, EventArgs e)
+		{
+			intEnableBits[0] = 0xFF;
+			intEnableBits[1] = 0xFF;
+			intEnableBits[2] = 0xFF;
+			intEnableBits[3] = 0xFF;
+			PushIntEnableBits();
+		}
+		private void DisableAllIntButton_Click(object sender, EventArgs e)
+		{
+			intEnableBits[0] = 0x00;
+			intEnableBits[1] = 0x00;
+			intEnableBits[2] = 0x00;
+			intEnableBits[3] = 0x00;
+			PushIntEnableBits();
 		}
 	}
 }

@@ -2588,8 +2588,9 @@
 			this.IntButtonHeldBit.Name = "IntButtonHeldBit";
 			this.IntButtonHeldBit.Size = new System.Drawing.Size(21, 21);
 			this.IntButtonHeldBit.TabIndex = 22;
-			this.IntButtonHeldBit.Text = "0";
+			this.IntButtonHeldBit.Text = "D";
 			this.IntButtonHeldBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntButtonHeldBit.Click += new System.EventHandler(this.IntButtonHeldBit_Click);
 			// 
 			// IntTxLedModeBit
 			// 
@@ -2601,8 +2602,9 @@
 			this.IntTxLedModeBit.Name = "IntTxLedModeBit";
 			this.IntTxLedModeBit.Size = new System.Drawing.Size(21, 21);
 			this.IntTxLedModeBit.TabIndex = 23;
-			this.IntTxLedModeBit.Text = "0";
+			this.IntTxLedModeBit.Text = "D";
 			this.IntTxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntTxLedModeBit.Click += new System.EventHandler(this.IntTxLedModeBit_Click);
 			// 
 			// IntAckPacketReadyBit
 			// 
@@ -2614,8 +2616,9 @@
 			this.IntAckPacketReadyBit.Name = "IntAckPacketReadyBit";
 			this.IntAckPacketReadyBit.Size = new System.Drawing.Size(21, 21);
 			this.IntAckPacketReadyBit.TabIndex = 24;
-			this.IntAckPacketReadyBit.Text = "0";
+			this.IntAckPacketReadyBit.Text = "D";
 			this.IntAckPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntAckPacketReadyBit.Click += new System.EventHandler(this.IntAckPacketReadyBit_Click);
 			// 
 			// IntSettingsPendingBit
 			// 
@@ -2627,8 +2630,9 @@
 			this.IntSettingsPendingBit.Name = "IntSettingsPendingBit";
 			this.IntSettingsPendingBit.Size = new System.Drawing.Size(21, 21);
 			this.IntSettingsPendingBit.TabIndex = 25;
-			this.IntSettingsPendingBit.Text = "0";
+			this.IntSettingsPendingBit.Text = "D";
 			this.IntSettingsPendingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntSettingsPendingBit.Click += new System.EventHandler(this.IntSettingsPendingBit_Click);
 			// 
 			// IntButtonPressedBit
 			// 
@@ -2640,8 +2644,9 @@
 			this.IntButtonPressedBit.Name = "IntButtonPressedBit";
 			this.IntButtonPressedBit.Size = new System.Drawing.Size(21, 21);
 			this.IntButtonPressedBit.TabIndex = 26;
-			this.IntButtonPressedBit.Text = "0";
+			this.IntButtonPressedBit.Text = "D";
 			this.IntButtonPressedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntButtonPressedBit.Click += new System.EventHandler(this.IntButtonPressedBit_Click);
 			// 
 			// IntRadioStateBit4
 			// 
@@ -2653,8 +2658,9 @@
 			this.IntRadioStateBit4.Name = "IntRadioStateBit4";
 			this.IntRadioStateBit4.Size = new System.Drawing.Size(21, 21);
 			this.IntRadioStateBit4.TabIndex = 27;
-			this.IntRadioStateBit4.Text = "0";
+			this.IntRadioStateBit4.Text = "D";
 			this.IntRadioStateBit4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit4.Click += new System.EventHandler(this.IntRadioStateBit4_Click);
 			// 
 			// IntRxLedModeBit
 			// 
@@ -2666,8 +2672,9 @@
 			this.IntRxLedModeBit.Name = "IntRxLedModeBit";
 			this.IntRxLedModeBit.Size = new System.Drawing.Size(21, 21);
 			this.IntRxLedModeBit.TabIndex = 28;
-			this.IntRxLedModeBit.Text = "0";
+			this.IntRxLedModeBit.Text = "D";
 			this.IntRxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxLedModeBit.Click += new System.EventHandler(this.IntRxLedModeBit_Click);
 			// 
 			// IntRxPacketReadyBit
 			// 
@@ -2679,8 +2686,9 @@
 			this.IntRxPacketReadyBit.Name = "IntRxPacketReadyBit";
 			this.IntRxPacketReadyBit.Size = new System.Drawing.Size(21, 21);
 			this.IntRxPacketReadyBit.TabIndex = 29;
-			this.IntRxPacketReadyBit.Text = "0";
+			this.IntRxPacketReadyBit.Text = "D";
 			this.IntRxPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxPacketReadyBit.Click += new System.EventHandler(this.IntRxPacketReadyBit_Click);
 			// 
 			// IntButtonDownBit
 			// 
@@ -2692,8 +2700,9 @@
 			this.IntButtonDownBit.Name = "IntButtonDownBit";
 			this.IntButtonDownBit.Size = new System.Drawing.Size(21, 21);
 			this.IntButtonDownBit.TabIndex = 30;
-			this.IntButtonDownBit.Text = "0";
+			this.IntButtonDownBit.Text = "D";
 			this.IntButtonDownBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntButtonDownBit.Click += new System.EventHandler(this.IntButtonDownBit_Click);
 			// 
 			// IntRxInProgressBit
 			// 
@@ -2705,8 +2714,9 @@
 			this.IntRxInProgressBit.Name = "IntRxInProgressBit";
 			this.IntRxInProgressBit.Size = new System.Drawing.Size(21, 21);
 			this.IntRxInProgressBit.TabIndex = 31;
-			this.IntRxInProgressBit.Text = "0";
+			this.IntRxInProgressBit.Text = "D";
 			this.IntRxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxInProgressBit.Click += new System.EventHandler(this.IntRxInProgressBit_Click);
 			// 
 			// IntEncryptionRekeyBit
 			// 
@@ -2718,8 +2728,9 @@
 			this.IntEncryptionRekeyBit.Name = "IntEncryptionRekeyBit";
 			this.IntEncryptionRekeyBit.Size = new System.Drawing.Size(21, 21);
 			this.IntEncryptionRekeyBit.TabIndex = 32;
-			this.IntEncryptionRekeyBit.Text = "0";
+			this.IntEncryptionRekeyBit.Text = "D";
 			this.IntEncryptionRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntEncryptionRekeyBit.Click += new System.EventHandler(this.IntEncryptionRekeyBit_Click);
 			// 
 			// IntAutoClearFlagsBit
 			// 
@@ -2731,8 +2742,9 @@
 			this.IntAutoClearFlagsBit.Name = "IntAutoClearFlagsBit";
 			this.IntAutoClearFlagsBit.Size = new System.Drawing.Size(21, 21);
 			this.IntAutoClearFlagsBit.TabIndex = 43;
-			this.IntAutoClearFlagsBit.Text = "0";
+			this.IntAutoClearFlagsBit.Text = "D";
 			this.IntAutoClearFlagsBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntAutoClearFlagsBit.Click += new System.EventHandler(this.IntAutoClearFlagsBit_Click);
 			// 
 			// IntRadioStateBit3
 			// 
@@ -2744,8 +2756,9 @@
 			this.IntRadioStateBit3.Name = "IntRadioStateBit3";
 			this.IntRadioStateBit3.Size = new System.Drawing.Size(21, 21);
 			this.IntRadioStateBit3.TabIndex = 33;
-			this.IntRadioStateBit3.Text = "0";
+			this.IntRadioStateBit3.Text = "D";
 			this.IntRadioStateBit3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit3.Click += new System.EventHandler(this.IntRadioStateBit3_Click);
 			// 
 			// IntTransmitFinishedBit
 			// 
@@ -2757,8 +2770,9 @@
 			this.IntTransmitFinishedBit.Name = "IntTransmitFinishedBit";
 			this.IntTransmitFinishedBit.Size = new System.Drawing.Size(21, 21);
 			this.IntTransmitFinishedBit.TabIndex = 34;
-			this.IntTransmitFinishedBit.Text = "0";
+			this.IntTransmitFinishedBit.Text = "D";
 			this.IntTransmitFinishedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntTransmitFinishedBit.Click += new System.EventHandler(this.IntTransmitFinishedBit_Click);
 			// 
 			// IntAutoRekeyBit
 			// 
@@ -2770,8 +2784,9 @@
 			this.IntAutoRekeyBit.Name = "IntAutoRekeyBit";
 			this.IntAutoRekeyBit.Size = new System.Drawing.Size(21, 21);
 			this.IntAutoRekeyBit.TabIndex = 35;
-			this.IntAutoRekeyBit.Text = "0";
+			this.IntAutoRekeyBit.Text = "D";
 			this.IntAutoRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntAutoRekeyBit.Click += new System.EventHandler(this.IntAutoRekeyBit_Click);
 			// 
 			// IntChecksumErrorBit
 			// 
@@ -2783,8 +2798,9 @@
 			this.IntChecksumErrorBit.Name = "IntChecksumErrorBit";
 			this.IntChecksumErrorBit.Size = new System.Drawing.Size(21, 21);
 			this.IntChecksumErrorBit.TabIndex = 36;
-			this.IntChecksumErrorBit.Text = "0";
+			this.IntChecksumErrorBit.Text = "D";
 			this.IntChecksumErrorBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntChecksumErrorBit.Click += new System.EventHandler(this.IntChecksumErrorBit_Click);
 			// 
 			// IntShowingQosBit
 			// 
@@ -2796,8 +2812,9 @@
 			this.IntShowingQosBit.Name = "IntShowingQosBit";
 			this.IntShowingQosBit.Size = new System.Drawing.Size(21, 21);
 			this.IntShowingQosBit.TabIndex = 37;
-			this.IntShowingQosBit.Text = "0";
+			this.IntShowingQosBit.Text = "D";
 			this.IntShowingQosBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntShowingQosBit.Click += new System.EventHandler(this.IntShowingQosBit_Click);
 			// 
 			// IntInterruptDrivenBit
 			// 
@@ -2809,8 +2826,9 @@
 			this.IntInterruptDrivenBit.Name = "IntInterruptDrivenBit";
 			this.IntInterruptDrivenBit.Size = new System.Drawing.Size(21, 21);
 			this.IntInterruptDrivenBit.TabIndex = 38;
-			this.IntInterruptDrivenBit.Text = "0";
+			this.IntInterruptDrivenBit.Text = "D";
 			this.IntInterruptDrivenBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntInterruptDrivenBit.Click += new System.EventHandler(this.IntInterruptDrivenBit_Click);
 			// 
 			// IntWasResetBit
 			// 
@@ -2822,8 +2840,9 @@
 			this.IntWasResetBit.Name = "IntWasResetBit";
 			this.IntWasResetBit.Size = new System.Drawing.Size(21, 21);
 			this.IntWasResetBit.TabIndex = 39;
-			this.IntWasResetBit.Text = "0";
+			this.IntWasResetBit.Text = "D";
 			this.IntWasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntWasResetBit.Click += new System.EventHandler(this.IntWasResetBit_Click);
 			// 
 			// IntEncryptionActiveBit
 			// 
@@ -2835,8 +2854,9 @@
 			this.IntEncryptionActiveBit.Name = "IntEncryptionActiveBit";
 			this.IntEncryptionActiveBit.Size = new System.Drawing.Size(21, 21);
 			this.IntEncryptionActiveBit.TabIndex = 40;
-			this.IntEncryptionActiveBit.Text = "0";
+			this.IntEncryptionActiveBit.Text = "D";
 			this.IntEncryptionActiveBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntEncryptionActiveBit.Click += new System.EventHandler(this.IntEncryptionActiveBit_Click);
 			// 
 			// IntDoingLightshowBit
 			// 
@@ -2848,8 +2868,9 @@
 			this.IntDoingLightshowBit.Name = "IntDoingLightshowBit";
 			this.IntDoingLightshowBit.Size = new System.Drawing.Size(21, 21);
 			this.IntDoingLightshowBit.TabIndex = 41;
-			this.IntDoingLightshowBit.Text = "0";
+			this.IntDoingLightshowBit.Text = "D";
 			this.IntDoingLightshowBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntDoingLightshowBit.Click += new System.EventHandler(this.IntDoingLightshowBit_Click);
 			// 
 			// IntRadioStateBit2
 			// 
@@ -2861,8 +2882,9 @@
 			this.IntRadioStateBit2.Name = "IntRadioStateBit2";
 			this.IntRadioStateBit2.Size = new System.Drawing.Size(21, 21);
 			this.IntRadioStateBit2.TabIndex = 42;
-			this.IntRadioStateBit2.Text = "0";
+			this.IntRadioStateBit2.Text = "D";
 			this.IntRadioStateBit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit2.Click += new System.EventHandler(this.IntRadioStateBit2_Click);
 			// 
 			// IntBusyBit
 			// 
@@ -2874,8 +2896,9 @@
 			this.IntBusyBit.Name = "IntBusyBit";
 			this.IntBusyBit.Size = new System.Drawing.Size(21, 21);
 			this.IntBusyBit.TabIndex = 44;
-			this.IntBusyBit.Text = "0";
+			this.IntBusyBit.Text = "D";
 			this.IntBusyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntBusyBit.Click += new System.EventHandler(this.IntBusyBit_Click);
 			// 
 			// IntRadioStateBit1
 			// 
@@ -2887,8 +2910,9 @@
 			this.IntRadioStateBit1.Name = "IntRadioStateBit1";
 			this.IntRadioStateBit1.Size = new System.Drawing.Size(21, 21);
 			this.IntRadioStateBit1.TabIndex = 21;
-			this.IntRadioStateBit1.Text = "0";
+			this.IntRadioStateBit1.Text = "D";
 			this.IntRadioStateBit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit1.Click += new System.EventHandler(this.IntRadioStateBit1_Click);
 			// 
 			// DisableAllIntButton
 			// 
@@ -2899,6 +2923,7 @@
 			this.DisableAllIntButton.TabIndex = 71;
 			this.DisableAllIntButton.Text = "Disable All";
 			this.DisableAllIntButton.UseVisualStyleBackColor = true;
+			this.DisableAllIntButton.Click += new System.EventHandler(this.DisableAllIntButton_Click);
 			// 
 			// EnableAllIntButton
 			// 
@@ -2909,6 +2934,7 @@
 			this.EnableAllIntButton.TabIndex = 72;
 			this.EnableAllIntButton.Text = "Enable All";
 			this.EnableAllIntButton.UseVisualStyleBackColor = true;
+			this.EnableAllIntButton.Click += new System.EventHandler(this.EnableAllIntButton_Click);
 			// 
 			// MainForm
 			// 

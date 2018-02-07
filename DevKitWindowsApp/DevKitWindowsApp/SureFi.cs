@@ -433,7 +433,24 @@ namespace DevKitWindowsApp
 				{
 					if (rspPayload.Length == 4)
 					{
-						//TODO: Implement me
+						for (int bIndex = 0; bIndex < 4; bIndex++)
+						{
+							if (bIndex == 0) { mainForm.IntStateLabel.Text     = "State: 0x"     + rspPayload[bIndex].ToString("X2"); }
+							if (bIndex == 1) { mainForm.IntOtherLabel.Text     = "Other: 0x"     + rspPayload[bIndex].ToString("X2"); }
+							if (bIndex == 2) { mainForm.IntClearableLabel.Text = "Clearable: 0x" + rspPayload[bIndex].ToString("X2"); }
+							if (bIndex == 3) { mainForm.IntConfigLabel.Text    = "Config: 0x"    + rspPayload[bIndex].ToString("X2"); }
+							for (int bitIndex = 0; bitIndex < 8; bitIndex++)
+							{
+								byte bit = (byte)(0x01 << bitIndex);
+								bool isBitSet = (rspPayload[bIndex] & bit) > 0;
+								mainForm.SetIntEnableBit(bIndex, bit, isBitSet);
+							}
+						}
+						
+						mainForm.intEnableBits[0] = rspPayload[0];
+						mainForm.intEnableBits[1] = rspPayload[1];
+						mainForm.intEnableBits[2] = rspPayload[2];
+						mainForm.intEnableBits[3] = rspPayload[3];
 						
 						gotIntEnableBits = true;
 					}
