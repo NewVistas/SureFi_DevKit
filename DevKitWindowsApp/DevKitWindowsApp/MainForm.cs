@@ -482,21 +482,6 @@ namespace DevKitWindowsApp
 			this.Close();
 		}
 		
-		private void LedCombo6_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (LedCombo6.SelectedIndex == 0)
-			{
-				LedLabel6.BackColor = Color.FromKnownColor(KnownColor.Transparent);
-				LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
-			}
-			else
-			{
-				LedLabel6.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
-				LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.Control);
-			}
-			LedLabel6.Text = LedCombo6.SelectedIndex.ToString();
-		}
-		
 		private void AutoClearFlagsCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			if (AutoClearFlagsCheckbox.Checked)
@@ -959,6 +944,22 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		// +==============================+
+		// |     Quiet Mode Checkbox      |
+		// +==============================+
+		private void PushQuietModeEnabled()
+		{
+			byte[] payload = { (byte)(QuietModeCheckbox.Checked ? 0x01 : 0x00) };
+			this.port.PushTxCommand(SureCmd.SetQuietMode, payload);
+		}
+		private void QuietModeCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushQuietModeEnabled();
+			}
+		}
+		
 		// +--------------------------------------------------------------+
 		// |                          Lower Area                          |
 		// +--------------------------------------------------------------+
@@ -1324,6 +1325,170 @@ namespace DevKitWindowsApp
 				RxTextbox.Clear();
 				RxCountLabel.Text = "Count: 0";
 			}
+		}
+		
+		// +--------------------------------------------------------------+
+		// |                      Other Settings Tab                      |
+		// +--------------------------------------------------------------+
+		private byte[] indications = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+		public void PushIndicationsChanged(bool labelsOnly)
+		{
+			byte[] newIndications = {
+				(byte)LedCombo1.SelectedIndex,
+				(byte)LedCombo2.SelectedIndex,
+				(byte)LedCombo3.SelectedIndex,
+				(byte)LedCombo4.SelectedIndex,
+				(byte)LedCombo5.SelectedIndex,
+				(byte)LedCombo6.SelectedIndex,
+			};
+			
+			if (newIndications[0] != indications[0] ||
+				newIndications[1] != indications[1] ||
+				newIndications[2] != indications[2] ||
+				newIndications[3] != indications[3] ||
+				newIndications[4] != indications[4] ||
+				newIndications[5] != indications[5])
+			{
+				if (!labelsOnly)
+				{
+					byte[] payload = {
+						(byte)((newIndications[0] & 0x0F) + (newIndications[1] << 4)),
+						(byte)((newIndications[2] & 0x0F) + (newIndications[3] << 4)),
+						(byte)((newIndications[4] & 0x0F) + (newIndications[5] << 4)),
+					};
+					this.port.PushTxCommand(SureCmd.SetIndications, payload);
+				}
+				
+				LedLabel1.Text = newIndications[0].ToString();
+				if (newIndications[0] == 0x00)
+				{
+					LedLabel1.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+					LedLabel1.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					LedLabel1.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+					LedLabel1.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				}
+				LedLabel2.Text = newIndications[1].ToString();
+				if (newIndications[1] == 0x00)
+				{
+					LedLabel2.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+					LedLabel2.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					LedLabel2.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+					LedLabel2.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				}
+				LedLabel3.Text = newIndications[2].ToString();
+				if (newIndications[2] == 0x00)
+				{
+					LedLabel3.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+					LedLabel3.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					LedLabel3.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+					LedLabel3.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				}
+				LedLabel4.Text = newIndications[3].ToString();
+				if (newIndications[3] == 0x00)
+				{
+					LedLabel4.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+					LedLabel4.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					LedLabel4.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+					LedLabel4.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				}
+				LedLabel5.Text = newIndications[4].ToString();
+				if (newIndications[4] == 0x00)
+				{
+					LedLabel5.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+					LedLabel5.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					LedLabel5.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+					LedLabel5.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				}
+				LedLabel6.Text = newIndications[5].ToString();
+				if (newIndications[5] == 0x00)
+				{
+					LedLabel6.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+					LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				}
+				else
+				{
+					LedLabel6.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+					LedLabel6.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				}
+				
+				indications[0] = newIndications[0];
+				indications[1] = newIndications[1];
+				indications[2] = newIndications[2];
+				indications[3] = newIndications[3];
+				indications[4] = newIndications[4];
+				indications[5] = newIndications[5];
+			}
+		}
+		private void LedCombo1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushIndicationsChanged(false);
+			}
+		}
+		private void LedCombo2_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushIndicationsChanged(false);
+			}
+		}
+		private void LedCombo3_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushIndicationsChanged(false);
+			}
+		}
+		private void LedCombo4_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushIndicationsChanged(false);
+			}
+		}
+		private void LedCombo5_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushIndicationsChanged(false);
+			}
+		}
+		private void LedCombo6_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushIndicationsChanged(false);
+			}
+		}
+		
+		private void ClearIndicationsButton_Click(object sender, EventArgs e)
+		{
+			this.updatingElement = true;
+			LedCombo1.SelectedIndex = 0;
+			LedCombo2.SelectedIndex = 0;
+			LedCombo3.SelectedIndex = 0;
+			LedCombo4.SelectedIndex = 0;
+			LedCombo5.SelectedIndex = 0;
+			LedCombo6.SelectedIndex = 0;
+			this.updatingElement = false;
+			
+			PushIndicationsChanged(false);
 		}
 		
 		// +--------------------------------------------------------------+

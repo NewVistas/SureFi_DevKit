@@ -718,19 +718,22 @@ namespace DevKitWindowsApp
 				{
 					if (rspPayload.Length == 13)
 					{
-						byte[] indications     = new byte[3];
 						byte radioMode         = rspPayload[0];
 						byte fhssTable         = rspPayload[1];
 						byte receivePacketSize = rspPayload[2];
 						byte radioPolarity     = rspPayload[3];
 						byte transmitPower     = rspPayload[4];
 						byte qosConfig         = rspPayload[5];
-						indications[0]         = rspPayload[6];
-						indications[1]         = rspPayload[7];
-						indications[2]         = rspPayload[8];
-						byte quietMode         = rspPayload[9];
-						byte buttonConfig      = rspPayload[10];
-						byte acksEnabled       = rspPayload[11];
+						byte indication1       = (byte)((rspPayload[6]>>0) & 0x0F);
+						byte indication2       = (byte)((rspPayload[6]>>4) & 0x0F);
+						byte indication3       = (byte)((rspPayload[7]>>0) & 0x0F);
+						byte indication4       = (byte)((rspPayload[7]>>4) & 0x0F);
+						byte indication5       = (byte)((rspPayload[8]>>0) & 0x0F);
+						byte indication6       = (byte)((rspPayload[8]>>4) & 0x0F);
+						bool quietModeEnabled  = (rspPayload[9] != 0x00);
+						byte buttonConfig      = (byte)((rspPayload[10]>>0) & 0x0F);
+						byte buttonHoldTime    = (byte)((rspPayload[10]>>4) & 0x0F);
+						bool acksEnabled       = (rspPayload[11] != 0x00);
 						byte numRetries        = rspPayload[12];
 						
 						mainForm.updatingElement = true;
@@ -742,9 +745,19 @@ namespace DevKitWindowsApp
 						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
 						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
 						
+						mainForm.LedCombo1.SelectedIndex = indication1;
+						mainForm.LedCombo2.SelectedIndex = indication2;
+						mainForm.LedCombo3.SelectedIndex = indication3;
+						mainForm.LedCombo4.SelectedIndex = indication4;
+						mainForm.LedCombo5.SelectedIndex = indication5;
+						mainForm.LedCombo6.SelectedIndex = indication6;
+						mainForm.PushIndicationsChanged(true);
+						
+						mainForm.QuietModeCheckbox.Checked = quietModeEnabled;
+						
 						//TODO: Fill the rest of the stuff
 						
-						mainForm.AcksEnabledCheckbox.Checked = (acksEnabled != 0x00);
+						mainForm.AcksEnabledCheckbox.Checked = acksEnabled;
 						mainForm.NumRetriesNumeric.Enabled = mainForm.AcksEnabledCheckbox.Checked;
 						mainForm.NumRetriesNumeric.Value = (Decimal)numRetries;
 						
@@ -980,7 +993,27 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Indications:
 				{
-					
+					if (rspPayload.Length == 3)
+					{
+						byte indication1 = (byte)((rspPayload[0]>>0) & 0x0F);
+						byte indication2 = (byte)((rspPayload[0]>>4) & 0x0F);
+						byte indication3 = (byte)((rspPayload[1]>>0) & 0x0F);
+						byte indication4 = (byte)((rspPayload[1]>>4) & 0x0F);
+						byte indication5 = (byte)((rspPayload[2]>>0) & 0x0F);
+						byte indication6 = (byte)((rspPayload[2]>>4) & 0x0F);
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.LedCombo1.SelectedIndex = indication1;
+						mainForm.LedCombo2.SelectedIndex = indication2;
+						mainForm.LedCombo3.SelectedIndex = indication3;
+						mainForm.LedCombo4.SelectedIndex = indication4;
+						mainForm.LedCombo5.SelectedIndex = indication5;
+						mainForm.LedCombo6.SelectedIndex = indication6;
+						mainForm.PushIndicationsChanged(true);
+						
+						mainForm.updatingElement = false;
+					}
 					gotIndications = true;
 				} break;
 				
@@ -989,7 +1022,14 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.QuietMode:
 				{
-					
+					if (rspPayload.Length == 1)
+					{
+						bool quietModeEnabled = (rspPayload[0] != 0x00);
+						
+						mainForm.updatingElement = true;
+						mainForm.QuietModeCheckbox.Checked = quietModeEnabled;
+						mainForm.updatingElement = false;
+					}
 					gotQuietMode = true;
 				} break;
 				

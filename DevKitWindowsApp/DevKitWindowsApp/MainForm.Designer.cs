@@ -193,6 +193,8 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
+			this.ClearIndicationsButton = new System.Windows.Forms.Button();
+			this.QuietModeCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -288,6 +290,7 @@
 			// 
 			// TabPageRadio
 			// 
+			this.TabPageRadio.Controls.Add(this.QuietModeCheckbox);
 			this.TabPageRadio.Controls.Add(this.AcksEnabledCheckbox);
 			this.TabPageRadio.Controls.Add(this.EncryptionReadyLabel);
 			this.TabPageRadio.Controls.Add(this.label15);
@@ -340,7 +343,7 @@
 			// 
 			this.EncryptionReadyLabel.AutoSize = true;
 			this.EncryptionReadyLabel.ForeColor = System.Drawing.Color.DarkGreen;
-			this.EncryptionReadyLabel.Location = new System.Drawing.Point(208, 180);
+			this.EncryptionReadyLabel.Location = new System.Drawing.Point(125, 57);
 			this.EncryptionReadyLabel.Name = "EncryptionReadyLabel";
 			this.EncryptionReadyLabel.Size = new System.Drawing.Size(102, 13);
 			this.EncryptionReadyLabel.TabIndex = 14;
@@ -644,6 +647,7 @@
 			// 
 			// TabPageOther
 			// 
+			this.TabPageOther.Controls.Add(this.ClearIndicationsButton);
 			this.TabPageOther.Controls.Add(this.label24);
 			this.TabPageOther.Controls.Add(this.LedCombo1);
 			this.TabPageOther.Controls.Add(this.LedLabel1);
@@ -702,6 +706,7 @@
 			this.LedCombo1.Size = new System.Drawing.Size(83, 21);
 			this.LedCombo1.TabIndex = 12;
 			this.LedCombo1.Text = "Off";
+			this.LedCombo1.SelectedIndexChanged += new System.EventHandler(this.LedCombo1_SelectedIndexChanged);
 			// 
 			// LedLabel1
 			// 
@@ -733,6 +738,7 @@
 			this.LedCombo2.Size = new System.Drawing.Size(83, 21);
 			this.LedCombo2.TabIndex = 12;
 			this.LedCombo2.Text = "Off";
+			this.LedCombo2.SelectedIndexChanged += new System.EventHandler(this.LedCombo2_SelectedIndexChanged);
 			// 
 			// LedLabel2
 			// 
@@ -764,6 +770,7 @@
 			this.LedCombo3.Size = new System.Drawing.Size(83, 21);
 			this.LedCombo3.TabIndex = 12;
 			this.LedCombo3.Text = "Off";
+			this.LedCombo3.SelectedIndexChanged += new System.EventHandler(this.LedCombo3_SelectedIndexChanged);
 			// 
 			// LedLabel3
 			// 
@@ -795,6 +802,7 @@
 			this.LedCombo4.Size = new System.Drawing.Size(83, 21);
 			this.LedCombo4.TabIndex = 12;
 			this.LedCombo4.Text = "Off";
+			this.LedCombo4.SelectedIndexChanged += new System.EventHandler(this.LedCombo4_SelectedIndexChanged);
 			// 
 			// LedLabel4
 			// 
@@ -826,6 +834,7 @@
 			this.LedCombo5.Size = new System.Drawing.Size(83, 21);
 			this.LedCombo5.TabIndex = 12;
 			this.LedCombo5.Text = "Off";
+			this.LedCombo5.SelectedIndexChanged += new System.EventHandler(this.LedCombo5_SelectedIndexChanged);
 			// 
 			// LedLabel5
 			// 
@@ -2185,6 +2194,27 @@
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
 			// 
+			// ClearIndicationsButton
+			// 
+			this.ClearIndicationsButton.Location = new System.Drawing.Point(8, 170);
+			this.ClearIndicationsButton.Name = "ClearIndicationsButton";
+			this.ClearIndicationsButton.Size = new System.Drawing.Size(104, 23);
+			this.ClearIndicationsButton.TabIndex = 14;
+			this.ClearIndicationsButton.Text = "All Off";
+			this.ClearIndicationsButton.UseVisualStyleBackColor = true;
+			this.ClearIndicationsButton.Click += new System.EventHandler(this.ClearIndicationsButton_Click);
+			// 
+			// QuietModeCheckbox
+			// 
+			this.QuietModeCheckbox.AutoSize = true;
+			this.QuietModeCheckbox.Location = new System.Drawing.Point(174, 178);
+			this.QuietModeCheckbox.Name = "QuietModeCheckbox";
+			this.QuietModeCheckbox.Size = new System.Drawing.Size(81, 17);
+			this.QuietModeCheckbox.TabIndex = 15;
+			this.QuietModeCheckbox.Text = "Quiet Mode";
+			this.QuietModeCheckbox.UseVisualStyleBackColor = true;
+			this.QuietModeCheckbox.CheckedChanged += new System.EventHandler(this.QuietModeCheckbox_CheckedChanged);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2299,17 +2329,11 @@
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.ComboBox QosConfigCombobox;
 		private System.Windows.Forms.Label label24;
-		private System.Windows.Forms.ComboBox LedCombo1;
 		private System.Windows.Forms.Label LedLabel1;
-		private System.Windows.Forms.ComboBox LedCombo2;
 		private System.Windows.Forms.Label LedLabel2;
-		private System.Windows.Forms.ComboBox LedCombo3;
 		private System.Windows.Forms.Label LedLabel3;
-		private System.Windows.Forms.ComboBox LedCombo4;
 		private System.Windows.Forms.Label LedLabel4;
-		private System.Windows.Forms.ComboBox LedCombo5;
 		private System.Windows.Forms.Label LedLabel5;
-		private System.Windows.Forms.ComboBox LedCombo6;
 		private System.Windows.Forms.Label LedLabel6;
 		private System.Windows.Forms.Button ClearFlagsButton;
 		private System.Windows.Forms.Label label70;
@@ -2416,5 +2440,13 @@
 		public System.Windows.Forms.Label AckLengthLabel;
 		public System.Windows.Forms.Label AckCountLabel;
 		private System.Windows.Forms.CheckBox PrintStatusCheckbox;
+		public System.Windows.Forms.ComboBox LedCombo1;
+		public System.Windows.Forms.ComboBox LedCombo2;
+		public System.Windows.Forms.ComboBox LedCombo3;
+		public System.Windows.Forms.ComboBox LedCombo4;
+		public System.Windows.Forms.ComboBox LedCombo5;
+		public System.Windows.Forms.ComboBox LedCombo6;
+		private System.Windows.Forms.Button ClearIndicationsButton;
+		public System.Windows.Forms.CheckBox QuietModeCheckbox;
 	}
 }
