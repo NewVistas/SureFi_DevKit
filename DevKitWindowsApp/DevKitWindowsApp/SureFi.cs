@@ -265,24 +265,117 @@ namespace DevKitWindowsApp
 			return true;
 		}
 		
-		public static void ProcessResponse(MainForm mainForm, List<byte> responseBytes)
+		public static string GetCommandStr(byte[] commandBytes)
+		{
+			byte[] cmdPayload = new byte[commandBytes.Length-3];
+			Array.Copy(commandBytes, 3, cmdPayload, 0, commandBytes.Length-3);
+			
+			string result = commandBytes[0].ToString("X2") +
+				" {" + commandBytes[1].ToString("X2") + "}" +
+				"[" + commandBytes[2].ToString() + "]";
+			
+			// result += "{";
+			foreach (byte b in cmdPayload)
+			{
+				result += " " + b.ToString("X2");
+			}
+			// result += " }";
+			
+			return result;
+		}
+		
+		public static string GetHumanReadableCommandStr(byte[] commandBytes)
+		{
+			SureCmd cmd = (SureCmd)commandBytes[1];
+			byte cmdLength = commandBytes[2];
+			byte[] cmdPayload = new byte[cmdLength];
+			Array.Copy(commandBytes, 3, cmdPayload, 0, cmdLength);
+			
+			string result = cmd.ToString() + "[" + cmdLength.ToString() + "]";
+			
+			switch (cmd)
+			{
+				default:
+				{
+					// result += "{";
+					foreach (byte b in cmdPayload)
+					{
+						result += " " + b.ToString("X2");
+					}
+					// result += " }";
+				} break;
+			};
+			
+			return result;
+		}
+		
+		public static string GetResponseStr(byte[] responseBytes)
+		{
+			byte[] rspPayload = new byte[responseBytes.Length-3];
+			Array.Copy(responseBytes, 3, rspPayload, 0, responseBytes.Length-3);
+			
+			string result = responseBytes[0].ToString("X2") +
+				" {" + responseBytes[1].ToString("X2") + "}" +
+				"[" + responseBytes[2].ToString() + "]";
+			
+			// result += "{";
+			foreach (byte b in rspPayload)
+			{
+				result += " " + b.ToString("X2");
+			}
+			// result += " }";
+			
+			return result;
+		}
+		
+		public static string GetHumanReadableResponseStr(byte[] responseBytes)
 		{
 			SureRsp rspCmd = (SureRsp)responseBytes[1];
 			byte rspLength = responseBytes[2];
-			List<byte> rspPayload = responseBytes.GetRange(3, responseBytes.Count-3);
+			byte[] rspPayload = new byte[rspLength];
+			Array.Copy(responseBytes, 3, rspPayload, 0, rspLength);
 			
-			string rspString = rspCmd.ToString() + "[" + rspLength.ToString() + "]";
-			foreach (byte b in rspPayload)
+			string result = rspCmd.ToString() + "[" + rspLength.ToString() + "]";
+			
+			switch (rspCmd)
 			{
-				rspString += " " + b.ToString("X2");
-			}
-			// rspString += "}";
+				case SureRsp.Success:
+				case SureRsp.Unsupported:
+				{
+					SureCmd sureCmd = (SureCmd)rspPayload[0];
+					result += ":" + sureCmd.ToString();
+				} break;
+				
+				case SureRsp.Failure:
+				{
+					SureCmd sureCmd = (SureCmd)rspPayload[0];
+					SureError sureError = (SureError)rspPayload[1];
+					result += ":" + sureCmd.ToString();
+					result += ":" + sureError.ToString();
+				} break;
+				
+				default:
+				{
+					// result += "{";
+					foreach (byte b in rspPayload)
+					{
+						result += " " + b.ToString("X2");
+					}
+					// result += " }";
+				} break;
+			};
 			
+			return result;
+		}
+		
+		public static void ProcessResponse(MainForm mainForm, byte[] responseBytes)
+		{
+			SureRsp rspCmd = (SureRsp)responseBytes[1];
+			byte rspLength = responseBytes[2];
+			byte[] rspPayload = new byte[rspLength];
+			Array.Copy(responseBytes, 3, rspPayload, 0, rspLength);
+			string rspString = GetHumanReadableResponseStr(responseBytes);
 			Console.WriteLine("Got " + rspString);
-			if (mainForm.HumanReadableCheckbox.Checked)
-			{
-				mainForm.OutputTextbox.Text += rspString + "\r\n";
-			}
 			
 			switch (rspCmd)
 			{
@@ -291,7 +384,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Status:
 				{
-					if (rspPayload.Count == 4)
+					if (rspPayload.Length == 4)
 					{
 						// Console.WriteLine("Got status!");
 						for (int bIndex = 0; bIndex < 4; bIndex++)
@@ -324,7 +417,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.IntEnableBits:
 				{
-					if (rspPayload.Count == 4)
+					if (rspPayload.Length == 4)
 					{
 						//TODO: Implement me
 						
@@ -337,7 +430,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ModuleVersion:
 				{
-					if (rspPayload.Count == 11)
+					if (rspPayload.Length == 11)
 					{
 						byte firmwareMajor = rspPayload[0];
 						byte firmwareMinor = rspPayload[1];
@@ -370,7 +463,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.PacketTimeOnAir:
 				{
-					if (rspPayload.Count == 2)
+					if (rspPayload.Length == 2)
 					{
 						UInt16 timeOnAir = (UInt16)(
 							(rspPayload[0] << 0) +
@@ -388,7 +481,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.RandomNumber:
 				{
-					if (rspPayload.Count == 4)
+					if (rspPayload.Length == 4)
 					{
 						UInt32 randomNumber = (UInt32)(
 							(rspPayload[0] << 0) +
@@ -416,7 +509,8 @@ namespace DevKitWindowsApp
 					{
 						rxUidLength = rxUid.Length;
 					}
-					byte[] radioPayload = rspPayload.GetRange(rxUidLength, rspPayload.Count - rxUidLength).ToArray();
+					byte[] radioPayload = new byte[rspPayload.Length - rxUidLength];
+					Array.Copy(rspPayload, rxUidLength, radioPayload, 0, rspPayload.Length - rxUidLength);
 					bool isHexStr = (mainForm.RxHexCheckbox.Checked || !AreBytesAscii(radioPayload));
 					
 					mainForm.updatingElement = true;
@@ -460,6 +554,50 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AckPacket:
 				{
+					//TODO: This won't be necassary in the future when
+					//		the responses come back without the UID
+					int rxUidLength = 0;
+					byte[] rxUid = null;
+					if (mainForm.TryParseHexString(mainForm.RxUidTextbox.Text, out rxUid))
+					{
+						rxUidLength = rxUid.Length;
+					}
+					byte[] radioPayload = new byte[rspPayload.Length - rxUidLength];
+					Array.Copy(rspPayload, rxUidLength, radioPayload, 0, rspPayload.Length - rxUidLength);
+					bool isHexStr = (mainForm.AckHexCheckbox.Checked || !AreBytesAscii(radioPayload));
+					
+					mainForm.updatingElement = true;
+					
+					int numBytes = 0;
+					if (isHexStr)
+					{
+						//Auto-Check the HEX checkbox
+						mainForm.AckHexCheckbox.Checked = true;
+						
+						mainForm.AckTextbox.Text = "";
+						foreach (byte b in radioPayload)
+						{
+							mainForm.AckTextbox.Text += b.ToString("X2");
+							numBytes++;
+						}
+					}
+					else
+					{
+						mainForm.AckTextbox.Text = "";
+						foreach (byte b in radioPayload)
+						{
+							if (b == 0x00)
+							{
+								break;
+							}
+							mainForm.AckTextbox.Text += (char)b;
+							numBytes++;
+						}
+					}
+					mainForm.AckLengthLabel.Text = "Length: " + numBytes.ToString();
+					mainForm.IncrementCount(mainForm.AckCountLabel);
+					
+					mainForm.updatingElement = false;
 					
 					gotAckPacket = true;
 				} break;
@@ -469,7 +607,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ReceiveInfo:
 				{
-					if (rspPayload.Count == 4)
+					if (rspPayload.Length == 4)
 					{
 						byte succcessByte  = rspPayload[0];
 						short rssi         = (short)(rspPayload[1] + (rspPayload[2] << 8));
@@ -493,7 +631,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.TransmitInfo:
 				{
-					if (rspPayload.Count == 6)
+					if (rspPayload.Length == 6)
 					{
 						byte succcessByte  = rspPayload[0];
 						short rssi         = (short)(rspPayload[1] + (rspPayload[2] << 8));
@@ -532,7 +670,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Success:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte cmdByte = rspPayload[0];
 						SureCmd sureCmd = (SureCmd)cmdByte;
@@ -546,7 +684,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Failure:
 				{
-					if (rspPayload.Count == 2)
+					if (rspPayload.Length == 2)
 					{
 						byte cmdByte = rspPayload[0];
 						byte errorByte = rspPayload[1];
@@ -578,15 +716,18 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AllSettings:
 				{
-					if (rspPayload.Count == 13)
+					if (rspPayload.Length == 13)
 					{
+						byte[] indications     = new byte[3];
 						byte radioMode         = rspPayload[0];
 						byte fhssTable         = rspPayload[1];
 						byte receivePacketSize = rspPayload[2];
 						byte radioPolarity     = rspPayload[3];
 						byte transmitPower     = rspPayload[4];
 						byte qosConfig         = rspPayload[5];
-						byte[] indications     = rspPayload.GetRange(6, 3).ToArray();
+						indications[0]         = rspPayload[6];
+						indications[1]         = rspPayload[7];
+						indications[2]         = rspPayload[8];
 						byte quietMode         = rspPayload[9];
 						byte buttonConfig      = rspPayload[10];
 						byte acksEnabled       = rspPayload[11];
@@ -620,7 +761,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.RadioMode:
 				{
-					if (rspPayload.Count == 1 && rspPayload[0] <= 0x04)
+					if (rspPayload.Length == 1 && rspPayload[0] <= 0x04)
 					{
 						byte radioMode = rspPayload[0];
 						
@@ -634,7 +775,7 @@ namespace DevKitWindowsApp
 						
 						gotRadioMode = true;
 					}
-					else if (rspPayload.Count == 3 && rspPayload[0] == 0x07)
+					else if (rspPayload.Length == 3 && rspPayload[0] == 0x07)
 					{
 						byte radioMode       = rspPayload[0];
 						byte spreadingFactor = rspPayload[1];
@@ -659,7 +800,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.FhssTable:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte fhssTable = rspPayload[0];
 						
@@ -687,7 +828,7 @@ namespace DevKitWindowsApp
 					mainForm.updatingElement = true;
 					
 					mainForm.RxUidTextbox.Text = uidString;
-					mainForm.RxUidLengthLabel.Text = rspPayload.Count.ToString() + " bytes";
+					mainForm.RxUidLengthLabel.Text = rspPayload.Length.ToString() + " bytes";
 					mainForm.RxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
 					mainForm.UpdatePacketSize();
 					mainForm.UpdateEncryptionReady();
@@ -711,7 +852,7 @@ namespace DevKitWindowsApp
 					mainForm.updatingElement = true;
 					
 					mainForm.TxUidTextbox.Text = uidString;
-					mainForm.TxUidLengthLabel.Text = rspPayload.Count.ToString() + " bytes";
+					mainForm.TxUidLengthLabel.Text = rspPayload.Length.ToString() + " bytes";
 					mainForm.TxUidLengthLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
 					mainForm.UpdateEncryptionReady();
 					
@@ -725,7 +866,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.ReceivePacketSize:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte rxPacketSize = rspPayload[0];
 						
@@ -747,7 +888,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.RadioPolarity:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte radioPolarity = rspPayload[0];
 						
@@ -766,7 +907,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.TransmitPower:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte transmitPower = rspPayload[0];
 						
@@ -788,7 +929,7 @@ namespace DevKitWindowsApp
 					string ackDataStr = "";
 					bool isHexStr = !AreBytesAscii(rspPayload.ToArray());
 					int numBytes = 0;
-					if (rspPayload.Count > 0)
+					if (rspPayload.Length > 0)
 					{
 						if (isHexStr)
 						{
@@ -866,7 +1007,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AcksEnabled:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte acksEnabled = rspPayload[0];
 						
@@ -886,7 +1027,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.NumRetries:
 				{
-					if (rspPayload.Count == 1)
+					if (rspPayload.Length == 1)
 					{
 						byte numRetries = rspPayload[0];
 						

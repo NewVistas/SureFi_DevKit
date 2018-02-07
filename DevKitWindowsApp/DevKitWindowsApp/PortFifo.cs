@@ -23,6 +23,8 @@ namespace DevKitWindowsApp
 		public string connectFailureString = "";
 		public string portName = "";
 		public SerialPort port = null;
+		public List<byte[]> commandHistory;
+		public List<bool> commandHistoryIsRsp;
 		
 		// +==============================+
 		// |         Constructor          |
@@ -32,6 +34,8 @@ namespace DevKitWindowsApp
 			this.mainForm = mainForm;
 			
 			this.rxFifo = new List<byte>();
+			this.commandHistory = new List<byte[]>();
+			this.commandHistoryIsRsp = new List<bool>();
 			
 			try
 			{
@@ -71,6 +75,23 @@ namespace DevKitWindowsApp
 			this.port = null;
 			this.isOpen = false;
 			this.portName = "";
+		}
+		
+		private void PushHistoryItem(bool isResponse, byte[] command)
+		{
+			commandHistory.Add(command);
+			commandHistoryIsRsp.Add(isResponse);
+			if (mainForm != null)
+			{
+				if (isResponse)
+				{
+					mainForm.PrintRxCommand(command);
+				}
+				else
+				{
+					mainForm.PrintTxCommand(command);
+				}
+			}
 		}
 		
 		// +==============================+
@@ -167,6 +188,7 @@ namespace DevKitWindowsApp
 					rxFifo.RemoveAt(0);
 					bIndex--;
 				}
+				PushHistoryItem(true, result.ToArray());
 				return result;
 			}
 			else
@@ -195,6 +217,7 @@ namespace DevKitWindowsApp
 		{
 			byte[] command = { 0x7E, (byte)cmd, 0x00 };
 			PushTxBytes(command);
+			PushHistoryItem(false, command);
 		}
 		
 		public void PushTxCommand(SureCmd cmd, byte[] payload)
@@ -204,9 +227,16 @@ namespace DevKitWindowsApp
 				Console.WriteLine("WARNING: Payload is too large for command!");
 				return;
 			}
-			byte[] command = {0x7E, (byte)cmd, (byte)payload.Length };
+			byte[] command = new byte[3 + payload.Length];
+			command[0] = 0x7E;
+			command[1] = (byte)cmd;
+			command[2] = (byte)payload.Length;
+			for (int bIndex = 0; bIndex < payload.Length; bIndex++)
+			{
+				command[3 + bIndex] = payload[bIndex];
+			}
 			PushTxBytes(command);
-			PushTxBytes(payload);
+			PushHistoryItem(false, command);
 		}
 	}
 }

@@ -192,6 +192,7 @@
 			this.AckDataHexCheckbox = new System.Windows.Forms.CheckBox();
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
+			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -237,11 +238,12 @@
 			this.OutputTextbox.Multiline = true;
 			this.OutputTextbox.Name = "OutputTextbox";
 			this.OutputTextbox.ReadOnly = true;
-			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.OutputTextbox.Size = new System.Drawing.Size(161, 276);
 			this.OutputTextbox.TabIndex = 2;
 			this.OutputTextbox.TabStop = false;
 			this.OutputTextbox.Text = "[7E] 40 04 12 AB CD EF";
+			this.OutputTextbox.WordWrap = false;
 			// 
 			// DisconnectButton
 			// 
@@ -260,11 +262,11 @@
 			this.HumanReadableCheckbox.AutoSize = true;
 			this.HumanReadableCheckbox.Checked = true;
 			this.HumanReadableCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.HumanReadableCheckbox.Location = new System.Drawing.Point(587, 7);
+			this.HumanReadableCheckbox.Location = new System.Drawing.Point(578, 7);
 			this.HumanReadableCheckbox.Name = "HumanReadableCheckbox";
-			this.HumanReadableCheckbox.Size = new System.Drawing.Size(109, 17);
+			this.HumanReadableCheckbox.Size = new System.Drawing.Size(54, 17);
 			this.HumanReadableCheckbox.TabIndex = 4;
-			this.HumanReadableCheckbox.Text = "Human Readable";
+			this.HumanReadableCheckbox.Text = "Name";
 			this.HumanReadableCheckbox.UseVisualStyleBackColor = true;
 			this.HumanReadableCheckbox.CheckedChanged += new System.EventHandler(this.HumanReadableCheckbox_CheckedChanged);
 			// 
@@ -669,7 +671,7 @@
 			this.TabPageOther.Location = new System.Drawing.Point(4, 22);
 			this.TabPageOther.Name = "TabPageOther";
 			this.TabPageOther.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageOther.Size = new System.Drawing.Size(524, 321);
+			this.TabPageOther.Size = new System.Drawing.Size(568, 306);
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
@@ -1020,7 +1022,7 @@
 			this.TabPageCommands.Controls.Add(this.StartEncryptionButton);
 			this.TabPageCommands.Location = new System.Drawing.Point(4, 22);
 			this.TabPageCommands.Name = "TabPageCommands";
-			this.TabPageCommands.Size = new System.Drawing.Size(498, 321);
+			this.TabPageCommands.Size = new System.Drawing.Size(568, 306);
 			this.TabPageCommands.TabIndex = 4;
 			this.TabPageCommands.Text = "Commands";
 			this.TabPageCommands.UseVisualStyleBackColor = true;
@@ -1246,7 +1248,7 @@
 			this.TabPageStatus.Controls.Add(this.RadioStateBit1);
 			this.TabPageStatus.Location = new System.Drawing.Point(4, 22);
 			this.TabPageStatus.Name = "TabPageStatus";
-			this.TabPageStatus.Size = new System.Drawing.Size(498, 321);
+			this.TabPageStatus.Size = new System.Drawing.Size(568, 306);
 			this.TabPageStatus.TabIndex = 2;
 			this.TabPageStatus.Text = "Status";
 			this.TabPageStatus.UseVisualStyleBackColor = true;
@@ -1254,7 +1256,7 @@
 			// ClearFlagsButton
 			// 
 			this.ClearFlagsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.ClearFlagsButton.Location = new System.Drawing.Point(392, 269);
+			this.ClearFlagsButton.Location = new System.Drawing.Point(462, 258);
 			this.ClearFlagsButton.Name = "ClearFlagsButton";
 			this.ClearFlagsButton.Size = new System.Drawing.Size(103, 23);
 			this.ClearFlagsButton.TabIndex = 22;
@@ -1265,7 +1267,7 @@
 			// 
 			this.AutoClearFlagsCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AutoClearFlagsCheckbox.AutoSize = true;
-			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(392, 246);
+			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(462, 241);
 			this.AutoClearFlagsCheckbox.Name = "AutoClearFlagsCheckbox";
 			this.AutoClearFlagsCheckbox.Size = new System.Drawing.Size(103, 17);
 			this.AutoClearFlagsCheckbox.TabIndex = 21;
@@ -1277,7 +1279,7 @@
 			// 
 			this.StatusConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusConfigLabel.AutoSize = true;
-			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 303);
+			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 287);
 			this.StatusConfigLabel.Name = "StatusConfigLabel";
 			this.StatusConfigLabel.Size = new System.Drawing.Size(66, 13);
 			this.StatusConfigLabel.TabIndex = 20;
@@ -1287,7 +1289,7 @@
 			// 
 			this.StatusClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusClearableLabel.AutoSize = true;
-			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 303);
+			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 287);
 			this.StatusClearableLabel.Name = "StatusClearableLabel";
 			this.StatusClearableLabel.Size = new System.Drawing.Size(80, 13);
 			this.StatusClearableLabel.TabIndex = 20;
@@ -1297,7 +1299,7 @@
 			// 
 			this.StatusOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusOtherLabel.AutoSize = true;
-			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 303);
+			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 287);
 			this.StatusOtherLabel.Name = "StatusOtherLabel";
 			this.StatusOtherLabel.Size = new System.Drawing.Size(62, 13);
 			this.StatusOtherLabel.TabIndex = 20;
@@ -1307,7 +1309,7 @@
 			// 
 			this.StatusStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusStateLabel.AutoSize = true;
-			this.StatusStateLabel.Location = new System.Drawing.Point(8, 303);
+			this.StatusStateLabel.Location = new System.Drawing.Point(8, 287);
 			this.StatusStateLabel.Name = "StatusStateLabel";
 			this.StatusStateLabel.Size = new System.Drawing.Size(61, 13);
 			this.StatusStateLabel.TabIndex = 19;
@@ -1828,7 +1830,7 @@
 			// 
 			this.TabPageInt.Location = new System.Drawing.Point(4, 22);
 			this.TabPageInt.Name = "TabPageInt";
-			this.TabPageInt.Size = new System.Drawing.Size(498, 321);
+			this.TabPageInt.Size = new System.Drawing.Size(568, 306);
 			this.TabPageInt.TabIndex = 3;
 			this.TabPageInt.Text = "Interrupt Bits";
 			this.TabPageInt.UseVisualStyleBackColor = true;
@@ -2101,6 +2103,7 @@
 			this.OutputClearButton.TabIndex = 20;
 			this.OutputClearButton.Text = "Clear";
 			this.OutputClearButton.UseVisualStyleBackColor = true;
+			this.OutputClearButton.Click += new System.EventHandler(this.OutputClearButton_Click);
 			// 
 			// AckDataTextbox
 			// 
@@ -2160,12 +2163,24 @@
 			this.label27.TabIndex = 18;
 			this.label27.Text = "Ack Data";
 			// 
+			// PrintStatusCheckbox
+			// 
+			this.PrintStatusCheckbox.AutoSize = true;
+			this.PrintStatusCheckbox.Location = new System.Drawing.Point(630, 7);
+			this.PrintStatusCheckbox.Name = "PrintStatusCheckbox";
+			this.PrintStatusCheckbox.Size = new System.Drawing.Size(56, 17);
+			this.PrintStatusCheckbox.TabIndex = 21;
+			this.PrintStatusCheckbox.Text = "Status";
+			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
+			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(755, 438);
+			this.Controls.Add(this.PrintStatusCheckbox);
 			this.Controls.Add(this.AckDataLengthLabel);
 			this.Controls.Add(this.OutputClearButton);
 			this.Controls.Add(this.AckDataTextbox);
@@ -2241,16 +2256,12 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button RxClearButton;
 		private System.Windows.Forms.CheckBox TxHexCheckbox;
-		private System.Windows.Forms.TextBox AckTextbox;
 		private System.Windows.Forms.Button AckClearButton;
 		private System.Windows.Forms.Label TxLengthLabel;
 		private System.Windows.Forms.Label TxCountLabel;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.CheckBox AckHexCheckbox;
-		private System.Windows.Forms.Label AckLengthLabel;
-		private System.Windows.Forms.Label AckCountLabel;
 		private System.Windows.Forms.Label RxPacketSizeLabel;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
@@ -2389,5 +2400,10 @@
 		public System.Windows.Forms.Label RxCountLabel;
 		public System.Windows.Forms.Label RxRssiLabel;
 		public System.Windows.Forms.Label RxSnrLabel;
+		public System.Windows.Forms.TextBox AckTextbox;
+		public System.Windows.Forms.CheckBox AckHexCheckbox;
+		public System.Windows.Forms.Label AckLengthLabel;
+		public System.Windows.Forms.Label AckCountLabel;
+		private System.Windows.Forms.CheckBox PrintStatusCheckbox;
 	}
 }

@@ -67,12 +67,14 @@ namespace DevKitWindowsApp
 				while (numMs > 0)
 				{
 					testPort.Update();
-					List<byte> response = testPort.PopRxCommand();
-					if (response != null)
+					List<byte> responseList = testPort.PopRxCommand();
+					if (responseList != null)
 					{
+						byte[] response = responseList.ToArray();
 						byte rspCmd = response[1];
 						byte rspLength = response[2];
-						List<byte> payload = response.GetRange(3, response.Count-3);
+						byte[] payload = new byte[rspLength];
+						Array.Copy(response, 3, payload, 0, rspLength);
 						
 						if (rspCmd == (byte)SureRsp.Status)
 						{
@@ -93,13 +95,13 @@ namespace DevKitWindowsApp
 								Console.WriteLine("Got " + rspLength.ToString() + " byte ReceiveUID Response");
 								
 								result = "Sure-Fi Module-";
-								if (payload.Count == 0)
+								if (payload.Length == 0)
 								{
 									result += "No UID";
 								}
 								else
 								{
-									for (int bIndex = 0; bIndex < payload.Count; bIndex++)
+									for (int bIndex = 0; bIndex < payload.Length; bIndex++)
 									{
 										result += payload[bIndex].ToString("X2");
 									}

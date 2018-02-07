@@ -39,6 +39,10 @@ namespace DevKitWindowsApp
 		{
 			Console.WriteLine("Connection " + (success ? "Succeeded" : "Failed") + "!");
 			
+			this.OutputTextbox.Clear();
+			this.port.commandHistory.Clear();
+			this.port.commandHistoryIsRsp.Clear();
+			
 			OnConnectionFinished(this, success, message);
 			
 			if (!success) { this.Close(); }
@@ -149,6 +153,58 @@ namespace DevKitWindowsApp
 			return true;
 		}
 		
+		public void PrintRxCommand(byte[] responseBytes)
+		{
+			string commandStr = "";
+			
+			if (this.HumanReadableCheckbox.Checked)
+			{
+				commandStr = SureFi.GetHumanReadableResponseStr(responseBytes);
+			}
+			else
+			{
+				commandStr = SureFi.GetResponseStr(responseBytes);
+			}
+			
+			if (this.PrintStatusCheckbox.Checked || (SureRsp)responseBytes[1] != SureRsp.Status)
+			{
+				this.OutputTextbox.AppendText(commandStr + "\r\n");
+			}
+		}
+		
+		public void PrintTxCommand(byte[] commandBytes)
+		{
+			string commandStr = "";
+			
+			if (this.HumanReadableCheckbox.Checked)
+			{
+				commandStr = SureFi.GetHumanReadableCommandStr(commandBytes);
+			}
+			else
+			{
+				commandStr = SureFi.GetCommandStr(commandBytes);
+			}
+			
+			this.OutputTextbox.AppendText(">>" + commandStr + "\r\n");
+		}
+		
+		void RefreshOutputTextbox()
+		{
+			this.OutputTextbox.Clear();
+			
+			for (int hIndex = 0; hIndex < this.port.commandHistory.Count; hIndex++)
+			{
+				if (this.port.commandHistoryIsRsp[hIndex])
+				{
+					PrintRxCommand(this.port.commandHistory[hIndex]);
+				}
+				else
+				{
+					PrintTxCommand(this.port.commandHistory[hIndex]);
+				}
+			}
+		}
+		
 		public void HandleSuccessResponse(SureCmd cmd)
 		{
 			if (cmd == SureCmd.TransmitData)
@@ -197,7 +253,8 @@ namespace DevKitWindowsApp
 			
 			byte flagsToClear = 0x00;
 			
-			if ((clearableFlags & SureFi.ClearableFlags_WasResetBit) != 0)
+			if ((clearableChanged & SureFi.ClearableFlags_WasResetBit) != 0 &&
+				(clearableFlags & SureFi.ClearableFlags_WasResetBit) != 0)
 			{
 				Console.WriteLine("Module was reset. Getting all settings again");
 				SureFi.ClearGotFlags();
@@ -212,7 +269,8 @@ namespace DevKitWindowsApp
 				flagsToClear |= SureFi.ClearableFlags_WasResetBit;
 			}
 			
-			if ((clearableFlags & SureFi.ClearableFlags_TransmitFinishedBit) != 0)
+			if ((clearableChanged & SureFi.ClearableFlags_TransmitFinishedBit) != 0 &&
+				(clearableFlags & SureFi.ClearableFlags_TransmitFinishedBit) != 0)
 			{
 				Console.WriteLine("Transmit finished");
 				this.port.PushTxCommandNoBytes(SureCmd.GetTransmitInfo);
@@ -221,7 +279,8 @@ namespace DevKitWindowsApp
 				this.TransmitButton.Text = "Getting Info...";
 			}
 			
-			if ((clearableFlags & SureFi.ClearableFlags_RxPacketReadyBit) != 0)
+			if ((clearableChanged & SureFi.ClearableFlags_RxPacketReadyBit) != 0 &&
+				(clearableFlags & SureFi.ClearableFlags_RxPacketReadyBit) != 0)
 			{
 				Console.WriteLine("Packet Received");
 				this.port.PushTxCommandNoBytes(SureCmd.GetReceiveInfo);
@@ -229,7 +288,8 @@ namespace DevKitWindowsApp
 				flagsToClear |= SureFi.ClearableFlags_RxPacketReadyBit;
 			}
 			
-			if ((clearableFlags & SureFi.ClearableFlags_AckPacketReadyBit) != 0)
+			if ((clearableChanged & SureFi.ClearableFlags_AckPacketReadyBit) != 0 &&
+				(clearableFlags & SureFi.ClearableFlags_AckPacketReadyBit) != 0)
 			{
 				Console.WriteLine("Ack Packet Received");
 				this.port.PushTxCommandNoBytes(SureCmd.GetAckPacket);
@@ -312,6 +372,9 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		// +==============================+
+		// |          Tick Timer          |
+		// +==============================+
 		private void TickTimer_Tick(object sender, EventArgs e)
 		{
 			if (this.port != null)
@@ -329,9 +392,10 @@ namespace DevKitWindowsApp
 					return;
 				}
 				
-				List<byte> newCommand = this.port.PopRxCommand();
-				while (newCommand != null)
+				List<byte> newCommandList = this.port.PopRxCommand();
+				while (newCommandList != null)
 				{
+					byte[] newCommand = newCommandList.ToArray();
 					// Console.Write("Got " + newCommand.Count.ToString() + " byte command { ");
 					// foreach (byte b in newCommand)
 					// {
@@ -340,7 +404,7 @@ namespace DevKitWindowsApp
 					// Console.WriteLine("}");
 					SureFi.ProcessResponse(this, newCommand);
 					
-					newCommand = this.port.PopRxCommand();
+					newCommandList = this.port.PopRxCommand();
 				}
 				
 				if (this.isConnecting)
@@ -379,16 +443,31 @@ namespace DevKitWindowsApp
 		// |        Control Events        |
 		// +==============================+
 		
+		private void OutputClearButton_Click(object sender, EventArgs e)
+		{
+			OutputTextbox.Clear();
+			if (this.port != null)
+			{
+				this.port.commandHistory.Clear();
+				this.port.commandHistoryIsRsp.Clear();
+			}
+		}
+		
+		private void HumanReadableCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			RefreshOutputTextbox();
+		}
+			
+		private void PrintStatusCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			RefreshOutputTextbox();
+		}
+		
 		private void DisconnectButton_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 			this.connectForm.Show();
 			this.Close();
-		}
-		
-		private void HumanReadableCheckbox_CheckedChanged(object sender, EventArgs e)
-		{
-			this.OutputTextbox.Clear();
 		}
 		
 		private void LedCombo6_SelectedIndexChanged(object sender, EventArgs e)
@@ -1028,11 +1107,20 @@ namespace DevKitWindowsApp
 		// +==============================+
 		private void AckHexCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
-			
+			if (!updatingElement)
+			{
+				AckTextbox.Clear();
+			}
 		}
 		private void AckClearButton_Click(object sender, EventArgs e)
 		{
-			
+			if (!updatingElement)
+			{
+				AckTextbox.Clear();
+				AckCountLabel.Text = "Count: 0";
+				//NOTE: Because there is no clear button for Tx we will just clear it here
+				TxCountLabel.Text = "Count: 0";
+			}
 		}
 		
 		// +==============================+
@@ -1206,12 +1294,18 @@ namespace DevKitWindowsApp
 		// +==============================+
 		private void RxHexCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
-			
+			if (!updatingElement)
+			{
+				RxTextbox.Clear();
+			}
 		}
 		private void RxClearButton_Click(object sender, EventArgs e)
 		{
-			
+			if (!updatingElement)
+			{
+				RxTextbox.Clear();
+				RxCountLabel.Text = "Count: 0";
+			}
 		}
-		
 	}
 }
