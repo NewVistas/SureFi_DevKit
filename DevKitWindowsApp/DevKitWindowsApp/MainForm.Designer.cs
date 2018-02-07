@@ -38,6 +38,7 @@
 			this.HumanReadableCheckbox = new System.Windows.Forms.CheckBox();
 			this.MainTabControl = new System.Windows.Forms.TabControl();
 			this.TabPageRadio = new System.Windows.Forms.TabPage();
+			this.QuietModeCheckbox = new System.Windows.Forms.CheckBox();
 			this.AcksEnabledCheckbox = new System.Windows.Forms.CheckBox();
 			this.EncryptionReadyLabel = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@
 			this.TxUidTextbox = new System.Windows.Forms.TextBox();
 			this.RxUidTextbox = new System.Windows.Forms.TextBox();
 			this.TabPageOther = new System.Windows.Forms.TabPage();
+			this.ClearIndicationsButton = new System.Windows.Forms.Button();
 			this.label24 = new System.Windows.Forms.Label();
 			this.LedCombo1 = new System.Windows.Forms.ComboBox();
 			this.LedLabel1 = new System.Windows.Forms.Label();
@@ -110,6 +112,7 @@
 			this.ResetButton = new System.Windows.Forms.Button();
 			this.StartEncryptionButton = new System.Windows.Forms.Button();
 			this.TabPageStatus = new System.Windows.Forms.TabPage();
+			this.GetStatusButton = new System.Windows.Forms.Button();
 			this.ClearFlagsButton = new System.Windows.Forms.Button();
 			this.AutoClearFlagsCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusConfigLabel = new System.Windows.Forms.Label();
@@ -163,6 +166,57 @@
 			this.BusyBit = new System.Windows.Forms.Label();
 			this.RadioStateBit1 = new System.Windows.Forms.Label();
 			this.TabPageInt = new System.Windows.Forms.TabPage();
+			this.EnableAllIntButton = new System.Windows.Forms.Button();
+			this.DisableAllIntButton = new System.Windows.Forms.Button();
+			this.IntConfigLabel = new System.Windows.Forms.Label();
+			this.IntClearableLabel = new System.Windows.Forms.Label();
+			this.IntOtherLabel = new System.Windows.Forms.Label();
+			this.IntStateLabel = new System.Windows.Forms.Label();
+			this.label31 = new System.Windows.Forms.Label();
+			this.label33 = new System.Windows.Forms.Label();
+			this.label38 = new System.Windows.Forms.Label();
+			this.label39 = new System.Windows.Forms.Label();
+			this.label40 = new System.Windows.Forms.Label();
+			this.label41 = new System.Windows.Forms.Label();
+			this.label42 = new System.Windows.Forms.Label();
+			this.label46 = new System.Windows.Forms.Label();
+			this.label47 = new System.Windows.Forms.Label();
+			this.label48 = new System.Windows.Forms.Label();
+			this.label49 = new System.Windows.Forms.Label();
+			this.label50 = new System.Windows.Forms.Label();
+			this.label51 = new System.Windows.Forms.Label();
+			this.label52 = new System.Windows.Forms.Label();
+			this.label53 = new System.Windows.Forms.Label();
+			this.label54 = new System.Windows.Forms.Label();
+			this.label55 = new System.Windows.Forms.Label();
+			this.label56 = new System.Windows.Forms.Label();
+			this.label57 = new System.Windows.Forms.Label();
+			this.label58 = new System.Windows.Forms.Label();
+			this.label60 = new System.Windows.Forms.Label();
+			this.IntButtonHeldBit = new System.Windows.Forms.Label();
+			this.IntTxLedModeBit = new System.Windows.Forms.Label();
+			this.IntAckPacketReadyBit = new System.Windows.Forms.Label();
+			this.IntSettingsPendingBit = new System.Windows.Forms.Label();
+			this.IntButtonPressedBit = new System.Windows.Forms.Label();
+			this.IntRadioStateBit4 = new System.Windows.Forms.Label();
+			this.IntRxLedModeBit = new System.Windows.Forms.Label();
+			this.IntRxPacketReadyBit = new System.Windows.Forms.Label();
+			this.IntButtonDownBit = new System.Windows.Forms.Label();
+			this.IntRxInProgressBit = new System.Windows.Forms.Label();
+			this.IntEncryptionRekeyBit = new System.Windows.Forms.Label();
+			this.IntAutoClearFlagsBit = new System.Windows.Forms.Label();
+			this.IntRadioStateBit3 = new System.Windows.Forms.Label();
+			this.IntTransmitFinishedBit = new System.Windows.Forms.Label();
+			this.IntAutoRekeyBit = new System.Windows.Forms.Label();
+			this.IntChecksumErrorBit = new System.Windows.Forms.Label();
+			this.IntShowingQosBit = new System.Windows.Forms.Label();
+			this.IntInterruptDrivenBit = new System.Windows.Forms.Label();
+			this.IntWasResetBit = new System.Windows.Forms.Label();
+			this.IntEncryptionActiveBit = new System.Windows.Forms.Label();
+			this.IntDoingLightshowBit = new System.Windows.Forms.Label();
+			this.IntRadioStateBit2 = new System.Windows.Forms.Label();
+			this.IntBusyBit = new System.Windows.Forms.Label();
+			this.IntRadioStateBit1 = new System.Windows.Forms.Label();
 			this.TxTextbox = new System.Windows.Forms.TextBox();
 			this.TransmitButton = new System.Windows.Forms.Button();
 			this.RxTextbox = new System.Windows.Forms.TextBox();
@@ -193,61 +247,6 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
-			this.ClearIndicationsButton = new System.Windows.Forms.Button();
-			this.QuietModeCheckbox = new System.Windows.Forms.CheckBox();
-			this.GetStatusButton = new System.Windows.Forms.Button();
-			this.IntConfigLabel = new System.Windows.Forms.Label();
-			this.IntClearableLabel = new System.Windows.Forms.Label();
-			this.IntOtherLabel = new System.Windows.Forms.Label();
-			this.IntStateLabel = new System.Windows.Forms.Label();
-			this.label31 = new System.Windows.Forms.Label();
-			this.label33 = new System.Windows.Forms.Label();
-			this.label38 = new System.Windows.Forms.Label();
-			this.label39 = new System.Windows.Forms.Label();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label41 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
-			this.label46 = new System.Windows.Forms.Label();
-			this.label47 = new System.Windows.Forms.Label();
-			this.label48 = new System.Windows.Forms.Label();
-			this.label49 = new System.Windows.Forms.Label();
-			this.label50 = new System.Windows.Forms.Label();
-			this.label51 = new System.Windows.Forms.Label();
-			this.label52 = new System.Windows.Forms.Label();
-			this.label53 = new System.Windows.Forms.Label();
-			this.label54 = new System.Windows.Forms.Label();
-			this.label55 = new System.Windows.Forms.Label();
-			this.label56 = new System.Windows.Forms.Label();
-			this.label57 = new System.Windows.Forms.Label();
-			this.label58 = new System.Windows.Forms.Label();
-			this.label59 = new System.Windows.Forms.Label();
-			this.label60 = new System.Windows.Forms.Label();
-			this.IntButtonHeldBit = new System.Windows.Forms.Label();
-			this.IntTxLedModeBit = new System.Windows.Forms.Label();
-			this.IntAckPacketReadyBit = new System.Windows.Forms.Label();
-			this.IntSettingsPendingBit = new System.Windows.Forms.Label();
-			this.IntButtonPressedBit = new System.Windows.Forms.Label();
-			this.IntRadioStateBit4 = new System.Windows.Forms.Label();
-			this.IntRxLedModeBit = new System.Windows.Forms.Label();
-			this.IntRxPacketReadyBit = new System.Windows.Forms.Label();
-			this.IntButtonDownBit = new System.Windows.Forms.Label();
-			this.IntRxInProgressBit = new System.Windows.Forms.Label();
-			this.IntEncryptionRekeyBit = new System.Windows.Forms.Label();
-			this.IntAutoClearFlagsBit = new System.Windows.Forms.Label();
-			this.IntRadioStateBit3 = new System.Windows.Forms.Label();
-			this.IntTransmitFinishedBit = new System.Windows.Forms.Label();
-			this.IntAutoRekeyBit = new System.Windows.Forms.Label();
-			this.IntChecksumErrorBit = new System.Windows.Forms.Label();
-			this.IntShowingQosBit = new System.Windows.Forms.Label();
-			this.IntInterruptDrivenBit = new System.Windows.Forms.Label();
-			this.IntWasResetBit = new System.Windows.Forms.Label();
-			this.IntEncryptionActiveBit = new System.Windows.Forms.Label();
-			this.IntDoingLightshowBit = new System.Windows.Forms.Label();
-			this.IntRadioStateBit2 = new System.Windows.Forms.Label();
-			this.IntBusyBit = new System.Windows.Forms.Label();
-			this.IntRadioStateBit1 = new System.Windows.Forms.Label();
-			this.DisableAllIntButton = new System.Windows.Forms.Button();
-			this.EnableAllIntButton = new System.Windows.Forms.Button();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -379,6 +378,17 @@
 			this.TabPageRadio.TabIndex = 0;
 			this.TabPageRadio.Text = "Radio Settings";
 			this.TabPageRadio.UseVisualStyleBackColor = true;
+			// 
+			// QuietModeCheckbox
+			// 
+			this.QuietModeCheckbox.AutoSize = true;
+			this.QuietModeCheckbox.Location = new System.Drawing.Point(174, 178);
+			this.QuietModeCheckbox.Name = "QuietModeCheckbox";
+			this.QuietModeCheckbox.Size = new System.Drawing.Size(81, 17);
+			this.QuietModeCheckbox.TabIndex = 15;
+			this.QuietModeCheckbox.Text = "Quiet Mode";
+			this.QuietModeCheckbox.UseVisualStyleBackColor = true;
+			this.QuietModeCheckbox.CheckedChanged += new System.EventHandler(this.QuietModeCheckbox_CheckedChanged);
 			// 
 			// AcksEnabledCheckbox
 			// 
@@ -733,6 +743,16 @@
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
+			// 
+			// ClearIndicationsButton
+			// 
+			this.ClearIndicationsButton.Location = new System.Drawing.Point(8, 170);
+			this.ClearIndicationsButton.Name = "ClearIndicationsButton";
+			this.ClearIndicationsButton.Size = new System.Drawing.Size(104, 23);
+			this.ClearIndicationsButton.TabIndex = 14;
+			this.ClearIndicationsButton.Text = "All Off";
+			this.ClearIndicationsButton.UseVisualStyleBackColor = true;
+			this.ClearIndicationsButton.Click += new System.EventHandler(this.ClearIndicationsButton_Click);
 			// 
 			// label24
 			// 
@@ -1331,6 +1351,17 @@
 			this.TabPageStatus.TabIndex = 2;
 			this.TabPageStatus.Text = "Status";
 			this.TabPageStatus.UseVisualStyleBackColor = true;
+			// 
+			// GetStatusButton
+			// 
+			this.GetStatusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.GetStatusButton.Location = new System.Drawing.Point(462, 265);
+			this.GetStatusButton.Name = "GetStatusButton";
+			this.GetStatusButton.Size = new System.Drawing.Size(103, 23);
+			this.GetStatusButton.TabIndex = 23;
+			this.GetStatusButton.Text = "Get Status";
+			this.GetStatusButton.UseVisualStyleBackColor = true;
+			this.GetStatusButton.Click += new System.EventHandler(this.GetStatusButton_Click);
 			// 
 			// ClearFlagsButton
 			// 
@@ -1934,7 +1965,6 @@
 			this.TabPageInt.Controls.Add(this.label56);
 			this.TabPageInt.Controls.Add(this.label57);
 			this.TabPageInt.Controls.Add(this.label58);
-			this.TabPageInt.Controls.Add(this.label59);
 			this.TabPageInt.Controls.Add(this.label60);
 			this.TabPageInt.Controls.Add(this.IntButtonHeldBit);
 			this.TabPageInt.Controls.Add(this.IntTxLedModeBit);
@@ -1966,6 +1996,594 @@
 			this.TabPageInt.TabIndex = 3;
 			this.TabPageInt.Text = "Interrupt Bits";
 			this.TabPageInt.UseVisualStyleBackColor = true;
+			// 
+			// EnableAllIntButton
+			// 
+			this.EnableAllIntButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.EnableAllIntButton.Location = new System.Drawing.Point(477, 229);
+			this.EnableAllIntButton.Name = "EnableAllIntButton";
+			this.EnableAllIntButton.Size = new System.Drawing.Size(88, 23);
+			this.EnableAllIntButton.TabIndex = 72;
+			this.EnableAllIntButton.Text = "Enable All";
+			this.EnableAllIntButton.UseVisualStyleBackColor = true;
+			this.EnableAllIntButton.Click += new System.EventHandler(this.EnableAllIntButton_Click);
+			// 
+			// DisableAllIntButton
+			// 
+			this.DisableAllIntButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.DisableAllIntButton.Location = new System.Drawing.Point(477, 258);
+			this.DisableAllIntButton.Name = "DisableAllIntButton";
+			this.DisableAllIntButton.Size = new System.Drawing.Size(88, 23);
+			this.DisableAllIntButton.TabIndex = 71;
+			this.DisableAllIntButton.Text = "Disable All";
+			this.DisableAllIntButton.UseVisualStyleBackColor = true;
+			this.DisableAllIntButton.Click += new System.EventHandler(this.DisableAllIntButton_Click);
+			// 
+			// IntConfigLabel
+			// 
+			this.IntConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.IntConfigLabel.AutoSize = true;
+			this.IntConfigLabel.Location = new System.Drawing.Point(376, 287);
+			this.IntConfigLabel.Name = "IntConfigLabel";
+			this.IntConfigLabel.Size = new System.Drawing.Size(66, 13);
+			this.IntConfigLabel.TabIndex = 70;
+			this.IntConfigLabel.Text = "Config: 0x00";
+			// 
+			// IntClearableLabel
+			// 
+			this.IntClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.IntClearableLabel.AutoSize = true;
+			this.IntClearableLabel.Location = new System.Drawing.Point(246, 287);
+			this.IntClearableLabel.Name = "IntClearableLabel";
+			this.IntClearableLabel.Size = new System.Drawing.Size(80, 13);
+			this.IntClearableLabel.TabIndex = 69;
+			this.IntClearableLabel.Text = "Clearable: 0x00";
+			// 
+			// IntOtherLabel
+			// 
+			this.IntOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.IntOtherLabel.AutoSize = true;
+			this.IntOtherLabel.Location = new System.Drawing.Point(126, 287);
+			this.IntOtherLabel.Name = "IntOtherLabel";
+			this.IntOtherLabel.Size = new System.Drawing.Size(62, 13);
+			this.IntOtherLabel.TabIndex = 68;
+			this.IntOtherLabel.Text = "Other: 0x00";
+			// 
+			// IntStateLabel
+			// 
+			this.IntStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.IntStateLabel.AutoSize = true;
+			this.IntStateLabel.Location = new System.Drawing.Point(8, 287);
+			this.IntStateLabel.Name = "IntStateLabel";
+			this.IntStateLabel.Size = new System.Drawing.Size(61, 13);
+			this.IntStateLabel.TabIndex = 67;
+			this.IntStateLabel.Text = "State: 0x00";
+			// 
+			// label31
+			// 
+			this.label31.AutoSize = true;
+			this.label31.Location = new System.Drawing.Point(276, 181);
+			this.label31.Name = "label31";
+			this.label31.Size = new System.Drawing.Size(63, 13);
+			this.label31.TabIndex = 66;
+			this.label31.Text = "Button Held";
+			// 
+			// label33
+			// 
+			this.label33.AutoSize = true;
+			this.label33.Location = new System.Drawing.Point(406, 81);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(73, 13);
+			this.label33.TabIndex = 65;
+			this.label33.Text = "Tx LED Mode";
+			// 
+			// label38
+			// 
+			this.label38.AutoSize = true;
+			this.label38.Location = new System.Drawing.Point(276, 81);
+			this.label38.Name = "label38";
+			this.label38.Size = new System.Drawing.Size(97, 13);
+			this.label38.TabIndex = 64;
+			this.label38.Text = "Ack Packet Ready";
+			// 
+			// label39
+			// 
+			this.label39.AutoSize = true;
+			this.label39.Location = new System.Drawing.Point(35, 173);
+			this.label39.Name = "label39";
+			this.label39.Size = new System.Drawing.Size(87, 13);
+			this.label39.TabIndex = 63;
+			this.label39.Text = "Settings Pending";
+			// 
+			// label40
+			// 
+			this.label40.AutoSize = true;
+			this.label40.Location = new System.Drawing.Point(276, 158);
+			this.label40.Name = "label40";
+			this.label40.Size = new System.Drawing.Size(79, 13);
+			this.label40.TabIndex = 58;
+			this.label40.Text = "Button Pressed";
+			// 
+			// label41
+			// 
+			this.label41.AutoSize = true;
+			this.label41.Location = new System.Drawing.Point(406, 58);
+			this.label41.Name = "label41";
+			this.label41.Size = new System.Drawing.Size(74, 13);
+			this.label41.TabIndex = 59;
+			this.label41.Text = "Rx LED Mode";
+			// 
+			// label42
+			// 
+			this.label42.AutoSize = true;
+			this.label42.Location = new System.Drawing.Point(276, 58);
+			this.label42.Name = "label42";
+			this.label42.Size = new System.Drawing.Size(91, 13);
+			this.label42.TabIndex = 62;
+			this.label42.Text = "Rx Packet Ready";
+			// 
+			// label46
+			// 
+			this.label46.AutoSize = true;
+			this.label46.Location = new System.Drawing.Point(156, 54);
+			this.label46.Name = "label46";
+			this.label46.Size = new System.Drawing.Size(69, 13);
+			this.label46.TabIndex = 60;
+			this.label46.Text = "Button Down";
+			// 
+			// label47
+			// 
+			this.label47.AutoSize = true;
+			this.label47.Location = new System.Drawing.Point(35, 150);
+			this.label47.Name = "label47";
+			this.label47.Size = new System.Drawing.Size(76, 13);
+			this.label47.TabIndex = 61;
+			this.label47.Text = "Rx In Progress";
+			// 
+			// label48
+			// 
+			this.label48.AutoSize = true;
+			this.label48.Location = new System.Drawing.Point(276, 135);
+			this.label48.Name = "label48";
+			this.label48.Size = new System.Drawing.Size(91, 13);
+			this.label48.TabIndex = 57;
+			this.label48.Text = "Encryption Rekey";
+			// 
+			// label49
+			// 
+			this.label49.AutoSize = true;
+			this.label49.Location = new System.Drawing.Point(406, 35);
+			this.label49.Name = "label49";
+			this.label49.Size = new System.Drawing.Size(84, 13);
+			this.label49.TabIndex = 56;
+			this.label49.Text = "Auto-Clear Flags";
+			// 
+			// label50
+			// 
+			this.label50.AutoSize = true;
+			this.label50.Location = new System.Drawing.Point(276, 35);
+			this.label50.Name = "label50";
+			this.label50.Size = new System.Drawing.Size(89, 13);
+			this.label50.TabIndex = 55;
+			this.label50.Text = "Transmit Finished";
+			// 
+			// label51
+			// 
+			this.label51.AutoSize = true;
+			this.label51.Location = new System.Drawing.Point(156, 31);
+			this.label51.Name = "label51";
+			this.label51.Size = new System.Drawing.Size(74, 13);
+			this.label51.TabIndex = 54;
+			this.label51.Text = "Showing QOS";
+			// 
+			// label52
+			// 
+			this.label52.AutoSize = true;
+			this.label52.Location = new System.Drawing.Point(35, 127);
+			this.label52.Name = "label52";
+			this.label52.Size = new System.Drawing.Size(90, 13);
+			this.label52.TabIndex = 53;
+			this.label52.Text = "Encryption Active";
+			// 
+			// label53
+			// 
+			this.label53.AutoSize = true;
+			this.label53.Location = new System.Drawing.Point(406, 112);
+			this.label53.Name = "label53";
+			this.label53.Size = new System.Drawing.Size(63, 13);
+			this.label53.TabIndex = 51;
+			this.label53.Text = "Auto Rekey";
+			// 
+			// label54
+			// 
+			this.label54.AutoSize = true;
+			this.label54.Location = new System.Drawing.Point(276, 112);
+			this.label54.Name = "label54";
+			this.label54.Size = new System.Drawing.Size(82, 13);
+			this.label54.TabIndex = 50;
+			this.label54.Text = "Checksum Error";
+			// 
+			// label55
+			// 
+			this.label55.AutoSize = true;
+			this.label55.Location = new System.Drawing.Point(406, 12);
+			this.label55.Name = "label55";
+			this.label55.Size = new System.Drawing.Size(80, 13);
+			this.label55.TabIndex = 49;
+			this.label55.Text = "Interrupt Driven";
+			// 
+			// label56
+			// 
+			this.label56.AutoSize = true;
+			this.label56.Location = new System.Drawing.Point(276, 12);
+			this.label56.Name = "label56";
+			this.label56.Size = new System.Drawing.Size(60, 13);
+			this.label56.TabIndex = 48;
+			this.label56.Text = "Was Reset";
+			// 
+			// label57
+			// 
+			this.label57.AutoSize = true;
+			this.label57.Location = new System.Drawing.Point(156, 8);
+			this.label57.Name = "label57";
+			this.label57.Size = new System.Drawing.Size(86, 13);
+			this.label57.TabIndex = 47;
+			this.label57.Text = "Doing Lightshow";
+			// 
+			// label58
+			// 
+			this.label58.AutoSize = true;
+			this.label58.Location = new System.Drawing.Point(35, 104);
+			this.label58.Name = "label58";
+			this.label58.Size = new System.Drawing.Size(30, 13);
+			this.label58.TabIndex = 52;
+			this.label58.Text = "Busy";
+			// 
+			// label60
+			// 
+			this.label60.AutoSize = true;
+			this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label60.Location = new System.Drawing.Point(35, 39);
+			this.label60.Name = "label60";
+			this.label60.Size = new System.Drawing.Size(70, 13);
+			this.label60.TabIndex = 45;
+			this.label60.Text = "RadioState";
+			// 
+			// IntButtonHeldBit
+			// 
+			this.IntButtonHeldBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntButtonHeldBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntButtonHeldBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntButtonHeldBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntButtonHeldBit.Location = new System.Drawing.Point(249, 177);
+			this.IntButtonHeldBit.Name = "IntButtonHeldBit";
+			this.IntButtonHeldBit.Size = new System.Drawing.Size(21, 21);
+			this.IntButtonHeldBit.TabIndex = 22;
+			this.IntButtonHeldBit.Text = "D";
+			this.IntButtonHeldBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntButtonHeldBit.Click += new System.EventHandler(this.IntButtonHeldBit_Click);
+			// 
+			// IntTxLedModeBit
+			// 
+			this.IntTxLedModeBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntTxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntTxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntTxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntTxLedModeBit.Location = new System.Drawing.Point(379, 77);
+			this.IntTxLedModeBit.Name = "IntTxLedModeBit";
+			this.IntTxLedModeBit.Size = new System.Drawing.Size(21, 21);
+			this.IntTxLedModeBit.TabIndex = 23;
+			this.IntTxLedModeBit.Text = "D";
+			this.IntTxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntTxLedModeBit.Click += new System.EventHandler(this.IntTxLedModeBit_Click);
+			// 
+			// IntAckPacketReadyBit
+			// 
+			this.IntAckPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntAckPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntAckPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntAckPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntAckPacketReadyBit.Location = new System.Drawing.Point(249, 77);
+			this.IntAckPacketReadyBit.Name = "IntAckPacketReadyBit";
+			this.IntAckPacketReadyBit.Size = new System.Drawing.Size(21, 21);
+			this.IntAckPacketReadyBit.TabIndex = 24;
+			this.IntAckPacketReadyBit.Text = "D";
+			this.IntAckPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntAckPacketReadyBit.Click += new System.EventHandler(this.IntAckPacketReadyBit_Click);
+			// 
+			// IntSettingsPendingBit
+			// 
+			this.IntSettingsPendingBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntSettingsPendingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntSettingsPendingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntSettingsPendingBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntSettingsPendingBit.Location = new System.Drawing.Point(8, 169);
+			this.IntSettingsPendingBit.Name = "IntSettingsPendingBit";
+			this.IntSettingsPendingBit.Size = new System.Drawing.Size(21, 21);
+			this.IntSettingsPendingBit.TabIndex = 25;
+			this.IntSettingsPendingBit.Text = "D";
+			this.IntSettingsPendingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntSettingsPendingBit.Click += new System.EventHandler(this.IntSettingsPendingBit_Click);
+			// 
+			// IntButtonPressedBit
+			// 
+			this.IntButtonPressedBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntButtonPressedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntButtonPressedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntButtonPressedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntButtonPressedBit.Location = new System.Drawing.Point(249, 154);
+			this.IntButtonPressedBit.Name = "IntButtonPressedBit";
+			this.IntButtonPressedBit.Size = new System.Drawing.Size(21, 21);
+			this.IntButtonPressedBit.TabIndex = 26;
+			this.IntButtonPressedBit.Text = "D";
+			this.IntButtonPressedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntButtonPressedBit.Click += new System.EventHandler(this.IntButtonPressedBit_Click);
+			// 
+			// IntRadioStateBit4
+			// 
+			this.IntRadioStateBit4.BackColor = System.Drawing.Color.Transparent;
+			this.IntRadioStateBit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRadioStateBit4.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRadioStateBit4.Location = new System.Drawing.Point(8, 67);
+			this.IntRadioStateBit4.Name = "IntRadioStateBit4";
+			this.IntRadioStateBit4.Size = new System.Drawing.Size(21, 21);
+			this.IntRadioStateBit4.TabIndex = 27;
+			this.IntRadioStateBit4.Text = "D";
+			this.IntRadioStateBit4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit4.Click += new System.EventHandler(this.IntRadioStateBit4_Click);
+			// 
+			// IntRxLedModeBit
+			// 
+			this.IntRxLedModeBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntRxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRxLedModeBit.Location = new System.Drawing.Point(379, 54);
+			this.IntRxLedModeBit.Name = "IntRxLedModeBit";
+			this.IntRxLedModeBit.Size = new System.Drawing.Size(21, 21);
+			this.IntRxLedModeBit.TabIndex = 28;
+			this.IntRxLedModeBit.Text = "D";
+			this.IntRxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxLedModeBit.Click += new System.EventHandler(this.IntRxLedModeBit_Click);
+			// 
+			// IntRxPacketReadyBit
+			// 
+			this.IntRxPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntRxPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRxPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRxPacketReadyBit.Location = new System.Drawing.Point(249, 54);
+			this.IntRxPacketReadyBit.Name = "IntRxPacketReadyBit";
+			this.IntRxPacketReadyBit.Size = new System.Drawing.Size(21, 21);
+			this.IntRxPacketReadyBit.TabIndex = 29;
+			this.IntRxPacketReadyBit.Text = "D";
+			this.IntRxPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxPacketReadyBit.Click += new System.EventHandler(this.IntRxPacketReadyBit_Click);
+			// 
+			// IntButtonDownBit
+			// 
+			this.IntButtonDownBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntButtonDownBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntButtonDownBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntButtonDownBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntButtonDownBit.Location = new System.Drawing.Point(129, 50);
+			this.IntButtonDownBit.Name = "IntButtonDownBit";
+			this.IntButtonDownBit.Size = new System.Drawing.Size(21, 21);
+			this.IntButtonDownBit.TabIndex = 30;
+			this.IntButtonDownBit.Text = "D";
+			this.IntButtonDownBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntButtonDownBit.Click += new System.EventHandler(this.IntButtonDownBit_Click);
+			// 
+			// IntRxInProgressBit
+			// 
+			this.IntRxInProgressBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntRxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRxInProgressBit.Location = new System.Drawing.Point(8, 146);
+			this.IntRxInProgressBit.Name = "IntRxInProgressBit";
+			this.IntRxInProgressBit.Size = new System.Drawing.Size(21, 21);
+			this.IntRxInProgressBit.TabIndex = 31;
+			this.IntRxInProgressBit.Text = "D";
+			this.IntRxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxInProgressBit.Click += new System.EventHandler(this.IntRxInProgressBit_Click);
+			// 
+			// IntEncryptionRekeyBit
+			// 
+			this.IntEncryptionRekeyBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntEncryptionRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntEncryptionRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntEncryptionRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntEncryptionRekeyBit.Location = new System.Drawing.Point(249, 131);
+			this.IntEncryptionRekeyBit.Name = "IntEncryptionRekeyBit";
+			this.IntEncryptionRekeyBit.Size = new System.Drawing.Size(21, 21);
+			this.IntEncryptionRekeyBit.TabIndex = 32;
+			this.IntEncryptionRekeyBit.Text = "D";
+			this.IntEncryptionRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntEncryptionRekeyBit.Click += new System.EventHandler(this.IntEncryptionRekeyBit_Click);
+			// 
+			// IntAutoClearFlagsBit
+			// 
+			this.IntAutoClearFlagsBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntAutoClearFlagsBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntAutoClearFlagsBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntAutoClearFlagsBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntAutoClearFlagsBit.Location = new System.Drawing.Point(379, 31);
+			this.IntAutoClearFlagsBit.Name = "IntAutoClearFlagsBit";
+			this.IntAutoClearFlagsBit.Size = new System.Drawing.Size(21, 21);
+			this.IntAutoClearFlagsBit.TabIndex = 43;
+			this.IntAutoClearFlagsBit.Text = "D";
+			this.IntAutoClearFlagsBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntAutoClearFlagsBit.Click += new System.EventHandler(this.IntAutoClearFlagsBit_Click);
+			// 
+			// IntRadioStateBit3
+			// 
+			this.IntRadioStateBit3.BackColor = System.Drawing.Color.Transparent;
+			this.IntRadioStateBit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRadioStateBit3.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRadioStateBit3.Location = new System.Drawing.Point(8, 47);
+			this.IntRadioStateBit3.Name = "IntRadioStateBit3";
+			this.IntRadioStateBit3.Size = new System.Drawing.Size(21, 21);
+			this.IntRadioStateBit3.TabIndex = 33;
+			this.IntRadioStateBit3.Text = "D";
+			this.IntRadioStateBit3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit3.Click += new System.EventHandler(this.IntRadioStateBit3_Click);
+			// 
+			// IntTransmitFinishedBit
+			// 
+			this.IntTransmitFinishedBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntTransmitFinishedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntTransmitFinishedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntTransmitFinishedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntTransmitFinishedBit.Location = new System.Drawing.Point(249, 31);
+			this.IntTransmitFinishedBit.Name = "IntTransmitFinishedBit";
+			this.IntTransmitFinishedBit.Size = new System.Drawing.Size(21, 21);
+			this.IntTransmitFinishedBit.TabIndex = 34;
+			this.IntTransmitFinishedBit.Text = "D";
+			this.IntTransmitFinishedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntTransmitFinishedBit.Click += new System.EventHandler(this.IntTransmitFinishedBit_Click);
+			// 
+			// IntAutoRekeyBit
+			// 
+			this.IntAutoRekeyBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntAutoRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntAutoRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntAutoRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntAutoRekeyBit.Location = new System.Drawing.Point(379, 108);
+			this.IntAutoRekeyBit.Name = "IntAutoRekeyBit";
+			this.IntAutoRekeyBit.Size = new System.Drawing.Size(21, 21);
+			this.IntAutoRekeyBit.TabIndex = 35;
+			this.IntAutoRekeyBit.Text = "D";
+			this.IntAutoRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntAutoRekeyBit.Click += new System.EventHandler(this.IntAutoRekeyBit_Click);
+			// 
+			// IntChecksumErrorBit
+			// 
+			this.IntChecksumErrorBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntChecksumErrorBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntChecksumErrorBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntChecksumErrorBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntChecksumErrorBit.Location = new System.Drawing.Point(249, 108);
+			this.IntChecksumErrorBit.Name = "IntChecksumErrorBit";
+			this.IntChecksumErrorBit.Size = new System.Drawing.Size(21, 21);
+			this.IntChecksumErrorBit.TabIndex = 36;
+			this.IntChecksumErrorBit.Text = "D";
+			this.IntChecksumErrorBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntChecksumErrorBit.Click += new System.EventHandler(this.IntChecksumErrorBit_Click);
+			// 
+			// IntShowingQosBit
+			// 
+			this.IntShowingQosBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntShowingQosBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntShowingQosBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntShowingQosBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntShowingQosBit.Location = new System.Drawing.Point(129, 27);
+			this.IntShowingQosBit.Name = "IntShowingQosBit";
+			this.IntShowingQosBit.Size = new System.Drawing.Size(21, 21);
+			this.IntShowingQosBit.TabIndex = 37;
+			this.IntShowingQosBit.Text = "D";
+			this.IntShowingQosBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntShowingQosBit.Click += new System.EventHandler(this.IntShowingQosBit_Click);
+			// 
+			// IntInterruptDrivenBit
+			// 
+			this.IntInterruptDrivenBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntInterruptDrivenBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntInterruptDrivenBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntInterruptDrivenBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntInterruptDrivenBit.Location = new System.Drawing.Point(379, 8);
+			this.IntInterruptDrivenBit.Name = "IntInterruptDrivenBit";
+			this.IntInterruptDrivenBit.Size = new System.Drawing.Size(21, 21);
+			this.IntInterruptDrivenBit.TabIndex = 38;
+			this.IntInterruptDrivenBit.Text = "D";
+			this.IntInterruptDrivenBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntInterruptDrivenBit.Click += new System.EventHandler(this.IntInterruptDrivenBit_Click);
+			// 
+			// IntWasResetBit
+			// 
+			this.IntWasResetBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntWasResetBit.Location = new System.Drawing.Point(249, 8);
+			this.IntWasResetBit.Name = "IntWasResetBit";
+			this.IntWasResetBit.Size = new System.Drawing.Size(21, 21);
+			this.IntWasResetBit.TabIndex = 39;
+			this.IntWasResetBit.Text = "D";
+			this.IntWasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntWasResetBit.Click += new System.EventHandler(this.IntWasResetBit_Click);
+			// 
+			// IntEncryptionActiveBit
+			// 
+			this.IntEncryptionActiveBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntEncryptionActiveBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntEncryptionActiveBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntEncryptionActiveBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntEncryptionActiveBit.Location = new System.Drawing.Point(8, 123);
+			this.IntEncryptionActiveBit.Name = "IntEncryptionActiveBit";
+			this.IntEncryptionActiveBit.Size = new System.Drawing.Size(21, 21);
+			this.IntEncryptionActiveBit.TabIndex = 40;
+			this.IntEncryptionActiveBit.Text = "D";
+			this.IntEncryptionActiveBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntEncryptionActiveBit.Click += new System.EventHandler(this.IntEncryptionActiveBit_Click);
+			// 
+			// IntDoingLightshowBit
+			// 
+			this.IntDoingLightshowBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntDoingLightshowBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntDoingLightshowBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntDoingLightshowBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntDoingLightshowBit.Location = new System.Drawing.Point(129, 4);
+			this.IntDoingLightshowBit.Name = "IntDoingLightshowBit";
+			this.IntDoingLightshowBit.Size = new System.Drawing.Size(21, 21);
+			this.IntDoingLightshowBit.TabIndex = 41;
+			this.IntDoingLightshowBit.Text = "D";
+			this.IntDoingLightshowBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntDoingLightshowBit.Click += new System.EventHandler(this.IntDoingLightshowBit_Click);
+			// 
+			// IntRadioStateBit2
+			// 
+			this.IntRadioStateBit2.BackColor = System.Drawing.Color.Transparent;
+			this.IntRadioStateBit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRadioStateBit2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRadioStateBit2.Location = new System.Drawing.Point(8, 27);
+			this.IntRadioStateBit2.Name = "IntRadioStateBit2";
+			this.IntRadioStateBit2.Size = new System.Drawing.Size(21, 21);
+			this.IntRadioStateBit2.TabIndex = 42;
+			this.IntRadioStateBit2.Text = "D";
+			this.IntRadioStateBit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit2.Click += new System.EventHandler(this.IntRadioStateBit2_Click);
+			// 
+			// IntBusyBit
+			// 
+			this.IntBusyBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntBusyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntBusyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntBusyBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntBusyBit.Location = new System.Drawing.Point(8, 100);
+			this.IntBusyBit.Name = "IntBusyBit";
+			this.IntBusyBit.Size = new System.Drawing.Size(21, 21);
+			this.IntBusyBit.TabIndex = 44;
+			this.IntBusyBit.Text = "D";
+			this.IntBusyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntBusyBit.Click += new System.EventHandler(this.IntBusyBit_Click);
+			// 
+			// IntRadioStateBit1
+			// 
+			this.IntRadioStateBit1.BackColor = System.Drawing.Color.Transparent;
+			this.IntRadioStateBit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRadioStateBit1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRadioStateBit1.Location = new System.Drawing.Point(8, 7);
+			this.IntRadioStateBit1.Name = "IntRadioStateBit1";
+			this.IntRadioStateBit1.Size = new System.Drawing.Size(21, 21);
+			this.IntRadioStateBit1.TabIndex = 21;
+			this.IntRadioStateBit1.Text = "D";
+			this.IntRadioStateBit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRadioStateBit1.Click += new System.EventHandler(this.IntRadioStateBit1_Click);
 			// 
 			// TxTextbox
 			// 
@@ -2307,635 +2925,6 @@
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
 			// 
-			// ClearIndicationsButton
-			// 
-			this.ClearIndicationsButton.Location = new System.Drawing.Point(8, 170);
-			this.ClearIndicationsButton.Name = "ClearIndicationsButton";
-			this.ClearIndicationsButton.Size = new System.Drawing.Size(104, 23);
-			this.ClearIndicationsButton.TabIndex = 14;
-			this.ClearIndicationsButton.Text = "All Off";
-			this.ClearIndicationsButton.UseVisualStyleBackColor = true;
-			this.ClearIndicationsButton.Click += new System.EventHandler(this.ClearIndicationsButton_Click);
-			// 
-			// QuietModeCheckbox
-			// 
-			this.QuietModeCheckbox.AutoSize = true;
-			this.QuietModeCheckbox.Location = new System.Drawing.Point(174, 178);
-			this.QuietModeCheckbox.Name = "QuietModeCheckbox";
-			this.QuietModeCheckbox.Size = new System.Drawing.Size(81, 17);
-			this.QuietModeCheckbox.TabIndex = 15;
-			this.QuietModeCheckbox.Text = "Quiet Mode";
-			this.QuietModeCheckbox.UseVisualStyleBackColor = true;
-			this.QuietModeCheckbox.CheckedChanged += new System.EventHandler(this.QuietModeCheckbox_CheckedChanged);
-			// 
-			// GetStatusButton
-			// 
-			this.GetStatusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.GetStatusButton.Location = new System.Drawing.Point(462, 265);
-			this.GetStatusButton.Name = "GetStatusButton";
-			this.GetStatusButton.Size = new System.Drawing.Size(103, 23);
-			this.GetStatusButton.TabIndex = 23;
-			this.GetStatusButton.Text = "Get Status";
-			this.GetStatusButton.UseVisualStyleBackColor = true;
-			this.GetStatusButton.Click += new System.EventHandler(this.GetStatusButton_Click);
-			// 
-			// IntConfigLabel
-			// 
-			this.IntConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.IntConfigLabel.AutoSize = true;
-			this.IntConfigLabel.Location = new System.Drawing.Point(376, 287);
-			this.IntConfigLabel.Name = "IntConfigLabel";
-			this.IntConfigLabel.Size = new System.Drawing.Size(66, 13);
-			this.IntConfigLabel.TabIndex = 70;
-			this.IntConfigLabel.Text = "Config: 0x00";
-			// 
-			// IntClearableLabel
-			// 
-			this.IntClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.IntClearableLabel.AutoSize = true;
-			this.IntClearableLabel.Location = new System.Drawing.Point(246, 287);
-			this.IntClearableLabel.Name = "IntClearableLabel";
-			this.IntClearableLabel.Size = new System.Drawing.Size(80, 13);
-			this.IntClearableLabel.TabIndex = 69;
-			this.IntClearableLabel.Text = "Clearable: 0x00";
-			// 
-			// IntOtherLabel
-			// 
-			this.IntOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.IntOtherLabel.AutoSize = true;
-			this.IntOtherLabel.Location = new System.Drawing.Point(126, 287);
-			this.IntOtherLabel.Name = "IntOtherLabel";
-			this.IntOtherLabel.Size = new System.Drawing.Size(62, 13);
-			this.IntOtherLabel.TabIndex = 68;
-			this.IntOtherLabel.Text = "Other: 0x00";
-			// 
-			// IntStateLabel
-			// 
-			this.IntStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.IntStateLabel.AutoSize = true;
-			this.IntStateLabel.Location = new System.Drawing.Point(8, 287);
-			this.IntStateLabel.Name = "IntStateLabel";
-			this.IntStateLabel.Size = new System.Drawing.Size(61, 13);
-			this.IntStateLabel.TabIndex = 67;
-			this.IntStateLabel.Text = "State: 0x00";
-			// 
-			// label31
-			// 
-			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(276, 181);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(63, 13);
-			this.label31.TabIndex = 66;
-			this.label31.Text = "Button Held";
-			// 
-			// label33
-			// 
-			this.label33.AutoSize = true;
-			this.label33.Location = new System.Drawing.Point(406, 81);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(73, 13);
-			this.label33.TabIndex = 65;
-			this.label33.Text = "Tx LED Mode";
-			// 
-			// label38
-			// 
-			this.label38.AutoSize = true;
-			this.label38.Location = new System.Drawing.Point(276, 81);
-			this.label38.Name = "label38";
-			this.label38.Size = new System.Drawing.Size(97, 13);
-			this.label38.TabIndex = 64;
-			this.label38.Text = "Ack Packet Ready";
-			// 
-			// label39
-			// 
-			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(35, 173);
-			this.label39.Name = "label39";
-			this.label39.Size = new System.Drawing.Size(87, 13);
-			this.label39.TabIndex = 63;
-			this.label39.Text = "Settings Pending";
-			// 
-			// label40
-			// 
-			this.label40.AutoSize = true;
-			this.label40.Location = new System.Drawing.Point(276, 158);
-			this.label40.Name = "label40";
-			this.label40.Size = new System.Drawing.Size(79, 13);
-			this.label40.TabIndex = 58;
-			this.label40.Text = "Button Pressed";
-			// 
-			// label41
-			// 
-			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(406, 58);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(74, 13);
-			this.label41.TabIndex = 59;
-			this.label41.Text = "Rx LED Mode";
-			// 
-			// label42
-			// 
-			this.label42.AutoSize = true;
-			this.label42.Location = new System.Drawing.Point(276, 58);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(91, 13);
-			this.label42.TabIndex = 62;
-			this.label42.Text = "Rx Packet Ready";
-			// 
-			// label46
-			// 
-			this.label46.AutoSize = true;
-			this.label46.Location = new System.Drawing.Point(156, 54);
-			this.label46.Name = "label46";
-			this.label46.Size = new System.Drawing.Size(69, 13);
-			this.label46.TabIndex = 60;
-			this.label46.Text = "Button Down";
-			// 
-			// label47
-			// 
-			this.label47.AutoSize = true;
-			this.label47.Location = new System.Drawing.Point(35, 150);
-			this.label47.Name = "label47";
-			this.label47.Size = new System.Drawing.Size(76, 13);
-			this.label47.TabIndex = 61;
-			this.label47.Text = "Rx In Progress";
-			// 
-			// label48
-			// 
-			this.label48.AutoSize = true;
-			this.label48.Location = new System.Drawing.Point(276, 135);
-			this.label48.Name = "label48";
-			this.label48.Size = new System.Drawing.Size(91, 13);
-			this.label48.TabIndex = 57;
-			this.label48.Text = "Encryption Rekey";
-			// 
-			// label49
-			// 
-			this.label49.AutoSize = true;
-			this.label49.Location = new System.Drawing.Point(406, 35);
-			this.label49.Name = "label49";
-			this.label49.Size = new System.Drawing.Size(84, 13);
-			this.label49.TabIndex = 56;
-			this.label49.Text = "Auto-Clear Flags";
-			// 
-			// label50
-			// 
-			this.label50.AutoSize = true;
-			this.label50.Location = new System.Drawing.Point(276, 35);
-			this.label50.Name = "label50";
-			this.label50.Size = new System.Drawing.Size(89, 13);
-			this.label50.TabIndex = 55;
-			this.label50.Text = "Transmit Finished";
-			// 
-			// label51
-			// 
-			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(156, 31);
-			this.label51.Name = "label51";
-			this.label51.Size = new System.Drawing.Size(74, 13);
-			this.label51.TabIndex = 54;
-			this.label51.Text = "Showing QOS";
-			// 
-			// label52
-			// 
-			this.label52.AutoSize = true;
-			this.label52.Location = new System.Drawing.Point(35, 127);
-			this.label52.Name = "label52";
-			this.label52.Size = new System.Drawing.Size(90, 13);
-			this.label52.TabIndex = 53;
-			this.label52.Text = "Encryption Active";
-			// 
-			// label53
-			// 
-			this.label53.AutoSize = true;
-			this.label53.Location = new System.Drawing.Point(406, 112);
-			this.label53.Name = "label53";
-			this.label53.Size = new System.Drawing.Size(63, 13);
-			this.label53.TabIndex = 51;
-			this.label53.Text = "Auto Rekey";
-			// 
-			// label54
-			// 
-			this.label54.AutoSize = true;
-			this.label54.Location = new System.Drawing.Point(276, 112);
-			this.label54.Name = "label54";
-			this.label54.Size = new System.Drawing.Size(82, 13);
-			this.label54.TabIndex = 50;
-			this.label54.Text = "Checksum Error";
-			// 
-			// label55
-			// 
-			this.label55.AutoSize = true;
-			this.label55.Location = new System.Drawing.Point(406, 12);
-			this.label55.Name = "label55";
-			this.label55.Size = new System.Drawing.Size(80, 13);
-			this.label55.TabIndex = 49;
-			this.label55.Text = "Interrupt Driven";
-			// 
-			// label56
-			// 
-			this.label56.AutoSize = true;
-			this.label56.Location = new System.Drawing.Point(276, 12);
-			this.label56.Name = "label56";
-			this.label56.Size = new System.Drawing.Size(60, 13);
-			this.label56.TabIndex = 48;
-			this.label56.Text = "Was Reset";
-			// 
-			// label57
-			// 
-			this.label57.AutoSize = true;
-			this.label57.Location = new System.Drawing.Point(156, 8);
-			this.label57.Name = "label57";
-			this.label57.Size = new System.Drawing.Size(86, 13);
-			this.label57.TabIndex = 47;
-			this.label57.Text = "Doing Lightshow";
-			// 
-			// label58
-			// 
-			this.label58.AutoSize = true;
-			this.label58.Location = new System.Drawing.Point(35, 104);
-			this.label58.Name = "label58";
-			this.label58.Size = new System.Drawing.Size(30, 13);
-			this.label58.TabIndex = 52;
-			this.label58.Text = "Busy";
-			// 
-			// label59
-			// 
-			this.label59.AutoSize = true;
-			this.label59.Location = new System.Drawing.Point(44, 41);
-			this.label59.Name = "label59";
-			this.label59.Size = new System.Drawing.Size(55, 13);
-			this.label59.TabIndex = 46;
-			this.label59.Text = "Receiving";
-			// 
-			// label60
-			// 
-			this.label60.AutoSize = true;
-			this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label60.Location = new System.Drawing.Point(35, 26);
-			this.label60.Name = "label60";
-			this.label60.Size = new System.Drawing.Size(74, 13);
-			this.label60.TabIndex = 45;
-			this.label60.Text = "RadioState:";
-			// 
-			// IntButtonHeldBit
-			// 
-			this.IntButtonHeldBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntButtonHeldBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntButtonHeldBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntButtonHeldBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntButtonHeldBit.Location = new System.Drawing.Point(249, 177);
-			this.IntButtonHeldBit.Name = "IntButtonHeldBit";
-			this.IntButtonHeldBit.Size = new System.Drawing.Size(21, 21);
-			this.IntButtonHeldBit.TabIndex = 22;
-			this.IntButtonHeldBit.Text = "D";
-			this.IntButtonHeldBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntButtonHeldBit.Click += new System.EventHandler(this.IntButtonHeldBit_Click);
-			// 
-			// IntTxLedModeBit
-			// 
-			this.IntTxLedModeBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntTxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntTxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntTxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntTxLedModeBit.Location = new System.Drawing.Point(379, 77);
-			this.IntTxLedModeBit.Name = "IntTxLedModeBit";
-			this.IntTxLedModeBit.Size = new System.Drawing.Size(21, 21);
-			this.IntTxLedModeBit.TabIndex = 23;
-			this.IntTxLedModeBit.Text = "D";
-			this.IntTxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntTxLedModeBit.Click += new System.EventHandler(this.IntTxLedModeBit_Click);
-			// 
-			// IntAckPacketReadyBit
-			// 
-			this.IntAckPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntAckPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntAckPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntAckPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntAckPacketReadyBit.Location = new System.Drawing.Point(249, 77);
-			this.IntAckPacketReadyBit.Name = "IntAckPacketReadyBit";
-			this.IntAckPacketReadyBit.Size = new System.Drawing.Size(21, 21);
-			this.IntAckPacketReadyBit.TabIndex = 24;
-			this.IntAckPacketReadyBit.Text = "D";
-			this.IntAckPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntAckPacketReadyBit.Click += new System.EventHandler(this.IntAckPacketReadyBit_Click);
-			// 
-			// IntSettingsPendingBit
-			// 
-			this.IntSettingsPendingBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntSettingsPendingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntSettingsPendingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntSettingsPendingBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntSettingsPendingBit.Location = new System.Drawing.Point(8, 169);
-			this.IntSettingsPendingBit.Name = "IntSettingsPendingBit";
-			this.IntSettingsPendingBit.Size = new System.Drawing.Size(21, 21);
-			this.IntSettingsPendingBit.TabIndex = 25;
-			this.IntSettingsPendingBit.Text = "D";
-			this.IntSettingsPendingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntSettingsPendingBit.Click += new System.EventHandler(this.IntSettingsPendingBit_Click);
-			// 
-			// IntButtonPressedBit
-			// 
-			this.IntButtonPressedBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntButtonPressedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntButtonPressedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntButtonPressedBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntButtonPressedBit.Location = new System.Drawing.Point(249, 154);
-			this.IntButtonPressedBit.Name = "IntButtonPressedBit";
-			this.IntButtonPressedBit.Size = new System.Drawing.Size(21, 21);
-			this.IntButtonPressedBit.TabIndex = 26;
-			this.IntButtonPressedBit.Text = "D";
-			this.IntButtonPressedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntButtonPressedBit.Click += new System.EventHandler(this.IntButtonPressedBit_Click);
-			// 
-			// IntRadioStateBit4
-			// 
-			this.IntRadioStateBit4.BackColor = System.Drawing.Color.Transparent;
-			this.IntRadioStateBit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRadioStateBit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRadioStateBit4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRadioStateBit4.Location = new System.Drawing.Point(8, 67);
-			this.IntRadioStateBit4.Name = "IntRadioStateBit4";
-			this.IntRadioStateBit4.Size = new System.Drawing.Size(21, 21);
-			this.IntRadioStateBit4.TabIndex = 27;
-			this.IntRadioStateBit4.Text = "D";
-			this.IntRadioStateBit4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRadioStateBit4.Click += new System.EventHandler(this.IntRadioStateBit4_Click);
-			// 
-			// IntRxLedModeBit
-			// 
-			this.IntRxLedModeBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntRxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRxLedModeBit.Location = new System.Drawing.Point(379, 54);
-			this.IntRxLedModeBit.Name = "IntRxLedModeBit";
-			this.IntRxLedModeBit.Size = new System.Drawing.Size(21, 21);
-			this.IntRxLedModeBit.TabIndex = 28;
-			this.IntRxLedModeBit.Text = "D";
-			this.IntRxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRxLedModeBit.Click += new System.EventHandler(this.IntRxLedModeBit_Click);
-			// 
-			// IntRxPacketReadyBit
-			// 
-			this.IntRxPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntRxPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRxPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRxPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRxPacketReadyBit.Location = new System.Drawing.Point(249, 54);
-			this.IntRxPacketReadyBit.Name = "IntRxPacketReadyBit";
-			this.IntRxPacketReadyBit.Size = new System.Drawing.Size(21, 21);
-			this.IntRxPacketReadyBit.TabIndex = 29;
-			this.IntRxPacketReadyBit.Text = "D";
-			this.IntRxPacketReadyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRxPacketReadyBit.Click += new System.EventHandler(this.IntRxPacketReadyBit_Click);
-			// 
-			// IntButtonDownBit
-			// 
-			this.IntButtonDownBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntButtonDownBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntButtonDownBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntButtonDownBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntButtonDownBit.Location = new System.Drawing.Point(129, 50);
-			this.IntButtonDownBit.Name = "IntButtonDownBit";
-			this.IntButtonDownBit.Size = new System.Drawing.Size(21, 21);
-			this.IntButtonDownBit.TabIndex = 30;
-			this.IntButtonDownBit.Text = "D";
-			this.IntButtonDownBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntButtonDownBit.Click += new System.EventHandler(this.IntButtonDownBit_Click);
-			// 
-			// IntRxInProgressBit
-			// 
-			this.IntRxInProgressBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntRxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRxInProgressBit.Location = new System.Drawing.Point(8, 146);
-			this.IntRxInProgressBit.Name = "IntRxInProgressBit";
-			this.IntRxInProgressBit.Size = new System.Drawing.Size(21, 21);
-			this.IntRxInProgressBit.TabIndex = 31;
-			this.IntRxInProgressBit.Text = "D";
-			this.IntRxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRxInProgressBit.Click += new System.EventHandler(this.IntRxInProgressBit_Click);
-			// 
-			// IntEncryptionRekeyBit
-			// 
-			this.IntEncryptionRekeyBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntEncryptionRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntEncryptionRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntEncryptionRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntEncryptionRekeyBit.Location = new System.Drawing.Point(249, 131);
-			this.IntEncryptionRekeyBit.Name = "IntEncryptionRekeyBit";
-			this.IntEncryptionRekeyBit.Size = new System.Drawing.Size(21, 21);
-			this.IntEncryptionRekeyBit.TabIndex = 32;
-			this.IntEncryptionRekeyBit.Text = "D";
-			this.IntEncryptionRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntEncryptionRekeyBit.Click += new System.EventHandler(this.IntEncryptionRekeyBit_Click);
-			// 
-			// IntAutoClearFlagsBit
-			// 
-			this.IntAutoClearFlagsBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntAutoClearFlagsBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntAutoClearFlagsBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntAutoClearFlagsBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntAutoClearFlagsBit.Location = new System.Drawing.Point(379, 31);
-			this.IntAutoClearFlagsBit.Name = "IntAutoClearFlagsBit";
-			this.IntAutoClearFlagsBit.Size = new System.Drawing.Size(21, 21);
-			this.IntAutoClearFlagsBit.TabIndex = 43;
-			this.IntAutoClearFlagsBit.Text = "D";
-			this.IntAutoClearFlagsBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntAutoClearFlagsBit.Click += new System.EventHandler(this.IntAutoClearFlagsBit_Click);
-			// 
-			// IntRadioStateBit3
-			// 
-			this.IntRadioStateBit3.BackColor = System.Drawing.Color.Transparent;
-			this.IntRadioStateBit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRadioStateBit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRadioStateBit3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRadioStateBit3.Location = new System.Drawing.Point(8, 47);
-			this.IntRadioStateBit3.Name = "IntRadioStateBit3";
-			this.IntRadioStateBit3.Size = new System.Drawing.Size(21, 21);
-			this.IntRadioStateBit3.TabIndex = 33;
-			this.IntRadioStateBit3.Text = "D";
-			this.IntRadioStateBit3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRadioStateBit3.Click += new System.EventHandler(this.IntRadioStateBit3_Click);
-			// 
-			// IntTransmitFinishedBit
-			// 
-			this.IntTransmitFinishedBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntTransmitFinishedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntTransmitFinishedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntTransmitFinishedBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntTransmitFinishedBit.Location = new System.Drawing.Point(249, 31);
-			this.IntTransmitFinishedBit.Name = "IntTransmitFinishedBit";
-			this.IntTransmitFinishedBit.Size = new System.Drawing.Size(21, 21);
-			this.IntTransmitFinishedBit.TabIndex = 34;
-			this.IntTransmitFinishedBit.Text = "D";
-			this.IntTransmitFinishedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntTransmitFinishedBit.Click += new System.EventHandler(this.IntTransmitFinishedBit_Click);
-			// 
-			// IntAutoRekeyBit
-			// 
-			this.IntAutoRekeyBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntAutoRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntAutoRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntAutoRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntAutoRekeyBit.Location = new System.Drawing.Point(379, 108);
-			this.IntAutoRekeyBit.Name = "IntAutoRekeyBit";
-			this.IntAutoRekeyBit.Size = new System.Drawing.Size(21, 21);
-			this.IntAutoRekeyBit.TabIndex = 35;
-			this.IntAutoRekeyBit.Text = "D";
-			this.IntAutoRekeyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntAutoRekeyBit.Click += new System.EventHandler(this.IntAutoRekeyBit_Click);
-			// 
-			// IntChecksumErrorBit
-			// 
-			this.IntChecksumErrorBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntChecksumErrorBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntChecksumErrorBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntChecksumErrorBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntChecksumErrorBit.Location = new System.Drawing.Point(249, 108);
-			this.IntChecksumErrorBit.Name = "IntChecksumErrorBit";
-			this.IntChecksumErrorBit.Size = new System.Drawing.Size(21, 21);
-			this.IntChecksumErrorBit.TabIndex = 36;
-			this.IntChecksumErrorBit.Text = "D";
-			this.IntChecksumErrorBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntChecksumErrorBit.Click += new System.EventHandler(this.IntChecksumErrorBit_Click);
-			// 
-			// IntShowingQosBit
-			// 
-			this.IntShowingQosBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntShowingQosBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntShowingQosBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntShowingQosBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntShowingQosBit.Location = new System.Drawing.Point(129, 27);
-			this.IntShowingQosBit.Name = "IntShowingQosBit";
-			this.IntShowingQosBit.Size = new System.Drawing.Size(21, 21);
-			this.IntShowingQosBit.TabIndex = 37;
-			this.IntShowingQosBit.Text = "D";
-			this.IntShowingQosBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntShowingQosBit.Click += new System.EventHandler(this.IntShowingQosBit_Click);
-			// 
-			// IntInterruptDrivenBit
-			// 
-			this.IntInterruptDrivenBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntInterruptDrivenBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntInterruptDrivenBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntInterruptDrivenBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntInterruptDrivenBit.Location = new System.Drawing.Point(379, 8);
-			this.IntInterruptDrivenBit.Name = "IntInterruptDrivenBit";
-			this.IntInterruptDrivenBit.Size = new System.Drawing.Size(21, 21);
-			this.IntInterruptDrivenBit.TabIndex = 38;
-			this.IntInterruptDrivenBit.Text = "D";
-			this.IntInterruptDrivenBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntInterruptDrivenBit.Click += new System.EventHandler(this.IntInterruptDrivenBit_Click);
-			// 
-			// IntWasResetBit
-			// 
-			this.IntWasResetBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntWasResetBit.Location = new System.Drawing.Point(249, 8);
-			this.IntWasResetBit.Name = "IntWasResetBit";
-			this.IntWasResetBit.Size = new System.Drawing.Size(21, 21);
-			this.IntWasResetBit.TabIndex = 39;
-			this.IntWasResetBit.Text = "D";
-			this.IntWasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntWasResetBit.Click += new System.EventHandler(this.IntWasResetBit_Click);
-			// 
-			// IntEncryptionActiveBit
-			// 
-			this.IntEncryptionActiveBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntEncryptionActiveBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntEncryptionActiveBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntEncryptionActiveBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntEncryptionActiveBit.Location = new System.Drawing.Point(8, 123);
-			this.IntEncryptionActiveBit.Name = "IntEncryptionActiveBit";
-			this.IntEncryptionActiveBit.Size = new System.Drawing.Size(21, 21);
-			this.IntEncryptionActiveBit.TabIndex = 40;
-			this.IntEncryptionActiveBit.Text = "D";
-			this.IntEncryptionActiveBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntEncryptionActiveBit.Click += new System.EventHandler(this.IntEncryptionActiveBit_Click);
-			// 
-			// IntDoingLightshowBit
-			// 
-			this.IntDoingLightshowBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntDoingLightshowBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntDoingLightshowBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntDoingLightshowBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntDoingLightshowBit.Location = new System.Drawing.Point(129, 4);
-			this.IntDoingLightshowBit.Name = "IntDoingLightshowBit";
-			this.IntDoingLightshowBit.Size = new System.Drawing.Size(21, 21);
-			this.IntDoingLightshowBit.TabIndex = 41;
-			this.IntDoingLightshowBit.Text = "D";
-			this.IntDoingLightshowBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntDoingLightshowBit.Click += new System.EventHandler(this.IntDoingLightshowBit_Click);
-			// 
-			// IntRadioStateBit2
-			// 
-			this.IntRadioStateBit2.BackColor = System.Drawing.Color.Transparent;
-			this.IntRadioStateBit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRadioStateBit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRadioStateBit2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRadioStateBit2.Location = new System.Drawing.Point(8, 27);
-			this.IntRadioStateBit2.Name = "IntRadioStateBit2";
-			this.IntRadioStateBit2.Size = new System.Drawing.Size(21, 21);
-			this.IntRadioStateBit2.TabIndex = 42;
-			this.IntRadioStateBit2.Text = "D";
-			this.IntRadioStateBit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRadioStateBit2.Click += new System.EventHandler(this.IntRadioStateBit2_Click);
-			// 
-			// IntBusyBit
-			// 
-			this.IntBusyBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntBusyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntBusyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntBusyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntBusyBit.Location = new System.Drawing.Point(8, 100);
-			this.IntBusyBit.Name = "IntBusyBit";
-			this.IntBusyBit.Size = new System.Drawing.Size(21, 21);
-			this.IntBusyBit.TabIndex = 44;
-			this.IntBusyBit.Text = "D";
-			this.IntBusyBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntBusyBit.Click += new System.EventHandler(this.IntBusyBit_Click);
-			// 
-			// IntRadioStateBit1
-			// 
-			this.IntRadioStateBit1.BackColor = System.Drawing.Color.Transparent;
-			this.IntRadioStateBit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntRadioStateBit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntRadioStateBit1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRadioStateBit1.Location = new System.Drawing.Point(8, 7);
-			this.IntRadioStateBit1.Name = "IntRadioStateBit1";
-			this.IntRadioStateBit1.Size = new System.Drawing.Size(21, 21);
-			this.IntRadioStateBit1.TabIndex = 21;
-			this.IntRadioStateBit1.Text = "D";
-			this.IntRadioStateBit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntRadioStateBit1.Click += new System.EventHandler(this.IntRadioStateBit1_Click);
-			// 
-			// DisableAllIntButton
-			// 
-			this.DisableAllIntButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.DisableAllIntButton.Location = new System.Drawing.Point(477, 258);
-			this.DisableAllIntButton.Name = "DisableAllIntButton";
-			this.DisableAllIntButton.Size = new System.Drawing.Size(88, 23);
-			this.DisableAllIntButton.TabIndex = 71;
-			this.DisableAllIntButton.Text = "Disable All";
-			this.DisableAllIntButton.UseVisualStyleBackColor = true;
-			this.DisableAllIntButton.Click += new System.EventHandler(this.DisableAllIntButton_Click);
-			// 
-			// EnableAllIntButton
-			// 
-			this.EnableAllIntButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.EnableAllIntButton.Location = new System.Drawing.Point(477, 229);
-			this.EnableAllIntButton.Name = "EnableAllIntButton";
-			this.EnableAllIntButton.Size = new System.Drawing.Size(88, 23);
-			this.EnableAllIntButton.TabIndex = 72;
-			this.EnableAllIntButton.Text = "Enable All";
-			this.EnableAllIntButton.UseVisualStyleBackColor = true;
-			this.EnableAllIntButton.Click += new System.EventHandler(this.EnableAllIntButton_Click);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3072,7 +3061,6 @@
 		private System.Windows.Forms.Label label63;
 		private System.Windows.Forms.Label label43;
 		private System.Windows.Forms.Label label34;
-		private System.Windows.Forms.Label RadioStateStrLabel;
 		private System.Windows.Forms.Label label32;
 		private System.Windows.Forms.TabPage TabPageCommands;
 		private System.Windows.Forms.Button ShowQosButton;
@@ -3197,7 +3185,6 @@
 		private System.Windows.Forms.Label label56;
 		private System.Windows.Forms.Label label57;
 		private System.Windows.Forms.Label label58;
-		private System.Windows.Forms.Label label59;
 		private System.Windows.Forms.Label label60;
 		public System.Windows.Forms.Label IntButtonHeldBit;
 		public System.Windows.Forms.Label IntTxLedModeBit;
@@ -3224,5 +3211,6 @@
 		public System.Windows.Forms.Label IntBusyBit;
 		public System.Windows.Forms.Label IntRadioStateBit1;
 		public System.Windows.Forms.TabPage TabPageInt;
+		public System.Windows.Forms.Label RadioStateStrLabel;
 	}
 }

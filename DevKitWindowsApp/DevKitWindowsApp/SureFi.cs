@@ -411,12 +411,26 @@ namespace DevKitWindowsApp
 						bool rxLedMode             = ((configFlags & ConfigFlags_RxLedModeBit) != 0x00);
 						bool txLedMode             = ((configFlags & ConfigFlags_TxLedModeBit) != 0x00);
 						
+						RadioState radioState = (RadioState)(stateFlags & StateFlags_RadioStateBits);
+						
 						mainForm.updatingElement = true;
 						
 						mainForm.AutoClearFlagsCheckbox.Checked = autoClearFlagsEnabled;
 						mainForm.ClearFlagsButton.Enabled = !autoClearFlagsEnabled;
 						mainForm.RxLedModeCombobox.SelectedIndex = (rxLedMode ? 1 : 0);
 						mainForm.TxLedModeCombobox.SelectedIndex = (txLedMode ? 1 : 0);
+						
+						mainForm.RadioStateStrLabel.Text = radioState.ToString();
+						// switch (radioState)
+						// {
+						// 	case RadioState.Initializing:  { mainForm.RadioStateStrLabel.Text = "Initializing";  } break;
+						// 	case RadioState.Receiving:     { mainForm.RadioStateStrLabel.Text = "Receiving";     } break;
+						// 	case RadioState.Transmitting:  { mainForm.RadioStateStrLabel.Text = "Transmitting";  } break;
+						// 	case RadioState.WaitingForAck: { mainForm.RadioStateStrLabel.Text = "WaitingForAck"; } break;
+						// 	case RadioState.Acknowledging: { mainForm.RadioStateStrLabel.Text = "Acknowledging"; } break;
+						// 	case RadioState.Sleeping:      { mainForm.RadioStateStrLabel.Text = "Sleeping";      } break;
+						// 	default:                       { mainForm.RadioStateStrLabel.Text = "Unknown";       } break;
+						// }
 						
 						mainForm.updatingElement = false;
 						
