@@ -251,6 +251,18 @@ namespace DevKitWindowsApp
 				this.TransmitButton.Enabled = false;
 			}
 			
+			if ((stateChanged & SureFi.StateFlags_EncryptionActiveBit) != 0)
+			{
+				if ((stateFlags & SureFi.StateFlags_EncryptionActiveBit) != 0)
+				{
+					StartEncryptionButton.Text = "Stop Encryption";
+				}
+				else
+				{
+					StartEncryptionButton.Text = "Start Encryption";
+				}
+			}
+			
 			byte flagsToClear = 0x00;
 			
 			if ((clearableChanged & SureFi.ClearableFlags_WasResetBit) != 0 &&
@@ -503,6 +515,9 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		// +--------------------------------------------------------------+
+		// |                      Radio Settings Tab                      |
+		// +--------------------------------------------------------------+
 		// +==============================+
 		// |    Encryption Ready Label    |
 		// +==============================+
@@ -944,6 +959,9 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		// +--------------------------------------------------------------+
+		// |                          Lower Area                          |
+		// +--------------------------------------------------------------+
 		// +==============================+
 		// |  Transmit UI Element Events  |
 		// +==============================+
@@ -1306,6 +1324,68 @@ namespace DevKitWindowsApp
 				RxTextbox.Clear();
 				RxCountLabel.Text = "Count: 0";
 			}
+		}
+		
+		// +--------------------------------------------------------------+
+		// |                         Commands Tab                         |
+		// +--------------------------------------------------------------+
+		private void RefreshSettingsButton_Click(object sender, EventArgs e)
+		{
+			SureFi.ClearGotFlags();
+			this.port.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
+			this.port.PushTxCommandNoBytes(SureCmd.GetTransmitUID);
+			this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
+			this.port.PushTxCommandNoBytes(SureCmd.GetAllSettings);
+			this.port.PushTxCommandNoBytes(SureCmd.GetAckData);
+		}
+		private void DefaultSettingsButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.DefaultSettings);
+			SureFi.ClearGotFlags();
+			this.port.PushTxCommandNoBytes(SureCmd.GetReceiveUID);
+			this.port.PushTxCommandNoBytes(SureCmd.GetTransmitUID);
+			this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
+			this.port.PushTxCommandNoBytes(SureCmd.GetAllSettings);
+			this.port.PushTxCommandNoBytes(SureCmd.GetAckData);
+		}
+		private void SleepButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.Sleep);
+		}
+		private void ResetButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.Reset);
+		}
+		private void LightshowButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.QosLightshow);
+		}
+		private void ShowQosButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.ShowQualityOfService);
+		}
+		private void StartEncryptionButton_Click(object sender, EventArgs e)
+		{
+			if ((savedStateFlags & SureFi.StateFlags_EncryptionActiveBit) != 0)
+			{
+				this.port.PushTxCommandNoBytes(SureCmd.StopEncryption);
+			}
+			else
+			{
+				this.port.PushTxCommandNoBytes(SureCmd.StartEncryption);
+			}
+		}
+		private void GetModuleVersionButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.GetModuleVersion);
+		}
+		private void GetTimeOnAirButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.GetPacketTimeOnAir);
+		}
+		private void GetRandomNumberButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.GetRandomNumber);
 		}
 	}
 }

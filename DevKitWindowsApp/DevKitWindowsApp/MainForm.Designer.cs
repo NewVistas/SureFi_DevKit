@@ -1035,6 +1035,7 @@
 			this.GetRandomNumberButton.TabIndex = 34;
 			this.GetRandomNumberButton.Text = "Get";
 			this.GetRandomNumberButton.UseVisualStyleBackColor = true;
+			this.GetRandomNumberButton.Click += new System.EventHandler(this.GetRandomNumberButton_Click);
 			// 
 			// label23
 			// 
@@ -1100,6 +1101,7 @@
 			this.GetTimeOnAirButton.TabIndex = 31;
 			this.GetTimeOnAirButton.Text = "Get";
 			this.GetTimeOnAirButton.UseVisualStyleBackColor = true;
+			this.GetTimeOnAirButton.Click += new System.EventHandler(this.GetTimeOnAirButton_Click);
 			// 
 			// HardwareVersionLabel
 			// 
@@ -1118,6 +1120,7 @@
 			this.GetModuleVersionButton.TabIndex = 31;
 			this.GetModuleVersionButton.Text = "Get";
 			this.GetModuleVersionButton.UseVisualStyleBackColor = true;
+			this.GetModuleVersionButton.Click += new System.EventHandler(this.GetModuleVersionButton_Click);
 			// 
 			// label16
 			// 
@@ -1137,6 +1140,7 @@
 			this.ShowQosButton.TabIndex = 29;
 			this.ShowQosButton.Text = "Show QOS";
 			this.ShowQosButton.UseVisualStyleBackColor = true;
+			this.ShowQosButton.Click += new System.EventHandler(this.ShowQosButton_Click);
 			// 
 			// LightshowButton
 			// 
@@ -1146,6 +1150,7 @@
 			this.LightshowButton.TabIndex = 28;
 			this.LightshowButton.Text = "Lightshow";
 			this.LightshowButton.UseVisualStyleBackColor = true;
+			this.LightshowButton.Click += new System.EventHandler(this.LightshowButton_Click);
 			// 
 			// RefreshSettingsButton
 			// 
@@ -1155,6 +1160,7 @@
 			this.RefreshSettingsButton.TabIndex = 26;
 			this.RefreshSettingsButton.Text = "Refresh Settings";
 			this.RefreshSettingsButton.UseVisualStyleBackColor = true;
+			this.RefreshSettingsButton.Click += new System.EventHandler(this.RefreshSettingsButton_Click);
 			// 
 			// DefaultSettingsButton
 			// 
@@ -1164,6 +1170,7 @@
 			this.DefaultSettingsButton.TabIndex = 27;
 			this.DefaultSettingsButton.Text = "Default Settings";
 			this.DefaultSettingsButton.UseVisualStyleBackColor = true;
+			this.DefaultSettingsButton.Click += new System.EventHandler(this.DefaultSettingsButton_Click);
 			// 
 			// SleepButton
 			// 
@@ -1173,6 +1180,7 @@
 			this.SleepButton.TabIndex = 24;
 			this.SleepButton.Text = "Sleep";
 			this.SleepButton.UseVisualStyleBackColor = true;
+			this.SleepButton.Click += new System.EventHandler(this.SleepButton_Click);
 			// 
 			// ResetButton
 			// 
@@ -1182,6 +1190,7 @@
 			this.ResetButton.TabIndex = 25;
 			this.ResetButton.Text = "Reset";
 			this.ResetButton.UseVisualStyleBackColor = true;
+			this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
 			// 
 			// StartEncryptionButton
 			// 
@@ -1191,6 +1200,7 @@
 			this.StartEncryptionButton.TabIndex = 23;
 			this.StartEncryptionButton.Text = "Start Encryption";
 			this.StartEncryptionButton.UseVisualStyleBackColor = true;
+			this.StartEncryptionButton.Click += new System.EventHandler(this.StartEncryptionButton_Click);
 			// 
 			// TabPageStatus
 			// 
@@ -2165,6 +2175,7 @@
 			// 
 			// PrintStatusCheckbox
 			// 
+			this.PrintStatusCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.PrintStatusCheckbox.AutoSize = true;
 			this.PrintStatusCheckbox.Location = new System.Drawing.Point(630, 7);
 			this.PrintStatusCheckbox.Name = "PrintStatusCheckbox";
