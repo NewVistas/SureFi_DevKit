@@ -550,17 +550,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Packet:
 				{
-					//TODO: This won't be necassary in the future when
-					//		the responses come back without the UID
-					int rxUidLength = 0;
-					byte[] rxUid = null;
-					if (mainForm.TryParseHexString(mainForm.RxUidTextbox.Text, out rxUid))
-					{
-						rxUidLength = rxUid.Length;
-					}
-					byte[] radioPayload = new byte[rspPayload.Length - rxUidLength];
-					Array.Copy(rspPayload, rxUidLength, radioPayload, 0, rspPayload.Length - rxUidLength);
-					bool isHexStr = (mainForm.RxHexCheckbox.Checked || !AreBytesAscii(radioPayload));
+					bool isHexStr = (mainForm.RxHexCheckbox.Checked || !AreBytesAscii(rspPayload));
 					
 					mainForm.updatingElement = true;
 					
@@ -571,7 +561,7 @@ namespace DevKitWindowsApp
 						mainForm.RxHexCheckbox.Checked = true;
 						
 						mainForm.RxTextbox.Text = "";
-						foreach (byte b in radioPayload)
+						foreach (byte b in rspPayload)
 						{
 							mainForm.RxTextbox.Text += b.ToString("X2");
 							numBytes++;
@@ -580,7 +570,7 @@ namespace DevKitWindowsApp
 					else
 					{
 						mainForm.RxTextbox.Text = "";
-						foreach (byte b in radioPayload)
+						foreach (byte b in rspPayload)
 						{
 							if (b == 0x00)
 							{
@@ -603,17 +593,7 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AckPacket:
 				{
-					//TODO: This won't be necassary in the future when
-					//		the responses come back without the UID
-					int rxUidLength = 0;
-					byte[] rxUid = null;
-					if (mainForm.TryParseHexString(mainForm.RxUidTextbox.Text, out rxUid))
-					{
-						rxUidLength = rxUid.Length;
-					}
-					byte[] radioPayload = new byte[rspPayload.Length - rxUidLength];
-					Array.Copy(rspPayload, rxUidLength, radioPayload, 0, rspPayload.Length - rxUidLength);
-					bool isHexStr = (mainForm.AckHexCheckbox.Checked || !AreBytesAscii(radioPayload));
+					bool isHexStr = (mainForm.AckHexCheckbox.Checked || !AreBytesAscii(rspPayload));
 					
 					mainForm.updatingElement = true;
 					
@@ -624,7 +604,7 @@ namespace DevKitWindowsApp
 						mainForm.AckHexCheckbox.Checked = true;
 						
 						mainForm.AckTextbox.Text = "";
-						foreach (byte b in radioPayload)
+						foreach (byte b in rspPayload)
 						{
 							mainForm.AckTextbox.Text += b.ToString("X2");
 							numBytes++;
@@ -633,7 +613,7 @@ namespace DevKitWindowsApp
 					else
 					{
 						mainForm.AckTextbox.Text = "";
-						foreach (byte b in radioPayload)
+						foreach (byte b in rspPayload)
 						{
 							if (b == 0x00)
 							{
