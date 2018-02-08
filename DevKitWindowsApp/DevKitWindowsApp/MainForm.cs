@@ -48,9 +48,14 @@ namespace DevKitWindowsApp
 			if (!success) { this.Close(); }
 		}
 		
-		void StatusUpdate(string statusMessage)
+		public void StatusUpdate(string statusMessage)
 		{
 			StatusLabel.Text = statusMessage;
+		}
+		
+		public void ShowErrorMesage(string title, string message, string errorString)
+		{
+			MessageBox.Show(this, message + "\r\n\r\n" + errorString, title, MessageBoxButtons.OK);
 		}
 		
 		public void SetStatusBit(int statusByte, byte bit, bool filled)
@@ -265,7 +270,7 @@ namespace DevKitWindowsApp
 		}
 		public void HandleFailureResponse(SureCmd cmd, SureError error)
 		{
-			//TODO: Show a messagebox
+			ShowErrorMesage("Command Failed", "SureCmd_" + cmd.ToString() + " Failed", "Error: " + error.ToString());
 			
 			if (cmd == SureCmd.TransmitData)
 			{
@@ -557,6 +562,8 @@ namespace DevKitWindowsApp
 			bool rxUidSizeGood = false;
 			bool txUidSizeGood = false;
 			bool packetSizeGood = false;
+			bool acksEnabledGood = AcksEnabledCheckbox.Checked;
+			bool payloadSizeGood = (PayloadSizeNumeric.Value > 0);
 			
 			int packetSize = 0;
 			byte[] uid = null;
@@ -593,10 +600,20 @@ namespace DevKitWindowsApp
 				EncryptionReadyLabel.Text = "X Encryption: Tx UID is 0 bytes";
 				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
 			}
+			else if (!payloadSizeGood)
+			{
+				EncryptionReadyLabel.Text = "X Encryption: Need at least 1 byte Payload";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
 			else if (!packetSizeGood)
 			{
-				EncryptionReadyLabel.Text = "✓ Encryption: PacketSize+1 is not multiple of 8";
-				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.Orange);
+				EncryptionReadyLabel.Text = "X Encryption: PacketSize+1 is not multiple of 8";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+			else if (!acksEnabledGood)
+			{
+				EncryptionReadyLabel.Text = "X Encryption: Acks are Not Enabled";
+				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
 			}
 			else
 			{
@@ -675,6 +692,7 @@ namespace DevKitWindowsApp
 		{
 			if (e.KeyCode == Keys.Enter)// && rxUidChanged)
 			{
+				e.SuppressKeyPress = true;
 				rxUidChanged = false;
 				PushPacketSizeChange(false);
 				UpdateEncryptionReady();
@@ -751,6 +769,7 @@ namespace DevKitWindowsApp
 		{
 			if (e.KeyCode == Keys.Enter)// && txUidChanged)
 			{
+				e.SuppressKeyPress = true;
 				txUidChanged = false;
 				UpdateEncryptionReady();
 				PushTxUidChange();
@@ -987,6 +1006,7 @@ namespace DevKitWindowsApp
 				}
 				
 				PushAcksEnabled();
+				UpdateEncryptionReady();
 			}
 		}
 		
@@ -1076,7 +1096,9 @@ namespace DevKitWindowsApp
 		{
 			if (!updatingElement)
 			{
+				TxTextbox.Focus();
 				TxTextbox.Clear();
+				TxLengthLabel.Text = "Length: 0";
 			}
 		}
 		private void TxTextbox_TextChanged(object sender, EventArgs e)
@@ -1163,6 +1185,7 @@ namespace DevKitWindowsApp
 		{
 			if (e.KeyCode == Keys.Enter && TransmitButton.Enabled)
 			{
+				e.SuppressKeyPress = true;
 				PushTransmit();
 			}
 		}
@@ -1174,7 +1197,9 @@ namespace DevKitWindowsApp
 		{
 			if (!updatingElement)
 			{
+				AckTextbox.Focus();
 				AckTextbox.Clear();
+				AckLengthLabel.Text = "Length: 0";
 			}
 		}
 		private void AckClearButton_Click(object sender, EventArgs e)
@@ -1185,6 +1210,7 @@ namespace DevKitWindowsApp
 				AckCountLabel.Text = "Count: 0";
 				//NOTE: Because there is no clear button for Tx we will just clear it here
 				TxCountLabel.Text = "Count: 0";
+				AckLengthLabel.Text = "Length: 0";
 			}
 		}
 		
@@ -1263,7 +1289,9 @@ namespace DevKitWindowsApp
 		{
 			if (!updatingElement)
 			{
+				AckDataTextbox.Focus();
 				AckDataTextbox.Clear();
+				AckDataLengthLabel.Text = "Length: 0 / " + PayloadSizeNumeric.Value.ToString();
 			}
 		}
 		private void AckDataTextbox_TextChanged(object sender, EventArgs e)
@@ -1348,6 +1376,7 @@ namespace DevKitWindowsApp
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
+				e.SuppressKeyPress = true;
 				ackDataChanged = false;
 				PushAckDataChange();
 			}
@@ -1368,7 +1397,9 @@ namespace DevKitWindowsApp
 		{
 			if (!updatingElement)
 			{
+				RxTextbox.Focus();
 				RxTextbox.Clear();
+				RxLengthLabel.Text = "Length: 0";
 			}
 		}
 		private void RxClearButton_Click(object sender, EventArgs e)
@@ -1377,6 +1408,7 @@ namespace DevKitWindowsApp
 			{
 				RxTextbox.Clear();
 				RxCountLabel.Text = "Count: 0";
+				RxLengthLabel.Text = "Length: 0";
 			}
 		}
 		

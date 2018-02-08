@@ -749,7 +749,13 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.Unsupported:
 				{
-					
+					if (rspPayload.Length == 1)
+					{
+						byte cmdByte = rspPayload[0];
+						SureCmd sureCmd = (SureCmd)cmdByte;
+						
+						mainForm.ShowErrorMesage("Command Unsupported", "SureCmd_" + sureCmd.ToString() + " is Unsupported by this Firmware", "");
+					}
 				} break;
 				
 				// +==============================+
@@ -1125,6 +1131,7 @@ namespace DevKitWindowsApp
 						
 						mainForm.AcksEnabledCheckbox.Checked = (acksEnabled != 0x00);
 						mainForm.NumRetriesNumeric.Enabled = mainForm.AcksEnabledCheckbox.Checked;
+						mainForm.UpdateEncryptionReady();
 						
 						mainForm.updatingElement = false;
 						
