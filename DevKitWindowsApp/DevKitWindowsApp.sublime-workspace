@@ -4,6 +4,190 @@
 		"selected_items":
 		[
 			[
+				"PushTxComm",
+				"PushTxCommand"
+			],
+			[
+				"intE",
+				"intEnableBits"
+			],
+			[
+				"ConfigFlags",
+				"ConfigFlags_AutoClearFlagsBit"
+			],
+			[
+				"But",
+				"ButtonHoldTimeNumberic"
+			],
+			[
+				"ButtonCon",
+				"ButtonConfigCombobox"
+			],
+			[
+				"ConfigFla",
+				"ConfigFlags_AutoClearFlagsBit"
+			],
+			[
+				"AutoClear",
+				"AutoClearFlagsCheckbox"
+			],
+			[
+				"Upda",
+				"updatingElement"
+			],
+			[
+				"quietMo",
+				"quietModeEnabled"
+			],
+			[
+				"new",
+				"newIndications"
+			],
+			[
+				"Led",
+				"LedCombo6"
+			],
+			[
+				"stateF",
+				"savedStateFlags"
+			],
+			[
+				"command",
+				"commandHistory"
+			],
+			[
+				"response",
+				"responseList"
+			],
+			[
+				"newCOm",
+				"newCommandList"
+			],
+			[
+				"Push",
+				"PushHistoryItem"
+			],
+			[
+				"rxUi",
+				"rxUidLength"
+			],
+			[
+				"rxU",
+				"rxUidLength"
+			],
+			[
+				"Transmit",
+				"TransmitButton"
+			],
+			[
+				"flas",
+				"flagsToClear"
+			],
+			[
+				"PushT",
+				"PushTxCommandNoBytes"
+			],
+			[
+				"Trans",
+				"TransmitButton"
+			],
+			[
+				"connec",
+				"connectionTimeout"
+			],
+			[
+				"gotTransmit",
+				"gotTransmitPower"
+			],
+			[
+				"gotRece",
+				"gotReceivePacketSize"
+			],
+			[
+				"gotTrans",
+				"gotTransmitUid"
+			],
+			[
+				"gotRadio",
+				"gotRadioMode"
+			],
+			[
+				"gotPack",
+				"gotRxPacket"
+			],
+			[
+				"gotMod",
+				"gotModuleVersion"
+			],
+			[
+				"AckDa",
+				"AckDataLengthLabel"
+			],
+			[
+				"byte",
+				"byteArray"
+			],
+			[
+				"paylo",
+				"payloadSize"
+			],
+			[
+				"NumRe",
+				"NumRetriesNumeric"
+			],
+			[
+				"NUmre",
+				"NumRetriesNumeric"
+			],
+			[
+				"AcksE",
+				"AcksEnabledCheckbox"
+			],
+			[
+				"Numretrie",
+				"NumRetriesNumeric"
+			],
+			[
+				"RadioPolarit",
+				"RadioPolarityCombobox"
+			],
+			[
+				"Pola",
+				"PolarityCombobox"
+			],
+			[
+				"Pol",
+				"PolarityCombobox"
+			],
+			[
+				"PushTx",
+				"PushTxCommand"
+			],
+			[
+				"packet",
+				"packetSizeGood"
+			],
+			[
+				"PacketS",
+				"PacketSizeEncryptionReadyLabel"
+			],
+			[
+				"Pushg",
+				"PushPacketSizeChange"
+			],
+			[
+				"Payload",
+				"PayloadSizeNumeric"
+			],
+			[
+				"selec",
+				"selectionPos"
+			],
+			[
+				"RxUid",
+				"RxUidTextbox"
+			],
+			[
 				"status",
 				"statusByteIndex"
 			],
@@ -16,16 +200,8 @@
 				"MainForm_OnConnectionFinished"
 			],
 			[
-				"connec",
-				"connectForm"
-			],
-			[
 				"conn",
 				"connectFailureString"
-			],
-			[
-				"byte",
-				"byteStr"
 			],
 			[
 				"com",
@@ -34,10 +210,6 @@
 			[
 				"comNum",
 				"comNumberA"
-			],
-			[
-				"paylo",
-				"payloadBuffer"
 			],
 			[
 				"ackData",
@@ -180,10 +352,6 @@
 				"SureDefaultSettings\t()"
 			],
 			[
-				"ConfigFla",
-				"ConfigFlags_AutoClearFlagsBit\tCustom Constant"
-			],
-			[
 				"ButtonConfig",
 				"ButtonConfig_SendAckData\tCustom Constant"
 			],
@@ -276,10 +444,6 @@
 				"bytesPntr"
 			],
 			[
-				"command",
-				"commandBuffer"
-			],
-			[
 				"AppUart",
 				"AppUart_SureFiRadio\tCustom Constant"
 			],
@@ -350,184 +514,11 @@
 			[
 				"Micron",
 				"MicroEnableInterrupts\t()"
-			],
-			[
-				"USART",
-				"USART1_Handler"
-			],
-			[
-				"Windows",
-				"AppUart_WindowsInterface\tCustom Constant"
-			],
-			[
-				"Pinrt",
-				"PrintUartString\t(uart, formatStr, args)"
-			],
-			[
-				"JumperBit",
-				"JumperBit_Embedded\tCustom Constant"
-			],
-			[
-				"jumper",
-				"jumperStatus"
-			],
-			[
-				"POWER_",
-				"POWER_LED_PORT\tCustom Constant"
-			],
-			[
-				"newJ",
-				"newJumperStatus"
-			],
-			[
-				"chan",
-				"changedBits"
-			],
-			[
-				"jump",
-				"jumperStatus"
-			],
-			[
-				"GetJ",
-				"GetJumperOptionStr\t(JumperOption_t jumperOption)"
-			],
-			[
-				"JumperOp",
-				"JumperOption_Embedded\tCustom Constant"
-			],
-			[
-				"jum",
-				"jumperOption"
-			],
-			[
-				"UartSure",
-				"AppUart_SureFiRadio\tCustom Constant"
-			],
-			[
-				"Handle",
-				"HandleDebugCommand\t(const char* commandStr)"
-			],
-			[
-				"deubgInput",
-				"debugInputBuffer"
-			],
-			[
-				"debugI",
-				"debugInputLength"
-			],
-			[
-				"debugInput",
-				"debugInputBuffer"
-			],
-			[
-				"debugIn",
-				"debugInputLength"
-			],
-			[
-				"DebuOutput",
-				"AppUart_DebugOutput\tCustom Constant"
-			],
-			[
-				"GetUart",
-				"GetUartRxNumBytes\t(AppUart_t uart)"
-			],
-			[
-				"UartFifoP",
-				"UartFifoPop\t(UartFifo_t* fifoPntr)"
-			],
-			[
-				"UartF",
-				"UartFifoGetByte\t(UartFifo_t* fifoPntr, u16 index)"
-			],
-			[
-				"tempFi",
-				"tempFilePath"
-			],
-			[
-				"verisonFi",
-				"versionFilePath"
-			],
-			[
-				"versionFi",
-				"versionFilePath"
-			],
-			[
-				"DEbugOut",
-				"DebugOutput\t(outputLevel, functionName, charPntr, numChars)"
-			],
-			[
-				"curr",
-				"currentVersion"
-			],
-			[
-				"curre",
-				"currentVersionStr"
-			],
-			[
-				"regex",
-				"searchRegex"
-			],
-			[
-				"cure",
-				"currentVersionStr"
-			],
-			[
-				"sear",
-				"searchResult"
-			],
-			[
-				"define",
-				"defineName"
-			],
-			[
-				"found",
-				"foundVersionNumber"
-			],
-			[
-				"version",
-				"versionFile"
-			],
-			[
-				"verion",
-				"versionFile"
-			],
-			[
-				"NEW_STR",
-				"NEW_LINE_STR_LENGTH\tCustom Constant"
-			],
-			[
-				"DebugOut",
-				"DebugOutput\t(level, functionName, charPntr, numChars)"
-			],
-			[
-				"DebugOutput",
-				"AppUart_DebugOutput\tCustom Constant"
-			],
-			[
-				"SendUar",
-				"SendUartData\t(uart, dataPntr, numBytes)"
-			],
-			[
-				"DEbugOutput",
-				"AppUart_DebugOutput\tCustom Constant"
-			],
-			[
-				"DebugOPu",
-				"AppUart_DebugOutput\tCustom Constant"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "/C/MyStuff/SureFi/Old/SureFIModuleDeveloper/WindowsFormsApplication1/MainForm.cs",
-			"settings":
-			{
-				"buffer_size": 39413,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
 		{
 			"file": "/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/surefiModule.h",
 			"settings":
@@ -540,7 +531,7 @@
 			"file": "DevKitWindowsApp/ConnectForm.cs",
 			"settings":
 			{
-				"buffer_size": 5563,
+				"buffer_size": 5615,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -549,7 +540,7 @@
 			"file": "DevKitWindowsApp/MainForm.cs",
 			"settings":
 			{
-				"buffer_size": 6382,
+				"buffer_size": 57559,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -558,7 +549,7 @@
 			"file": "DevKitWindowsApp/SureFi.cs",
 			"settings":
 			{
-				"buffer_size": 3424,
+				"buffer_size": 34150,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -567,7 +558,7 @@
 			"file": "DevKitWindowsApp/PortFifo.cs",
 			"settings":
 			{
-				"buffer_size": 3842,
+				"buffer_size": 5037,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -640,10 +631,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 137.0,
-		"last_filter": "totab",
+		"height": 335.0,
+		"last_filter": "My ",
 		"selected_items":
 		[
+			[
+				"My ",
+				"Set Syntax: My C# Syntax"
+			],
+			[
+				"My C",
+				"Set Syntax: My C# Syntax"
+			],
 			[
 				"totab",
 				"Indentation: Convert to Tabs"
@@ -679,10 +678,6 @@
 			[
 				"insta",
 				"Package Control: Install Package"
-			],
-			[
-				"My C",
-				"Set Syntax: My C Syntax"
 			],
 			[
 				"pyth",
@@ -849,6 +844,8 @@
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Old/SureFIModuleDeveloper/WindowsFormsApplication1/MainForm.cs",
+		"/C/MyStuff/SureFi/Old/SureFIModuleDeveloper/WindowsFormsApplication1/MainForm.Designer.cs",
 		"/D/registers.txt",
 		"/D/capture3.txt",
 		"/D/capture2.txt",
@@ -974,9 +971,7 @@
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/cmsis/sam4s/include/component/component_pio.h",
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/preprocessor/preprocessor.h",
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/utils/parts.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/boards/sam4s_xplained_pro/sam4s_xplained_pro.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/clock/sam4s/sysclk.c",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/config/conf_clock.h"
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/boards/sam4s_xplained_pro/sam4s_xplained_pro.h"
 	],
 	"find":
 	{
@@ -987,6 +982,7 @@
 		"height": 125.0,
 		"where_history":
 		[
+			"*.cs",
 			"*.c",
 			"*.h",
 			"*.c",
@@ -1043,6 +1039,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"OutputTextBox",
+			"PopRxCommand",
+			"RxCountLabel",
+			"TextBox",
 			"\u0002",
 			"\u0004",
 			"\u0001",
@@ -1166,11 +1166,7 @@
 			"RADIO_REGS_LORA",
 			"RADIO_REGS_FSK",
 			"SX1276_CLKOUT",
-			"CAD_DETECT_ENABLED",
-			"TCXO",
-			"DUMMY",
-			"_ZTAL",
-			"_XTAL_FREQ"
+			"CAD_DETECT_ENABLED"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1225,39 +1221,11 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/MyStuff/SureFi/Old/SureFIModuleDeveloper/WindowsFormsApplication1/MainForm.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 39413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11494,
-								11494
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 6540.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/surefiModule.h",
 					"semi_transient": false,
 					"settings":
@@ -1269,8 +1237,8 @@
 						"selection":
 						[
 							[
-								10604,
-								10604
+								9510,
+								9510
 							]
 						],
 						"settings":
@@ -1278,33 +1246,33 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 6858.0,
+						"translation.y": 6426.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "DevKitWindowsApp/ConnectForm.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5563,
+						"buffer_size": 5615,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1606,
-								1606
+								1665,
+								1677
 							]
 						],
 						"settings":
@@ -1313,83 +1281,83 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1526.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "DevKitWindowsApp/MainForm.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6382,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3888,
-								3469
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 20.0,
-						"translation.y": 1728.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "DevKitWindowsApp/SureFi.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3424,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3292,
-								3292
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 198.0,
+						"translation.y": 1076.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "DevKitWindowsApp/PortFifo.cs",
+					"buffer": 2,
+					"file": "DevKitWindowsApp/MainForm.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3842,
+						"buffer_size": 57559,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3755,
-								3767
+								49949,
+								49949
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
+						},
+						"translation.x": 32.0,
+						"translation.y": 30178.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "DevKitWindowsApp/SureFi.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11387,
+								11387
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
+						},
+						"translation.x": 139.0,
+						"translation.y": 5238.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "DevKitWindowsApp/PortFifo.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								647,
+								666
 							]
 						],
 						"settings":
@@ -1397,7 +1365,7 @@
 							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2358.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -2102,7 +2070,7 @@
 		],
 		"width": 460.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

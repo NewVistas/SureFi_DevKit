@@ -41,6 +41,8 @@ enum
 	QosConfig_OnReceive,
 	QosConfig_OnTransmit,
 	QosConfig_OnReceiveAndTransmit,
+	QosConfig_OnAckData,
+	QosConfig_OnReceiveAndAckData,
 };
 
 // +==============================+

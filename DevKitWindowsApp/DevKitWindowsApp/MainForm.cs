@@ -276,10 +276,17 @@ namespace DevKitWindowsApp
 		
 		public void HandleStatusUpdate(byte stateFlags, byte otherFlags, byte clearableFlags, byte configFlags)
 		{
-			byte stateChanged     = (byte)(stateFlags ^ this.savedStateFlags);
-			byte otherChanged     = (byte)(stateFlags ^ this.savedOtherFlags);
-			byte clearableChanged = (byte)(stateFlags ^ this.savedClearableFlags);
-			byte configChanged    = (byte)(stateFlags ^ this.savedConfigFlags);
+			//perform an XOR to find which bits have changed since last update
+			byte stateChanged     = (byte)(stateFlags     ^ this.savedStateFlags);
+			byte otherChanged     = (byte)(otherFlags     ^ this.savedOtherFlags);
+			byte clearableChanged = (byte)(clearableFlags ^ this.savedClearableFlags);
+			byte configChanged    = (byte)(configFlags    ^ this.savedConfigFlags);
+			
+			// Console.WriteLine("Change:" +
+			// 	" state 0x" + stateChanged.ToString("X2") +
+			// 	" other 0x" + otherChanged.ToString("X2") +
+			// 	" clear 0x" + clearableChanged.ToString("X2") +
+			// 	" confg 0x" + configChanged.ToString("X2"));
 			
 			if ((stateChanged & SureFi.StateFlags_BusyBit) != 0)
 			{
@@ -370,6 +377,12 @@ namespace DevKitWindowsApp
 			this.savedOtherFlags     = otherFlags;
 			this.savedClearableFlags = clearableFlags;
 			this.savedConfigFlags    = configFlags;
+			
+			if ((configFlags & SureFi.ConfigFlags_AutoClearFlagsBit) != 0)
+			{
+				//If autoClearFlags is enabled then we can assume the Clearable Flags byte was cleared
+				this.savedClearableFlags = 0x00;
+			}
 		}
 		
 		// +==============================+
@@ -1203,7 +1216,14 @@ namespace DevKitWindowsApp
 			}
 			else
 			{
-				ackData = Encoding.ASCII.GetBytes(AckDataTextbox.Text);
+				if (AckDataTextbox.Text.Length == 0)
+				{
+					ackData = new byte[0];
+				}
+				else
+				{
+					ackData = Encoding.ASCII.GetBytes(AckDataTextbox.Text);
+				}
 			}
 			
 			if (ackData != null)

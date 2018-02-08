@@ -130,6 +130,8 @@ namespace DevKitWindowsApp
 		OnReceive,
 		OnTransmit,
 		OnReceiveAndTransmit,
+		OnAckData,
+		OnReceiveAndAckData,
 	};
 	
 	public enum ButtonConfig : byte
@@ -240,6 +242,7 @@ namespace DevKitWindowsApp
 		static bool AreBytesAscii(byte[] byteArray)
 		{
 			bool foundNullTerm = false;
+			bool foundNotNullTerm = false;
 			for (int bIndex = 0; bIndex < byteArray.Length; bIndex++)
 			{
 				byte newByte = byteArray[bIndex];
@@ -254,6 +257,7 @@ namespace DevKitWindowsApp
 						//Found ascii characters after the first null-terminator
 						return false;
 					}
+					foundNotNullTerm = true;
 				}
 				else
 				{
@@ -262,7 +266,7 @@ namespace DevKitWindowsApp
 				}
 			}
 			
-			return true;
+			return foundNotNullTerm;
 		}
 		
 		public static string GetCommandStr(byte[] commandBytes)
@@ -988,7 +992,7 @@ namespace DevKitWindowsApp
 				case SureRsp.AckData:
 				{
 					string ackDataStr = "";
-					bool isHexStr = !AreBytesAscii(rspPayload.ToArray());
+					bool isHexStr = (rspPayload.Length > 0 && !AreBytesAscii(rspPayload.ToArray()));
 					int numBytes = 0;
 					if (rspPayload.Length > 0)
 					{
