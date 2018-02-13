@@ -15,6 +15,7 @@ Date:   11\29\2017
 #define NUM_HOPPING_TABLE_OPTIONS (72*3)
 #define ATTN_CHAR                 0x7E
 #define MAX_RX_PACKET_LENGTH      64
+#define MAX_SERIAL_STR_LENGTH     31
 
 // +--------------------------------------------------------------+
 // |                         Enumerations                         |
@@ -375,7 +376,7 @@ enum //SureCmd_
 	// |      Run Time Commands       |
 	// +==============================+
 	SureCmd_DefaultSettings = 0x30, // 0 bytes
-	SureCmd_ClearStatusFlags,       // 1 byte
+	SureCmd_ClearFlags,             // 1 byte
 	SureCmd_WriteConfig,            // 1 byte
 	SureCmd_SetIntEnableBits,       // 4 bytes
 	SureCmd_Reset,                  // 0 bytes
@@ -398,6 +399,7 @@ enum //SureCmd_
 	SureCmd_GetAckPacket,       // 0 bytes
 	SureCmd_GetReceiveInfo,     // 0 bytes
 	SureCmd_GetTransmitInfo,    // 0 bytes
+	SureCmd_GetRegisteredSerial,// 0 bytes
 	
 	// +==============================+
 	// |     Set Setting Commands     |
@@ -457,13 +459,13 @@ enum //SureRsp_
 	SureRsp_AckPacket,       // Variable length
 	SureRsp_ReceiveInfo,     // sizeof(ReceiveInfo_t)
 	SureRsp_TransmitInfo,    // sizeof(TransmitInfo_t)
+	SureRsp_RegisteredSerial,// 0-31 bytes
 	
 	// +==============================+
 	// |  Success/Failure Responses   |
 	// +==============================+
 	SureRsp_Success = 0x50, // 1 byte
 	SureRsp_Failure,        // 2 bytes
-	SureRsp_Unsupported,    // 1 byte
 	SureRsp_UartTimeout,    // 3 bytes
 	
 	// +==============================+
@@ -501,6 +503,7 @@ enum //SureError_
 	SureError_InvalidSettings, //0x07
 	SureError_NotFccApproved,  //0x08
 	SureError_AlreadyStarted,  //0x09
+	SureError_Unsupported,     //0x0A
 };
 
 #endif //  _SUREFI_MODULE_H

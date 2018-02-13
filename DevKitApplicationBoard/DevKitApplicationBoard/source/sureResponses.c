@@ -41,6 +41,7 @@ u8  SureAckPacketLength = 0x00;
 u8  SureAckPacket[MAX_RX_PACKET_LENGTH]; bool SureGotAckPacket         = false;
 ReceiveInfo_t SureRxInfo;                bool SureGotRxInfo            = false;
 TransmitInfo_t SureTxInfo;               bool SureGotTxInfo            = false;
+char SureSerial[MAX_SERIAL_STR_LENGTH+1];bool SureGotSerial            = false;
 
 ModuleSettings_t SureAllSettings;        bool SureGotAllSettings       = false;
 u8 SureRadioMode = 0x00;                 bool SureGotRadioMode         = false;
@@ -87,6 +88,7 @@ void InitRadioResponses()
 	ClearArray(SureAckPacket);
 	ClearStruct(SureRxInfo);
 	ClearStruct(SureTxInfo);
+	ClearArray(SureSerial);
 	ClearStruct(SureAllSettings);
 	ClearArray(SureReceiveUid);
 	ClearArray(SureTransmitUid);
@@ -150,7 +152,7 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 					rsp->payload.status.clearableFlags != 0x00)
 				{
 					WriteLine_D("Clearing flags");
-					SureClearStatusFlags(0xFF);
+					SureClearFlags(0xFF);
 				}
 				
 				if (statusChanged.buttonDown)
@@ -325,6 +327,26 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 		} break;
 		
 		// +==============================+
+		// |   SureRsp_RegisteredSerial   |
+		// +==============================+
+		case SureRsp_RegisteredSerial:
+		{
+			Assert();
+			if (PrintSureResponses)
+			{
+				Print_D("SureRsp_RegisteredSerial[%u]", rsp->length);
+				PrintLine_D(": \"%.*s\"", rsp->length, (const char*)rsp->payload.bytes);
+			}
+			
+			if (rsp->length < ArrayCount(SureSerial))
+			{
+				memcpy(SureSerial, rsp->payload.bytes, rsp->length);
+				SureSerial[rsp->length] = '\0';
+				SureGotSerial = true;
+			}
+		} break;
+		
+		// +==============================+
 		// |       SureRsp_Success        |
 		// +==============================+
 		case SureRsp_Success:
@@ -354,15 +376,6 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 			SureFailureCmd = rsp->payload.bytes[0];
 			SureFailureError = rsp->payload.bytes[1];
 			SureGotFailure = true;
-		} break;
-		
-		// +==============================+
-		// |     SureRsp_Unsupported      |
-		// +==============================+
-		case SureRsp_Unsupported:
-		{
-			const char* cmdStr = GetSureCmdStr(rsp->payload.bytes[0]);
-			PrintLine_E("SureRsp_Unsupported! CMD: %s (0x%02X)", cmdStr, rsp->payload.bytes[0]);
 		} break;
 		
 		// +==============================+

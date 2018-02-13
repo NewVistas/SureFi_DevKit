@@ -10,7 +10,7 @@ namespace DevKitWindowsApp
 	public enum SureCmd : byte
 	{
 		DefaultSettings = 0x30,
-		ClearStatusFlags,
+		ClearFlags,
 		WriteConfig,
 		SetIntEnableBits,
 		Reset,
@@ -30,6 +30,7 @@ namespace DevKitWindowsApp
 		GetAckPacket,
 		GetReceiveInfo,
 		GetTransmitInfo,
+		GetRegisteredSerial,
 		
 		SetAllSettings = 0x50,
 		SetRadioMode,
@@ -77,10 +78,10 @@ namespace DevKitWindowsApp
 		AckPacket,
 		ReceiveInfo,
 		TransmitInfo,
+		RegisteredSerial,
 		
 		Success = 0x50,
 		Failure,
-		Unsupported,
 		UartTimeout,
 		
 		AllSettings = 0x70,
@@ -112,6 +113,7 @@ namespace DevKitWindowsApp
 		InvalidSettings,
 		NotFccApproved,
 		AlreadyStarted,
+		Unsupported,
 	};
 	
 	public enum RadioState : byte
@@ -189,6 +191,7 @@ namespace DevKitWindowsApp
 		public static bool gotAckPacket         = false;
 		public static bool gotRxInfo            = false;
 		public static bool gotTxInfo            = false;
+		public static bool gotRegisteredSerial  = false;
 		public static bool gotAllSettings       = false;
 		public static bool gotRadioMode         = false;
 		public static bool gotFhssTable         = false;
@@ -344,7 +347,6 @@ namespace DevKitWindowsApp
 			switch (rspCmd)
 			{
 				case SureRsp.Success:
-				case SureRsp.Unsupported:
 				{
 					SureCmd sureCmd = (SureCmd)rspPayload[0];
 					result += ":" + sureCmd.ToString();
@@ -695,6 +697,22 @@ namespace DevKitWindowsApp
 				} break;
 				
 				// +==============================+
+				// |   SureRsp.RegisteredSerial   |
+				// +==============================+
+				case SureRsp.RegisteredSerial:
+				{
+					string registeredSerial = System.Text.Encoding.Default.GetString(rspPayload);
+					
+					mainForm.updatingElement = true;
+					
+					mainForm.RegisteredSerialLabel.Text = registeredSerial;
+					
+					mainForm.updatingElement = false;
+					
+					gotRegisteredSerial = true;
+				} break;
+				
+				// +==============================+
 				// |       SureRsp.Success        |
 				// +==============================+
 				case SureRsp.Success:
@@ -721,20 +739,6 @@ namespace DevKitWindowsApp
 						SureError sureError = (SureError)errorByte;
 						
 						mainForm.HandleFailureResponse(sureCmd, sureError);
-					}
-				} break;
-				
-				// +==============================+
-				// |     SureRsp.Unsupported      |
-				// +==============================+
-				case SureRsp.Unsupported:
-				{
-					if (rspPayload.Length == 1)
-					{
-						byte cmdByte = rspPayload[0];
-						SureCmd sureCmd = (SureCmd)cmdByte;
-						
-						mainForm.ShowErrorMesage("Command Unsupported", "SureCmd_" + sureCmd.ToString() + " is Unsupported by this Firmware", "");
 					}
 				} break;
 				

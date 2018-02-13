@@ -21,7 +21,7 @@ void SureSendNoPayload(u8 cmd);
 // |                    Non-Blocking Functions                    |
 // +--------------------------------------------------------------+
 void SureDefaultSettings();
-void SureClearStatusFlags(u8 mask);
+void SureClearFlags(u8 mask);
 void SureWriteConfig(u8 config);
 void SureSetIntEnableBits(u32 intEnableBits);
 void SureReset();
@@ -40,6 +40,7 @@ void SureGetPacket();
 void SureGetAckPacket();
 void SureGetReceiveInfo();
 void SureGetTransmitInfo();
+void SureGetRegisteredSerial();
 void SureSetAllSettings(const ModuleSettings_t* settings);
 void SureSetRadioMode(u8 radioMode);
 void SureSetRadioModeCustom(u8 spreadingFactor, u8 bandwidth);

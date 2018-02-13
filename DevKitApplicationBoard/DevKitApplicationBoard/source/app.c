@@ -105,7 +105,7 @@ static void SetModuleSettings()
 	SureSetQosConfig(QosConfig_Manual);
 	SureSetButtonConfig(1, ButtonConfig_NoAction);
 	
-	SureClearStatusFlags(0xFF);
+	SureClearFlags(0xFF);
 	ModuleStatus_t intEnableBits = { .fullValue = 0x00000000 };
 	intEnableBits.stateFlags = (StateFlags_BusyBit | StateFlags_RadioStateBits | StateFlags_RxInProgressBit);
 	intEnableBits.otherFlags = (OtherFlags_ButtonDownBit);

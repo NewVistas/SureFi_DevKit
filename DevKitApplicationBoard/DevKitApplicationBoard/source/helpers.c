@@ -9,6 +9,8 @@ Description:
 #include "defines.h"
 #include "helpers.h"
 
+#include "debug.h"
+
 // +--------------------------------------------------------------+
 // |                       Public Functions                       |
 // +--------------------------------------------------------------+
@@ -49,6 +51,7 @@ const char* GetSureErrorStr(u8 sureError)
 		case SureError_InvalidSettings: return "Invalid Settings";
 		case SureError_NotFccApproved:  return "Not Fcc Approved";
 		case SureError_AlreadyStarted:  return "Already Started";
+		case SureError_Unsupported:     return "Unsupported";
 		default: return "Unknown";
 	};
 }
@@ -58,7 +61,7 @@ const char* GetSureCmdStr(u8 sureCmd)
 	switch (sureCmd)
 	{
 		case SureCmd_DefaultSettings:      return "DefaultSettings";
-		case SureCmd_ClearStatusFlags:     return "ClearStatusFlags";
+		case SureCmd_ClearFlags:           return "ClearFlags";
 		case SureCmd_WriteConfig:          return "WriteConfig";
 		case SureCmd_SetIntEnableBits:     return "SetIntEnableBits";
 		case SureCmd_Reset:                return "Reset";
@@ -109,4 +112,13 @@ const char* GetSureCmdStr(u8 sureCmd)
 		case SureCmd_GetNumRetries:        return "GetNumRetries";
 		default: return "Unknown";
 	};
+}
+
+void PrintU64(u64 value)
+{
+	u8* bytePntr = (u8*)&value;
+	Print_I("%02X%02X%02X%02X%02X%02X%02X%02X",
+		bytePntr[7], bytePntr[6], bytePntr[5], bytePntr[4],
+		bytePntr[3], bytePntr[2], bytePntr[1], bytePntr[0]
+	);
 }

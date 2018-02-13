@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"PrintSure",
+				"PrintSureResponses\tCustom Global"
+			],
+			[
+				"SureSendComm",
+				"SureSendCommandBytes\t(u8* bytesPntr)"
+			],
+			[
+				"reg",
+				"registerType"
+			],
+			[
+				"u64",
+				"u64Pntr"
+			],
+			[
+				"SureSend",
+				"SureSendCommandBytes\t(u8* bytesPntr)"
+			],
+			[
+				"serial",
+				"serialStringLength"
+			],
+			[
+				"Ency",
+				"EncryptionHash"
+			],
+			[
 				"paylo",
 				"payloadBuffer"
 			],
@@ -486,34 +514,6 @@
 			[
 				"AppUar",
 				"AppUart_t\tCustom Type"
-			],
-			[
-				"UartFif",
-				"UartFifoRx\tCustom Global"
-			],
-			[
-				"test",
-				"testCommand2"
-			],
-			[
-				"testC",
-				"testCommand1"
-			],
-			[
-				"AppUartSure",
-				"AppUart_SureFiRadio\tCustom Constant"
-			],
-			[
-				"System",
-				"SystemCoreClockUpdate"
-			],
-			[
-				"DEBUG",
-				"DEBUG_LED1_MASK\tCustom Constant"
-			],
-			[
-				"DEBUG_LED",
-				"DEBUG_LED1_PORT\tCustom Constant"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "DevKitApplicationBoard/source/app.c",
 			"settings":
 			{
-				"buffer_size": 9185,
+				"buffer_size": 9179,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,7 +532,7 @@
 			"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
 			"settings":
 			{
-				"buffer_size": 14785,
+				"buffer_size": 15792,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -541,7 +541,7 @@
 			"file": "DevKitApplicationBoard/source/sureResponses.c",
 			"settings":
 			{
-				"buffer_size": 30570,
+				"buffer_size": 30887,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +550,16 @@
 			"file": "DevKitApplicationBoard/source/sureCommands.c",
 			"settings":
 			{
-				"buffer_size": 17373,
+				"buffer_size": 17542,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/header/sureCommands.h",
+			"settings":
+			{
+				"buffer_size": 3202,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +568,16 @@
 			"file": "DevKitApplicationBoard/header/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 14399,
+				"buffer_size": 14516,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/debugCommands.c",
+			"settings":
+			{
+				"buffer_size": 13585,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -632,10 +650,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "",
+		"height": 170.0,
+		"last_filter": "my c",
 		"selected_items":
 		[
+			[
+				"my c",
+				"Set Syntax: My C Syntax"
+			],
 			[
 				"my C",
 				"Set Syntax: My C Syntax"
@@ -837,6 +859,11 @@
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/helpers.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureResponses.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/debugCommands.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard.sublime-project",
 		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest.sublime-project",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/README.md",
@@ -959,12 +986,7 @@
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/clock/sam4s/sysclk.h",
 		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/component/pio.h",
 		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s16b.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s.h",
-		"/C/MyStuff/SureFi/Projects/AccessControlBridge/SureFiModuleApp/src/main.c",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/instance/pioa.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/pio/sam4s16b.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.c",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Boards/Atmel/SAM4L-XPRO/Blinky/Blinky.uvprojx"
+		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s.h"
 	],
 	"find":
 	{
@@ -1214,7 +1236,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1223,15 +1245,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9185,
+						"buffer_size": 9179,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1558,
-								1558
+								3157,
+								3157
 							]
 						],
 						"settings":
@@ -1239,10 +1261,10 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 1458.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1251,15 +1273,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14785,
+						"buffer_size": 15792,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2987,
-								2987
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1270,7 +1292,7 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1279,15 +1301,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 30570,
+						"buffer_size": 30887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5930,
-								5930
+								10665,
+								10665
 							]
 						],
 						"settings":
@@ -1295,10 +1317,10 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2515.0,
+						"translation.y": 5550.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1307,15 +1329,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17373,
+						"buffer_size": 17542,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7337,
-								7337
+								11693,
+								11712
 							]
 						],
 						"settings":
@@ -1323,7 +1345,7 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4848.0,
+						"translation.y": 8545.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1331,19 +1353,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "DevKitApplicationBoard/header/surefiModule.h",
+					"file": "DevKitApplicationBoard/header/sureCommands.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14399,
+						"buffer_size": 3202,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								872,
-								872
+								190,
+								190
 							]
 						],
 						"settings":
@@ -1351,10 +1373,66 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 432.0,
+						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "DevKitApplicationBoard/header/surefiModule.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								326,
+								326
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6858.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "DevKitApplicationBoard/source/debugCommands.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13426,
+								13426
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3294.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1433,6 +1511,26 @@
 		"selected_items":
 		[
 			[
+				"helper",
+				"DevKitApplicationBoard\\source\\helpers.c"
+			],
+			[
+				"app.c",
+				"DevKitApplicationBoard\\source\\app.c"
+			],
+			[
+				"hlper",
+				"DevKitApplicationBoard\\header\\helpers.h"
+			],
+			[
+				"debugcommad",
+				"DevKitApplicationBoard\\source\\debugCommands.c"
+			],
+			[
+				"debugcom",
+				"DevKitApplicationBoard\\header\\debugCommands.h"
+			],
+			[
 				"surefi",
 				"DevKitApplicationBoard\\header\\surefiModule.h"
 			],
@@ -1455,10 +1553,6 @@
 			[
 				"incre",
 				"DevKitApplicationBoard\\IncrementBuildNumber.py"
-			],
-			[
-				"app.c",
-				"DevKitApplicationBoard\\source\\app.c"
 			],
 			[
 				"syscalls",
@@ -1733,10 +1827,6 @@
 				"Common\\surefiModule.h"
 			],
 			[
-				"debugcom",
-				"AcBridgeRadio\\ExternalApp.X\\source\\debugCommands.c"
-			],
-			[
 				"firmwa",
 				"Files\\Firmware.todo"
 			],
@@ -1931,18 +2021,6 @@
 			[
 				"radio",
 				"AcBridgeRadio\\ExternalApp.X\\source\\radio.c"
-			],
-			[
-				"pinmac",
-				"AcBridgeRadio\\ExternalApp.X\\source\\include\\pin_macros.h"
-			],
-			[
-				"deub",
-				"AcBridgeRadio\\ExternalApp.X\\source\\debugUART.c"
-			],
-			[
-				"debu",
-				"AcBridgeRadio\\ExternalApp.X\\source\\debugUART.c"
 			]
 		],
 		"width": 0.0

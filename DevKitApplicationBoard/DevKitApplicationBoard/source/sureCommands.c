@@ -82,9 +82,9 @@ void SureDefaultSettings()
 	SureSendNoPayload(SureCmd_DefaultSettings);
 }
 
-void SureClearStatusFlags(u8 mask)
+void SureClearFlags(u8 mask)
 {
-	SureSendOneBytePayload(SureCmd_ClearStatusFlags, mask);
+	SureSendOneBytePayload(SureCmd_ClearFlags, mask);
 }
 
 void SureWriteConfig(u8 config)
@@ -185,6 +185,11 @@ void SureGetReceiveInfo()
 void SureGetTransmitInfo()
 {
 	SureSendNoPayload(SureCmd_GetTransmitInfo);
+}
+
+void SureGetRegisteredSerial()
+{
+	SureSendNoPayload(SureCmd_GetRegisteredSerial);
 }
 
 void SureSetAllSettings(const ModuleSettings_t* settings)
@@ -392,10 +397,10 @@ bool SureHandleDebugCommand(const char* commandStr)
 		SureDefaultSettings();
 		return true;
 	}
-	else if (commandLength == 17+2 && strncmp(commandStr, "clearStatusFlags ", 17) == 0)
+	else if (commandLength == 11+2 && strncmp(commandStr, "clearFlags ", 11) == 0)
 	{
-		u8 inputValue = ParseHexByte(&commandStr[17]);
-		SureClearStatusFlags(inputValue);
+		u8 inputValue = ParseHexByte(&commandStr[11]);
+		SureClearFlags(inputValue);
 		return true;
 	}
 	else if (commandLength == 12+2 && strncmp(commandStr, "writeConfig ", 12) == 0)
@@ -498,6 +503,11 @@ bool SureHandleDebugCommand(const char* commandStr)
 	else if (strcmp(commandStr, "getTransmitInfo") == 0)
 	{
 		SureGetTransmitInfo();
+		return true;
+	}
+	else if (strcmp(commandStr, "getRegisteredSerial") == 0)
+	{
+		SureGetRegisteredSerial();
 		return true;
 	}
 	else if (commandLength == 15+(sizeof(ModuleSettings_t)*2) && strncmp(commandStr, "setAllSettings ", 15) == 0)

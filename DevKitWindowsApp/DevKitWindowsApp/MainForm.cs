@@ -375,7 +375,7 @@ namespace DevKitWindowsApp
 			{
 				Console.WriteLine("Manually clearing flags: 0x" + flagsToClear.ToString("X2"));
 				byte[] payload = { flagsToClear };
-				this.port.PushTxCommand(SureCmd.ClearStatusFlags, payload);
+				this.port.PushTxCommand(SureCmd.ClearFlags, payload);
 			}
 			
 			this.savedStateFlags     = stateFlags;
@@ -1674,7 +1674,7 @@ namespace DevKitWindowsApp
 		private void ClearFlagsButton_Click(object sender, EventArgs e)
 		{
 			byte[] payload = { 0xFF };
-			this.port.PushTxCommand(SureCmd.ClearStatusFlags, payload);
+			this.port.PushTxCommand(SureCmd.ClearFlags, payload);
 		}
 		
 		private void GetStatusButton_Click(object sender, EventArgs e)
@@ -1742,6 +1742,10 @@ namespace DevKitWindowsApp
 		private void GetRandomNumberButton_Click(object sender, EventArgs e)
 		{
 			this.port.PushTxCommandNoBytes(SureCmd.GetRandomNumber);
+		}
+		private void GetRegisteredSerialButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushTxCommandNoBytes(SureCmd.GetRegisteredSerial);
 		}
 		
 		// +--------------------------------------------------------------+

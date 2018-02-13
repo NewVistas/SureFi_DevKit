@@ -39,6 +39,7 @@ extern u8  SureAckPacketLength;
 extern u8  SureAckPacket[MAX_RX_PACKET_LENGTH]; extern bool SureGotAckPacket;
 extern ReceiveInfo_t SureRxInfo;                extern bool SureGotRxInfo;
 extern TransmitInfo_t SureTxInfo;               extern bool SureGotTxInfo;
+extern char SureSerial[MAX_SERIAL_STR_LENGTH+1];extern bool SureGotSerial;
 
 extern ModuleSettings_t SureAllSettings;        extern bool SureGotAllSettings;
 extern u8 SureRadioMode;                        extern bool SureGotRadioMode;

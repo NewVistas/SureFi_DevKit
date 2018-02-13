@@ -247,6 +247,9 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
+			this.GetRegisteredSerialButton = new System.Windows.Forms.Button();
+			this.label25 = new System.Windows.Forms.Label();
+			this.RegisteredSerialLabel = new System.Windows.Forms.Label();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -1092,10 +1095,13 @@
 			// 
 			// TabPageCommands
 			// 
+			this.TabPageCommands.Controls.Add(this.label25);
+			this.TabPageCommands.Controls.Add(this.GetRegisteredSerialButton);
 			this.TabPageCommands.Controls.Add(this.GetRandomNumberButton);
 			this.TabPageCommands.Controls.Add(this.label23);
 			this.TabPageCommands.Controls.Add(this.label28);
 			this.TabPageCommands.Controls.Add(this.FirmwareVersionLabel);
+			this.TabPageCommands.Controls.Add(this.RegisteredSerialLabel);
 			this.TabPageCommands.Controls.Add(this.RandomNumberLabel);
 			this.TabPageCommands.Controls.Add(this.TimeOnAirLabel);
 			this.TabPageCommands.Controls.Add(this.MicroVersionLabel);
@@ -2927,6 +2933,35 @@
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
 			// 
+			// GetRegisteredSerialButton
+			// 
+			this.GetRegisteredSerialButton.Location = new System.Drawing.Point(9, 260);
+			this.GetRegisteredSerialButton.Name = "GetRegisteredSerialButton";
+			this.GetRegisteredSerialButton.Size = new System.Drawing.Size(75, 23);
+			this.GetRegisteredSerialButton.TabIndex = 35;
+			this.GetRegisteredSerialButton.Text = "Get";
+			this.GetRegisteredSerialButton.UseVisualStyleBackColor = true;
+			this.GetRegisteredSerialButton.Click += new System.EventHandler(this.GetRegisteredSerialButton_Click);
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label25.Location = new System.Drawing.Point(90, 265);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(108, 13);
+			this.label25.TabIndex = 36;
+			this.label25.Text = "Registered Serial:";
+			// 
+			// RegisteredSerialLabel
+			// 
+			this.RegisteredSerialLabel.AutoSize = true;
+			this.RegisteredSerialLabel.Location = new System.Drawing.Point(197, 265);
+			this.RegisteredSerialLabel.Name = "RegisteredSerialLabel";
+			this.RegisteredSerialLabel.Size = new System.Drawing.Size(36, 13);
+			this.RegisteredSerialLabel.TabIndex = 32;
+			this.RegisteredSerialLabel.Text = "Empty";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3214,5 +3249,8 @@
 		public System.Windows.Forms.Label IntRadioStateBit1;
 		public System.Windows.Forms.TabPage TabPageInt;
 		public System.Windows.Forms.Label RadioStateStrLabel;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.Button GetRegisteredSerialButton;
+		public System.Windows.Forms.Label RegisteredSerialLabel;
 	}
 }

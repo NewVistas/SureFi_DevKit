@@ -15,5 +15,6 @@ u8 GetHexCharValue(char c);
 u8 ParseHexByte(const char* chars);
 const char* GetSureErrorStr(u8 sureError);
 const char* GetSureCmdStr(u8 sureCmd);
+void PrintU64(u64 value);
 
 #endif //  _HELPERS_H
