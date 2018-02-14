@@ -240,11 +240,12 @@ void AppInitialize()
 void AppStart()
 {
 	WriteLine_O("Starting embedded application...");
-	SetResponseCallbacks(ModuleResetCallback, ReceivedPacketCallback, ButtonChangedCallback);
+	SetRadioResponseCallbacks(ModuleResetCallback, ReceivedPacketCallback, ButtonChangedCallback);
 	otherButtonDown = false;
 	otherModuleButtonDown = false;
 	ourButtonDown = !GetPinInputValue(TEST_BUTTON_PORT, TEST_BUTTON_MASK);
 	ourModuleButtonDown = false;
+	configurationFinished = false;
 	
 	SetModuleSettings();
 	
@@ -263,7 +264,7 @@ void AppStop()
 	WriteLine_O("Stopping embedded application...");
 	
 	SureDefaultSettings();
-	SetResponseCallbacks(nullptr, nullptr, nullptr);
+	SetRadioResponseCallbacks(nullptr, nullptr, nullptr);
 	
 	AppRunning = false;
 }

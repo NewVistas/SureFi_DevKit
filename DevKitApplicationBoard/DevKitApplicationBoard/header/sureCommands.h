@@ -18,7 +18,7 @@ void SureSendThreeBytePayload(u8 cmd, u8 payload1, u8 payload2, u8 payload3);
 void SureSendNoPayload(u8 cmd);
 
 // +--------------------------------------------------------------+
-// |                    Non-Blocking Functions                    |
+// |                  SureCmd_ Wrapper Functions                  |
 // +--------------------------------------------------------------+
 void SureDefaultSettings();
 void SureClearFlags(u8 mask);
@@ -31,6 +31,7 @@ void SureTransmitData(u8 payloadLength, const u8* payloadPntr);
 void SureStartEncryption();
 void SureStopEncryption();
 void SureShowQualityOfService();
+
 void SureGetStatus();
 void SureGetIntEnableBits();
 void SureGetModuleVersion();
@@ -41,6 +42,7 @@ void SureGetAckPacket();
 void SureGetReceiveInfo();
 void SureGetTransmitInfo();
 void SureGetRegisteredSerial();
+
 void SureSetAllSettings(const ModuleSettings_t* settings);
 void SureSetRadioMode(u8 radioMode);
 void SureSetRadioModeCustom(u8 spreadingFactor, u8 bandwidth);
@@ -52,12 +54,14 @@ void SureSetRadioPolarity(u8 polarity);
 void SureDisableRadioPolarity();
 void SureSetTransmitPower(u8 transmitPower);
 void SureSetAckData(u8 ackDataLength, const u8* ackDataPntr);
+
 void SureSetQosConfig(u8 qosConfig);
 void SureSetIndications(u8 led1, u8 led2, u8 led3, u8 led4, u8 led5, u8 led6);
 void SureSetQuietMode(bool enabled);
 void SureSetButtonConfig(u8 holdTime, u8 buttonConfig);
 void SureSetAcksEnabled(bool enabled);
 void SureSetNumRetries(u8 numRetries);
+
 void SureGetAllSettings();
 void SureGetRadioMode();
 void SureGetFhssTable();
@@ -67,16 +71,13 @@ void SureGetReceivePacketSize();
 void SureGetRadioPolarity();
 void SureGetTransmitPower();
 void SureGetAckData();
+
 void SureGetQosConfig();
 void SureGetIndications();
 void SureGetQuietMode();
 void SureGetButtonConfig();
 void SureGetAcksEnabled();
 void SureGetNumRetries();
-
-// +--------------------------------------------------------------+
-// |                      Blocking Functions                      |
-// +--------------------------------------------------------------+
 
 
 // +--------------------------------------------------------------+

@@ -15,6 +15,7 @@ Description:
 #include "tickTimer.h"
 #include "sureResponses.h"
 #include "sureCommands.h"
+#include "bleCommands.h"
 #include "helpers.h"
 
 // +--------------------------------------------------------------+
@@ -25,10 +26,16 @@ void HandleDebugCommand(const char* commandStr)
 {
 	u32 commandLength = (u32)strlen(commandStr);
 	
+	// +==============================+
+	// |             help             |
+	// +==============================+
 	if (strcmp(commandStr, "help") == 0)
 	{
 		WriteLine_D("There is no help right now");
 	}
+	// +==============================+
+	// |          sureStatus          |
+	// +==============================+
 	else if (strcmp(commandStr, "sureStatus") == 0)
 	{
 		PrintLine_O("Status: CFG[%02X] CLR[%02X] OTH[%02X] STA[%02X]",
@@ -72,44 +79,97 @@ void HandleDebugCommand(const char* commandStr)
 		PrintLine_I("TxLedMode:        %s (0x%02X) %s", (SureModuleStatus.configFlags    & ConfigFlags_TxLedModeBit)           ? "1" : "0", ConfigFlags_TxLedModeBit,           (SureIntEnableBits.configFlags    & ConfigFlags_TxLedModeBit)           ? "INT" : "");
 		PrintLine_I("AutoRekey:        %s (0x%02X) %s", (SureModuleStatus.configFlags    & ConfigFlags_AutoRekeyBit)           ? "1" : "0", ConfigFlags_AutoRekeyBit,           (SureIntEnableBits.configFlags    & ConfigFlags_AutoRekeyBit)           ? "INT" : "");
 	}
+	// +==============================+
+	// |          radioInfo           |
+	// +==============================+
 	else if (strcmp(commandStr, "radioInfo") == 0)
 	{
 		PrintRadioInfo();
 	}
+	// +==============================+
+	// |        printResponses        |
+	// +==============================+
 	else if (strcmp(commandStr, "printResponses") == 0)
 	{
 		PrintSureResponses = !PrintSureResponses;
 		PrintLine_I("Print Radio Responses %s", PrintSureResponses ? "Enabled" : "Disabled");
 	}
+	// +==============================+
+	// |         printStatus          |
+	// +==============================+
 	else if (strcmp(commandStr, "printStatus") == 0)
 	{
 		PrintStatusUpdates = !PrintStatusUpdates;
 		PrintLine_I("Print Status Updates %s", PrintStatusUpdates ? "Enabled" : "Disabled");
 	}
+	// +==============================+
+	// |        printSuccesses        |
+	// +==============================+
 	else if (strcmp(commandStr, "printSuccesses") == 0)
 	{
 		PrintSureSuccesses = !PrintSureSuccesses;
 		PrintLine_I("Print Status Successes %s", PrintSureSuccesses ? "Enabled" : "Disabled");
 	}
+	// +==============================+
+	// |        printFailures         |
+	// +==============================+
 	else if (strcmp(commandStr, "printFailures") == 0)
 	{
 		PrintSureFailures = !PrintSureFailures;
 		PrintLine_I("Print Status Failures %s", PrintSureFailures ? "Enabled" : "Disabled");
 	}
+	// +==============================+
+	// |             tick             |
+	// +==============================+
 	else if (strcmp(commandStr, "tick") == 0)
 	{
 		PrintLine_D("TickCounter = %u", TickCounter);
 	}
+	// +==============================+
+	// |           history            |
+	// +==============================+
 	else if (strcmp(commandStr, "history") == 0)
 	{
 		WriteLine_I("Radio UART history:");
 		PrintRadioUartHistory();
 	}
+	// +==============================+
+	// |         clearHistory         |
+	// +==============================+
 	else if (strcmp(commandStr, "clearHistory") == 0)
 	{
 		WriteLine_I("Clearing radio UART history");
 		ClearRadioUartHistory();
 	}
+	// +==============================+
+	// |        bleName [name]        |
+	// +==============================+
+	else if (commandLength >= 8 && strncmp(commandStr, "bleName ", 8) == 0)
+	{
+		const char* nameStr = &commandStr[8];
+		PrintLine_I("Setting BLE advertising name to \"%s\"", nameStr);
+		BleSetAdvertisingName(nameStr, strlen(nameStr));
+	}
+	// +==============================+
+	// |        bleData [HEX]         |
+	// +==============================+
+	else if (commandLength >= 8 && strncmp(commandStr, "bleData ", 8) == 0)
+	{
+		const char* hexStr = &commandStr[8];
+		u32 hexStrLength = (u32)strlen(hexStr);
+		u8 dataBuffer[MAX_ADV_DATA_LENGTH];
+		u8 numBytes = 0;
+		while (numBytes < ArrayCount(dataBuffer) && numBytes*2 + 2 <= hexStrLength)
+		{
+			dataBuffer[numBytes] = ParseHexByte(&hexStr[numBytes*2]);
+			numBytes++;
+		}
+		PrintLine_I("Setting BLE advertising data to %u bytes", numBytes);
+		BleSetAdvertisingData(dataBuffer, numBytes);
+	}
+	// +==============================+
+	// |         listCommands         |
+	// +==============================+
 	else if (strcmp(commandStr, "listCommands") == 0)
 	{
 		WriteLine_O(" +==============================+");
@@ -171,6 +231,9 @@ void HandleDebugCommand(const char* commandStr)
 		WriteLine_I("SureCmd_GetAcksEnabled       = 0x84");
 		WriteLine_I("SureCmd_GetNumRetries        = 0x85");
 	}
+	// +==============================+
+	// |        listResponses         |
+	// +==============================+
 	else if (strcmp(commandStr, "listResponses") == 0)
 	{
 		WriteLine_O(" +==============================+");
@@ -208,6 +271,9 @@ void HandleDebugCommand(const char* commandStr)
 		WriteLine_I("SureRsp_AcksEnabled       = 0x84");
 		WriteLine_I("SureRsp_NumRetries        = 0x85");
 	}
+	// +==============================+
+	// |          send [HEX]          |
+	// +==============================+
 	else if (commandLength > 5 && strncmp(commandStr, "send ", 5) == 0)
 	{
 		u16 numBytesSent = 0;

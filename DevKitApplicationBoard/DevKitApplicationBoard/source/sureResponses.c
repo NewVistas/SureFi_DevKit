@@ -98,7 +98,7 @@ void InitRadioResponses()
 	//TODO: Any other initialization?
 }
 
-void SetResponseCallbacks(
+void SetRadioResponseCallbacks(
 	ModuleResetCallback_f* moduleResetCallback,
 	ReceivedPacketCallback_f* receivedPacketCallback,
 	ButtonChangedCallback_f* buttonChangedCallback)
@@ -106,16 +106,6 @@ void SetResponseCallbacks(
 	moduleResetCallbackPntr = moduleResetCallback;
 	receivedPacketCallbackPntr = receivedPacketCallback;
 	buttonChangedCallbackPntr = buttonChangedCallback;
-}
-
-void ProcessRadioResponses()
-{
-	while (AppUartPopCommand(AppUart_SureFiRadio, cmdBuffer))
-	{
-		Assert(cmdBuffer[0] == ATTN_CHAR);
-		SureCommand_t* cmdPntr = (SureCommand_t*)&cmdBuffer[0];
-		HandleRadioResponse(cmdPntr);
-	}
 }
 
 void HandleRadioResponse(const SureCommand_t* rsp)

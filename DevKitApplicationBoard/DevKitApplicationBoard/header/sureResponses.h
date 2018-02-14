@@ -68,12 +68,11 @@ extern u8   SureNumRetries;                     extern bool SureGotNumRetries;
 // |                       Public Functions                       |
 // +--------------------------------------------------------------+
 void InitRadioResponses();
-void SetResponseCallbacks(
+void SetRadioResponseCallbacks(
 	ModuleResetCallback_f* moduleResetCallback,
 	ReceivedPacketCallback_f* receivedPacketCallback,
 	ButtonChangedCallback_f* buttonChangedCallback);
 void PrintRadioInfo();
-void ProcessRadioResponses();
 void HandleRadioResponse(const SureCommand_t* rsp);
 
 #endif //  _SURE_RESPONSES_H

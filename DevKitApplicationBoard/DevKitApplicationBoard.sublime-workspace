@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"BleFlags_",
+				"BleFlags_BleRxInProgressBit\tCustom Constant"
+			],
+			[
+				"BleSet",
+				"BleSetStatusUpdateBits\t(u8 updateBits)"
+			],
+			[
+				"BleAd",
+				"BleAdvertisingDataLength\tCustom Global"
+			],
+			[
+				"BleAdv",
+				"BleAdvertisingData\tCustom Global"
+			],
+			[
+				"BleAdver",
+				"BleAdvertisingData\tCustom Global"
+			],
+			[
+				"BleGotStat",
+				"BleGotStatusUpdateBits\tCustom Global"
+			],
+			[
+				"BleFailure",
+				"BleFailureErrorCode\tCustom Global"
+			],
+			[
+				"Windows",
+				"WindowsModeEnabled\t()"
+			],
+			[
+				"BleClea",
+				"BleClearGotFlags\t()"
+			],
+			[
+				"BleSetAd",
+				"BleSetAdvertisingName\t(namePntr, nameLength)"
+			],
+			[
+				"adv",
+				"advertisingData"
+			],
+			[
+				"GetStatusUp",
+				"BleCmd_GetStatusUpdateBits\tCustom Constant"
+			],
+			[
+				"BleSend",
+				"BleSendOneBytePayload\t(u8 cmd, u8 payload)"
+			],
+			[
+				"BleCmd_Start",
+				"BleCmd_StartDfuMode\tCustom Constant"
+			],
+			[
+				"CloseCon",
+				"BleCmd_CloseConnection\tCustom Constant"
+			],
+			[
+				"StopAv",
+				"BleCmd_StopAdvertising\tCustom Constant"
+			],
+			[
 				"PrintSure",
 				"PrintSureResponses\tCustom Global"
 			],
@@ -352,10 +416,6 @@
 				"USART1_Handler"
 			],
 			[
-				"Windows",
-				"AppUart_WindowsInterface\tCustom Constant"
-			],
-			[
 				"Pinrt",
 				"PrintUartString\t(uart, formatStr, args)"
 			],
@@ -454,112 +514,16 @@
 			[
 				"curr",
 				"currentVersion"
-			],
-			[
-				"curre",
-				"currentVersionStr"
-			],
-			[
-				"regex",
-				"searchRegex"
-			],
-			[
-				"cure",
-				"currentVersionStr"
-			],
-			[
-				"sear",
-				"searchResult"
-			],
-			[
-				"define",
-				"defineName"
-			],
-			[
-				"found",
-				"foundVersionNumber"
-			],
-			[
-				"version",
-				"versionFile"
-			],
-			[
-				"verion",
-				"versionFile"
-			],
-			[
-				"NEW_STR",
-				"NEW_LINE_STR_LENGTH\tCustom Constant"
-			],
-			[
-				"DebugOut",
-				"DebugOutput\t(level, functionName, charPntr, numChars)"
-			],
-			[
-				"DebugOutput",
-				"AppUart_DebugOutput\tCustom Constant"
-			],
-			[
-				"SendUar",
-				"SendUartData\t(uart, dataPntr, numBytes)"
-			],
-			[
-				"DEbugOutput",
-				"AppUart_DebugOutput\tCustom Constant"
-			],
-			[
-				"DebugOPu",
-				"AppUart_DebugOutput\tCustom Constant"
-			],
-			[
-				"AppUar",
-				"AppUart_t\tCustom Type"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "DevKitApplicationBoard/source/app.c",
-			"settings":
-			{
-				"buffer_size": 9179,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
 			"settings":
 			{
-				"buffer_size": 15792,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/source/sureResponses.c",
-			"settings":
-			{
-				"buffer_size": 30887,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/source/sureCommands.c",
-			"settings":
-			{
-				"buffer_size": 17542,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/header/sureCommands.h",
-			"settings":
-			{
-				"buffer_size": 3202,
+				"buffer_size": 15821,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -568,16 +532,69 @@
 			"file": "DevKitApplicationBoard/header/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 14516,
+				"buffer_size": 19761,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "DevKitApplicationBoard/source/debugCommands.c",
+			"file": "DevKitApplicationBoard/header/defines.h",
 			"settings":
 			{
-				"buffer_size": 13585,
+				"buffer_size": 4941,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/main.c",
+			"settings":
+			{
+				"buffer_size": 5028,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/app.c",
+			"settings":
+			{
+				"buffer_size": 9221,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/bleApp.c",
+			"settings":
+			{
+				"buffer_size": 3383,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/bleCommands.c",
+			"settings":
+			{
+				"buffer_size": 5689,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/bleResponses.c",
+			"settings":
+			{
+				"buffer_size": 7536,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/uartFifos.c",
+			"settings":
+			{
+				"buffer_size": 14776,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -859,11 +876,21 @@
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleCommands.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleResponses.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleApp.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/sureResponses.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureResponses.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/jumper.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/bleCommands.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/sureCommands.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureCommands.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/uartFifos.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/debugCommands.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/uartFifos.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/helpers.h",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureResponses.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/debugCommands.h",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard.sublime-project",
 		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/AtmelStudioTest.sublime-project",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/README.md",
@@ -976,17 +1003,7 @@
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject3/GccBoardProject3/src/ASF/common/boards/board.h",
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/compiler.h",
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/asf.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/main.c",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/cmsis/sam4s/include/component/component_pio.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/preprocessor/preprocessor.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/utils/parts.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/boards/sam4s_xplained_pro/sam4s_xplained_pro.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/clock/sam4s/sysclk.c",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/config/conf_clock.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/clock/sam4s/sysclk.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/component/pio.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s16b.h",
-		"/C/Keil_v5/ARM/PACK/Keil/SAM4_DFP/1.6.0/Device/Include/SAM4S/sam4s.h"
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/main.c"
 	],
 	"find":
 	{
@@ -997,6 +1014,7 @@
 		"height": 125.0,
 		"where_history":
 		[
+			"*.c",
 			"*.h",
 			"*.c",
 			"*.h",
@@ -1054,6 +1072,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"AppUartPopCommand",
 			"QosConfig_OnTransmit",
 			"SureGetAckPacket",
 			"TC0",
@@ -1180,8 +1199,7 @@
 			"PA_VPC_",
 			"DEBUG_MODE_ENABLED",
 			"#include \"appDefines.h\"",
-			"#include \"defines.h\"",
-			"MAX_UID_LENGTH"
+			"#include \"defines.h\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1236,52 +1254,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "DevKitApplicationBoard/source/app.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9179,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3157,
-								3157
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1458.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15792,
+						"buffer_size": 15821,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1557,
+								1558
 							]
 						],
 						"settings":
@@ -1292,24 +1282,24 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "DevKitApplicationBoard/source/sureResponses.c",
+					"buffer": 1,
+					"file": "DevKitApplicationBoard/header/surefiModule.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 30887,
+						"buffer_size": 19761,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10665,
-								10665
+								17149,
+								17105
 							]
 						],
 						"settings":
@@ -1317,83 +1307,27 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 5550.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "DevKitApplicationBoard/source/sureCommands.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17542,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11693,
-								11712
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 8545.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "DevKitApplicationBoard/header/sureCommands.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3202,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								190,
-								190
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
+						"translation.y": 3721.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "DevKitApplicationBoard/header/surefiModule.h",
+					"buffer": 2,
+					"file": "DevKitApplicationBoard/header/defines.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14516,
+						"buffer_size": 4941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								326,
-								326
+								3446,
+								3446
 							]
 						],
 						"settings":
@@ -1401,27 +1335,83 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 6858.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "DevKitApplicationBoard/source/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5028,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4571,
+								4571
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2335.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "DevKitApplicationBoard/source/app.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								571,
+								527
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1518.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "DevKitApplicationBoard/source/debugCommands.c",
+					"buffer": 5,
+					"file": "DevKitApplicationBoard/source/bleApp.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13585,
+						"buffer_size": 3383,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13426,
-								13426
+								2182,
+								2570
 							]
 						],
 						"settings":
@@ -1429,10 +1419,94 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3294.0,
+						"translation.y": 1458.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "DevKitApplicationBoard/source/bleCommands.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5689,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3838,
+								3855
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "DevKitApplicationBoard/source/bleResponses.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3553,
+								3553
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1728.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "DevKitApplicationBoard/source/uartFifos.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14776,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6135,
+								5759
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1511,6 +1585,42 @@
 		"selected_items":
 		[
 			[
+				"surere",
+				"DevKitApplicationBoard\\source\\sureResponses.c"
+			],
+			[
+				"uartf",
+				"DevKitApplicationBoard\\source\\uartFifos.c"
+			],
+			[
+				"jumper",
+				"DevKitApplicationBoard\\source\\jumper.c"
+			],
+			[
+				"surerepsonse",
+				"DevKitApplicationBoard\\source\\sureResponses.c"
+			],
+			[
+				"sureresponses",
+				"DevKitApplicationBoard\\source\\sureResponses.c"
+			],
+			[
+				"surecomma",
+				"DevKitApplicationBoard\\source\\sureCommands.c"
+			],
+			[
+				"main.c",
+				"DevKitApplicationBoard\\source\\main.c"
+			],
+			[
+				"appuart",
+				"DevKitApplicationBoard\\source\\uartFifos.c"
+			],
+			[
+				"defines.h",
+				"DevKitApplicationBoard\\header\\defines.h"
+			],
+			[
 				"helper",
 				"DevKitApplicationBoard\\source\\helpers.c"
 			],
@@ -1585,10 +1695,6 @@
 			[
 				"ticktimer",
 				"AtmelStudioTest\\AtmelStudioTest\\src\\tickTimer.c"
-			],
-			[
-				"jumper",
-				"AtmelStudioTest\\AtmelStudioTest\\src\\jumper.c"
 			],
 			[
 				"helpers",
@@ -1675,10 +1781,6 @@
 				"sam4s\\include\\component\\wdt.h"
 			],
 			[
-				"defines.h",
-				"AtmelStudioTest\\AtmelStudioTest\\src\\defines.h"
-			],
-			[
 				"sysclk",
 				"AtmelStudioTest\\AtmelStudioTest\\src\\ASF\\common\\services\\clock\\sysclk.h"
 			],
@@ -1709,10 +1811,6 @@
 			[
 				"defines",
 				"AtmelStudioTest\\AtmelStudioTest\\src\\defines.h"
-			],
-			[
-				"main.c",
-				"AtmelStudioTest\\AtmelStudioTest\\src\\main.c"
 			],
 			[
 				"mainc",
@@ -1997,30 +2095,6 @@
 			[
 				"sui",
 				"AcBridgeRadio\\ExternalApp.X\\source\\SureFiModule.c"
-			],
-			[
-				"spi.h",
-				"AcBridgeRadio\\ExternalApp.X\\source\\include\\radioSPI.h"
-			],
-			[
-				"interface",
-				"AcBridgeRadio\\ExternalApp.X\\source\\radioInterface.c"
-			],
-			[
-				"radiosp",
-				"AcBridgeRadio\\ExternalApp.X\\source\\radioSPI.c"
-			],
-			[
-				"radiointer",
-				"AcBridgeRadio\\ExternalApp.X\\source\\radioInterface.c"
-			],
-			[
-				"radiospi",
-				"AcBridgeRadio\\ExternalApp.X\\source\\radioSPI.c"
-			],
-			[
-				"radio",
-				"AcBridgeRadio\\ExternalApp.X\\source\\radio.c"
 			]
 		],
 		"width": 0.0

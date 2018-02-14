@@ -74,7 +74,7 @@ void SureSendThreeBytePayload(u8 cmd, u8 payload1, u8 payload2, u8 payload3)
 }
 
 // +--------------------------------------------------------------+
-// |                    Non-Blocking Functions                    |
+// |                  SureCmd_ Wrapper Functions                  |
 // +--------------------------------------------------------------+
 
 void SureDefaultSettings()

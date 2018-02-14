@@ -173,28 +173,28 @@ static void HandleInterrupt(AppUart_t uart)
 			AppUartSendString(AppUart_DebugOutput, "[R!]");
 		}
 		
-		if (uart == AppUart_WindowsInterface && WindowsModeEnabled())
-		{
-			FifoPush(&TxFifos[AppUart_SureFiRadio], newByte, false);
-			UartEnableTxInterrupt(AppUart_SureFiRadio);
-		}
-		if (uart == AppUart_SureFiBle && BluetoothModeEnabled())
-		{
-			FifoPush(&TxFifos[AppUart_SureFiRadio], newByte, false);
-			UartEnableTxInterrupt(AppUart_SureFiRadio);
-		}
+		// if (uart == AppUart_WindowsInterface && WindowsModeEnabled())
+		// {
+		// 	FifoPush(&TxFifos[AppUart_SureFiRadio], newByte, false);
+		// 	UartEnableTxInterrupt(AppUart_SureFiRadio);
+		// }
+		// if (uart == AppUart_SureFiBle && BluetoothModeEnabled())
+		// {
+		// 	FifoPush(&TxFifos[AppUart_SureFiRadio], newByte, false);
+		// 	UartEnableTxInterrupt(AppUart_SureFiRadio);
+		// }
 		if (uart == AppUart_SureFiRadio)
 		{
-			if (WindowsModeEnabled())
-			{
-				FifoPush(&TxFifos[AppUart_WindowsInterface], newByte, false);
-				UartEnableTxInterrupt(AppUart_WindowsInterface);
-			}
-			if (BluetoothModeEnabled())
-			{
-				FifoPush(&TxFifos[AppUart_SureFiBle], newByte, false);
-				UartEnableTxInterrupt(AppUart_SureFiBle);
-			}
+			// if (WindowsModeEnabled())
+			// {
+			// 	FifoPush(&TxFifos[AppUart_WindowsInterface], newByte, false);
+			// 	UartEnableTxInterrupt(AppUart_WindowsInterface);
+			// }
+			// if (BluetoothModeEnabled())
+			// {
+			// 	FifoPush(&TxFifos[AppUart_SureFiBle], newByte, false);
+			// 	UartEnableTxInterrupt(AppUart_SureFiBle);
+			// }
 			
 			//Record incoming byte on the RxHistoryFifo
 			FifoPush(&RxHistoryFifo, newByte, true);
@@ -407,7 +407,7 @@ u8 AppUartPopRxByte(AppUart_t uart)
 	return result;
 }
 
-bool AppUartPopCommand(AppUart_t uart, u8* bufferOut)
+bool AppUartPopCommand(AppUart_t uart, u8* bufferOut, bool allowAltAttn)
 {
 	u8 cmdLength = 0x00;
 	u16 cmdIndex = 0;
@@ -418,7 +418,7 @@ bool AppUartPopCommand(AppUart_t uart, u8* bufferOut)
 		u8 nextByte = AppUartGetRxByte(uart, bIndex);
 		if (cmdIndex == 0)
 		{
-			if (nextByte == ATTN_CHAR)
+			if (nextByte == ATTN_CHAR || (allowAltAttn && nextByte == BLE_ATTN_CHAR))
 			{
 				if (bufferOut != nullptr) { bufferOut[cmdIndex] = nextByte; }
 				cmdIndex++;

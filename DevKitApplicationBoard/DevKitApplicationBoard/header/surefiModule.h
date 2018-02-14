@@ -14,8 +14,11 @@ Date:   11\29\2017
 #define MAX_NUM_RETRIES           16
 #define NUM_HOPPING_TABLE_OPTIONS (72*3)
 #define ATTN_CHAR                 0x7E
+#define BLE_ATTN_CHAR             0x7C
 #define MAX_RX_PACKET_LENGTH      64
 #define MAX_SERIAL_STR_LENGTH     31
+#define MAX_ADV_DATA_LENGTH       20
+#define MAX_ADV_NAME_LENGTH       22
 
 // +--------------------------------------------------------------+
 // |                         Enumerations                         |
@@ -198,6 +201,21 @@ enum //configFlags
 	ConfigFlags_AutoRekeyBit        = 0x10,
 };
 
+// +==============================+
+// | BLE Status Bit Enumerations  |
+// +==============================+
+enum
+{
+	BleFlags_WasResetBit           = 0x01,
+	BleFlags_ConnectedBit          = 0x02,
+	BleFlags_AdvertisingBit        = 0x04,
+	BleFlags_InDfuModeBit          = 0x08,
+	BleFlags_SureFiTxInProgressBit = 0x10,
+	// BleFlags_ReservedBit           = 0x20,
+	// BleFlags_ReservedBit           = 0x40,
+	// BleFlags_ReservedBit           = 0x80,
+};
+
 // +--------------------------------------------------------------+
 // |                          Structures                          |
 // +--------------------------------------------------------------+
@@ -311,6 +329,24 @@ typedef union __attribute__((packed))
 		unsigned :3;
 	};
 } ModuleStatus_t;
+
+typedef union __attribute__((packed))
+{
+	uint8_t fullValue;
+	
+	uint8_t bytes[1];
+	
+	struct __attribute__((packed))
+	{
+		unsigned wasReset:1;
+		unsigned connected:1;
+		unsigned advertising:1;
+		unsigned inDfuMode:1;
+		
+		unsigned sureFiTxInProgress:1;
+		unsigned reserved:3;
+	};
+} BleStatus_t;
 
 // +--------------------------------------------------------------+
 // |                      Command Structure                       |
@@ -504,6 +540,142 @@ enum //SureError_
 	SureError_NotFccApproved,  //0x08
 	SureError_AlreadyStarted,  //0x09
 	SureError_Unsupported,     //0x0A
+};
+
+// +--------------------------------------------------------------+
+// |                 Bluetooth Command Structure                  |
+// +--------------------------------------------------------------+
+#define BLE_COMMAND_HEADER_SIZE      (3)
+#define BLE_COMMAND_PAYLOAD_MAX_SIZE (64)
+
+typedef struct __attribute__((packed))
+{
+	uint8_t attn;
+	uint8_t cmd;
+	uint8_t length;
+	union __attribute__((packed))
+	{
+		uint8_t bytes[BLE_COMMAND_PAYLOAD_MAX_SIZE];
+		
+		BleStatus_t status;
+		BleStatus_t updateBits;
+		FullVersion_t firmwareVersion;
+		
+		struct __attribute__((packed))
+		{
+			uint8_t index;
+			union __attribute__((packed))
+			{
+				uint8_t direction;
+				uint8_t value;
+			};
+		} gpio;
+		struct __attribute__((packed))
+		{
+			uint32_t address;
+			union __attribute__((packed))
+			{
+				uint8_t numBytes;
+				uint8_t data[1];//NOTE: This is just a placeholder array to indicate where the data starts
+			};
+		} exmem;
+	} payload;
+} BleCommand_t;
+
+#define Alloc_BleCommand(BufferName, PointerName, PayloadSize) \
+	uint8_t BufferName[BLE_COMMAND_HEADER_SIZE + (PayloadSize)];    \
+	BleCommand_t* PointerName = (BleCommand_t*)&BufferName[0]
+
+// +--------------------------------------------------------------+
+// |           Bluetooth Alternate Command Enumeration            |
+// +--------------------------------------------------------------+
+enum //BleCmd_
+{
+	// +==============================+
+	// |      Run Time Commands       |
+	// +==============================+
+	BleCmd_StartAdvertising = 0x30, // 0 bytes
+	BleCmd_StopAdvertising,         // 0 bytes
+	BleCmd_CloseConnection,         // 0 bytes
+	BleCmd_StartDfuMode,            // 0 bytes
+	BleCmd_ReadExmem,               // 5 bytes
+	BleCmd_WriteExmem,              // Variable Length
+	BleCmd_ClearExmem,              // 4 bytes
+	BleCmd_SetGpioDirection,        // 2 bytes
+	BleCmd_ClearResetFlag,          // 0 bytes
+	
+	// +==============================+
+	// |   Get Information Commands   |
+	// +==============================+
+	BleCmd_GetFirmwareVersion = 0x40, // 0 bytes
+	BleCmd_GetStatus,                 // 0 bytes
+	
+	// +==============================+
+	// |     Set Setting Commands     |
+	// +==============================+
+	BleCmd_SetStatusUpdateBits = 0x50, // 1 byte (BleStatus_t)
+	BleCmd_SetAdvertisingData,         // Variable Length
+	BleCmd_SetAdvertisingName,         // Variable Length
+	BleCmd_SetTemporaryData,           // Variable Length
+	BleCmd_SetGpioValue,               // 2 bytes
+	
+	// +==============================+
+	// |     Get Setting Commands     |
+	// +==============================+
+	BleCmd_GetStatusUpdateBits = 0x70, // 0 bytes
+	BleCmd_GetAdvertisingData,         // 0 bytes
+	BleCmd_GetAdvertisingName,         // 0 bytes
+	BleCmd_GetTemporaryData,           // 0 bytes
+	BleCmd_GetGpioValue,               // 0 bytes
+};
+
+// +--------------------------------------------------------------+
+// |           Bluetooth Alternate Response Enumeration           |
+// +--------------------------------------------------------------+
+enum //BleRsp_
+{
+	// +==============================+
+	// |      Run Time Responses      |
+	// +==============================+
+	BleRsp_DfuNeedAdvData = 0x30, // 0 bytes
+	BleRsp_ExmemData,             // Variable Length
+	
+	// +==============================+
+	// |        Info Responses        |
+	// +==============================+
+	BleRsp_FirmwareVersion = 0x40, // 4 bytes (FullVersion_t)
+	BleRsp_Status,                 // 1 byte (BleStatus_t)
+	
+	// +==============================+
+	// |  Success/Failure Responses   |
+	// +==============================+
+	BleRsp_Success = 0x50, // 1 byte
+	BleRsp_Failure,        // 2 bytes
+	BleRsp_UartTimeout,    // 3 bytes
+	
+	// +==============================+
+	// |    Get Setting Responses     |
+	// +==============================+
+	BleRsp_StatusUpdateBits = 0x70, // 1 byte (BleStatus_t)
+	BleRsp_AdvertisingData,         // Variable Length
+	BleRsp_AdvertisingName,         // Variable Length
+	BleRsp_TemporaryData,           // Variable Length
+	BleRsp_GpioValue,               // 2 bytes
+};
+
+enum //BleError_
+{
+	BleError_ValueTooLow      = 0x01,
+	BleError_ValueTooHigh,    //0x02
+	BleError_InvalidValue,    //0x03
+	BleError_PayloadTooLarge, //0x04
+	BleError_PayloadTooSmall, //0x05
+	BleError_Busy,            //0x06
+	BleError_InvalidSettings, //0x07
+	BleError_NotFccApproved,  //0x08
+	BleError_AlreadyStarted,  //0x09
+	BleError_Unsupported,     //0x0A
+	BleError_NotStarted,      //0x0B
 };
 
 #endif //  _SUREFI_MODULE_H

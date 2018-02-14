@@ -32,7 +32,7 @@ void AppUartPrintString(AppUart_t uart, const char* formatStr, ...);
 u16 AppUartGetRxNumBytes(AppUart_t uart);
 u8 AppUartGetRxByte(AppUart_t uart, u16 index);
 u8 AppUartPopRxByte(AppUart_t uart);
-bool AppUartPopCommand(AppUart_t uart, u8* bufferOut);
+bool AppUartPopCommand(AppUart_t uart, u8* bufferOut, bool allowAltAttn);
 
 void PrintRadioUartHistory();
 void ClearRadioUartHistory();

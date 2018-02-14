@@ -13,6 +13,7 @@ Description:
 #include "debug.h"
 #include "tickTimer.h"
 #include "app.h"
+#include "bleApp.h"
 
 // +--------------------------------------------------------------+
 // |                     Private Definitions                      |
@@ -103,6 +104,15 @@ void UpdateJumper()
 			bool enabled = IsFlagSet(newJumperStatus, JumperBit_Bluetooth);
 			PrintLine_I("%s Mode %s", GetJumperBitStr(JumperBit_Bluetooth), enabled ? "Enabled" : "Disabled");
 			SetPinValue(DEBUG_LED2_PORT, DEBUG_LED2_MASK, enabled ? LED_ON : LED_OFF);
+			
+			if (enabled && !BleAppRunning)
+			{
+				BleAppStart();
+			}
+			else if (!enabled && BleAppRunning)
+			{
+				BleAppStop();
+			}
 		}
 		
 		JumperDebounceCountdown = JUMPER_DEBOUNCE_TIME;

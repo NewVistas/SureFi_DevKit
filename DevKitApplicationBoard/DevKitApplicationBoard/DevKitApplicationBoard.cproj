@@ -443,6 +443,15 @@
     <Compile Include="header\app.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="header\bleApp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="header\bleCommands.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="header\bleResponses.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="header\debug.h">
       <SubType>compile</SubType>
     </Compile>
@@ -483,6 +492,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\app.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\bleApp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\bleCommands.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\bleResponses.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\debug.c">
