@@ -603,6 +603,7 @@ typedef struct __attribute__((packed))
 			{
 				uint8_t direction;
 				uint8_t value;
+				uint8_t updateEnabled;
 			};
 			uint8_t pull;
 		} gpio;
@@ -654,6 +655,7 @@ enum //BleCmd_
 	BleCmd_SetAdvertisingName,         // Variable Length
 	BleCmd_SetTemporaryData,           // Variable Length
 	BleCmd_SetGpioValue,               // 2 bytes
+	BleCmd_SetGpioUpdateEnabled,       // 2 bytes
 	
 	// +==============================+
 	// |     Get Setting Commands     |
@@ -663,6 +665,7 @@ enum //BleCmd_
 	BleCmd_GetAdvertisingName,         // 0 bytes
 	BleCmd_GetTemporaryData,           // 0 bytes
 	BleCmd_GetGpioValue,               // 0 bytes
+	BleCmd_GetGpioUpdateEnabled,       // 1 byte
 };
 
 // +--------------------------------------------------------------+
@@ -697,6 +700,7 @@ enum //BleRsp_
 	BleRsp_AdvertisingName,         // Variable Length
 	BleRsp_TemporaryData,           // Variable Length
 	BleRsp_GpioValue,               // 2 bytes
+	BleRsp_GpioUpdateEnabled,       // 2 bytes
 };
 
 enum //BleError_

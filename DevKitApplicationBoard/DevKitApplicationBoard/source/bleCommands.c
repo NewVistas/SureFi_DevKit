@@ -209,6 +209,11 @@ void BleSetGpioValue(u8 gpioIndex, u8 value)
 	BleSendTwoBytePayload(BleCmd_SetGpioValue, gpioIndex, value);
 }
 
+void BleSetGpioUpdateEnabled(u8 gpioIndex, bool enabled)
+{
+	BleSendTwoBytePayload(BleCmd_SetGpioUpdateEnabled, gpioIndex, (enabled ? 0x01 : 0x00));
+}
+
 void BleGetStatusUpdateBits()
 {
 	BleSendNoPayload(BleCmd_GetStatusUpdateBits);
@@ -232,6 +237,11 @@ void BleGetTemporaryData()
 void BleGetGpioValue(u8 gpioIndex)
 {
 	BleSendOneBytePayload(BleCmd_GetGpioValue, gpioIndex);
+}
+
+void BleGetGpioUpdateEnabled(u8 gpioIndex)
+{
+	BleSendOneBytePayload(BleCmd_GetGpioUpdateEnabled, gpioIndex);
 }
 
 // +--------------------------------------------------------------+
@@ -341,6 +351,13 @@ bool BleHandleDebugCommand(const char* commandStr)
 		BleSetGpioValue(gpioNumber, gpioValue);
 		return true;
 	}
+	else if (commandLength == 24+2+1+2 && strncmp(commandStr, "bleSetGpioUpdateEnabled ", 24) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[24]);
+		u8 inputValue = ParseHexByte(&commandStr[24+3]);
+		BleSetGpioUpdateEnabled(gpioNumber, (inputValue != 0));
+		return true;
+	}
 	else if (strcmp(commandStr, "bleGetStatusUpdateBits") == 0)
 	{
 		BleGetStatusUpdateBits();
@@ -365,6 +382,12 @@ bool BleHandleDebugCommand(const char* commandStr)
 	{
 		u8 gpioNumber = ParseHexByte(&commandStr[16]);
 		BleGetGpioValue(gpioNumber);
+		return true;
+	}
+	else if (commandLength == 24+2 && strncmp(commandStr, "bleGetGpioUpdateEnabled ", 24) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[24]);
+		BleGetGpioUpdateEnabled(gpioNumber);
 		return true;
 	}
 	else
