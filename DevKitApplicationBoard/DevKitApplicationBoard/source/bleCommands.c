@@ -135,9 +135,14 @@ void BleClearExmem(u32 address)
 	BleSendCommand(bleCmd);
 }
 
-void BleSetGpioDirection(u8 gpioIndex, u8 direction)
+void BleSetGpioOutput(u8 gpioIndex)
 {
-	BleSendTwoBytePayload(BleCmd_SetGpioDirection, gpioIndex, direction);
+	BleSendTwoBytePayload(BleCmd_SetGpioDirection, gpioIndex, BleGpioDir_Output);
+}
+
+void BleSetGpioInput(u8 gpioIndex, u8 pull)
+{
+	BleSendThreeBytePayload(BleCmd_SetGpioDirection, gpioIndex, BleGpioDir_Input, pull);
 }
 
 void BleClearResetFlag()
@@ -227,5 +232,144 @@ void BleGetTemporaryData()
 void BleGetGpioValue(u8 gpioIndex)
 {
 	BleSendOneBytePayload(BleCmd_GetGpioValue, gpioIndex);
+}
+
+// +--------------------------------------------------------------+
+// |                   Parse Debug Input String                   |
+// +--------------------------------------------------------------+
+bool BleHandleDebugCommand(const char* commandStr)
+{
+	u32 commandLength = (u32)strlen(commandStr);
+	
+	if (strcmp(commandStr, "bleStartAdvertising") == 0)
+	{
+		BleStartAdvertising();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleStopAdvertising") == 0)
+	{
+		BleStopAdvertising();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleCloseConnection") == 0)
+	{
+		BleCloseConnection();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleStartDfuMode") == 0)
+	{
+		BleStartDfuMode();
+		return true;
+	}
+	// else if (strcmp(commandStr, "bleReadExmem") == 0)
+	// {
+	// }
+	// else if (strcmp(commandStr, "bleWriteExmem") == 0)
+	// {
+	// 	return true;
+	// }
+	// else if (strcmp(commandStr, "bleClearExmem") == 0)
+	// {
+	// 	return true;
+	// }
+	else if (commandLength == 16+2+1+2 && strncmp(commandStr, "bleSetGpioInput ", 16) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[16]);
+		u8 gpioPull = ParseHexByte(&commandStr[16+3]);
+		BleSetGpioInput(gpioNumber, gpioPull);
+		return true;
+	}
+	else if (commandLength == 17+2 && strncmp(commandStr, "bleSetGpioOutput ", 17) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[17]);
+		BleSetGpioOutput(gpioNumber);
+		return true;
+	}
+	else if (strcmp(commandStr, "bleClearResetFlag") == 0)
+	{
+		BleClearResetFlag();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleGetFirmwareVersion") == 0)
+	{
+		BleGetFirmwareVersion();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleGetStatus") == 0)
+	{
+		BleGetStatus();
+		return true;
+	}
+	else if (commandLength == 23+2 && strncmp(commandStr, "bleSetStatusUpdateBits ", 23) == 0)
+	{
+		u8 inputValue = ParseHexByte(&commandStr[23]);
+		BleSetStatusUpdateBits(inputValue);
+		return true;
+	}
+	else if (commandLength >= 22 && strncmp(commandStr, "bleSetAdvertisingData ", 22) == 0)
+	{
+		u8 payloadBuffer[MAX_ADV_DATA_LENGTH];
+		u8 pIndex = 0;
+		for (pIndex = 0; 22 + pIndex*2 + 2 <= commandLength && pIndex < ArrayCount(payloadBuffer); pIndex++)
+		{
+			payloadBuffer[pIndex] = ParseHexByte(&commandStr[22 + pIndex*2]);
+		}
+		BleSetAdvertisingData(payloadBuffer, pIndex);
+		return true;
+	}
+	else if (commandLength >= 22 && strncmp(commandStr, "bleSetAdvertisingName ", 22) == 0)
+	{
+		const char* namePntr = (const char*)&commandStr[22];
+		BleSetAdvertisingName(namePntr, (u8)strlen(namePntr));
+		return true;
+	}
+	else if (commandLength >= 20 && strncmp(commandStr, "bleSetTemporaryData ", 20) == 0)
+	{
+		u8 payloadBuffer[255];
+		u8 pIndex = 0;
+		for (pIndex = 0; 20 + pIndex*2 + 2 <= commandLength && pIndex < ArrayCount(payloadBuffer); pIndex++)
+		{
+			payloadBuffer[pIndex] = ParseHexByte(&commandStr[20 + pIndex*2]);
+		}
+		BleSetTemporaryData(payloadBuffer, pIndex);
+		return true;
+	}
+	else if (commandLength == 16+2+1+2 && strncmp(commandStr, "bleSetGpioValue ", 16) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[16]);
+		u8 gpioValue = ParseHexByte(&commandStr[16+3]);
+		BleSetGpioValue(gpioNumber, gpioValue);
+		return true;
+	}
+	else if (strcmp(commandStr, "bleGetStatusUpdateBits") == 0)
+	{
+		BleGetStatusUpdateBits();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleGetAdvertisingData") == 0)
+	{
+		BleGetAdvertisingData();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleGetAdvertisingName") == 0)
+	{
+		BleGetAdvertisingName();
+		return true;
+	}
+	else if (strcmp(commandStr, "bleGetTemporaryData") == 0)
+	{
+		BleGetTemporaryData();
+		return true;
+	}
+	else if (commandLength == 16+2 && strncmp(commandStr, "bleGetGpioValue ", 16) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[16]);
+		BleGetGpioValue(gpioNumber);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 

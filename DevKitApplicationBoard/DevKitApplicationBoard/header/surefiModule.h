@@ -161,6 +161,41 @@ enum
 	BandwidthOption_500,   //0x05
 };
 
+// +==============================+
+// |           BleGpio_           |
+// +==============================+
+enum
+{
+	BleGpio_TP3 = 3,
+	BleGpio_TP4 = 4,
+	BleGpio_TP5 = 5,
+	BleGpio_TP6 = 6,
+	
+	BleGpio_TP25 = 25,
+	BleGpio_TP28 = 28,
+	
+	BleGpio_NumPins = 6,
+};
+
+// +==============================+
+// |         BleGpioDir_          |
+// +==============================+
+enum
+{
+	BleGpioDir_Output = 0x00,
+	BleGpioDir_Input,
+};
+
+// +==============================+
+// |         BleGpioPull_         |
+// +==============================+
+enum
+{
+	BleGpioPull_None = 0x00,
+	BleGpioPull_Up,
+	BleGpioPull_Down,
+};
+
 // +================================+
 // | Module Status Bit Enumerations |
 // +================================+
@@ -174,14 +209,14 @@ enum //stateFlags
 };
 
 enum //otherFlags
-{	
+{
 	OtherFlags_DoingLightshowBit   = 0x01,
 	OtherFlags_ShowingQosBit       = 0x02,
 	OtherFlags_ButtonDownBit       = 0x04,
 };
 
 enum //clearableFlags
-{	
+{
 	ClearableFlags_WasResetBit         = 0x01,
 	ClearableFlags_TransmitFinishedBit = 0x02,
 	ClearableFlags_RxPacketReadyBit    = 0x04,
@@ -569,6 +604,7 @@ typedef struct __attribute__((packed))
 				uint8_t direction;
 				uint8_t value;
 			};
+			uint8_t pull;
 		} gpio;
 		struct __attribute__((packed))
 		{

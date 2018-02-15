@@ -27,7 +27,8 @@ void BleStartDfuMode();
 void BleReadExmem(u32 address, u8 numBytes);
 void BleWriteExmem(u32 address, const u8* dataPntr, u8 dataLength);
 void BleClearExmem(u32 address);
-void BleSetGpioDirection(u8 gpioIndex, u8 direction);
+void BleSetGpioOutput(u8 gpioIndex);
+void BleSetGpioInput(u8 gpioIndex, u8 pull);
 void BleClearResetFlag();
 
 void BleGetFirmwareVersion();
@@ -44,5 +45,10 @@ void BleGetAdvertisingData();
 void BleGetAdvertisingName();
 void BleGetTemporaryData();
 void BleGetGpioValue(u8 gpioIndex);
+
+// +--------------------------------------------------------------+
+// |                   Parse Debug Input String                   |
+// +--------------------------------------------------------------+
+bool BleHandleDebugCommand(const char* commandStr);
 
 #endif //  _BLE_COMMANDS_H

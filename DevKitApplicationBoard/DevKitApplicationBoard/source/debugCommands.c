@@ -298,9 +298,40 @@ void HandleDebugCommand(const char* commandStr)
 		
 		PrintLine_I("Sent %u bytes to radio", numBytesSent);
 	}
+	// +==============================+
+	// |          ble [HEX]           |
+	// +==============================+
+	else if (commandLength > 4 && strncmp(commandStr, "ble ", 4) == 0)
+	{
+		u16 numBytesSent = 0;
+		u16 cIndex;
+		for (cIndex = 4; cIndex+2 <= commandLength; cIndex += 2)
+		{
+			//Skip spaces
+			while (cIndex < commandLength && commandStr[cIndex] == ' ') { cIndex++; }
+			if (cIndex+2 > commandLength) { break; }
+			
+			if (!IsHexChar(commandStr[cIndex]) || !IsHexChar(commandStr[cIndex+1]))
+			{
+				PrintLine_E("\"%c%c\" is not valid HEX", commandStr[cIndex], commandStr[cIndex+1]);
+			}
+			else
+			{
+				u8 nextByte = ParseHexByte(&commandStr[cIndex]);
+				AppUartSendData(AppUart_SureFiBle, &nextByte, 1);
+				numBytesSent++;
+			}
+		}
+		
+		PrintLine_I("Sent %u bytes to radio", numBytesSent);
+	}
 	else if (SureHandleDebugCommand(commandStr))
 	{
 		//sureCommands.c handled the command
+	}
+	else if (BleHandleDebugCommand(commandStr))
+	{
+		//bleCommands.c handled the command
 	}
 	else
 	{
