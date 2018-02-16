@@ -14,6 +14,7 @@ Description:
 #include "bleCommands.h"
 #include "uartFifos.h"
 #include "jumper.h"
+#include "helpers.h"
 
 // +--------------------------------------------------------------+
 // |                        Public Globals                        |
