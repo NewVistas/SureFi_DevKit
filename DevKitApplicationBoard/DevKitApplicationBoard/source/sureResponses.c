@@ -895,24 +895,29 @@ ISR(PIOA_Handler)
 {
 	u32 changedPins = (PIOA->PIO_IMR & PIOA->PIO_ISR);
 	//NOTE: Debug output within this function can cause us to miss UART data which will cause problems in the TransmitQueue.
-	// WriteLine_D("Int!");
 	
 	// +==============================+
 	// |  Interrupt/Busy Pin Change   |
 	// +==============================+
 	if ((changedPins & RADIO_INT_BUSY_MASK) != 0)
 	{
-		if (GetPinInputValue(RADIO_INT_BUSY_PORT, RADIO_INT_BUSY_MASK))
+		if (SureModuleStatus.interruptDriven)
 		{
-			// WriteLine_D("Busy!");
-			if (SureModuleStatus.interruptDriven)
+			if (GetPinInputValue(RADIO_INT_BUSY_PORT, RADIO_INT_BUSY_MASK))
 			{
 				SureGetStatus();
 			}
 		}
-		else
+		else //this pin indicates busy/not-busy
 		{
-			// WriteLine_D("Done!");
+			if (GetPinInputValue(RADIO_INT_BUSY_PORT, RADIO_INT_BUSY_MASK))
+			{
+				// WriteLine_D("Busy!");
+			}
+			else
+			{
+				// WriteLine_D("Done!");
+			}
 		}
 	}
 }
