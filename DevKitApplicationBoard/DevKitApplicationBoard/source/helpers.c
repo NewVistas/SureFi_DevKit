@@ -114,6 +114,56 @@ const char* GetSureCmdStr(u8 sureCmd)
 	};
 }
 
+const char* GetBleErrorStr(u8 bleError)
+{
+	switch (bleError)
+	{
+		case BleError_ValueTooLow:     return "Value Too Low";
+		case BleError_ValueTooHigh:    return "Value Too High";
+		case BleError_InvalidValue:    return "Invalid Value";
+		case BleError_PayloadTooLarge: return "Payload Too Large";
+		case BleError_PayloadTooSmall: return "Payload Too Small";
+		case BleError_Busy:            return "Busy";
+		case BleError_InvalidSettings: return "Invalid Settings";
+		case BleError_NotFccApproved:  return "Not Fcc Approved";
+		case BleError_AlreadyStarted:  return "Already Started";
+		case BleError_Unsupported:     return "Unsupported";
+		case BleError_NotStarted:      return "Not Started";
+		default: return "Unknown";
+	};
+}
+
+const char* GetBleCmdStr(u8 bleCmd)
+{
+	switch (bleCmd)
+	{
+		case BleCmd_StartAdvertising:     return "StartAdvertising";
+		case BleCmd_StopAdvertising:      return "StopAdvertising";
+		case BleCmd_CloseConnection:      return "CloseConnection";
+		case BleCmd_StartDfuMode:         return "StartDfuMode";
+		case BleCmd_ReadExmem:            return "ReadExmem";
+		case BleCmd_WriteExmem:           return "WriteExmem";
+		case BleCmd_ClearExmem:           return "ClearExmem";
+		case BleCmd_SetGpioDirection:     return "SetGpioDirection";
+		case BleCmd_ClearResetFlag:       return "ClearResetFlag";
+		case BleCmd_GetFirmwareVersion:   return "GetFirmwareVersion";
+		case BleCmd_GetStatus:            return "GetStatus";
+		case BleCmd_SetStatusUpdateBits:  return "SetStatusUpdateBits";
+		case BleCmd_SetAdvertisingData:   return "SetAdvertisingData";
+		case BleCmd_SetAdvertisingName:   return "SetAdvertisingName";
+		case BleCmd_SetTemporaryData:     return "SetTemporaryData";
+		case BleCmd_SetGpioValue:         return "SetGpioValue";
+		case BleCmd_SetGpioUpdateEnabled: return "SetGpioUpdateEnabled";
+		case BleCmd_GetStatusUpdateBits:  return "GetStatusUpdateBits";
+		case BleCmd_GetAdvertisingData:   return "GetAdvertisingData";
+		case BleCmd_GetAdvertisingName:   return "GetAdvertisingName";
+		case BleCmd_GetTemporaryData:     return "GetTemporaryData";
+		case BleCmd_GetGpioValue:         return "GetGpioValue";
+		case BleCmd_GetGpioUpdateEnabled: return "GetGpioUpdateEnabled";
+		default: return "Unknown";
+	};
+}
+
 void PrintU64(u64 value)
 {
 	u8* bytePntr = (u8*)&value;

@@ -13,9 +13,10 @@ Description:
 #include "uartFifos.h"
 #include "micro.h"
 #include "tickTimer.h"
-#include "sureResponses.h"
 #include "sureCommands.h"
+#include "sureResponses.h"
 #include "bleCommands.h"
+#include "bleResponses.h"
 #include "helpers.h"
 
 // +--------------------------------------------------------------+
@@ -99,8 +100,8 @@ void HandleDebugCommand(const char* commandStr)
 	// +==============================+
 	else if (strcmp(commandStr, "printStatus") == 0)
 	{
-		PrintStatusUpdates = !PrintStatusUpdates;
-		PrintLine_I("Print Status Updates %s", PrintStatusUpdates ? "Enabled" : "Disabled");
+		PrintSureStatusUpdates = !PrintSureStatusUpdates;
+		PrintLine_I("Print Status Updates %s", PrintSureStatusUpdates ? "Enabled" : "Disabled");
 	}
 	// +==============================+
 	// |        printSuccesses        |
@@ -117,6 +118,38 @@ void HandleDebugCommand(const char* commandStr)
 	{
 		PrintSureFailures = !PrintSureFailures;
 		PrintLine_I("Print Status Failures %s", PrintSureFailures ? "Enabled" : "Disabled");
+	}
+	// +==============================+
+	// |        printResponses        |
+	// +==============================+
+	else if (strcmp(commandStr, "printBleResponses") == 0)
+	{
+		PrintBleResponses = !PrintBleResponses;
+		PrintLine_I("Print BLE Responses %s", PrintBleResponses ? "Enabled" : "Disabled");
+	}
+	// +==============================+
+	// |        printBleStatus        |
+	// +==============================+
+	else if (strcmp(commandStr, "printBleStatus") == 0)
+	{
+		PrintBleStatusUpdates = !PrintBleStatusUpdates;
+		PrintLine_I("Print Status Updates %s", PrintBleStatusUpdates ? "Enabled" : "Disabled");
+	}
+	// +==============================+
+	// |      printBleSuccesses       |
+	// +==============================+
+	else if (strcmp(commandStr, "printBleSuccesses") == 0)
+	{
+		PrintBleSuccesses = !PrintBleSuccesses;
+		PrintLine_I("Print Status Successes %s", PrintBleSuccesses ? "Enabled" : "Disabled");
+	}
+	// +==============================+
+	// |       printBleFailures       |
+	// +==============================+
+	else if (strcmp(commandStr, "printBleFailures") == 0)
+	{
+		PrintBleFailures = !PrintBleFailures;
+		PrintLine_I("Print Status Failures %s", PrintBleFailures ? "Enabled" : "Disabled");
 	}
 	// +==============================+
 	// |             tick             |

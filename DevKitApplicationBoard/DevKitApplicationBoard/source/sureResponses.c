@@ -14,13 +14,14 @@ Description:
 #include "tickTimer.h"
 #include "helpers.h"
 #include "sureCommands.h"
+#include "helpers.h"
 #include "app.h"
 
 // +--------------------------------------------------------------+
 // |                        Public Globals                        |
 // +--------------------------------------------------------------+
 bool PrintSureResponses = false;
-bool PrintStatusUpdates = false;
+bool PrintSureStatusUpdates = false;
 bool PrintSureSuccesses = false;
 bool PrintSureFailures = true;
 
@@ -125,7 +126,7 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 			ModuleStatus_t statusChanged;
 			statusChanged.fullValue = (rsp->payload.status.fullValue ^ SureModuleStatus.fullValue);
 			
-			if (PrintStatusUpdates)
+			if (PrintSureStatusUpdates)
 			{
 				PrintLine_D(": [%02X][%02X][%02X][%02X] ([%02X][%02X][%02X][%02X])",
 					rsp->payload.status.configFlags, rsp->payload.status.clearableFlags,

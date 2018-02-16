@@ -18,6 +18,11 @@ Description:
 // +--------------------------------------------------------------+
 // |                        Public Globals                        |
 // +--------------------------------------------------------------+
+bool PrintBleResponses = false;
+bool PrintBleStatusUpdates = false;
+bool PrintBleSuccesses = false;
+bool PrintBleFailures = true;
+
 u32 BleExmemDataAddress = 0x00000000;
 u8 BleExmemDataLength = 0;
 u8 BleExmemData[255];             bool BleGotExmemData = false;
@@ -64,6 +69,8 @@ void BleClearGotFlags()
 
 void HandleBleResponse(const BleCommand_t* rsp)
 {
+	u32 bIndex = 0;
+	
 	switch (rsp->cmd)
 	{
 		// +==============================+
@@ -80,7 +87,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_ExmemData:
 		{
-			PrintLine_D("BleRsp_ExmemData[%u] %08X", rsp->length, rsp->payload);
+			if (PrintBleResponses)
+			{
+				PrintLine_D("BleRsp_ExmemData[%u] %08X", rsp->length, rsp->payload);
+			}
 			BleExmemDataAddress = rsp->payload.exmem.address;
 			BleExmemDataLength = (rsp->length-sizeof(u32));
 			if (BleExmemDataLength > ArrayCount(BleExmemData)) { BleExmemDataLength = ArrayCount(BleExmemData); }
@@ -93,7 +103,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_FirmwareVersion:
 		{
-			PrintLine_D("BleRsp_FirmwareVersion[%u] %u.%u(%u)", rsp->length, rsp->payload.firmwareVersion.major, rsp->payload.firmwareVersion.minor, rsp->payload.firmwareVersion.build);
+			if (PrintBleResponses)
+			{
+				PrintLine_D("BleRsp_FirmwareVersion[%u] %u.%u(%u)", rsp->length, rsp->payload.firmwareVersion.major, rsp->payload.firmwareVersion.minor, rsp->payload.firmwareVersion.build);
+			}
 			BleFirmwareVersion = rsp->payload.firmwareVersion;
 			BleGotFirmwareVersion = true;
 		} break;
@@ -103,7 +116,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_Status:
 		{
-			PrintLine_D("BleRsp_Status[%u]: 0x%02X", rsp->length, rsp->payload.status.fullValue);
+			if (PrintBleStatusUpdates)
+			{
+				PrintLine_D("BleRsp_Status[%u]: 0x%02X", rsp->length, rsp->payload.status.fullValue);
+			}
 			
 			BleStatus_t statusChanged;
 			statusChanged.fullValue = (rsp->payload.status.fullValue ^ BleStatus.fullValue);
@@ -123,7 +139,7 @@ void HandleBleResponse(const BleCommand_t* rsp)
 			
 			if (statusChanged.connected)
 			{
-				PrintLine_D("Bluetooth %s!", rsp->payload.status.connected ? "Connected" : "Disconnected");
+				PrintLine_I("Bluetooth %s!", rsp->payload.status.connected ? "Connected" : "Disconnected");
 			}
 			
 			//TODO: Process the rest status
@@ -137,7 +153,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_Success:
 		{
-			PrintLine_D("BleRsp_Success[%u] 0x%02X", rsp->length, rsp->payload.bytes[0]);
+			if (PrintBleSuccesses)
+			{
+				PrintLine_I("%s Succeeded!", GetBleCmdStr(rsp->payload.bytes[0]));
+			}
 			BleSuccessCommand = rsp->payload.bytes[0];
 			BleGotSuccess = true;
 		} break;
@@ -147,7 +166,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_Failure:
 		{
-			PrintLine_D("BleRsp_Failure[%u] 0x%02X (0x%02X)", rsp->length, rsp->payload.bytes[0], rsp->payload.bytes[1]);
+			if (PrintBleFailures)
+			{
+				PrintLine_E("%s Failed! Error: %s", GetBleCmdStr(rsp->payload.bytes[0]), GetBleErrorStr(rsp->payload.bytes[1]));
+			}
 			BleFailureCommand = rsp->payload.bytes[0];
 			BleFailureErrorCode = rsp->payload.bytes[1];
 			BleGotFailure = true;
@@ -158,7 +180,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_UartTimeout:
 		{
-			PrintLine_D("BleRsp_UartTimeout[%u]", rsp->length);
+			if (PrintBleFailures)
+			{
+				PrintLine_E("BleRsp_UartTimeout[%u]", rsp->length);
+			}
 			//TODO: Implement me!
 		} break;
 		
@@ -167,7 +192,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_StatusUpdateBits:
 		{
-			PrintLine_D("BleRsp_StatusUpdateBits[%u] 0x%02X", rsp->length, rsp->payload.updateBits.fullValue);
+			if (PrintBleResponses)
+			{
+				PrintLine_D("BleRsp_StatusUpdateBits[%u] 0x%02X", rsp->length, rsp->payload.updateBits.fullValue);
+			}
 			BleStatusUpdateBits = rsp->payload.updateBits;
 			BleGotStatusUpdateBits = true;
 		} break;
@@ -177,7 +205,15 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_AdvertisingData:
 		{
-			PrintLine_D("BleRsp_AdvertisingData[%u]", rsp->length);
+			if (PrintBleResponses)
+			{
+				Print_D("BleRsp_AdvertisingData[%u]: ", rsp->length);
+				for (bIndex = 0; bIndex < rsp->length; bIndex++)
+				{
+					Print_D("%02X ", rsp->payload.bytes[bIndex]);
+				}
+				WriteLine_D("");
+			}
 			BleAdvertisingDataLength = rsp->length;
 			if (BleAdvertisingDataLength > ArrayCount(BleAdvertisingData)) { BleAdvertisingDataLength = ArrayCount(BleAdvertisingData); }
 			memcpy(BleAdvertisingData, rsp->payload.bytes, BleAdvertisingDataLength);
@@ -189,7 +225,10 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_AdvertisingName:
 		{
-			PrintLine_D("BleRsp_AdvertisingName[%u]", rsp->length);
+			if (PrintBleResponses)
+			{
+				PrintLine_D("BleRsp_AdvertisingName[%u] \"%.*s\"", rsp->length, rsp->length, (const char*)rsp->payload.bytes);
+			}
 			BleAdvertisingNameLength = rsp->length;
 			if (BleAdvertisingNameLength > ArrayCount(BleAdvertisingName)) { BleAdvertisingNameLength = ArrayCount(BleAdvertisingName); }
 			memcpy(BleAdvertisingName, rsp->payload.bytes, BleAdvertisingNameLength);
@@ -201,7 +240,15 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_TemporaryData:
 		{
-			PrintLine_D("BleRsp_TemporaryData[%u]", rsp->length);
+			if (PrintBleResponses)
+			{
+				Print_D("BleRsp_TemporaryData[%u]: ", rsp->length);
+				for (bIndex = 0; bIndex < rsp->length; bIndex++)
+				{
+					Print_D("%02X ", rsp->payload.bytes[bIndex]);
+				}
+				WriteLine_D("");
+			}
 			BleTemporaryDataLength = rsp->length;
 			if (BleTemporaryDataLength > ArrayCount(BleTemporaryData)) { BleTemporaryDataLength = ArrayCount(BleTemporaryData); }
 			memcpy(BleTemporaryData, rsp->payload.bytes, BleTemporaryDataLength);
@@ -213,12 +260,26 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// +==============================+
 		case BleRsp_GpioValue:
 		{
-			PrintLine_D("BleRsp_GpioValue[%u] TP%u = %u", rsp->length, rsp->payload.gpio.index, rsp->payload.gpio.value);
+			if (PrintBleResponses)
+			{
+				PrintLine_D("BleRsp_GpioValue[%u] TP%u = %u", rsp->length, rsp->payload.gpio.index, rsp->payload.gpio.value);
+			}
 			BleGpioIndex = rsp->payload.gpio.index;
 			BleGpioValue = rsp->payload.gpio.value;
 			BleGotGpioValue = true;
 		} break;
 		
+		// +==============================+
+		// |   BleRsp_GpioUpdateEnabled   |
+		// +==============================+
+		case BleRsp_GpioUpdateEnabled:
+		{
+			if (PrintBleResponses)
+			{
+				PrintLine_D("BleRsp_GpioUpdateEnabled[%u] TP%u updates %s", rsp->length, rsp->payload.gpio.index, rsp->payload.gpio.updateEnabled ? "Enabled" : "Disabled");
+			}
+			//TODO: Should we add some variables to hold this value? (BleUpdateEnabled array, BleGotUpdateEnabled array)
+		} break;
 		
 		default:
 		{

@@ -15,6 +15,11 @@ typedef void BleResetCallback_f();
 // +--------------------------------------------------------------+
 // |                        Public Globals                        |
 // +--------------------------------------------------------------+
+bool PrintBleResponses;
+bool PrintBleStatusUpdates;
+bool PrintBleSuccesses;
+bool PrintBleFailures;
+
 extern u32 BleExmemDataAddress;
 extern u8 BleExmemDataLength;
 extern u8 BleExmemData[255];             extern bool BleGotExmemData;

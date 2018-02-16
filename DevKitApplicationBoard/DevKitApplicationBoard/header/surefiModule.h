@@ -17,7 +17,7 @@ Date:   11\29\2017
 #define BLE_ATTN_CHAR             0x7C
 #define MAX_RX_PACKET_LENGTH      64
 #define MAX_SERIAL_STR_LENGTH     31
-#define MAX_ADV_DATA_LENGTH       20
+#define MAX_ADV_DATA_LENGTH       19
 #define MAX_ADV_NAME_LENGTH       22
 
 // +--------------------------------------------------------------+

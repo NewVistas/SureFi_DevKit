@@ -18,7 +18,7 @@ typedef void ButtonChangedCallback_f(bool buttonDown);
 // |                        Public Globals                        |
 // +--------------------------------------------------------------+
 extern bool PrintSureResponses;
-extern bool PrintStatusUpdates;
+extern bool PrintSureStatusUpdates;
 extern bool PrintSureSuccesses;
 extern bool PrintSureFailures;
 

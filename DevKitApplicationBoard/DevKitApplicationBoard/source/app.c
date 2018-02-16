@@ -51,11 +51,11 @@ static bool otherButtonDown = false;
 static bool otherModuleButtonDown = false;
 
 #if 0
-static const u8 rxUid[APP_UID_SIZE] = { 0x11, 0x11, 0x11 };
-static const u8 txUid[APP_UID_SIZE] = { 0x22, 0x22, 0x22 };
+static const u8 rxUid[APP_UID_SIZE] = { 0x10, 0x00, 0x01 };
+static const u8 txUid[APP_UID_SIZE] = { 0x20, 0x00, 0x01 };
 #else
-static const u8 rxUid[APP_UID_SIZE] = { 0x22, 0x22, 0x22 };
-static const u8 txUid[APP_UID_SIZE] = { 0x11, 0x11, 0x11 };
+static const u8 rxUid[APP_UID_SIZE] = { 0x20, 0x00, 0x01 };
+static const u8 txUid[APP_UID_SIZE] = { 0x10, 0x00, 0x01 };
 #endif
 
 // +--------------------------------------------------------------+
@@ -191,10 +191,10 @@ static void TransmitFinishedCallback(u8 sentPayloadSize, const u8* sentPayload,
 	
 	if (ackDataLength > 0 && ackData != nullptr)
 	{
-		Assert(ackDataLength == APP_PACKET_SIZE);
+		Assert(ackDataLength == APP_PAYLOAD_SIZE);
 		
 		PrintLine_D("Got %u byte ack data", ackDataLength);
-		ProcessPayload(true, &ackData[APP_UID_SIZE]);
+		ProcessPayload(true, &ackData[0]);
 	}
 }
 
@@ -224,9 +224,9 @@ static void ButtonChangedCallback(bool buttonDown)
 static void ReceivedPacketCallback(u8 packetLength, const u8* packetPntr, const ReceiveInfo_t* rxInfo)
 {
 	PrintLine_D("Got %u byte rx packet!", packetLength);
-	Assert(packetLength == APP_PACKET_SIZE);
+	Assert(packetLength == APP_PAYLOAD_SIZE);
 	
-	ProcessPayload(false, &packetPntr[APP_UID_SIZE]);
+	ProcessPayload(false, &packetPntr[0]);
 }
 
 // +--------------------------------------------------------------+
