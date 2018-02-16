@@ -3,13 +3,15 @@ File:   sureResponses.c
 Author: Taylor Robbins
 Date:   01\24\2018
 Description: 
-	** Handles responses coming from the Sure-Fi radio
+	** Handles responses coming from the Sure-Fi radio.
+	** Also holds the ISR for the BUSY or INTERRUPT pin from the radio (GPIO0, RADIO_INT_BUSY, PA30, TP10)
 */
 
 #include "defines.h"
 #include "sureResponses.h"
 
 #include "debug.h"
+#include "micro.h"
 #include "uartFifos.h"
 #include "tickTimer.h"
 #include "helpers.h"
@@ -96,7 +98,14 @@ void InitRadioResponses()
 	ClearArray(SureAckData);
 	ClearArray(SureIndications);
 	
-	//TODO: Any other initialization?
+	// +==============================+
+	// |   Busy Pin Interrupt Init    |
+	// +==============================+
+	{
+		RADIO_INT_BUSY_PORT->PIO_AIMDR = RADIO_INT_BUSY_MASK; //Disable Additional Interrupt Modes
+		RADIO_INT_BUSY_PORT->PIO_IER   = RADIO_INT_BUSY_MASK; //Enable the Interrupt
+		NVIC_EnableIRQ(PIOA_IRQn);
+	}
 }
 
 void SetRadioResponseCallbacks(
@@ -874,4 +883,36 @@ void PrintRadioInfo()
 	// PrintLine_I("ButtonConfig        = 0x%02X", SureButtonConfig);
 	// PrintLine_I("AcksEnabled         = %s", SureAcksEnabled ? "Enabled" : "Disabled");
 	// PrintLine_I("NumRetries          = %u", SureNumRetries);
+}
+
+// +--------------------------------------------------------------+
+// |                  Interrupt Service Routines                  |
+// +--------------------------------------------------------------+
+// +==============================+
+// |           PIOA ISR           |
+// +==============================+
+ISR(PIOA_Handler)
+{
+	u32 changedPins = (PIOA->PIO_IMR & PIOA->PIO_ISR);
+	//NOTE: Debug output within this function can cause us to miss UART data which will cause problems in the TransmitQueue.
+	// WriteLine_D("Int!");
+	
+	// +==============================+
+	// |  Interrupt/Busy Pin Change   |
+	// +==============================+
+	if ((changedPins & RADIO_INT_BUSY_MASK) != 0)
+	{
+		if (GetPinInputValue(RADIO_INT_BUSY_PORT, RADIO_INT_BUSY_MASK))
+		{
+			// WriteLine_D("Busy!");
+			if (SureModuleStatus.interruptDriven)
+			{
+				SureGetStatus();
+			}
+		}
+		else
+		{
+			// WriteLine_D("Done!");
+		}
+	}
 }

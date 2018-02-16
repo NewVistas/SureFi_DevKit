@@ -9,6 +9,6 @@ Date:   01\19\2018
 
 #define VERSION_MAJOR 1
 #define VERSION_MINOR 0
-#define VERSION_BUILD 358
+#define VERSION_BUILD 374
 
 #endif //  _VERSION_H

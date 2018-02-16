@@ -97,7 +97,7 @@ static void SetModuleSettings()
 	SureDefaultSettings();
 	SureQosLightshow();
 	
-	SureWriteConfig(ConfigFlags_AutoClearFlagsBit);
+	SureWriteConfig(ConfigFlags_AutoClearFlagsBit|ConfigFlags_InterruptDrivenBit);
 	SureSetReceivePacketSize(APP_PACKET_SIZE);
 	SureSetReceiveUID(APP_UID_SIZE, rxUid);
 	SureSetTransmitUID(APP_UID_SIZE, txUid);
@@ -234,7 +234,7 @@ static void ReceivedPacketCallback(u8 packetLength, const u8* packetPntr, const 
 // +--------------------------------------------------------------+
 void AppInitialize()
 {
-	ConfigureInput(TEST_BUTTON_PORT, TEST_BUTTON_MASK, ENABLED);
+	ConfigureInput(TEST_BUTTON_PORT, TEST_BUTTON_MASK, DISABLED, ENABLED);
 }
 
 void AppStart()

@@ -161,6 +161,7 @@ void UpdateTransmitQueue()
 				{
 					TxQueueItem_t* item = &queue.items[0];
 					
+					// WriteLine_D("Starting transmit");
 					SureTransmitData(item->payloadSize, item->payload);
 					
 					SureGotSuccess = false;
@@ -181,6 +182,7 @@ void UpdateTransmitQueue()
 	if (queueState != QueueState_Idle && TransmitQueueTimeout == 0)
 	{
 		WriteLine_E("WARNING: Transmit queue state machine timed out! Check that TRANSMIT_QUEUE_TIMEOUT is correct");
+		PrintLine_D("queueState = 0x%02X", queueState);
 		PopItem(nullptr, 0, nullptr);
 		ChangeQueueState(QueueState_Idle);
 	}

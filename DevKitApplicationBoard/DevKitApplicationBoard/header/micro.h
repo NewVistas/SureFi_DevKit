@@ -28,6 +28,12 @@ Date:   01\17\2018
 #define MODE3_JUMPER_PORT PIOB
 #define MODE3_JUMPER_MASK PIO_PB8
 
+#define RADIO_INT_BUSY_PORT PIOA
+#define RADIO_INT_BUSY_MASK PIO_PA30
+
+#define BLE_CONNECTED_PORT PIOA
+#define BLE_CONNECTED_MASK PIO_PA29
+
 // +==============================+
 // |            Atmel             |
 // +==============================+
@@ -48,6 +54,9 @@ Date:   01\17\2018
 #define EnablePullUp(port, mask)  (port)->PIO_PUER = (mask)
 #define DisablePullUp(port, mask) (port)->PIO_PUDR = (mask)
 
+#define EnablePullDown(port, mask)  (port)->PIO_PPDER = (mask)
+#define DisablePullDown(port, mask) (port)->PIO_PPDDR = (mask)
+
 #define EnablePinInterrupt(port, mask)  (port)->PIO_IER = (mask)
 #define DisablePinInterrupt(port, mask) (port)->PIO_IDR = (mask)
 
@@ -67,15 +76,23 @@ Date:   01\17\2018
 	else        { SetPinLow (port, mask); }  \
 } while(0)
 
-#define ConfigureInput(port, mask, pullup) do  \
-{                                              \
-	UnlockPort(port);                          \
-	SetAsInput(port, mask);                    \
-	DisablePinInterrupt(port, mask);           \
-	if (pullup) { EnablePullUp (port, mask); } \
-	else        { DisablePullUp(port, mask); } \
-	EnablePin(port, mask);                     \
+#define ConfigureInput(port, mask, pulldown, pullup) do \
+{                                                       \
+	UnlockPort(port);                                   \
+	SetAsInput(port, mask);                             \
+	DisablePinInterrupt(port, mask);                    \
+	if (pullup) { EnablePullUp (port, mask); }          \
+	else        { DisablePullUp(port, mask); }          \
+	if (pulldown) { EnablePullDown (port, mask); }      \
+	else          { DisablePullDown(port, mask); }      \
+	EnablePin(port, mask);                              \
 } while(0)
+
+// #define EnableInputInterrupt(port, mask, type) do
+// {
+// 	UnlockPort(port);
+	
+// } while(0)
 
 // +--------------------------------------------------------------+
 // |                       Public Functions                       |
