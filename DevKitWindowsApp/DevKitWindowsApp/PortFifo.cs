@@ -152,7 +152,7 @@ namespace DevKitWindowsApp
 				
 				if (bIndex == 0)
 				{
-					if (newByte == 0x7E)
+					if (newByte == 0x7E || newByte == 0x7C)
 					{
 						result.Add(newByte);
 						bIndex++;
@@ -229,6 +229,32 @@ namespace DevKitWindowsApp
 			}
 			byte[] command = new byte[3 + payload.Length];
 			command[0] = 0x7E;
+			command[1] = (byte)cmd;
+			command[2] = (byte)payload.Length;
+			for (int bIndex = 0; bIndex < payload.Length; bIndex++)
+			{
+				command[3 + bIndex] = payload[bIndex];
+			}
+			PushTxBytes(command);
+			PushHistoryItem(false, command);
+		}
+		
+		public void PushBleTxCommandNoBytes(BleCmd cmd)
+		{
+			byte[] command = { 0x7C, (byte)cmd, 0x00 };
+			PushTxBytes(command);
+			PushHistoryItem(false, command);
+		}
+		
+		public void PushBleTxCommand(BleCmd cmd, byte[] payload)
+		{
+			if (payload.Length > 255)
+			{
+				Console.WriteLine("WARNING: Payload is too large for command!");
+				return;
+			}
+			byte[] command = new byte[3 + payload.Length];
+			command[0] = 0x7C;
 			command[1] = (byte)cmd;
 			command[2] = (byte)payload.Length;
 			for (int bIndex = 0; bIndex < payload.Length; bIndex++)

@@ -153,7 +153,72 @@ namespace DevKitWindowsApp
 		Pattern2,
 		Pattern3,
 		Pattern4,
-	}
+	};
+	
+	public enum BleCmd : byte
+	{
+		StartAdvertising = 0x30,
+		StopAdvertising,
+		CloseConnection,
+		StartDfuMode,
+		ReadExmem,
+		WriteExmem,
+		ClearExmem,
+		SetGpioDirection,
+		ClearResetFlag,
+		
+		GetFirmwareVersion = 0x40,
+		GetStatus,
+		
+		SetStatusUpdateBits = 0x50,
+		SetAdvertisingData,
+		SetAdvertisingName,
+		SetTemporaryData,
+		SetGpioValue,
+		SetGpioUpdateEnabled,
+		
+		GetStatusUpdateBits = 0x70,
+		GetAdvertisingData,
+		GetAdvertisingName,
+		GetTemporaryData,
+		GetGpioValue,
+		GetGpioUpdateEnabled,
+	};
+	
+	public enum BleRsp : byte
+	{
+		DfuNeedAdvData = 0x30,
+		ExmemData,
+		
+		FirmwareVersion = 0x40,
+		Status,
+		
+		Success = 0x50,
+		Failure,
+		UartTimeout,
+		
+		StatusUpdateBits = 0x70,
+		AdvertisingData,
+		AdvertisingName,
+		TemporaryData,
+		GpioValue,
+		GpioUpdateEnabled,
+	};
+	
+	public enum BleError : byte
+	{
+		ValueTooLow = 0x01,
+		ValueTooHigh,
+		InvalidValue,
+		PayloadTooLarge,
+		PayloadTooSmall,
+		Busy,
+		InvalidSettings,
+		NotFccApproved,
+		AlreadyStarted,
+		Unsupported,
+		NotStarted,
+	};
 	
 	class SureFi
 	{
@@ -1145,6 +1210,128 @@ namespace DevKitWindowsApp
 				default:
 				{
 					Console.WriteLine("Unhandled command 0x" + ((byte)rspCmd).ToString("X2"));
+				} break;
+			}
+		}
+		
+		public static string GetBleCommandStr(byte[] commandBytes)
+		{
+			byte[] cmdPayload = new byte[commandBytes.Length-3];
+			Array.Copy(commandBytes, 3, cmdPayload, 0, commandBytes.Length-3);
+			
+			string result = commandBytes[0].ToString("X2") +
+				" {" + commandBytes[1].ToString("X2") + "}" +
+				"[" + commandBytes[2].ToString() + "]";
+			
+			// result += "{";
+			foreach (byte b in cmdPayload)
+			{
+				result += " " + b.ToString("X2");
+			}
+			// result += " }";
+			
+			return result;
+		}
+		
+		public static string GetHumanReadableBleCommandStr(byte[] commandBytes)
+		{
+			BleCmd cmd = (BleCmd)commandBytes[1];
+			byte cmdLength = commandBytes[2];
+			byte[] cmdPayload = new byte[cmdLength];
+			Array.Copy(commandBytes, 3, cmdPayload, 0, cmdLength);
+			
+			string result = "Ble_" + cmd.ToString() + "[" + cmdLength.ToString() + "]";
+			
+			switch (cmd)
+			{
+				default:
+				{
+					// result += "{";
+					foreach (byte b in cmdPayload)
+					{
+						result += " " + b.ToString("X2");
+					}
+					// result += " }";
+				} break;
+			};
+			
+			return result;
+		}
+		
+		public static string GetBleResponseStr(byte[] responseBytes)
+		{
+			byte[] rspPayload = new byte[responseBytes.Length-3];
+			Array.Copy(responseBytes, 3, rspPayload, 0, responseBytes.Length-3);
+			
+			string result = responseBytes[0].ToString("X2") +
+				" {" + responseBytes[1].ToString("X2") + "}" +
+				"[" + responseBytes[2].ToString() + "]";
+			
+			// result += "{";
+			foreach (byte b in rspPayload)
+			{
+				result += " " + b.ToString("X2");
+			}
+			// result += " }";
+			
+			return result;
+		}
+		
+		public static string GetHumanReadableBleResponseStr(byte[] responseBytes)
+		{
+			BleRsp rspCmd = (BleRsp)responseBytes[1];
+			byte rspLength = responseBytes[2];
+			byte[] rspPayload = new byte[rspLength];
+			Array.Copy(responseBytes, 3, rspPayload, 0, rspLength);
+			
+			string result = "Ble_" + rspCmd.ToString() + "[" + rspLength.ToString() + "]";
+			
+			switch (rspCmd)
+			{
+				case BleRsp.Success:
+				{
+					BleCmd bleCmd = (BleCmd)rspPayload[0];
+					result += ":" + bleCmd.ToString();
+				} break;
+				
+				case BleRsp.Failure:
+				{
+					BleCmd bleCmd = (BleCmd)rspPayload[0];
+					BleError bleError = (BleError)rspPayload[1];
+					result += ":" + bleCmd.ToString();
+					result += ":" + bleError.ToString();
+				} break;
+				
+				default:
+				{
+					// result += "{";
+					foreach (byte b in rspPayload)
+					{
+						result += " " + b.ToString("X2");
+					}
+					// result += " }";
+				} break;
+			};
+			
+			return result;
+		}
+		
+		public static void ProcessBleResponse(MainForm mainForm, byte[] responseBytes)
+		{
+			BleRsp rspCmd = (BleRsp)responseBytes[1];
+			byte rspLength = responseBytes[2];
+			byte[] rspPayload = new byte[rspLength];
+			Array.Copy(responseBytes, 3, rspPayload, 0, rspLength);
+			// string rspString = GetHumanReadableBleResponseStr(responseBytes);
+			// Console.WriteLine("Got " + rspString);
+			
+			switch (rspCmd)
+			{
+				//TODO: Add handlers for all the responses
+				
+				default:
+				{
+					Console.WriteLine("Unhandled BLE command 0x" + ((byte)rspCmd).ToString("X2"));
 				} break;
 			}
 		}

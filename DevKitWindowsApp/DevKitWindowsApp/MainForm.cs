@@ -213,11 +213,25 @@ namespace DevKitWindowsApp
 			
 			if (this.HumanReadableCheckbox.Checked)
 			{
-				commandStr = SureFi.GetHumanReadableResponseStr(responseBytes);
+				if (responseBytes[0] == 0x7E)
+				{
+					commandStr = SureFi.GetHumanReadableResponseStr(responseBytes);
+				}
+				else if (responseBytes[0] == 0x7C)
+				{
+					commandStr = SureFi.GetHumanReadableBleResponseStr(responseBytes);
+				}
 			}
 			else
 			{
-				commandStr = SureFi.GetResponseStr(responseBytes);
+				if (responseBytes[0] == 0x7E)
+				{
+					commandStr = SureFi.GetResponseStr(responseBytes);
+				}
+				else if (responseBytes[0] == 0x7C)
+				{
+					commandStr = SureFi.GetBleResponseStr(responseBytes);
+				}
 			}
 			
 			if (this.PrintStatusCheckbox.Checked || (SureRsp)responseBytes[1] != SureRsp.Status)
@@ -232,11 +246,25 @@ namespace DevKitWindowsApp
 			
 			if (this.HumanReadableCheckbox.Checked)
 			{
-				commandStr = SureFi.GetHumanReadableCommandStr(commandBytes);
+				if (commandBytes[0] == 0x7E)
+				{
+					commandStr = SureFi.GetHumanReadableCommandStr(commandBytes);
+				}
+				else if (commandBytes[0] == 0x7C)
+				{
+					commandStr = SureFi.GetHumanReadableBleCommandStr(commandBytes);
+				}
 			}
 			else
 			{
-				commandStr = SureFi.GetCommandStr(commandBytes);
+				if (commandBytes[0] == 0x7E)
+				{
+					commandStr = SureFi.GetCommandStr(commandBytes);
+				}
+				else if (commandBytes[0] == 0x7C)
+				{
+					commandStr = SureFi.GetBleCommandStr(commandBytes);
+				}
 			}
 			
 			this.OutputTextbox.AppendText(">>" + commandStr + "\r\n");
@@ -483,7 +511,19 @@ namespace DevKitWindowsApp
 					// 	Console.Write(b.ToString("X2") + " ");
 					// }
 					// Console.WriteLine("}");
-					SureFi.ProcessResponse(this, newCommand);
+					if (newCommand[0] == 0x7E)
+					{
+						SureFi.ProcessResponse(this, newCommand);
+					}
+					else if (newCommand[0] == 0x7C)
+					{
+						SureFi.ProcessBleResponse(this, newCommand);
+					}
+					else
+					{
+						//This really shouldn't happen
+						Console.WriteLine("Unknown ATTN character on popped command");
+					}
 					
 					newCommandList = this.port.PopRxCommand();
 				}
