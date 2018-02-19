@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"PushTx",
+				"PushTxCommandNoBytes"
+			],
+			[
+				"NarrowB",
+				"NarrowBandFrequencyCombobox"
+			],
+			[
 				"PushTxComm",
 				"PushTxCommand"
 			],
@@ -158,10 +166,6 @@
 			[
 				"Pol",
 				"PolarityCombobox"
-			],
-			[
-				"PushTx",
-				"PushTxCommand"
 			],
 			[
 				"packet",
@@ -510,10 +514,6 @@
 			[
 				"CPC",
 				"TC_CMR_CPCTRG\tCustom Constant"
-			],
-			[
-				"Micron",
-				"MicroEnableInterrupts\t()"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 15457,
+				"buffer_size": 21623,
 				"line_ending": "Windows"
 			}
 		},
@@ -540,7 +540,7 @@
 			"file": "DevKitWindowsApp/MainForm.cs",
 			"settings":
 			{
-				"buffer_size": 59642,
+				"buffer_size": 60567,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -549,7 +549,7 @@
 			"file": "DevKitWindowsApp/SureFi.cs",
 			"settings":
 			{
-				"buffer_size": 33766,
+				"buffer_size": 37897,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -558,7 +558,7 @@
 			"file": "DevKitWindowsApp/PortFifo.cs",
 			"settings":
 			{
-				"buffer_size": 5037,
+				"buffer_size": 5725,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -848,6 +848,9 @@
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Stable/SureFi_DevKit_Private/DevKitWindowsApp/DevKitWindowsApp/PortFifo.cs",
+		"/C/MyStuff/SureFi/Stable/SureFi_DevKit_Private/DevKitWindowsApp/DevKitWindowsApp/SureFi.cs",
+		"/C/MyStuff/SureFi/Stable/SureFi_DevKit_Private/DevKitWindowsApp/DevKitWindowsApp/MainForm.cs",
 		"/C/MyStuff/SureFi/Projects/AccessControlBridge/AcBridgeRadio/ExternalBoot.X/dist/larger_chip/production/ExternalBoot.X.production.hex",
 		"/C/MyStuff/SureFi/Old/SureFIModuleDeveloper/WindowsFormsApplication1/MainForm.cs",
 		"/C/MyStuff/SureFi/Old/SureFIModuleDeveloper/WindowsFormsApplication1/MainForm.Designer.cs",
@@ -972,10 +975,7 @@
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject3/GccBoardProject3/src/ASF/common/boards/board.h",
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/compiler.h",
 		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/asf.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/main.c",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/cmsis/sam4s/include/component/component_pio.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/utils/preprocessor/preprocessor.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/utils/parts.h"
+		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/main.c"
 	],
 	"find":
 	{
@@ -1234,15 +1234,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15457,
+						"buffer_size": 21623,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								981,
-								981
+								21623,
+								21623
 							]
 						],
 						"settings":
@@ -1250,16 +1250,16 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 5616.0,
+						"translation.y": 12592.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1297,15 +1297,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 59642,
+						"buffer_size": 60567,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15438,
-								15438
+								16676,
+								16676
 							]
 						],
 						"settings":
@@ -1313,10 +1313,10 @@
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 8240.0,
+						"translation.y": 2840.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1325,15 +1325,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33766,
+						"buffer_size": 37897,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8878,
-								8878
+								2352,
+								2352
 							]
 						],
 						"settings":
@@ -1341,7 +1341,7 @@
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 5882.0,
+						"translation.y": 175.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1353,15 +1353,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5037,
+						"buffer_size": 5725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								647,
-								666
+								4736,
+								4736
 							]
 						],
 						"settings":
@@ -1369,10 +1369,10 @@
 							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 54.0,
+						"translation.y": 3862.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

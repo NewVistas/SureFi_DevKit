@@ -54,8 +54,13 @@ static void ProcessBleCommandsAndResponses()
 		else if (cmdBuffer[0] == BLE_ATTN_CHAR)
 		{
 			//Commands prefixed with the BLE_ATTN_CHAR are for us to process and should not be sent to the radio
-			BleCommand_t* cmdPntr = (BleCommand_t*)&cmdBuffer[0];
-			HandleBleResponse(cmdPntr);
+			BleCommand_t* rspPntr = (BleCommand_t*)&cmdBuffer[0];
+			HandleBleResponse(rspPntr);
+			
+			if (WindowsModeEnabled())
+			{
+				AppUartSendData(AppUart_WindowsInterface, cmdBuffer, BLE_COMMAND_HEADER_SIZE + rspPntr->length);
+			}
 		}
 		else { Assert(false); } //this should never happen
 	}
@@ -63,7 +68,7 @@ static void ProcessBleCommandsAndResponses()
 
 static void ProcessWindowsCommands()
 {
-	while (AppUartPopCommand(AppUart_WindowsInterface, cmdBuffer, false))
+	while (AppUartPopCommand(AppUart_WindowsInterface, cmdBuffer, true))
 	{
 		if (cmdBuffer[0] == ATTN_CHAR)
 		{
@@ -77,6 +82,20 @@ static void ProcessWindowsCommands()
 			else
 			{
 				PrintLine_D("Got %u byte CMD from windows 0x%02X", cmdPntr->length, cmdPntr->cmd);
+			}
+		}
+		else if (cmdBuffer[0] == BLE_ATTN_CHAR)
+		{
+			BleCommand_t* cmdPntr = (BleCommand_t*)cmdBuffer;
+			if (WindowsModeEnabled())
+			{
+				//In windows mode we route all commands to the radio so you can
+				//control the Sure-Fi radio using a the windows application
+				AppUartSendData(AppUart_SureFiBle, cmdBuffer, BLE_COMMAND_HEADER_SIZE + cmdPntr->length);
+			}
+			else
+			{
+				PrintLine_D("Got %u byte BLE CMD from windows 0x%02X", cmdPntr->length, cmdPntr->cmd);
 			}
 		}
 		else { Assert(false); } //this should never happen
