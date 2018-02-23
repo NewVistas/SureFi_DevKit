@@ -57,13 +57,15 @@ void HandleDebugCommand(const char* commandStr)
 			default:                       PrintLine_I("RadioState: Unknown"); break;
 		};
 		PrintLine_I("Busy:             %s (0x%02X) %s", (SureModuleStatus.stateFlags     & StateFlags_BusyBit)                 ? "1" : "0", StateFlags_BusyBit,                 (SureIntEnableBits.stateFlags     & StateFlags_BusyBit)                 ? "INT" : "");
-		PrintLine_I("EncryptionActive: %s (0x%02X) %s", (SureModuleStatus.stateFlags     & StateFlags_EncryptionActiveBit)     ? "1" : "0", StateFlags_EncryptionActiveBit,     (SureIntEnableBits.stateFlags     & StateFlags_EncryptionActiveBit)     ? "INT" : "");
+		PrintLine_I("ChangingTables:   %s (0x%02X) %s", (SureModuleStatus.stateFlags     & StateFlags_ChangingTablesBit)       ? "1" : "0", StateFlags_ChangingTablesBit,       (SureIntEnableBits.stateFlags     & StateFlags_ChangingTablesBit)       ? "INT" : "");
 		PrintLine_I("RxInProgress:     %s (0x%02X) %s", (SureModuleStatus.stateFlags     & StateFlags_RxInProgressBit)         ? "1" : "0", StateFlags_RxInProgressBit,         (SureIntEnableBits.stateFlags     & StateFlags_RxInProgressBit)         ? "INT" : "");
-		PrintLine_I("SettingsPending:  %s (0x%02X) %s", (SureModuleStatus.stateFlags     & StateFlags_SettingsPendingBit)      ? "1" : "0", StateFlags_SettingsPendingBit,      (SureIntEnableBits.stateFlags     & StateFlags_SettingsPendingBit)      ? "INT" : "");
+		PrintLine_I("OnBaseTable:      %s (0x%02X) %s", (SureModuleStatus.stateFlags     & StateFlags_OnBaseTableBit)          ? "1" : "0", StateFlags_OnBaseTableBit,          (SureIntEnableBits.stateFlags     & StateFlags_OnBaseTableBit)          ? "INT" : "");
 		WriteLine_I("");
 		PrintLine_I("DoingLightshow:   %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_DoingLightshowBit)       ? "1" : "0", OtherFlags_DoingLightshowBit,       (SureIntEnableBits.otherFlags     & OtherFlags_DoingLightshowBit)       ? "INT" : "");
 		PrintLine_I("ShowingQos:       %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_ShowingQosBit)           ? "1" : "0", OtherFlags_ShowingQosBit,           (SureIntEnableBits.otherFlags     & OtherFlags_ShowingQosBit)           ? "INT" : "");
 		PrintLine_I("ButtonDown:       %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_ButtonDownBit)           ? "1" : "0", OtherFlags_ButtonDownBit,           (SureIntEnableBits.otherFlags     & OtherFlags_ButtonDownBit)           ? "INT" : "");
+		PrintLine_I("EncryptionActive: %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_EncryptionActiveBit)     ? "1" : "0", OtherFlags_EncryptionActiveBit,     (SureIntEnableBits.otherFlags     & OtherFlags_EncryptionActiveBit)     ? "INT" : "");
+		PrintLine_I("SettingsPending:  %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_SettingsPendingBit)      ? "1" : "0", OtherFlags_SettingsPendingBit,      (SureIntEnableBits.otherFlags     & OtherFlags_SettingsPendingBit)      ? "INT" : "");
 		WriteLine_I("");
 		PrintLine_I("WasReset:         %s (0x%02X) %s", (SureModuleStatus.clearableFlags & ClearableFlags_WasResetBit)         ? "1" : "0", ClearableFlags_WasResetBit,         (SureIntEnableBits.clearableFlags & ClearableFlags_WasResetBit)         ? "INT" : "");
 		PrintLine_I("TransmitFinished: %s (0x%02X) %s", (SureModuleStatus.clearableFlags & ClearableFlags_TransmitFinishedBit) ? "1" : "0", ClearableFlags_TransmitFinishedBit, (SureIntEnableBits.clearableFlags & ClearableFlags_TransmitFinishedBit) ? "INT" : "");

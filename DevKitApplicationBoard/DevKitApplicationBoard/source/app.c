@@ -23,7 +23,7 @@ Description:
 #define APP_BUTTON_DEBOUNCE_TIME  50 //ms
 
 #define APP_UID_SIZE     3 //bytes
-#define APP_PAYLOAD_SIZE 4 //bytes
+#define APP_PAYLOAD_SIZE 3 //bytes
 #define APP_PACKET_SIZE  (APP_UID_SIZE+APP_PAYLOAD_SIZE) //bytes
 #define APP_FHSS_TABLE   200
 
@@ -50,7 +50,7 @@ static bool ourModuleButtonDown = false;
 static bool otherButtonDown = false;
 static bool otherModuleButtonDown = false;
 
-#if 1
+#if 0
 static const u8 rxUid[APP_UID_SIZE] = { 0x10, 0x00, 0x01 };
 static const u8 txUid[APP_UID_SIZE] = { 0x20, 0x00, 0x01 };
 #else
@@ -182,11 +182,11 @@ static void TransmitFinishedCallback(u8 sentPayloadSize, const u8* sentPayload,
 	
 	if (txInfo->success)
 	{
-		PrintLine_I("Transmit Succeeded! (%d, %d) %u retries", txInfo->rssi, txInfo->snr, txInfo->numRetries);
+		PrintLine_I("Transmit Succeeded! (%d, %d) %u/%u retries", txInfo->rssi, txInfo->snr, txInfo->numRetries, txInfo->maxRetries);
 	}
 	else
 	{
-		PrintLine_E("Transmit Failed! (%d, %d) %u retries", txInfo->rssi, txInfo->snr, txInfo->numRetries);
+		PrintLine_E("Transmit Failed! (%d, %d) %u/%u retries", txInfo->rssi, txInfo->snr, txInfo->numRetries, txInfo->maxRetries);
 	}
 	
 	if (ackDataLength > 0 && ackData != nullptr)

@@ -320,7 +320,7 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 			if (PrintSureResponses)
 			{
 				Print_D("SureRsp_TransmitInfo[%u]", rsp->length);
-				PrintLine_D(": %s (%d, %d) %u retries", rsp->payload.txInfo.success ? "Success" : "Failure", rsp->payload.txInfo.rssi, rsp->payload.txInfo.snr, rsp->payload.txInfo.numRetries);
+				PrintLine_D(": %s (%d, %d) %u/%u retries", rsp->payload.txInfo.success ? "Success" : "Failure", rsp->payload.txInfo.rssi, rsp->payload.txInfo.snr, rsp->payload.txInfo.numRetries, rsp->payload.txInfo.maxRetries);
 			}
 			SureTxInfo = rsp->payload.txInfo;
 			SureGotTxInfo = true;

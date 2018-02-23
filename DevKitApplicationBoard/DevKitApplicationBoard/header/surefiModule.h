@@ -19,6 +19,7 @@ Date:   11\29\2017
 #define MAX_SERIAL_STR_LENGTH     31
 #define MAX_ADV_DATA_LENGTH       19
 #define MAX_ADV_NAME_LENGTH       22
+#define MODULE_OVERHEAD_SIZE      2 //bytes
 
 // +--------------------------------------------------------------+
 // |                         Enumerations                         |
@@ -203,9 +204,9 @@ enum //stateFlags
 {
 	StateFlags_RadioStateBits      = 0x0F,
 	StateFlags_BusyBit             = 0x10,
-	StateFlags_EncryptionActiveBit = 0x20,
+	StateFlags_ChangingTablesBit   = 0x20,
 	StateFlags_RxInProgressBit     = 0x40,
-	StateFlags_SettingsPendingBit  = 0x80,
+	StateFlags_OnBaseTableBit      = 0x80,
 };
 
 enum //otherFlags
@@ -213,6 +214,8 @@ enum //otherFlags
 	OtherFlags_DoingLightshowBit   = 0x01,
 	OtherFlags_ShowingQosBit       = 0x02,
 	OtherFlags_ButtonDownBit       = 0x04,
+	OtherFlags_EncryptionActiveBit = 0x08,
+	OtherFlags_SettingsPendingBit  = 0x10,
 };
 
 enum //clearableFlags
@@ -260,6 +263,7 @@ typedef struct __attribute__((packed))
 	int16_t rssi;
 	int8_t  snr;
 	uint8_t  numRetries;
+	uint8_t  maxRetries;
 	uint8_t  ackDataLength;
 } TransmitInfo_t;
 
@@ -336,14 +340,16 @@ typedef union __attribute__((packed))
 		//Read-only Flags
 		unsigned radioState:4;
 		unsigned busy:1;
-		unsigned encryptionActive:1;
+		unsigned changingTables:1;
 		unsigned rxInProgress:1;
-		unsigned settingsPending:1;
+		unsigned onBaseTable:1;
 		
 		unsigned doingLightshow:1;
 		unsigned showingQos:1;
 		unsigned buttonDown:1;
-		unsigned :5;
+		unsigned encryptionActive:1;
+		unsigned settingsPending:1;
+		unsigned :3;
 		
 		//Clearable Flags
 		unsigned wasReset:1;
@@ -484,6 +490,7 @@ enum //SureCmd_
 	SureCmd_SetRadioPolarity,      // 1 byte
 	SureCmd_SetTransmitPower,      // 1 byte
 	SureCmd_SetAckData,            // Variable length
+	SureCmd_SetTableHoppingEnabled,// 1 byte
 	
 	SureCmd_SetQosConfig = 0x60,   // 1 byte
 	SureCmd_SetIndications,        // 3 bytes (4 bits per LED)
@@ -504,6 +511,7 @@ enum //SureCmd_
 	SureCmd_GetRadioPolarity,      // 0 bytes
 	SureCmd_GetTransmitPower,      // 0 bytes
 	SureCmd_GetAckData,            // 0 bytes
+	SureCmd_GetTableHoppingEnabled,// 0 bytes
 	
 	SureCmd_GetQosConfig = 0x80,   // 0 bytes
 	SureCmd_GetIndications,        // 0 bytes
@@ -551,6 +559,7 @@ enum //SureRsp_
 	SureRsp_RadioPolarity,      // 1 byte
 	SureRsp_TransmitPower,      // 1 byte
 	SureRsp_AckData,            // Variable length
+	SureRsp_TableHoppingEnabled,// 1 byte
 	
 	SureRsp_QosConfig = 0x80,   // 1 byte
 	SureRsp_Indications,        // 3 bytes
