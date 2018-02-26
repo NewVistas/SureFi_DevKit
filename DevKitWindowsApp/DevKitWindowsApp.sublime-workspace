@@ -523,7 +523,7 @@
 			"file": "/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 21691,
+				"buffer_size": 21921,
 				"line_ending": "Windows"
 			}
 		},
@@ -549,7 +549,7 @@
 			"file": "DevKitWindowsApp/SureFi.cs",
 			"settings":
 			{
-				"buffer_size": 37897,
+				"buffer_size": 37980,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -1043,6 +1043,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Status",
 			"OutputTextBox",
 			"PopRxCommand",
 			"RxCountLabel",
@@ -1169,8 +1170,7 @@
 			"PRINT_RADIO_REGS",
 			"RADIO_REGS_LORA",
 			"RADIO_REGS_FSK",
-			"SX1276_CLKOUT",
-			"CAD_DETECT_ENABLED"
+			"SX1276_CLKOUT"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1234,15 +1234,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21691,
+						"buffer_size": 21921,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11508,
-								11508
+								15377,
+								15377
 							]
 						],
 						"settings":
@@ -1250,7 +1250,7 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7992.0,
+						"translation.y": 9828.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1326,15 +1326,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 37897,
+						"buffer_size": 37980,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22142,
-								22142
+								23787,
+								23787
 							]
 						],
 						"settings":
@@ -1343,7 +1343,7 @@
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 13802.0,
+						"translation.y": 14594.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,

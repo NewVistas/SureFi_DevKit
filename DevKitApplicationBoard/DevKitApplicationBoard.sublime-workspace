@@ -523,7 +523,7 @@
 			"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
 			"settings":
 			{
-				"buffer_size": 15821,
+				"buffer_size": 17787,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,7 +532,7 @@
 			"file": "DevKitApplicationBoard/header/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 19761,
+				"buffer_size": 20972,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -549,7 +549,7 @@
 			"file": "DevKitApplicationBoard/source/main.c",
 			"settings":
 			{
-				"buffer_size": 5028,
+				"buffer_size": 5648,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -558,7 +558,7 @@
 			"file": "DevKitApplicationBoard/source/app.c",
 			"settings":
 			{
-				"buffer_size": 9221,
+				"buffer_size": 9288,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -576,7 +576,7 @@
 			"file": "DevKitApplicationBoard/source/bleCommands.c",
 			"settings":
 			{
-				"buffer_size": 5689,
+				"buffer_size": 10323,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -585,7 +585,7 @@
 			"file": "DevKitApplicationBoard/source/bleResponses.c",
 			"settings":
 			{
-				"buffer_size": 7536,
+				"buffer_size": 8904,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -876,6 +876,7 @@
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleResponses.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleApp.h",
@@ -888,7 +889,6 @@
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/uartFifos.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/debugCommands.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/uartFifos.c",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/helpers.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/debugCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard.sublime-project",
@@ -1263,15 +1263,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15821,
+						"buffer_size": 17787,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1557,
-								1558
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1291,15 +1291,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19761,
+						"buffer_size": 20972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17149,
-								17105
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1307,7 +1307,7 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3721.0,
+						"translation.y": 8257.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1347,15 +1347,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5028,
+						"buffer_size": 5648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4571,
-								4571
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1375,15 +1375,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9221,
+						"buffer_size": 9288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								571,
-								527
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1394,7 +1394,7 @@
 						"translation.y": 1518.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1422,7 +1422,7 @@
 						"translation.y": 1458.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1431,15 +1431,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5689,
+						"buffer_size": 10323,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3838,
-								3855
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1450,7 +1450,7 @@
 						"translation.y": 2148.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1459,15 +1459,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7536,
+						"buffer_size": 8904,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3553,
-								3553
+								3232,
+								3232
 							]
 						],
 						"settings":
@@ -1506,7 +1506,7 @@
 						"translation.y": 3510.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1585,6 +1585,10 @@
 		"selected_items":
 		[
 			[
+				"helper",
+				"DevKitApplicationBoard\\source\\helpers.c"
+			],
+			[
 				"surere",
 				"DevKitApplicationBoard\\source\\sureResponses.c"
 			],
@@ -1619,10 +1623,6 @@
 			[
 				"defines.h",
 				"DevKitApplicationBoard\\header\\defines.h"
-			],
-			[
-				"helper",
-				"DevKitApplicationBoard\\source\\helpers.c"
 			],
 			[
 				"app.c",

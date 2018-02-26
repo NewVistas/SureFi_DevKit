@@ -820,25 +820,26 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.AllSettings:
 				{
-					if (rspPayload.Length == 13)
+					if (rspPayload.Length == 14)
 					{
-						byte radioMode         = rspPayload[0];
-						byte fhssTable         = rspPayload[1];
-						byte receivePacketSize = rspPayload[2];
-						byte radioPolarity     = rspPayload[3];
-						byte transmitPower     = rspPayload[4];
-						byte qosConfig         = rspPayload[5];
-						byte indication1       = (byte)((rspPayload[6]>>0) & 0x0F);
-						byte indication2       = (byte)((rspPayload[6]>>4) & 0x0F);
-						byte indication3       = (byte)((rspPayload[7]>>0) & 0x0F);
-						byte indication4       = (byte)((rspPayload[7]>>4) & 0x0F);
-						byte indication5       = (byte)((rspPayload[8]>>0) & 0x0F);
-						byte indication6       = (byte)((rspPayload[8]>>4) & 0x0F);
-						bool quietModeEnabled  = (rspPayload[9] != 0x00);
-						byte buttonConfig      = (byte)((rspPayload[10]>>0) & 0x0F);
-						byte buttonHoldTime    = (byte)((rspPayload[10]>>4) & 0x0F);
-						bool acksEnabled       = (rspPayload[11] != 0x00);
-						byte numRetries        = rspPayload[12];
+						byte radioMode           = rspPayload[0];
+						byte fhssTable           = rspPayload[1];
+						byte receivePacketSize   = rspPayload[2];
+						byte radioPolarity       = rspPayload[3];
+						byte transmitPower       = rspPayload[4];
+						byte tableHoppingEnabled = rspPayload[5];
+						byte qosConfig           = rspPayload[6];
+						byte indication1         = (byte)((rspPayload[7]>>0) & 0x0F);
+						byte indication2         = (byte)((rspPayload[7]>>4) & 0x0F);
+						byte indication3         = (byte)((rspPayload[8]>>0) & 0x0F);
+						byte indication4         = (byte)((rspPayload[8]>>4) & 0x0F);
+						byte indication5         = (byte)((rspPayload[9]>>0) & 0x0F);
+						byte indication6         = (byte)((rspPayload[9]>>4) & 0x0F);
+						bool quietModeEnabled    = (rspPayload[10] != 0x00);
+						byte buttonConfig        = (byte)((rspPayload[11]>>0) & 0x0F);
+						byte buttonHoldTime      = (byte)((rspPayload[11]>>4) & 0x0F);
+						bool acksEnabled         = (rspPayload[12] != 0x00);
+						byte numRetries          = rspPayload[13];
 						
 						mainForm.updatingElement = true;
 						
