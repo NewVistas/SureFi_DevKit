@@ -54,6 +54,7 @@ void SureSetRadioPolarity(u8 polarity);
 void SureDisableRadioPolarity();
 void SureSetTransmitPower(u8 transmitPower);
 void SureSetAckData(u8 ackDataLength, const u8* ackDataPntr);
+void SureSetTableHoppingEnabled(bool enabled);
 
 void SureSetQosConfig(u8 qosConfig);
 void SureSetIndications(u8 led1, u8 led2, u8 led3, u8 led4, u8 led5, u8 led6);

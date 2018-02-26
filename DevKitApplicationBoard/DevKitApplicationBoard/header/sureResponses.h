@@ -55,6 +55,7 @@ extern u8 SureRadioPolarity;                    extern bool SureGotRadioPolarity
 extern u8 SureTransmitPower;                    extern bool SureGotTransmitPower;
 extern u8 SureAckDataLength;
 extern u8 SureAckData[MAX_RX_PACKET_LENGTH];    extern bool SureGotAckData;
+extern bool SureTableHoppingEnabled;            extern bool SureGotTableHoppingEnabled;
 
 extern u8   SureQosConfig;                      extern bool SureGotQosConfig;
 extern u8   SureIndications[6];                 extern bool SureGotIndications;

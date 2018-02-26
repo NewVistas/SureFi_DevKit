@@ -267,6 +267,11 @@ void SureSetAckData(u8 ackDataLength, const u8* ackDataPntr)
 	SureSendCommand(sureCmd);
 }
 
+void SureSetTableHoppingEnabled(bool enabled)
+{
+	SureSendOneBytePayload(SureCmd_SetTableHoppingEnabled, enabled ? 0x01 : 0x00);
+}
+
 void SureSetQosConfig(u8 qosConfig)
 {
 	SureSendOneBytePayload(SureCmd_SetQosConfig, qosConfig);
@@ -590,6 +595,12 @@ bool SureHandleDebugCommand(const char* commandStr)
 			payloadBuffer[pIndex] = ParseHexByte(&commandStr[11 + pIndex*2]);
 		}
 		SureSetAckData(pIndex, payloadBuffer);
+		return true;
+	}
+	else if (commandLength == 23+2 && strncmp(commandStr, "setTableHoppingEnabled ", 23) == 0)
+	{
+		u8 inputValue = ParseHexByte(&commandStr[23]);
+		SureSetTableHoppingEnabled(inputValue > 0);
 		return true;
 	}
 	else if (commandLength == 13+2 && strncmp(commandStr, "setQosConfig ", 13) == 0)

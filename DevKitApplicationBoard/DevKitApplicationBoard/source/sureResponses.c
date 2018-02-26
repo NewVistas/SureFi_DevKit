@@ -33,41 +33,42 @@ u8 SureFailureError = 0x00;
 
 bool SureGotTransmitFinished = false;
 
-ModuleStatus_t SureModuleStatus;         bool SureGotModuleStatus      = false;
-ModuleStatus_t SureIntEnableBits;        bool SureGotIntEnableBits     = false;
-ModuleVersion_t SureModuleVersion;       bool SureGotModuleVersion     = false;
-u16 SurePacketTimeOnAir = 0x0000;        bool SureGotPacketTimeOnAir   = false;
-u32 SureRandomNumber = 0x00000000;       bool SureGotRandomNumber      = false;
+ModuleStatus_t SureModuleStatus;         bool SureGotModuleStatus        = false;
+ModuleStatus_t SureIntEnableBits;        bool SureGotIntEnableBits       = false;
+ModuleVersion_t SureModuleVersion;       bool SureGotModuleVersion       = false;
+u16 SurePacketTimeOnAir = 0x0000;        bool SureGotPacketTimeOnAir     = false;
+u32 SureRandomNumber = 0x00000000;       bool SureGotRandomNumber        = false;
 u8  SureRxPacketLength = 0x00;
-u8  SureRxPacket[MAX_RX_PACKET_LENGTH];  bool SureGotRxPacket          = false;
+u8  SureRxPacket[MAX_RX_PACKET_LENGTH];  bool SureGotRxPacket            = false;
 u8  SureAckPacketLength = 0x00;
-u8  SureAckPacket[MAX_RX_PACKET_LENGTH]; bool SureGotAckPacket         = false;
-ReceiveInfo_t SureRxInfo;                bool SureGotRxInfo            = false;
-TransmitInfo_t SureTxInfo;               bool SureGotTxInfo            = false;
-char SureSerial[MAX_SERIAL_STR_LENGTH+1];bool SureGotSerial            = false;
+u8  SureAckPacket[MAX_RX_PACKET_LENGTH]; bool SureGotAckPacket           = false;
+ReceiveInfo_t SureRxInfo;                bool SureGotRxInfo              = false;
+TransmitInfo_t SureTxInfo;               bool SureGotTxInfo              = false;
+char SureSerial[MAX_SERIAL_STR_LENGTH+1];bool SureGotSerial              = false;
 
-ModuleSettings_t SureAllSettings;        bool SureGotAllSettings       = false;
-u8 SureRadioMode = 0x00;                 bool SureGotRadioMode         = false;
+ModuleSettings_t SureAllSettings;        bool SureGotAllSettings         = false;
+u8 SureRadioMode = 0x00;                 bool SureGotRadioMode           = false;
 u8 SureSpreadingFactor = 0x00;
 u8 SureBandwidth = 0x00;
-u8 SureFhssTable = 0x00;                 bool SureGotFhssTable         = false;
+u8 SureFhssTable = 0x00;                 bool SureGotFhssTable           = false;
 u8 SureReceiveUidLength = 0x00;
-u8 SureReceiveUid[MAX_UID_LENGTH];       bool SureGotReceiveUid        = false;
+u8 SureReceiveUid[MAX_UID_LENGTH];       bool SureGotReceiveUid          = false;
 u8 SureTransmitUidLength = 0x00;
-u8 SureTransmitUid[MAX_UID_LENGTH];      bool SureGotTransmitUid       = false;
-u8 SureReceivePacketSize = 0x00;         bool SureGotReceivePacketSize = false;
-u8 SureRadioPolarity = 0x00;             bool SureGotRadioPolarity     = false;
-u8 SureTransmitPower = 0x00;             bool SureGotTransmitPower     = false;
+u8 SureTransmitUid[MAX_UID_LENGTH];      bool SureGotTransmitUid         = false;
+u8 SureReceivePacketSize = 0x00;         bool SureGotReceivePacketSize   = false;
+u8 SureRadioPolarity = 0x00;             bool SureGotRadioPolarity       = false;
+u8 SureTransmitPower = 0x00;             bool SureGotTransmitPower       = false;
 u8 SureAckDataLength = 0x00;
-u8 SureAckData[MAX_RX_PACKET_LENGTH];    bool SureGotAckData           = false;
+u8 SureAckData[MAX_RX_PACKET_LENGTH];    bool SureGotAckData             = false;
+bool SureTableHoppingEnabled = false;    bool SureGotTableHoppingEnabled = false;
 
-u8   SureQosConfig = 0x00;               bool SureGotQosConfig         = false;
-u8   SureIndications[6];                 bool SureGotIndications       = false;
-bool SureQuietMode = false;              bool SureGotQuietMode         = false;
+u8   SureQosConfig = 0x00;               bool SureGotQosConfig           = false;
+u8   SureIndications[6];                 bool SureGotIndications         = false;
+bool SureQuietMode = false;              bool SureGotQuietMode           = false;
 u8   SureButtonHoldTime = 0x00;
-u8   SureButtonConfig = 0x00;            bool SureGotButtonConfig      = false;
-bool SureAcksEnabled = false;            bool SureGotAcksEnabled       = false;
-u8   SureNumRetries = 0x00;              bool SureGotNumRetries        = false;
+u8   SureButtonConfig = 0x00;            bool SureGotButtonConfig        = false;
+bool SureAcksEnabled = false;            bool SureGotAcksEnabled         = false;
+u8   SureNumRetries = 0x00;              bool SureGotNumRetries          = false;
 
 // +--------------------------------------------------------------+
 // |                       Private Globals                        |
@@ -417,6 +418,8 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 			SureGotRadioPolarity = true;
 			SureTransmitPower = rsp->payload.allSettings.transmitPower;
 			SureGotTransmitPower = true;
+			SureTableHoppingEnabled = rsp->payload.allSettings.tableHoppingEnabled;
+			SureGotTableHoppingEnabled = true;
 			SureQosConfig = rsp->payload.allSettings.qosConfig;
 			SureGotQosConfig = true;
 			SureIndications[0] = ((rsp->payload.allSettings.indications[0]>>0) & 0x0F);
@@ -585,6 +588,19 @@ void HandleRadioResponse(const SureCommand_t* rsp)
 		} break;
 		
 		// +==============================+
+		// | SureRsp_TableHoppingEnabled  |
+		// +==============================+
+		case SureRsp_TableHoppingEnabled:
+		{
+			if (PrintSureResponses)
+			{
+				PrintLine_D("SureRsp_TableHoppingEnabled[%u]: %s", rsp->length, rsp->payload.bytes[0] ? "Enabled" : "Disabled");
+			}
+			SureTableHoppingEnabled = (rsp->payload.bytes[0] > 0);
+			SureGotTableHoppingEnabled = true;
+		} break;
+		
+		// +==============================+
 		// |      SureRsp_QosConfig       |
 		// +==============================+
 		case SureRsp_QosConfig:
@@ -692,7 +708,7 @@ void PrintRadioInfo()
 			SureModuleStatus.configFlags, SureModuleStatus.clearableFlags,
 			SureModuleStatus.otherFlags, SureModuleStatus.stateFlags);
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("IntEnableBits:     ");
 	if (SureGotIntEnableBits)
@@ -701,7 +717,7 @@ void PrintRadioInfo()
 			SureIntEnableBits.configFlags, SureIntEnableBits.clearableFlags,
 			SureIntEnableBits.otherFlags, SureIntEnableBits.stateFlags);
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("ModuleVersion:     ");
 	if (SureGotModuleVersion)
@@ -711,15 +727,22 @@ void PrintRadioInfo()
 			SureModuleVersion.hardware.major, SureModuleVersion.hardware.minor,
 			SureModuleVersion.mcu.id, SureModuleVersion.mcu.revision);
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
+	
+	Write_I("RegisteredSerial:  ");
+	if (SureGotSerial)
+	{
+		PrintLine_I("%s", SureSerial);
+	}
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("PacketTimeOnAir:   ");
-	if (SureGotPacketTimeOnAir)   { PrintLine_I("%ums", SurePacketTimeOnAir); }
-	else                          { WriteLine_I("Unknown"); }
+	if (SureGotPacketTimeOnAir) { PrintLine_I("%ums", SurePacketTimeOnAir); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("RandomNumber:      ");
-	if (SureGotRandomNumber)      { PrintLine_I("0x%08X", SureRandomNumber); }
-	else                          { WriteLine_I("Unknown"); }
+	if (SureGotRandomNumber) { PrintLine_I("0x%08X", SureRandomNumber); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("RxPacket:          ");
 	if (SureGotRxPacket)
@@ -728,7 +751,7 @@ void PrintRadioInfo()
 		for (bIndex = 0; bIndex < SureRxPacketLength; bIndex++) { Print_I("%02X ", SureRxPacket[bIndex]); }
 		WriteLine_I("}");
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("AckPacket:         ");
 	if (SureGotAckPacket)
@@ -737,7 +760,7 @@ void PrintRadioInfo()
 		for (bIndex = 0; bIndex < SureAckPacketLength; bIndex++) { Print_I("%02X ", SureAckPacket[bIndex]); }
 		WriteLine_I("}");
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("RxInfo:            ");
 	if (SureGotRxInfo)
@@ -745,7 +768,7 @@ void PrintRadioInfo()
 		PrintLine_I("%s (%d, %d)",
 			SureRxInfo.success ? "Valid" : "Checksum", SureRxInfo.rssi, SureRxInfo.snr);
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
 	Write_I("TxInfo:            ");
 	if (SureGotTxInfo)
@@ -753,136 +776,97 @@ void PrintRadioInfo()
 		PrintLine_I("%s (%d, %d) %u retries",
 			SureTxInfo.success ? "Success" : "Failure", SureTxInfo.rssi, SureTxInfo.snr, SureTxInfo.numRetries);
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
 	PrintLine_O("AllSettings: %s", SureGotAllSettings ? "Obtained" : "Not-Obtained");
 	
-	Write_I("RadioMode:         ");
+	Write_I("RadioMode:           ");
 	if (SureGotRadioMode)
 	{
 		if (SureRadioMode == RadioMode_Custom) { PrintLine_I("Custom SF: 0x%02X BW: 0x%02X", SureSpreadingFactor, SureBandwidth); }
 		else { PrintLine_I("0x%02X", SureRadioMode); }
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("FhssTable:         ");
-	if (SureGotFhssTable)         { PrintLine_I("%u", SureFhssTable); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("FhssTable:           ");
+	if (SureGotFhssTable) { PrintLine_I("%u", SureFhssTable); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("ReceiveUid:        ");
+	Write_I("ReceiveUid:          ");
 	if (SureGotReceiveUid)
 	{
 		Print_I("[%u]{ ", SureReceiveUidLength);
 		for (bIndex = 0; bIndex < SureReceiveUidLength; bIndex++) { Print_I("%02X ", SureReceiveUid[bIndex]); }
 		WriteLine_I("}");
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("TransmitUid:       ");
+	Write_I("TransmitUid:         ");
 	if (SureGotTransmitUid)
 	{
 		Print_I("[%u]{ ", SureTransmitUidLength);
 		for (bIndex = 0; bIndex < SureTransmitUidLength; bIndex++) { Print_I("%02X ", SureTransmitUid[bIndex]); }
 		WriteLine_I("}");
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("ReceivePacketSize: ");
+	Write_I("ReceivePacketSize:   ");
 	if (SureGotReceivePacketSize) { PrintLine_I("%u", SureReceivePacketSize); }
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("RadioPolarity:     ");
-	if (SureGotRadioPolarity)     { PrintLine_I("0x%02X", SureRadioPolarity); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("RadioPolarity:       ");
+	if (SureGotRadioPolarity) { PrintLine_I("0x%02X", SureRadioPolarity); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("TransmitPower:     ");
-	if (SureGotTransmitPower)     { PrintLine_I("0x%02X", SureTransmitPower); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("TransmitPower:       ");
+	if (SureGotTransmitPower) { PrintLine_I("0x%02X", SureTransmitPower); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("AckData:           ");
+	Write_I("TableHoppingEnabled: ");
+	if (SureGotTableHoppingEnabled) { PrintLine_I("%s", SureTableHoppingEnabled ? "Enabled" : "Disabled"); }
+	else { WriteLine_I("Unknown"); }
+	
+	Write_I("AckData:             ");
 	if (SureGotAckData)
 	{
 		Print_I("[%u]{ ", SureAckDataLength);
 		for (bIndex = 0; bIndex < SureAckDataLength; bIndex++) { Print_I("%02X ", SureAckData[bIndex]); }
 		WriteLine_I("}");
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("QosConfig:         ");
-	if (SureGotQosConfig)         { PrintLine_I("0x%02X", SureQosConfig); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("QosConfig:           ");
+	if (SureGotQosConfig) { PrintLine_I("0x%02X", SureQosConfig); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("Indications:       ");
+	Write_I("Indications:         ");
 	if (SureGotIndications)
 	{
 		PrintLine_I("[%X][%X][%X][%X][%X][%X]",
 			SureIndications[0], SureIndications[1], SureIndications[2],
 			SureIndications[3], SureIndications[4], SureIndications[5]);
 	}
-	else                          { WriteLine_I("Unknown"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("QuietMode:         ");
-	if (SureGotQuietMode)         { PrintLine_I("%s", SureQuietMode ? "Enabled" : "Disabled"); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("QuietMode:           ");
+	if (SureGotQuietMode) { PrintLine_I("%s", SureQuietMode ? "Enabled" : "Disabled"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("ButtonHoldTime:    ");
-	if (SureGotButtonConfig)      { PrintLine_I("%us", SureButtonHoldTime); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("ButtonHoldTime:      ");
+	if (SureGotButtonConfig) { PrintLine_I("%us", SureButtonHoldTime); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("ButtonConfig:      ");
-	if (SureGotButtonConfig)      { PrintLine_I("0x%02X", SureButtonConfig); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("ButtonConfig:        ");
+	if (SureGotButtonConfig) { PrintLine_I("0x%02X", SureButtonConfig); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("AcksEnabled:       ");
-	if (SureGotAcksEnabled)       { PrintLine_I("%s", SureAcksEnabled ? "Enabled" : "Disabled"); }
-	else                          { WriteLine_I("Unknown"); }
+	Write_I("AcksEnabled:         ");
+	if (SureGotAcksEnabled) { PrintLine_I("%s", SureAcksEnabled ? "Enabled" : "Disabled"); }
+	else { WriteLine_I("Unknown"); }
 	
-	Write_I("NumRetries:        ");
-	if (SureGotNumRetries)        { PrintLine_I("%u", SureNumRetries); }
-	else                          { WriteLine_I("Unknown"); }
-	
-	// PrintLine_I("ModuleVersion       = FRM: %u.%u(%u) HRD: %u.%u",
-	// 	SureModuleVersion.firmware.major, SureModuleVersion.firmware.minor, SureModuleVersion.firmware.build,
-	// 	SureModuleVersion.hardware.major, SureModuleVersion.hardware.minor);
-	// PrintLine_I("SurePacketTimeOnAir = %ums", SurePacketTimeOnAir);
-	// PrintLine_I("RandomNumber        = 0x%08X", SureRandomNumber);
-	// PrintLine_I("RxPacketLength      = %u", SureRxPacketLength);
-	// Write_I    ("RxPacket            = { ");
-	// for(bIndex = 0; bIndex < SureRxPacketLength; bIndex++)
-	// {
-		
-	// }
-	// PrintLine_I("AckPacketLength     = %u", SureAckPacketLength);
-	// Write_I("AckPacket           = { ");
-	// PrintLine_I("RxInfo              = %s (%d, %d)",
-	// 	SureRxInfo.success ? "Valid" : "Checksum", SureRxInfo.rssi, SureRxInfo.snr);
-	// PrintLine_I("TxInfo              = %s (%d, %d) %u retries",
-	// 	SureTxInfo.success ? "Success" : "Failure", SureTxInfo.rssi, SureTxInfo.snr, SureTxInfo.numRetries);
-	
-	// WriteLine_O("Sure-Fi Radio Settings:");
-	// // PrintLine_I("AllSettings         = %02X", SureAllSettings);
-	// PrintLine_I("RadioMode           = 0x%02X", SureRadioMode);
-	// PrintLine_I("SpreadingFactor     = 0x%02X", SureSpreadingFactor);
-	// PrintLine_I("Bandwidth           = 0x%02X", SureBandwidth);
-	// PrintLine_I("FhssTable           = 0x%02X", SureFhssTable);
-	// PrintLine_I("ReceiveUidLength    = %u", SureReceiveUidLength);
-	// // PrintLine_I("ReceiveUid          = %02X", SureReceiveUid);
-	// PrintLine_I("TransmitUidLength   = %u", SureTransmitUidLength);
-	// // PrintLine_I("TransmitUid         = %02X", SureTransmitUid);
-	// PrintLine_I("ReceivePacketSize   = %u", SureReceivePacketSize);
-	// PrintLine_I("RadioPolarity       = 0x%02X", SureRadioPolarity);
-	// PrintLine_I("TransmitPower       = 0x%02X", SureTransmitPower);
-	// PrintLine_I("AckDataLength       = %u", SureAckDataLength);
-	// // PrintLine_I("AckData             = %02X", SureAckData);
-	// PrintLine_I("QosConfig           = 0x%02X", SureQosConfig);
-	// PrintLine_I("Indications         = [%01X][%01X][%01X][%01X][%01X][%01X]",
-	// 	SureIndications[0], SureIndications[1], SureIndications[2],
-	// 	SureIndications[3], SureIndications[4], SureIndications[5]);
-	// PrintLine_I("QuietMode           = %s", SureQuietMode ? "Enabled" : "Disabled");
-	// PrintLine_I("ButtonHoldTime      = %us", SureButtonHoldTime);
-	// PrintLine_I("ButtonConfig        = 0x%02X", SureButtonConfig);
-	// PrintLine_I("AcksEnabled         = %s", SureAcksEnabled ? "Enabled" : "Disabled");
-	// PrintLine_I("NumRetries          = %u", SureNumRetries);
+	Write_I("NumRetries:          ");
+	if (SureGotNumRetries) { PrintLine_I("%u", SureNumRetries); }
+	else { WriteLine_I("Unknown"); }
 }
 
 // +--------------------------------------------------------------+

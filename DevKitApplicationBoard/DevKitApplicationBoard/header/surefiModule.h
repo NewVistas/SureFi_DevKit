@@ -313,6 +313,7 @@ typedef struct __attribute__((packed))
 	uint8_t receivePacketSize;
 	uint8_t radioPolarity;
 	uint8_t transmitPower;
+	uint8_t tableHoppingEnabled;
 	uint8_t qosConfig;
 	uint8_t indications[3];
 	uint8_t quietMode;
