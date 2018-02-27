@@ -38,6 +38,7 @@
 			this.HumanReadableCheckbox = new System.Windows.Forms.CheckBox();
 			this.MainTabControl = new System.Windows.Forms.TabControl();
 			this.TabPageRadio = new System.Windows.Forms.TabPage();
+			this.TableHoppingCheckbox = new System.Windows.Forms.CheckBox();
 			this.QuietModeCheckbox = new System.Windows.Forms.CheckBox();
 			this.AcksEnabledCheckbox = new System.Windows.Forms.CheckBox();
 			this.EncryptionReadyLabel = new System.Windows.Forms.Label();
@@ -130,6 +131,8 @@
 			this.label83 = new System.Windows.Forms.Label();
 			this.label67 = new System.Windows.Forms.Label();
 			this.label45 = new System.Windows.Forms.Label();
+			this.label29 = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
 			this.label36 = new System.Windows.Forms.Label();
 			this.label66 = new System.Windows.Forms.Label();
 			this.label81 = new System.Windows.Forms.Label();
@@ -166,6 +169,8 @@
 			this.EncryptionActiveBit = new System.Windows.Forms.Label();
 			this.DoingLightshowBit = new System.Windows.Forms.Label();
 			this.RadioStateBit2 = new System.Windows.Forms.Label();
+			this.OnBaseTableBit = new System.Windows.Forms.Label();
+			this.ChangingTablesBit = new System.Windows.Forms.Label();
 			this.BusyBit = new System.Windows.Forms.Label();
 			this.RadioStateBit1 = new System.Windows.Forms.Label();
 			this.TabPageInt = new System.Windows.Forms.TabPage();
@@ -183,6 +188,8 @@
 			this.label41 = new System.Windows.Forms.Label();
 			this.label42 = new System.Windows.Forms.Label();
 			this.label46 = new System.Windows.Forms.Label();
+			this.label62 = new System.Windows.Forms.Label();
+			this.label61 = new System.Windows.Forms.Label();
 			this.label47 = new System.Windows.Forms.Label();
 			this.label48 = new System.Windows.Forms.Label();
 			this.label49 = new System.Windows.Forms.Label();
@@ -205,6 +212,8 @@
 			this.IntRxLedModeBit = new System.Windows.Forms.Label();
 			this.IntRxPacketReadyBit = new System.Windows.Forms.Label();
 			this.IntButtonDownBit = new System.Windows.Forms.Label();
+			this.IntOnBaseTableBit = new System.Windows.Forms.Label();
+			this.IntChangingTablesBit = new System.Windows.Forms.Label();
 			this.IntRxInProgressBit = new System.Windows.Forms.Label();
 			this.IntEncryptionRekeyBit = new System.Windows.Forms.Label();
 			this.IntAutoClearFlagsBit = new System.Windows.Forms.Label();
@@ -220,6 +229,75 @@
 			this.IntRadioStateBit2 = new System.Windows.Forms.Label();
 			this.IntBusyBit = new System.Windows.Forms.Label();
 			this.IntRadioStateBit1 = new System.Windows.Forms.Label();
+			this.TabPageBluetooth = new System.Windows.Forms.TabPage();
+			this.BleTp28AutoCheckbox = new System.Windows.Forms.CheckBox();
+			this.BleTp25AutoCheckbox = new System.Windows.Forms.CheckBox();
+			this.BleTp6AutoCheckbox = new System.Windows.Forms.CheckBox();
+			this.BleTp5AutoCheckbox = new System.Windows.Forms.CheckBox();
+			this.BleTp4AutoCheckbox = new System.Windows.Forms.CheckBox();
+			this.BleTp3AutoCheckbox = new System.Windows.Forms.CheckBox();
+			this.label107 = new System.Windows.Forms.Label();
+			this.label92 = new System.Windows.Forms.Label();
+			this.label84 = new System.Windows.Forms.Label();
+			this.label106 = new System.Windows.Forms.Label();
+			this.BleTp28GetButton = new System.Windows.Forms.Button();
+			this.label103 = new System.Windows.Forms.Label();
+			this.BleTp25GetButton = new System.Windows.Forms.Button();
+			this.label100 = new System.Windows.Forms.Label();
+			this.BleTp6GetButton = new System.Windows.Forms.Button();
+			this.label97 = new System.Windows.Forms.Label();
+			this.BleTp5GetButton = new System.Windows.Forms.Button();
+			this.label94 = new System.Windows.Forms.Label();
+			this.BleTp4GetButton = new System.Windows.Forms.Button();
+			this.label82 = new System.Windows.Forms.Label();
+			this.BleTp3GetButton = new System.Windows.Forms.Button();
+			this.BleDisableAllButton = new System.Windows.Forms.Button();
+			this.BleEnableAllButton = new System.Windows.Forms.Button();
+			this.BleClearResetFlagButton = new System.Windows.Forms.Button();
+			this.BleGetStatusButton = new System.Windows.Forms.Button();
+			this.BleFirmwareVersionLabel = new System.Windows.Forms.Label();
+			this.label78 = new System.Windows.Forms.Label();
+			this.BleGetVersionButton = new System.Windows.Forms.Button();
+			this.BleAdvertisingNameLengthLabel = new System.Windows.Forms.Label();
+			this.BleAdvertisingDataLengthLabel = new System.Windows.Forms.Label();
+			this.label71 = new System.Windows.Forms.Label();
+			this.label59 = new System.Windows.Forms.Label();
+			this.BleAdvertisingDataTextbox = new System.Windows.Forms.TextBox();
+			this.BleAdvertisingNameTextbox = new System.Windows.Forms.TextBox();
+			this.BleCloseConnectionButton = new System.Windows.Forms.Button();
+			this.BleStartAdvertisingButton = new System.Windows.Forms.Button();
+			this.label91 = new System.Windows.Forms.Label();
+			this.label76 = new System.Windows.Forms.Label();
+			this.label90 = new System.Windows.Forms.Label();
+			this.label75 = new System.Windows.Forms.Label();
+			this.label89 = new System.Windows.Forms.Label();
+			this.label74 = new System.Windows.Forms.Label();
+			this.label88 = new System.Windows.Forms.Label();
+			this.label86 = new System.Windows.Forms.Label();
+			this.label87 = new System.Windows.Forms.Label();
+			this.label30 = new System.Windows.Forms.Label();
+			this.BleIntInDfuModeBit = new System.Windows.Forms.Label();
+			this.BleInDfuModeBit = new System.Windows.Forms.Label();
+			this.BleIntAdvertisingBit = new System.Windows.Forms.Label();
+			this.BleTp28ValueLabel = new System.Windows.Forms.Label();
+			this.BleAdvertisingBit = new System.Windows.Forms.Label();
+			this.BleTp25ValueLabel = new System.Windows.Forms.Label();
+			this.BleIntConnectedBit = new System.Windows.Forms.Label();
+			this.BleTp6ValueLabel = new System.Windows.Forms.Label();
+			this.BleConnectedBit = new System.Windows.Forms.Label();
+			this.BleTp28DirectionLabel = new System.Windows.Forms.Label();
+			this.BleTp5ValueLabel = new System.Windows.Forms.Label();
+			this.BleTp25DirectionLabel = new System.Windows.Forms.Label();
+			this.BleIntSureFiTxInProgressBit = new System.Windows.Forms.Label();
+			this.BleTp6DirectionLabel = new System.Windows.Forms.Label();
+			this.BleTp4ValueLabel = new System.Windows.Forms.Label();
+			this.BleTp5DirectionLabel = new System.Windows.Forms.Label();
+			this.BleSureFiTxInProgressBit = new System.Windows.Forms.Label();
+			this.BleTp4DirectionLabel = new System.Windows.Forms.Label();
+			this.BleTp3ValueLabel = new System.Windows.Forms.Label();
+			this.BleTp3DirectionLabel = new System.Windows.Forms.Label();
+			this.BleIntWasResetBit = new System.Windows.Forms.Label();
+			this.BleWasResetBit = new System.Windows.Forms.Label();
 			this.TxTextbox = new System.Windows.Forms.TextBox();
 			this.TransmitButton = new System.Windows.Forms.Button();
 			this.RxTextbox = new System.Windows.Forms.TextBox();
@@ -250,15 +328,14 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
-			this.TableHoppingCheckbox = new System.Windows.Forms.CheckBox();
-			this.ChangingTablesBit = new System.Windows.Forms.Label();
-			this.OnBaseTableBit = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
-			this.label29 = new System.Windows.Forms.Label();
-			this.IntChangingTablesBit = new System.Windows.Forms.Label();
-			this.IntOnBaseTableBit = new System.Windows.Forms.Label();
-			this.label61 = new System.Windows.Forms.Label();
-			this.label62 = new System.Windows.Forms.Label();
+			this.BleTp3PullLabel = new System.Windows.Forms.Label();
+			this.label77 = new System.Windows.Forms.Label();
+			this.BleTp4PullLabel = new System.Windows.Forms.Label();
+			this.BleTp5PullLabel = new System.Windows.Forms.Label();
+			this.BleTp6PullLabel = new System.Windows.Forms.Label();
+			this.BleTp25PullLabel = new System.Windows.Forms.Label();
+			this.BleTp28PullLabel = new System.Windows.Forms.Label();
+			this.label72 = new System.Windows.Forms.Label();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -270,13 +347,14 @@
 			this.TabPageCommands.SuspendLayout();
 			this.TabPageStatus.SuspendLayout();
 			this.TabPageInt.SuspendLayout();
+			this.TabPageBluetooth.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// StatusBar
 			// 
 			this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel});
-			this.StatusBar.Location = new System.Drawing.Point(0, 416);
+			this.StatusBar.Location = new System.Drawing.Point(0, 442);
 			this.StatusBar.Name = "StatusBar";
 			this.StatusBar.Size = new System.Drawing.Size(755, 22);
 			this.StatusBar.TabIndex = 1;
@@ -306,7 +384,7 @@
 			this.OutputTextbox.Name = "OutputTextbox";
 			this.OutputTextbox.ReadOnly = true;
 			this.OutputTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.OutputTextbox.Size = new System.Drawing.Size(161, 276);
+			this.OutputTextbox.Size = new System.Drawing.Size(161, 302);
 			this.OutputTextbox.TabIndex = 2;
 			this.OutputTextbox.TabStop = false;
 			this.OutputTextbox.Text = "[7E] 40 04 12 AB CD EF";
@@ -315,7 +393,7 @@
 			// DisconnectButton
 			// 
 			this.DisconnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.DisconnectButton.Location = new System.Drawing.Point(582, 309);
+			this.DisconnectButton.Location = new System.Drawing.Point(582, 335);
 			this.DisconnectButton.Name = "DisconnectButton";
 			this.DisconnectButton.Size = new System.Drawing.Size(161, 23);
 			this.DisconnectButton.TabIndex = 3;
@@ -347,14 +425,16 @@
 			this.MainTabControl.Controls.Add(this.TabPageCommands);
 			this.MainTabControl.Controls.Add(this.TabPageStatus);
 			this.MainTabControl.Controls.Add(this.TabPageInt);
+			this.MainTabControl.Controls.Add(this.TabPageBluetooth);
 			this.MainTabControl.Location = new System.Drawing.Point(0, 0);
 			this.MainTabControl.Name = "MainTabControl";
 			this.MainTabControl.SelectedIndex = 0;
-			this.MainTabControl.Size = new System.Drawing.Size(576, 332);
+			this.MainTabControl.Size = new System.Drawing.Size(576, 358);
 			this.MainTabControl.TabIndex = 5;
 			// 
 			// TabPageRadio
 			// 
+			this.TabPageRadio.Controls.Add(this.label72);
 			this.TabPageRadio.Controls.Add(this.TableHoppingCheckbox);
 			this.TabPageRadio.Controls.Add(this.QuietModeCheckbox);
 			this.TabPageRadio.Controls.Add(this.AcksEnabledCheckbox);
@@ -387,15 +467,26 @@
 			this.TabPageRadio.Location = new System.Drawing.Point(4, 22);
 			this.TabPageRadio.Name = "TabPageRadio";
 			this.TabPageRadio.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageRadio.Size = new System.Drawing.Size(568, 306);
+			this.TabPageRadio.Size = new System.Drawing.Size(568, 332);
 			this.TabPageRadio.TabIndex = 0;
 			this.TabPageRadio.Text = "Radio Settings";
 			this.TabPageRadio.UseVisualStyleBackColor = true;
 			// 
+			// TableHoppingCheckbox
+			// 
+			this.TableHoppingCheckbox.AutoSize = true;
+			this.TableHoppingCheckbox.Location = new System.Drawing.Point(283, 178);
+			this.TableHoppingCheckbox.Name = "TableHoppingCheckbox";
+			this.TableHoppingCheckbox.Size = new System.Drawing.Size(96, 17);
+			this.TableHoppingCheckbox.TabIndex = 16;
+			this.TableHoppingCheckbox.Text = "Table Hopping";
+			this.TableHoppingCheckbox.UseVisualStyleBackColor = true;
+			this.TableHoppingCheckbox.CheckedChanged += new System.EventHandler(this.TableHoppingCheckbox_CheckedChanged);
+			// 
 			// QuietModeCheckbox
 			// 
 			this.QuietModeCheckbox.AutoSize = true;
-			this.QuietModeCheckbox.Location = new System.Drawing.Point(174, 178);
+			this.QuietModeCheckbox.Location = new System.Drawing.Point(196, 178);
 			this.QuietModeCheckbox.Name = "QuietModeCheckbox";
 			this.QuietModeCheckbox.Size = new System.Drawing.Size(81, 17);
 			this.QuietModeCheckbox.TabIndex = 15;
@@ -408,7 +499,7 @@
 			this.AcksEnabledCheckbox.AutoSize = true;
 			this.AcksEnabledCheckbox.Checked = true;
 			this.AcksEnabledCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.AcksEnabledCheckbox.Location = new System.Drawing.Point(76, 179);
+			this.AcksEnabledCheckbox.Location = new System.Drawing.Point(98, 179);
 			this.AcksEnabledCheckbox.Name = "AcksEnabledCheckbox";
 			this.AcksEnabledCheckbox.Size = new System.Drawing.Size(92, 17);
 			this.AcksEnabledCheckbox.TabIndex = 15;
@@ -420,7 +511,7 @@
 			// 
 			this.EncryptionReadyLabel.AutoSize = true;
 			this.EncryptionReadyLabel.ForeColor = System.Drawing.Color.DarkGreen;
-			this.EncryptionReadyLabel.Location = new System.Drawing.Point(125, 57);
+			this.EncryptionReadyLabel.Location = new System.Drawing.Point(146, 57);
 			this.EncryptionReadyLabel.Name = "EncryptionReadyLabel";
 			this.EncryptionReadyLabel.Size = new System.Drawing.Size(102, 13);
 			this.EncryptionReadyLabel.TabIndex = 14;
@@ -429,7 +520,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(208, 84);
+			this.label15.Location = new System.Drawing.Point(230, 84);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(65, 13);
 			this.label15.TabIndex = 13;
@@ -437,7 +528,7 @@
 			// 
 			// FhssTableNumeric
 			// 
-			this.FhssTableNumeric.Location = new System.Drawing.Point(211, 101);
+			this.FhssTableNumeric.Location = new System.Drawing.Point(233, 101);
 			this.FhssTableNumeric.Name = "FhssTableNumeric";
 			this.FhssTableNumeric.Size = new System.Drawing.Size(62, 20);
 			this.FhssTableNumeric.TabIndex = 12;
@@ -451,7 +542,7 @@
             "Disabled",
             "Up",
             "Down"});
-			this.PolarityCombobox.Location = new System.Drawing.Point(125, 100);
+			this.PolarityCombobox.Location = new System.Drawing.Point(147, 100);
 			this.PolarityCombobox.Name = "PolarityCombobox";
 			this.PolarityCombobox.Size = new System.Drawing.Size(80, 21);
 			this.PolarityCombobox.TabIndex = 11;
@@ -468,7 +559,7 @@
             "125 kHz",
             "250 kHz",
             "500 kHz"});
-			this.BandwidthCombobox.Location = new System.Drawing.Point(261, 141);
+			this.BandwidthCombobox.Location = new System.Drawing.Point(283, 141);
 			this.BandwidthCombobox.Name = "BandwidthCombobox";
 			this.BandwidthCombobox.Size = new System.Drawing.Size(110, 21);
 			this.BandwidthCombobox.TabIndex = 10;
@@ -486,7 +577,7 @@
             "SF10",
             "SF11",
             "SF12"});
-			this.SpreadingFactorCombobox.Location = new System.Drawing.Point(156, 141);
+			this.SpreadingFactorCombobox.Location = new System.Drawing.Point(178, 141);
 			this.SpreadingFactorCombobox.Name = "SpreadingFactorCombobox";
 			this.SpreadingFactorCombobox.Size = new System.Drawing.Size(99, 21);
 			this.SpreadingFactorCombobox.TabIndex = 9;
@@ -502,7 +593,7 @@
             "Mode 3 (Mid Range)",
             "Mode 4 (Short Range)",
             "Custom"});
-			this.RadioModeCombobox.Location = new System.Drawing.Point(8, 141);
+			this.RadioModeCombobox.Location = new System.Drawing.Point(30, 141);
 			this.RadioModeCombobox.Name = "RadioModeCombobox";
 			this.RadioModeCombobox.Size = new System.Drawing.Size(142, 21);
 			this.RadioModeCombobox.TabIndex = 8;
@@ -512,7 +603,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(261, 125);
+			this.label13.Location = new System.Drawing.Point(283, 125);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(57, 13);
 			this.label13.TabIndex = 7;
@@ -521,7 +612,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(156, 125);
+			this.label12.Location = new System.Drawing.Point(178, 125);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(88, 13);
 			this.label12.TabIndex = 7;
@@ -530,7 +621,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(8, 125);
+			this.label11.Location = new System.Drawing.Point(30, 125);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(65, 13);
 			this.label11.TabIndex = 7;
@@ -539,7 +630,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(6, 84);
+			this.label14.Location = new System.Drawing.Point(28, 84);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(80, 13);
 			this.label14.TabIndex = 7;
@@ -548,7 +639,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(125, 84);
+			this.label10.Location = new System.Drawing.Point(147, 84);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(41, 13);
 			this.label10.TabIndex = 7;
@@ -589,7 +680,7 @@
             "28 dBm",
             "29 dBm",
             "30 dBm (1 W)"});
-			this.TransmitPowerCombobox.Location = new System.Drawing.Point(8, 100);
+			this.TransmitPowerCombobox.Location = new System.Drawing.Point(30, 100);
 			this.TransmitPowerCombobox.Name = "TransmitPowerCombobox";
 			this.TransmitPowerCombobox.Size = new System.Drawing.Size(111, 21);
 			this.TransmitPowerCombobox.TabIndex = 6;
@@ -599,16 +690,16 @@
 			// RxPacketSizeLabel
 			// 
 			this.RxPacketSizeLabel.AutoSize = true;
-			this.RxPacketSizeLabel.Location = new System.Drawing.Point(204, 27);
+			this.RxPacketSizeLabel.Location = new System.Drawing.Point(226, 27);
 			this.RxPacketSizeLabel.Name = "RxPacketSizeLabel";
-			this.RxPacketSizeLabel.Size = new System.Drawing.Size(139, 13);
+			this.RxPacketSizeLabel.Size = new System.Drawing.Size(174, 13);
 			this.RxPacketSizeLabel.TabIndex = 5;
-			this.RxPacketSizeLabel.Text = "64 byte ReceivePacketSize";
+			this.RxPacketSizeLabel.Text = "64 bytes (ReceivePacketSize = 62)";
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(110, 26);
+			this.label9.Location = new System.Drawing.Point(132, 26);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(13, 13);
 			this.label9.TabIndex = 4;
@@ -617,7 +708,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 165);
+			this.label2.Location = new System.Drawing.Point(28, 165);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(50, 13);
 			this.label2.TabIndex = 10;
@@ -626,7 +717,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(192, 26);
+			this.label8.Location = new System.Drawing.Point(214, 26);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(13, 13);
 			this.label8.TabIndex = 4;
@@ -634,7 +725,7 @@
 			// 
 			// NumRetriesNumeric
 			// 
-			this.NumRetriesNumeric.Location = new System.Drawing.Point(8, 178);
+			this.NumRetriesNumeric.Location = new System.Drawing.Point(30, 178);
 			this.NumRetriesNumeric.Name = "NumRetriesNumeric";
 			this.NumRetriesNumeric.Size = new System.Drawing.Size(62, 20);
 			this.NumRetriesNumeric.TabIndex = 9;
@@ -648,7 +739,7 @@
 			// 
 			// PayloadSizeNumeric
 			// 
-			this.PayloadSizeNumeric.Location = new System.Drawing.Point(125, 23);
+			this.PayloadSizeNumeric.Location = new System.Drawing.Point(147, 23);
 			this.PayloadSizeNumeric.Name = "PayloadSizeNumeric";
 			this.PayloadSizeNumeric.Size = new System.Drawing.Size(65, 20);
 			this.PayloadSizeNumeric.TabIndex = 3;
@@ -658,7 +749,7 @@
 			// RxUidLengthLabel
 			// 
 			this.RxUidLengthLabel.AutoSize = true;
-			this.RxUidLengthLabel.Location = new System.Drawing.Point(67, 6);
+			this.RxUidLengthLabel.Location = new System.Drawing.Point(89, 6);
 			this.RxUidLengthLabel.Name = "RxUidLengthLabel";
 			this.RxUidLengthLabel.Size = new System.Drawing.Size(41, 13);
 			this.RxUidLengthLabel.TabIndex = 2;
@@ -667,7 +758,7 @@
 			// TxUidLengthLabel
 			// 
 			this.TxUidLengthLabel.AutoSize = true;
-			this.TxUidLengthLabel.Location = new System.Drawing.Point(67, 45);
+			this.TxUidLengthLabel.Location = new System.Drawing.Point(89, 45);
 			this.TxUidLengthLabel.Name = "TxUidLengthLabel";
 			this.TxUidLengthLabel.Size = new System.Drawing.Size(41, 13);
 			this.TxUidLengthLabel.TabIndex = 2;
@@ -676,7 +767,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(122, 7);
+			this.label7.Location = new System.Drawing.Point(144, 7);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(68, 13);
 			this.label7.TabIndex = 1;
@@ -685,7 +776,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(7, 45);
+			this.label5.Location = new System.Drawing.Point(28, 45);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(41, 13);
 			this.label5.TabIndex = 1;
@@ -694,7 +785,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(7, 6);
+			this.label4.Location = new System.Drawing.Point(29, 6);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(42, 13);
 			this.label4.TabIndex = 1;
@@ -702,9 +793,9 @@
 			// 
 			// TxUidTextbox
 			// 
-			this.TxUidTextbox.Location = new System.Drawing.Point(8, 61);
+			this.TxUidTextbox.Location = new System.Drawing.Point(30, 61);
 			this.TxUidTextbox.Name = "TxUidTextbox";
-			this.TxUidTextbox.Size = new System.Drawing.Size(102, 20);
+			this.TxUidTextbox.Size = new System.Drawing.Size(100, 20);
 			this.TxUidTextbox.TabIndex = 0;
 			this.TxUidTextbox.Text = "200001";
 			this.TxUidTextbox.TextChanged += new System.EventHandler(this.TxUidTextbox_TextChanged);
@@ -713,7 +804,7 @@
 			// 
 			// RxUidTextbox
 			// 
-			this.RxUidTextbox.Location = new System.Drawing.Point(8, 22);
+			this.RxUidTextbox.Location = new System.Drawing.Point(30, 22);
 			this.RxUidTextbox.Name = "RxUidTextbox";
 			this.RxUidTextbox.Size = new System.Drawing.Size(100, 20);
 			this.RxUidTextbox.TabIndex = 0;
@@ -752,7 +843,7 @@
 			this.TabPageOther.Location = new System.Drawing.Point(4, 22);
 			this.TabPageOther.Name = "TabPageOther";
 			this.TabPageOther.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPageOther.Size = new System.Drawing.Size(568, 306);
+			this.TabPageOther.Size = new System.Drawing.Size(568, 332);
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
@@ -1128,7 +1219,7 @@
 			this.TabPageCommands.Controls.Add(this.StartEncryptionButton);
 			this.TabPageCommands.Location = new System.Drawing.Point(4, 22);
 			this.TabPageCommands.Name = "TabPageCommands";
-			this.TabPageCommands.Size = new System.Drawing.Size(568, 306);
+			this.TabPageCommands.Size = new System.Drawing.Size(568, 332);
 			this.TabPageCommands.TabIndex = 4;
 			this.TabPageCommands.Text = "Commands";
 			this.TabPageCommands.UseVisualStyleBackColor = true;
@@ -1398,7 +1489,7 @@
 			this.TabPageStatus.Controls.Add(this.RadioStateBit1);
 			this.TabPageStatus.Location = new System.Drawing.Point(4, 22);
 			this.TabPageStatus.Name = "TabPageStatus";
-			this.TabPageStatus.Size = new System.Drawing.Size(568, 306);
+			this.TabPageStatus.Size = new System.Drawing.Size(568, 332);
 			this.TabPageStatus.TabIndex = 2;
 			this.TabPageStatus.Text = "Status";
 			this.TabPageStatus.UseVisualStyleBackColor = true;
@@ -1406,7 +1497,7 @@
 			// GetStatusButton
 			// 
 			this.GetStatusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.GetStatusButton.Location = new System.Drawing.Point(462, 265);
+			this.GetStatusButton.Location = new System.Drawing.Point(462, 284);
 			this.GetStatusButton.Name = "GetStatusButton";
 			this.GetStatusButton.Size = new System.Drawing.Size(103, 23);
 			this.GetStatusButton.TabIndex = 23;
@@ -1417,7 +1508,7 @@
 			// ClearFlagsButton
 			// 
 			this.ClearFlagsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.ClearFlagsButton.Location = new System.Drawing.Point(462, 236);
+			this.ClearFlagsButton.Location = new System.Drawing.Point(462, 255);
 			this.ClearFlagsButton.Name = "ClearFlagsButton";
 			this.ClearFlagsButton.Size = new System.Drawing.Size(103, 23);
 			this.ClearFlagsButton.TabIndex = 22;
@@ -1429,7 +1520,7 @@
 			// 
 			this.AutoClearFlagsCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AutoClearFlagsCheckbox.AutoSize = true;
-			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(462, 219);
+			this.AutoClearFlagsCheckbox.Location = new System.Drawing.Point(462, 238);
 			this.AutoClearFlagsCheckbox.Name = "AutoClearFlagsCheckbox";
 			this.AutoClearFlagsCheckbox.Size = new System.Drawing.Size(103, 17);
 			this.AutoClearFlagsCheckbox.TabIndex = 21;
@@ -1441,7 +1532,7 @@
 			// 
 			this.StatusConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusConfigLabel.AutoSize = true;
-			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 287);
+			this.StatusConfigLabel.Location = new System.Drawing.Point(376, 313);
 			this.StatusConfigLabel.Name = "StatusConfigLabel";
 			this.StatusConfigLabel.Size = new System.Drawing.Size(66, 13);
 			this.StatusConfigLabel.TabIndex = 20;
@@ -1451,7 +1542,7 @@
 			// 
 			this.StatusClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusClearableLabel.AutoSize = true;
-			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 287);
+			this.StatusClearableLabel.Location = new System.Drawing.Point(246, 313);
 			this.StatusClearableLabel.Name = "StatusClearableLabel";
 			this.StatusClearableLabel.Size = new System.Drawing.Size(80, 13);
 			this.StatusClearableLabel.TabIndex = 20;
@@ -1461,7 +1552,7 @@
 			// 
 			this.StatusOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusOtherLabel.AutoSize = true;
-			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 287);
+			this.StatusOtherLabel.Location = new System.Drawing.Point(126, 313);
 			this.StatusOtherLabel.Name = "StatusOtherLabel";
 			this.StatusOtherLabel.Size = new System.Drawing.Size(62, 13);
 			this.StatusOtherLabel.TabIndex = 20;
@@ -1471,7 +1562,7 @@
 			// 
 			this.StatusStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.StatusStateLabel.AutoSize = true;
-			this.StatusStateLabel.Location = new System.Drawing.Point(8, 287);
+			this.StatusStateLabel.Location = new System.Drawing.Point(8, 313);
 			this.StatusStateLabel.Name = "StatusStateLabel";
 			this.StatusStateLabel.Size = new System.Drawing.Size(61, 13);
 			this.StatusStateLabel.TabIndex = 19;
@@ -1548,6 +1639,24 @@
 			this.label45.Size = new System.Drawing.Size(69, 13);
 			this.label45.TabIndex = 17;
 			this.label45.Text = "Button Down";
+			// 
+			// label29
+			// 
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(35, 181);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(78, 13);
+			this.label29.TabIndex = 17;
+			this.label29.Text = "On Base Table";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(35, 135);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(87, 13);
+			this.label26.TabIndex = 17;
+			this.label26.Text = "Changing Tables";
 			// 
 			// label36
 			// 
@@ -1962,6 +2071,32 @@
 			this.RadioStateBit2.Text = "0";
 			this.RadioStateBit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// OnBaseTableBit
+			// 
+			this.OnBaseTableBit.BackColor = System.Drawing.Color.Transparent;
+			this.OnBaseTableBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.OnBaseTableBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.OnBaseTableBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.OnBaseTableBit.Location = new System.Drawing.Point(8, 177);
+			this.OnBaseTableBit.Name = "OnBaseTableBit";
+			this.OnBaseTableBit.Size = new System.Drawing.Size(21, 21);
+			this.OnBaseTableBit.TabIndex = 12;
+			this.OnBaseTableBit.Text = "0";
+			this.OnBaseTableBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ChangingTablesBit
+			// 
+			this.ChangingTablesBit.BackColor = System.Drawing.Color.Transparent;
+			this.ChangingTablesBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ChangingTablesBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChangingTablesBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ChangingTablesBit.Location = new System.Drawing.Point(8, 131);
+			this.ChangingTablesBit.Name = "ChangingTablesBit";
+			this.ChangingTablesBit.Size = new System.Drawing.Size(21, 21);
+			this.ChangingTablesBit.TabIndex = 12;
+			this.ChangingTablesBit.Text = "0";
+			this.ChangingTablesBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// BusyBit
 			// 
 			this.BusyBit.BackColor = System.Drawing.Color.Transparent;
@@ -2047,7 +2182,7 @@
 			this.TabPageInt.Controls.Add(this.IntRadioStateBit1);
 			this.TabPageInt.Location = new System.Drawing.Point(4, 22);
 			this.TabPageInt.Name = "TabPageInt";
-			this.TabPageInt.Size = new System.Drawing.Size(568, 306);
+			this.TabPageInt.Size = new System.Drawing.Size(568, 332);
 			this.TabPageInt.TabIndex = 3;
 			this.TabPageInt.Text = "Interrupt Bits";
 			this.TabPageInt.UseVisualStyleBackColor = true;
@@ -2055,7 +2190,7 @@
 			// EnableAllIntButton
 			// 
 			this.EnableAllIntButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.EnableAllIntButton.Location = new System.Drawing.Point(477, 229);
+			this.EnableAllIntButton.Location = new System.Drawing.Point(477, 255);
 			this.EnableAllIntButton.Name = "EnableAllIntButton";
 			this.EnableAllIntButton.Size = new System.Drawing.Size(88, 23);
 			this.EnableAllIntButton.TabIndex = 72;
@@ -2066,7 +2201,7 @@
 			// DisableAllIntButton
 			// 
 			this.DisableAllIntButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.DisableAllIntButton.Location = new System.Drawing.Point(477, 258);
+			this.DisableAllIntButton.Location = new System.Drawing.Point(477, 284);
 			this.DisableAllIntButton.Name = "DisableAllIntButton";
 			this.DisableAllIntButton.Size = new System.Drawing.Size(88, 23);
 			this.DisableAllIntButton.TabIndex = 71;
@@ -2078,7 +2213,7 @@
 			// 
 			this.IntConfigLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.IntConfigLabel.AutoSize = true;
-			this.IntConfigLabel.Location = new System.Drawing.Point(376, 287);
+			this.IntConfigLabel.Location = new System.Drawing.Point(376, 313);
 			this.IntConfigLabel.Name = "IntConfigLabel";
 			this.IntConfigLabel.Size = new System.Drawing.Size(66, 13);
 			this.IntConfigLabel.TabIndex = 70;
@@ -2088,7 +2223,7 @@
 			// 
 			this.IntClearableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.IntClearableLabel.AutoSize = true;
-			this.IntClearableLabel.Location = new System.Drawing.Point(246, 287);
+			this.IntClearableLabel.Location = new System.Drawing.Point(246, 313);
 			this.IntClearableLabel.Name = "IntClearableLabel";
 			this.IntClearableLabel.Size = new System.Drawing.Size(80, 13);
 			this.IntClearableLabel.TabIndex = 69;
@@ -2098,7 +2233,7 @@
 			// 
 			this.IntOtherLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.IntOtherLabel.AutoSize = true;
-			this.IntOtherLabel.Location = new System.Drawing.Point(126, 287);
+			this.IntOtherLabel.Location = new System.Drawing.Point(126, 313);
 			this.IntOtherLabel.Name = "IntOtherLabel";
 			this.IntOtherLabel.Size = new System.Drawing.Size(62, 13);
 			this.IntOtherLabel.TabIndex = 68;
@@ -2108,7 +2243,7 @@
 			// 
 			this.IntStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.IntStateLabel.AutoSize = true;
-			this.IntStateLabel.Location = new System.Drawing.Point(8, 287);
+			this.IntStateLabel.Location = new System.Drawing.Point(8, 313);
 			this.IntStateLabel.Name = "IntStateLabel";
 			this.IntStateLabel.Size = new System.Drawing.Size(61, 13);
 			this.IntStateLabel.TabIndex = 67;
@@ -2185,6 +2320,24 @@
 			this.label46.Size = new System.Drawing.Size(69, 13);
 			this.label46.TabIndex = 60;
 			this.label46.Text = "Button Down";
+			// 
+			// label62
+			// 
+			this.label62.AutoSize = true;
+			this.label62.Location = new System.Drawing.Point(35, 181);
+			this.label62.Name = "label62";
+			this.label62.Size = new System.Drawing.Size(78, 13);
+			this.label62.TabIndex = 61;
+			this.label62.Text = "On Base Table";
+			// 
+			// label61
+			// 
+			this.label61.AutoSize = true;
+			this.label61.Location = new System.Drawing.Point(35, 135);
+			this.label61.Name = "label61";
+			this.label61.Size = new System.Drawing.Size(87, 13);
+			this.label61.TabIndex = 61;
+			this.label61.Text = "Changing Tables";
 			// 
 			// label47
 			// 
@@ -2308,6 +2461,7 @@
 			// 
 			this.IntButtonHeldBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntButtonHeldBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntButtonHeldBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntButtonHeldBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntButtonHeldBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntButtonHeldBit.Location = new System.Drawing.Point(249, 177);
@@ -2322,6 +2476,7 @@
 			// 
 			this.IntTxLedModeBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntTxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntTxLedModeBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntTxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntTxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntTxLedModeBit.Location = new System.Drawing.Point(379, 77);
@@ -2336,6 +2491,7 @@
 			// 
 			this.IntAckPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntAckPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntAckPacketReadyBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntAckPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntAckPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntAckPacketReadyBit.Location = new System.Drawing.Point(249, 77);
@@ -2350,6 +2506,7 @@
 			// 
 			this.IntSettingsPendingBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntSettingsPendingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntSettingsPendingBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntSettingsPendingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntSettingsPendingBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntSettingsPendingBit.Location = new System.Drawing.Point(129, 108);
@@ -2364,6 +2521,7 @@
 			// 
 			this.IntButtonPressedBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntButtonPressedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntButtonPressedBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntButtonPressedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntButtonPressedBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntButtonPressedBit.Location = new System.Drawing.Point(249, 154);
@@ -2378,6 +2536,7 @@
 			// 
 			this.IntRadioStateBit4.BackColor = System.Drawing.Color.Transparent;
 			this.IntRadioStateBit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit4.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRadioStateBit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRadioStateBit4.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRadioStateBit4.Location = new System.Drawing.Point(8, 67);
@@ -2392,6 +2551,7 @@
 			// 
 			this.IntRxLedModeBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntRxLedModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxLedModeBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRxLedModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRxLedModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRxLedModeBit.Location = new System.Drawing.Point(379, 54);
@@ -2406,6 +2566,7 @@
 			// 
 			this.IntRxPacketReadyBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntRxPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxPacketReadyBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRxPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRxPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRxPacketReadyBit.Location = new System.Drawing.Point(249, 54);
@@ -2420,6 +2581,7 @@
 			// 
 			this.IntButtonDownBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntButtonDownBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntButtonDownBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntButtonDownBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntButtonDownBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntButtonDownBit.Location = new System.Drawing.Point(129, 54);
@@ -2430,10 +2592,41 @@
 			this.IntButtonDownBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.IntButtonDownBit.Click += new System.EventHandler(this.IntButtonDownBit_Click);
 			// 
+			// IntOnBaseTableBit
+			// 
+			this.IntOnBaseTableBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntOnBaseTableBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntOnBaseTableBit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.IntOnBaseTableBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntOnBaseTableBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntOnBaseTableBit.Location = new System.Drawing.Point(8, 177);
+			this.IntOnBaseTableBit.Name = "IntOnBaseTableBit";
+			this.IntOnBaseTableBit.Size = new System.Drawing.Size(21, 21);
+			this.IntOnBaseTableBit.TabIndex = 31;
+			this.IntOnBaseTableBit.Text = "D";
+			this.IntOnBaseTableBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntOnBaseTableBit.Click += new System.EventHandler(this.IntOnBaseTableBit_Click);
+			// 
+			// IntChangingTablesBit
+			// 
+			this.IntChangingTablesBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntChangingTablesBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntChangingTablesBit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.IntChangingTablesBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntChangingTablesBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntChangingTablesBit.Location = new System.Drawing.Point(8, 131);
+			this.IntChangingTablesBit.Name = "IntChangingTablesBit";
+			this.IntChangingTablesBit.Size = new System.Drawing.Size(21, 21);
+			this.IntChangingTablesBit.TabIndex = 31;
+			this.IntChangingTablesBit.Text = "D";
+			this.IntChangingTablesBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntChangingTablesBit.Click += new System.EventHandler(this.IntChangingTablesBit_Click);
+			// 
 			// IntRxInProgressBit
 			// 
 			this.IntRxInProgressBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntRxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxInProgressBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRxInProgressBit.Location = new System.Drawing.Point(8, 154);
@@ -2448,6 +2641,7 @@
 			// 
 			this.IntEncryptionRekeyBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntEncryptionRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntEncryptionRekeyBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntEncryptionRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntEncryptionRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntEncryptionRekeyBit.Location = new System.Drawing.Point(249, 131);
@@ -2462,6 +2656,7 @@
 			// 
 			this.IntAutoClearFlagsBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntAutoClearFlagsBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntAutoClearFlagsBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntAutoClearFlagsBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntAutoClearFlagsBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntAutoClearFlagsBit.Location = new System.Drawing.Point(379, 31);
@@ -2476,6 +2671,7 @@
 			// 
 			this.IntRadioStateBit3.BackColor = System.Drawing.Color.Transparent;
 			this.IntRadioStateBit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRadioStateBit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRadioStateBit3.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRadioStateBit3.Location = new System.Drawing.Point(8, 47);
@@ -2490,6 +2686,7 @@
 			// 
 			this.IntTransmitFinishedBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntTransmitFinishedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntTransmitFinishedBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntTransmitFinishedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntTransmitFinishedBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntTransmitFinishedBit.Location = new System.Drawing.Point(249, 31);
@@ -2504,6 +2701,7 @@
 			// 
 			this.IntAutoRekeyBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntAutoRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntAutoRekeyBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntAutoRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntAutoRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntAutoRekeyBit.Location = new System.Drawing.Point(379, 108);
@@ -2518,6 +2716,7 @@
 			// 
 			this.IntChecksumErrorBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntChecksumErrorBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntChecksumErrorBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntChecksumErrorBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntChecksumErrorBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntChecksumErrorBit.Location = new System.Drawing.Point(249, 108);
@@ -2532,6 +2731,7 @@
 			// 
 			this.IntShowingQosBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntShowingQosBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntShowingQosBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntShowingQosBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntShowingQosBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntShowingQosBit.Location = new System.Drawing.Point(129, 31);
@@ -2546,6 +2746,7 @@
 			// 
 			this.IntInterruptDrivenBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntInterruptDrivenBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntInterruptDrivenBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntInterruptDrivenBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntInterruptDrivenBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntInterruptDrivenBit.Location = new System.Drawing.Point(379, 8);
@@ -2560,6 +2761,7 @@
 			// 
 			this.IntWasResetBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntWasResetBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntWasResetBit.Location = new System.Drawing.Point(249, 8);
@@ -2574,6 +2776,7 @@
 			// 
 			this.IntEncryptionActiveBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntEncryptionActiveBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntEncryptionActiveBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntEncryptionActiveBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntEncryptionActiveBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntEncryptionActiveBit.Location = new System.Drawing.Point(129, 77);
@@ -2588,6 +2791,7 @@
 			// 
 			this.IntDoingLightshowBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntDoingLightshowBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntDoingLightshowBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntDoingLightshowBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntDoingLightshowBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntDoingLightshowBit.Location = new System.Drawing.Point(129, 8);
@@ -2602,6 +2806,7 @@
 			// 
 			this.IntRadioStateBit2.BackColor = System.Drawing.Color.Transparent;
 			this.IntRadioStateBit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRadioStateBit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRadioStateBit2.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRadioStateBit2.Location = new System.Drawing.Point(8, 27);
@@ -2616,6 +2821,7 @@
 			// 
 			this.IntBusyBit.BackColor = System.Drawing.Color.Transparent;
 			this.IntBusyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntBusyBit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntBusyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntBusyBit.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntBusyBit.Location = new System.Drawing.Point(8, 108);
@@ -2630,6 +2836,7 @@
 			// 
 			this.IntRadioStateBit1.BackColor = System.Drawing.Color.Transparent;
 			this.IntRadioStateBit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRadioStateBit1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.IntRadioStateBit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRadioStateBit1.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.IntRadioStateBit1.Location = new System.Drawing.Point(8, 7);
@@ -2640,11 +2847,810 @@
 			this.IntRadioStateBit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.IntRadioStateBit1.Click += new System.EventHandler(this.IntRadioStateBit1_Click);
 			// 
+			// TabPageBluetooth
+			// 
+			this.TabPageBluetooth.Controls.Add(this.BleTp28PullLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp25PullLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp6PullLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp5PullLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp4PullLabel);
+			this.TabPageBluetooth.Controls.Add(this.label77);
+			this.TabPageBluetooth.Controls.Add(this.BleTp28AutoCheckbox);
+			this.TabPageBluetooth.Controls.Add(this.BleTp25AutoCheckbox);
+			this.TabPageBluetooth.Controls.Add(this.BleTp6AutoCheckbox);
+			this.TabPageBluetooth.Controls.Add(this.BleTp5AutoCheckbox);
+			this.TabPageBluetooth.Controls.Add(this.BleTp4AutoCheckbox);
+			this.TabPageBluetooth.Controls.Add(this.BleTp3AutoCheckbox);
+			this.TabPageBluetooth.Controls.Add(this.label107);
+			this.TabPageBluetooth.Controls.Add(this.label92);
+			this.TabPageBluetooth.Controls.Add(this.label84);
+			this.TabPageBluetooth.Controls.Add(this.label106);
+			this.TabPageBluetooth.Controls.Add(this.BleTp28GetButton);
+			this.TabPageBluetooth.Controls.Add(this.label103);
+			this.TabPageBluetooth.Controls.Add(this.BleTp25GetButton);
+			this.TabPageBluetooth.Controls.Add(this.label100);
+			this.TabPageBluetooth.Controls.Add(this.BleTp6GetButton);
+			this.TabPageBluetooth.Controls.Add(this.label97);
+			this.TabPageBluetooth.Controls.Add(this.BleTp5GetButton);
+			this.TabPageBluetooth.Controls.Add(this.label94);
+			this.TabPageBluetooth.Controls.Add(this.BleTp4GetButton);
+			this.TabPageBluetooth.Controls.Add(this.label82);
+			this.TabPageBluetooth.Controls.Add(this.BleTp3GetButton);
+			this.TabPageBluetooth.Controls.Add(this.BleDisableAllButton);
+			this.TabPageBluetooth.Controls.Add(this.BleEnableAllButton);
+			this.TabPageBluetooth.Controls.Add(this.BleClearResetFlagButton);
+			this.TabPageBluetooth.Controls.Add(this.BleGetStatusButton);
+			this.TabPageBluetooth.Controls.Add(this.BleFirmwareVersionLabel);
+			this.TabPageBluetooth.Controls.Add(this.label78);
+			this.TabPageBluetooth.Controls.Add(this.BleGetVersionButton);
+			this.TabPageBluetooth.Controls.Add(this.BleAdvertisingNameLengthLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleAdvertisingDataLengthLabel);
+			this.TabPageBluetooth.Controls.Add(this.label71);
+			this.TabPageBluetooth.Controls.Add(this.label59);
+			this.TabPageBluetooth.Controls.Add(this.BleAdvertisingDataTextbox);
+			this.TabPageBluetooth.Controls.Add(this.BleAdvertisingNameTextbox);
+			this.TabPageBluetooth.Controls.Add(this.BleCloseConnectionButton);
+			this.TabPageBluetooth.Controls.Add(this.BleStartAdvertisingButton);
+			this.TabPageBluetooth.Controls.Add(this.label91);
+			this.TabPageBluetooth.Controls.Add(this.label76);
+			this.TabPageBluetooth.Controls.Add(this.label90);
+			this.TabPageBluetooth.Controls.Add(this.label75);
+			this.TabPageBluetooth.Controls.Add(this.label89);
+			this.TabPageBluetooth.Controls.Add(this.label74);
+			this.TabPageBluetooth.Controls.Add(this.label88);
+			this.TabPageBluetooth.Controls.Add(this.label86);
+			this.TabPageBluetooth.Controls.Add(this.label87);
+			this.TabPageBluetooth.Controls.Add(this.label30);
+			this.TabPageBluetooth.Controls.Add(this.BleIntInDfuModeBit);
+			this.TabPageBluetooth.Controls.Add(this.BleInDfuModeBit);
+			this.TabPageBluetooth.Controls.Add(this.BleIntAdvertisingBit);
+			this.TabPageBluetooth.Controls.Add(this.BleTp28ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleAdvertisingBit);
+			this.TabPageBluetooth.Controls.Add(this.BleTp25ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleIntConnectedBit);
+			this.TabPageBluetooth.Controls.Add(this.BleTp6ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleConnectedBit);
+			this.TabPageBluetooth.Controls.Add(this.BleTp28DirectionLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp5ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp25DirectionLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleIntSureFiTxInProgressBit);
+			this.TabPageBluetooth.Controls.Add(this.BleTp6DirectionLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp4ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp5DirectionLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleSureFiTxInProgressBit);
+			this.TabPageBluetooth.Controls.Add(this.BleTp4DirectionLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp3ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp3PullLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleTp3DirectionLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleIntWasResetBit);
+			this.TabPageBluetooth.Controls.Add(this.BleWasResetBit);
+			this.TabPageBluetooth.Location = new System.Drawing.Point(4, 22);
+			this.TabPageBluetooth.Name = "TabPageBluetooth";
+			this.TabPageBluetooth.Size = new System.Drawing.Size(568, 332);
+			this.TabPageBluetooth.TabIndex = 5;
+			this.TabPageBluetooth.Text = "Bluetooth";
+			this.TabPageBluetooth.UseVisualStyleBackColor = true;
+			// 
+			// BleTp28AutoCheckbox
+			// 
+			this.BleTp28AutoCheckbox.AutoSize = true;
+			this.BleTp28AutoCheckbox.Location = new System.Drawing.Point(221, 293);
+			this.BleTp28AutoCheckbox.Name = "BleTp28AutoCheckbox";
+			this.BleTp28AutoCheckbox.Size = new System.Drawing.Size(15, 14);
+			this.BleTp28AutoCheckbox.TabIndex = 42;
+			this.BleTp28AutoCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// BleTp25AutoCheckbox
+			// 
+			this.BleTp25AutoCheckbox.AutoSize = true;
+			this.BleTp25AutoCheckbox.Location = new System.Drawing.Point(221, 269);
+			this.BleTp25AutoCheckbox.Name = "BleTp25AutoCheckbox";
+			this.BleTp25AutoCheckbox.Size = new System.Drawing.Size(15, 14);
+			this.BleTp25AutoCheckbox.TabIndex = 42;
+			this.BleTp25AutoCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// BleTp6AutoCheckbox
+			// 
+			this.BleTp6AutoCheckbox.AutoSize = true;
+			this.BleTp6AutoCheckbox.Location = new System.Drawing.Point(221, 245);
+			this.BleTp6AutoCheckbox.Name = "BleTp6AutoCheckbox";
+			this.BleTp6AutoCheckbox.Size = new System.Drawing.Size(15, 14);
+			this.BleTp6AutoCheckbox.TabIndex = 42;
+			this.BleTp6AutoCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// BleTp5AutoCheckbox
+			// 
+			this.BleTp5AutoCheckbox.AutoSize = true;
+			this.BleTp5AutoCheckbox.Location = new System.Drawing.Point(221, 222);
+			this.BleTp5AutoCheckbox.Name = "BleTp5AutoCheckbox";
+			this.BleTp5AutoCheckbox.Size = new System.Drawing.Size(15, 14);
+			this.BleTp5AutoCheckbox.TabIndex = 42;
+			this.BleTp5AutoCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// BleTp4AutoCheckbox
+			// 
+			this.BleTp4AutoCheckbox.AutoSize = true;
+			this.BleTp4AutoCheckbox.Location = new System.Drawing.Point(221, 199);
+			this.BleTp4AutoCheckbox.Name = "BleTp4AutoCheckbox";
+			this.BleTp4AutoCheckbox.Size = new System.Drawing.Size(15, 14);
+			this.BleTp4AutoCheckbox.TabIndex = 42;
+			this.BleTp4AutoCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// BleTp3AutoCheckbox
+			// 
+			this.BleTp3AutoCheckbox.AutoSize = true;
+			this.BleTp3AutoCheckbox.Location = new System.Drawing.Point(221, 175);
+			this.BleTp3AutoCheckbox.Name = "BleTp3AutoCheckbox";
+			this.BleTp3AutoCheckbox.Size = new System.Drawing.Size(15, 14);
+			this.BleTp3AutoCheckbox.TabIndex = 42;
+			this.BleTp3AutoCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// label107
+			// 
+			this.label107.AutoSize = true;
+			this.label107.Location = new System.Drawing.Point(215, 160);
+			this.label107.Name = "label107";
+			this.label107.Size = new System.Drawing.Size(29, 13);
+			this.label107.TabIndex = 41;
+			this.label107.Text = "Auto";
+			// 
+			// label92
+			// 
+			this.label92.AutoSize = true;
+			this.label92.Location = new System.Drawing.Point(135, 159);
+			this.label92.Name = "label92";
+			this.label92.Size = new System.Drawing.Size(34, 13);
+			this.label92.TabIndex = 41;
+			this.label92.Text = "Value";
+			// 
+			// label84
+			// 
+			this.label84.AutoSize = true;
+			this.label84.Location = new System.Drawing.Point(44, 159);
+			this.label84.Name = "label84";
+			this.label84.Size = new System.Drawing.Size(49, 13);
+			this.label84.TabIndex = 41;
+			this.label84.Text = "Direction";
+			// 
+			// label106
+			// 
+			this.label106.AutoSize = true;
+			this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label106.Location = new System.Drawing.Point(7, 294);
+			this.label106.Name = "label106";
+			this.label106.Size = new System.Drawing.Size(37, 13);
+			this.label106.TabIndex = 40;
+			this.label106.Text = "TP28";
+			// 
+			// BleTp28GetButton
+			// 
+			this.BleTp28GetButton.Location = new System.Drawing.Point(173, 289);
+			this.BleTp28GetButton.Name = "BleTp28GetButton";
+			this.BleTp28GetButton.Size = new System.Drawing.Size(42, 23);
+			this.BleTp28GetButton.TabIndex = 39;
+			this.BleTp28GetButton.Text = "Get";
+			this.BleTp28GetButton.UseVisualStyleBackColor = true;
+			// 
+			// label103
+			// 
+			this.label103.AutoSize = true;
+			this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label103.Location = new System.Drawing.Point(7, 270);
+			this.label103.Name = "label103";
+			this.label103.Size = new System.Drawing.Size(37, 13);
+			this.label103.TabIndex = 40;
+			this.label103.Text = "TP25";
+			// 
+			// BleTp25GetButton
+			// 
+			this.BleTp25GetButton.Location = new System.Drawing.Point(173, 265);
+			this.BleTp25GetButton.Name = "BleTp25GetButton";
+			this.BleTp25GetButton.Size = new System.Drawing.Size(42, 23);
+			this.BleTp25GetButton.TabIndex = 39;
+			this.BleTp25GetButton.Text = "Get";
+			this.BleTp25GetButton.UseVisualStyleBackColor = true;
+			// 
+			// label100
+			// 
+			this.label100.AutoSize = true;
+			this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label100.Location = new System.Drawing.Point(14, 246);
+			this.label100.Name = "label100";
+			this.label100.Size = new System.Drawing.Size(30, 13);
+			this.label100.TabIndex = 40;
+			this.label100.Text = "TP6";
+			// 
+			// BleTp6GetButton
+			// 
+			this.BleTp6GetButton.Location = new System.Drawing.Point(173, 241);
+			this.BleTp6GetButton.Name = "BleTp6GetButton";
+			this.BleTp6GetButton.Size = new System.Drawing.Size(42, 23);
+			this.BleTp6GetButton.TabIndex = 39;
+			this.BleTp6GetButton.Text = "Get";
+			this.BleTp6GetButton.UseVisualStyleBackColor = true;
+			// 
+			// label97
+			// 
+			this.label97.AutoSize = true;
+			this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label97.Location = new System.Drawing.Point(14, 223);
+			this.label97.Name = "label97";
+			this.label97.Size = new System.Drawing.Size(30, 13);
+			this.label97.TabIndex = 40;
+			this.label97.Text = "TP5";
+			// 
+			// BleTp5GetButton
+			// 
+			this.BleTp5GetButton.Location = new System.Drawing.Point(173, 218);
+			this.BleTp5GetButton.Name = "BleTp5GetButton";
+			this.BleTp5GetButton.Size = new System.Drawing.Size(42, 23);
+			this.BleTp5GetButton.TabIndex = 39;
+			this.BleTp5GetButton.Text = "Get";
+			this.BleTp5GetButton.UseVisualStyleBackColor = true;
+			// 
+			// label94
+			// 
+			this.label94.AutoSize = true;
+			this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label94.Location = new System.Drawing.Point(14, 200);
+			this.label94.Name = "label94";
+			this.label94.Size = new System.Drawing.Size(30, 13);
+			this.label94.TabIndex = 40;
+			this.label94.Text = "TP4";
+			// 
+			// BleTp4GetButton
+			// 
+			this.BleTp4GetButton.Location = new System.Drawing.Point(173, 195);
+			this.BleTp4GetButton.Name = "BleTp4GetButton";
+			this.BleTp4GetButton.Size = new System.Drawing.Size(42, 23);
+			this.BleTp4GetButton.TabIndex = 39;
+			this.BleTp4GetButton.Text = "Get";
+			this.BleTp4GetButton.UseVisualStyleBackColor = true;
+			// 
+			// label82
+			// 
+			this.label82.AutoSize = true;
+			this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label82.Location = new System.Drawing.Point(14, 176);
+			this.label82.Name = "label82";
+			this.label82.Size = new System.Drawing.Size(30, 13);
+			this.label82.TabIndex = 40;
+			this.label82.Text = "TP3";
+			// 
+			// BleTp3GetButton
+			// 
+			this.BleTp3GetButton.Location = new System.Drawing.Point(173, 171);
+			this.BleTp3GetButton.Name = "BleTp3GetButton";
+			this.BleTp3GetButton.Size = new System.Drawing.Size(42, 23);
+			this.BleTp3GetButton.TabIndex = 39;
+			this.BleTp3GetButton.Text = "Get";
+			this.BleTp3GetButton.UseVisualStyleBackColor = true;
+			// 
+			// BleDisableAllButton
+			// 
+			this.BleDisableAllButton.Location = new System.Drawing.Point(351, 185);
+			this.BleDisableAllButton.Name = "BleDisableAllButton";
+			this.BleDisableAllButton.Size = new System.Drawing.Size(95, 23);
+			this.BleDisableAllButton.TabIndex = 38;
+			this.BleDisableAllButton.Text = "Disable All";
+			this.BleDisableAllButton.UseVisualStyleBackColor = true;
+			// 
+			// BleEnableAllButton
+			// 
+			this.BleEnableAllButton.Location = new System.Drawing.Point(351, 161);
+			this.BleEnableAllButton.Name = "BleEnableAllButton";
+			this.BleEnableAllButton.Size = new System.Drawing.Size(95, 23);
+			this.BleEnableAllButton.TabIndex = 38;
+			this.BleEnableAllButton.Text = "Enable All";
+			this.BleEnableAllButton.UseVisualStyleBackColor = true;
+			// 
+			// BleClearResetFlagButton
+			// 
+			this.BleClearResetFlagButton.Location = new System.Drawing.Point(351, 18);
+			this.BleClearResetFlagButton.Name = "BleClearResetFlagButton";
+			this.BleClearResetFlagButton.Size = new System.Drawing.Size(95, 23);
+			this.BleClearResetFlagButton.TabIndex = 36;
+			this.BleClearResetFlagButton.Text = "Clear Reset Flag";
+			this.BleClearResetFlagButton.UseVisualStyleBackColor = true;
+			// 
+			// BleGetStatusButton
+			// 
+			this.BleGetStatusButton.Location = new System.Drawing.Point(351, 42);
+			this.BleGetStatusButton.Name = "BleGetStatusButton";
+			this.BleGetStatusButton.Size = new System.Drawing.Size(95, 23);
+			this.BleGetStatusButton.TabIndex = 35;
+			this.BleGetStatusButton.Text = "Get Status";
+			this.BleGetStatusButton.UseVisualStyleBackColor = true;
+			// 
+			// BleFirmwareVersionLabel
+			// 
+			this.BleFirmwareVersionLabel.AutoSize = true;
+			this.BleFirmwareVersionLabel.Location = new System.Drawing.Point(78, 135);
+			this.BleFirmwareVersionLabel.Name = "BleFirmwareVersionLabel";
+			this.BleFirmwareVersionLabel.Size = new System.Drawing.Size(94, 13);
+			this.BleFirmwareVersionLabel.TabIndex = 34;
+			this.BleFirmwareVersionLabel.Text = "Firmware: 1.0(100)";
+			// 
+			// label78
+			// 
+			this.label78.AutoSize = true;
+			this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label78.Location = new System.Drawing.Point(78, 122);
+			this.label78.Name = "label78";
+			this.label78.Size = new System.Drawing.Size(111, 13);
+			this.label78.TabIndex = 33;
+			this.label78.Text = "Bluetooth Version:";
+			// 
+			// BleGetVersionButton
+			// 
+			this.BleGetVersionButton.Location = new System.Drawing.Point(6, 122);
+			this.BleGetVersionButton.Name = "BleGetVersionButton";
+			this.BleGetVersionButton.Size = new System.Drawing.Size(66, 23);
+			this.BleGetVersionButton.TabIndex = 23;
+			this.BleGetVersionButton.Text = "Get";
+			this.BleGetVersionButton.UseVisualStyleBackColor = true;
+			// 
+			// BleAdvertisingNameLengthLabel
+			// 
+			this.BleAdvertisingNameLengthLabel.AutoSize = true;
+			this.BleAdvertisingNameLengthLabel.Location = new System.Drawing.Point(185, 6);
+			this.BleAdvertisingNameLengthLabel.Name = "BleAdvertisingNameLengthLabel";
+			this.BleAdvertisingNameLengthLabel.Size = new System.Drawing.Size(47, 13);
+			this.BleAdvertisingNameLengthLabel.TabIndex = 22;
+			this.BleAdvertisingNameLengthLabel.Text = "10 bytes";
+			// 
+			// BleAdvertisingDataLengthLabel
+			// 
+			this.BleAdvertisingDataLengthLabel.AutoSize = true;
+			this.BleAdvertisingDataLengthLabel.Location = new System.Drawing.Point(185, 44);
+			this.BleAdvertisingDataLengthLabel.Name = "BleAdvertisingDataLengthLabel";
+			this.BleAdvertisingDataLengthLabel.Size = new System.Drawing.Size(47, 13);
+			this.BleAdvertisingDataLengthLabel.TabIndex = 22;
+			this.BleAdvertisingDataLengthLabel.Text = "10 bytes";
+			// 
+			// label71
+			// 
+			this.label71.AutoSize = true;
+			this.label71.Location = new System.Drawing.Point(3, 44);
+			this.label71.Name = "label71";
+			this.label71.Size = new System.Drawing.Size(85, 13);
+			this.label71.TabIndex = 21;
+			this.label71.Text = "Advertising Data";
+			// 
+			// label59
+			// 
+			this.label59.AutoSize = true;
+			this.label59.Location = new System.Drawing.Point(3, 6);
+			this.label59.Name = "label59";
+			this.label59.Size = new System.Drawing.Size(90, 13);
+			this.label59.TabIndex = 21;
+			this.label59.Text = "Advertising Name";
+			// 
+			// BleAdvertisingDataTextbox
+			// 
+			this.BleAdvertisingDataTextbox.Location = new System.Drawing.Point(6, 60);
+			this.BleAdvertisingDataTextbox.Name = "BleAdvertisingDataTextbox";
+			this.BleAdvertisingDataTextbox.Size = new System.Drawing.Size(226, 20);
+			this.BleAdvertisingDataTextbox.TabIndex = 20;
+			// 
+			// BleAdvertisingNameTextbox
+			// 
+			this.BleAdvertisingNameTextbox.Location = new System.Drawing.Point(6, 21);
+			this.BleAdvertisingNameTextbox.Name = "BleAdvertisingNameTextbox";
+			this.BleAdvertisingNameTextbox.Size = new System.Drawing.Size(226, 20);
+			this.BleAdvertisingNameTextbox.TabIndex = 19;
+			// 
+			// BleCloseConnectionButton
+			// 
+			this.BleCloseConnectionButton.Location = new System.Drawing.Point(122, 86);
+			this.BleCloseConnectionButton.Name = "BleCloseConnectionButton";
+			this.BleCloseConnectionButton.Size = new System.Drawing.Size(110, 23);
+			this.BleCloseConnectionButton.TabIndex = 18;
+			this.BleCloseConnectionButton.Text = "Close Connection";
+			this.BleCloseConnectionButton.UseVisualStyleBackColor = true;
+			// 
+			// BleStartAdvertisingButton
+			// 
+			this.BleStartAdvertisingButton.Location = new System.Drawing.Point(6, 86);
+			this.BleStartAdvertisingButton.Name = "BleStartAdvertisingButton";
+			this.BleStartAdvertisingButton.Size = new System.Drawing.Size(110, 23);
+			this.BleStartAdvertisingButton.TabIndex = 18;
+			this.BleStartAdvertisingButton.Text = "Start Advertising";
+			this.BleStartAdvertisingButton.UseVisualStyleBackColor = true;
+			// 
+			// label91
+			// 
+			this.label91.AutoSize = true;
+			this.label91.Location = new System.Drawing.Point(277, 217);
+			this.label91.Name = "label91";
+			this.label91.Size = new System.Drawing.Size(71, 13);
+			this.label91.TabIndex = 17;
+			this.label91.Text = "In DFU Mode";
+			// 
+			// label76
+			// 
+			this.label76.AutoSize = true;
+			this.label76.Location = new System.Drawing.Point(277, 79);
+			this.label76.Name = "label76";
+			this.label76.Size = new System.Drawing.Size(71, 13);
+			this.label76.TabIndex = 17;
+			this.label76.Text = "In DFU Mode";
+			// 
+			// label90
+			// 
+			this.label90.AutoSize = true;
+			this.label90.Location = new System.Drawing.Point(277, 194);
+			this.label90.Name = "label90";
+			this.label90.Size = new System.Drawing.Size(59, 13);
+			this.label90.TabIndex = 17;
+			this.label90.Text = "Advertising";
+			// 
+			// label75
+			// 
+			this.label75.AutoSize = true;
+			this.label75.Location = new System.Drawing.Point(277, 56);
+			this.label75.Name = "label75";
+			this.label75.Size = new System.Drawing.Size(59, 13);
+			this.label75.TabIndex = 17;
+			this.label75.Text = "Advertising";
+			// 
+			// label89
+			// 
+			this.label89.AutoSize = true;
+			this.label89.Location = new System.Drawing.Point(277, 171);
+			this.label89.Name = "label89";
+			this.label89.Size = new System.Drawing.Size(59, 13);
+			this.label89.TabIndex = 17;
+			this.label89.Text = "Connected";
+			// 
+			// label74
+			// 
+			this.label74.AutoSize = true;
+			this.label74.Location = new System.Drawing.Point(277, 33);
+			this.label74.Name = "label74";
+			this.label74.Size = new System.Drawing.Size(59, 13);
+			this.label74.TabIndex = 17;
+			this.label74.Text = "Connected";
+			// 
+			// label88
+			// 
+			this.label88.AutoSize = true;
+			this.label88.Location = new System.Drawing.Point(277, 240);
+			this.label88.Name = "label88";
+			this.label88.Size = new System.Drawing.Size(111, 13);
+			this.label88.TabIndex = 17;
+			this.label88.Text = "Sure-Fi Tx In Progress";
+			// 
+			// label86
+			// 
+			this.label86.AutoSize = true;
+			this.label86.Location = new System.Drawing.Point(277, 102);
+			this.label86.Name = "label86";
+			this.label86.Size = new System.Drawing.Size(111, 13);
+			this.label86.TabIndex = 17;
+			this.label86.Text = "Sure-Fi Tx In Progress";
+			// 
+			// label87
+			// 
+			this.label87.AutoSize = true;
+			this.label87.Location = new System.Drawing.Point(277, 148);
+			this.label87.Name = "label87";
+			this.label87.Size = new System.Drawing.Size(60, 13);
+			this.label87.TabIndex = 17;
+			this.label87.Text = "Was Reset";
+			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(277, 10);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(60, 13);
+			this.label30.TabIndex = 17;
+			this.label30.Text = "Was Reset";
+			// 
+			// BleIntInDfuModeBit
+			// 
+			this.BleIntInDfuModeBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleIntInDfuModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleIntInDfuModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleIntInDfuModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleIntInDfuModeBit.Location = new System.Drawing.Point(253, 213);
+			this.BleIntInDfuModeBit.Name = "BleIntInDfuModeBit";
+			this.BleIntInDfuModeBit.Size = new System.Drawing.Size(21, 21);
+			this.BleIntInDfuModeBit.TabIndex = 16;
+			this.BleIntInDfuModeBit.Text = "D";
+			this.BleIntInDfuModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleInDfuModeBit
+			// 
+			this.BleInDfuModeBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleInDfuModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleInDfuModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleInDfuModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleInDfuModeBit.Location = new System.Drawing.Point(253, 75);
+			this.BleInDfuModeBit.Name = "BleInDfuModeBit";
+			this.BleInDfuModeBit.Size = new System.Drawing.Size(21, 21);
+			this.BleInDfuModeBit.TabIndex = 16;
+			this.BleInDfuModeBit.Text = "0";
+			this.BleInDfuModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleIntAdvertisingBit
+			// 
+			this.BleIntAdvertisingBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleIntAdvertisingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleIntAdvertisingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleIntAdvertisingBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleIntAdvertisingBit.Location = new System.Drawing.Point(253, 190);
+			this.BleIntAdvertisingBit.Name = "BleIntAdvertisingBit";
+			this.BleIntAdvertisingBit.Size = new System.Drawing.Size(21, 21);
+			this.BleIntAdvertisingBit.TabIndex = 16;
+			this.BleIntAdvertisingBit.Text = "D";
+			this.BleIntAdvertisingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp28ValueLabel
+			// 
+			this.BleTp28ValueLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp28ValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp28ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp28ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp28ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp28ValueLabel.Location = new System.Drawing.Point(133, 290);
+			this.BleTp28ValueLabel.Name = "BleTp28ValueLabel";
+			this.BleTp28ValueLabel.Size = new System.Drawing.Size(38, 21);
+			this.BleTp28ValueLabel.TabIndex = 16;
+			this.BleTp28ValueLabel.Text = "Low";
+			this.BleTp28ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleAdvertisingBit
+			// 
+			this.BleAdvertisingBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleAdvertisingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleAdvertisingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleAdvertisingBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleAdvertisingBit.Location = new System.Drawing.Point(253, 52);
+			this.BleAdvertisingBit.Name = "BleAdvertisingBit";
+			this.BleAdvertisingBit.Size = new System.Drawing.Size(21, 21);
+			this.BleAdvertisingBit.TabIndex = 16;
+			this.BleAdvertisingBit.Text = "0";
+			this.BleAdvertisingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp25ValueLabel
+			// 
+			this.BleTp25ValueLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp25ValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp25ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp25ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp25ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp25ValueLabel.Location = new System.Drawing.Point(133, 266);
+			this.BleTp25ValueLabel.Name = "BleTp25ValueLabel";
+			this.BleTp25ValueLabel.Size = new System.Drawing.Size(38, 21);
+			this.BleTp25ValueLabel.TabIndex = 16;
+			this.BleTp25ValueLabel.Text = "Low";
+			this.BleTp25ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleIntConnectedBit
+			// 
+			this.BleIntConnectedBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleIntConnectedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleIntConnectedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleIntConnectedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleIntConnectedBit.Location = new System.Drawing.Point(253, 167);
+			this.BleIntConnectedBit.Name = "BleIntConnectedBit";
+			this.BleIntConnectedBit.Size = new System.Drawing.Size(21, 21);
+			this.BleIntConnectedBit.TabIndex = 16;
+			this.BleIntConnectedBit.Text = "D";
+			this.BleIntConnectedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp6ValueLabel
+			// 
+			this.BleTp6ValueLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp6ValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp6ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp6ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp6ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp6ValueLabel.Location = new System.Drawing.Point(133, 242);
+			this.BleTp6ValueLabel.Name = "BleTp6ValueLabel";
+			this.BleTp6ValueLabel.Size = new System.Drawing.Size(38, 21);
+			this.BleTp6ValueLabel.TabIndex = 16;
+			this.BleTp6ValueLabel.Text = "Low";
+			this.BleTp6ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleConnectedBit
+			// 
+			this.BleConnectedBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleConnectedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleConnectedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleConnectedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleConnectedBit.Location = new System.Drawing.Point(253, 29);
+			this.BleConnectedBit.Name = "BleConnectedBit";
+			this.BleConnectedBit.Size = new System.Drawing.Size(21, 21);
+			this.BleConnectedBit.TabIndex = 16;
+			this.BleConnectedBit.Text = "0";
+			this.BleConnectedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp28DirectionLabel
+			// 
+			this.BleTp28DirectionLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp28DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp28DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp28DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp28DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp28DirectionLabel.Location = new System.Drawing.Point(47, 290);
+			this.BleTp28DirectionLabel.Name = "BleTp28DirectionLabel";
+			this.BleTp28DirectionLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp28DirectionLabel.TabIndex = 16;
+			this.BleTp28DirectionLabel.Text = "In";
+			this.BleTp28DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp5ValueLabel
+			// 
+			this.BleTp5ValueLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp5ValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp5ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp5ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp5ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp5ValueLabel.Location = new System.Drawing.Point(133, 219);
+			this.BleTp5ValueLabel.Name = "BleTp5ValueLabel";
+			this.BleTp5ValueLabel.Size = new System.Drawing.Size(38, 21);
+			this.BleTp5ValueLabel.TabIndex = 16;
+			this.BleTp5ValueLabel.Text = "Low";
+			this.BleTp5ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp25DirectionLabel
+			// 
+			this.BleTp25DirectionLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp25DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp25DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp25DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp25DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp25DirectionLabel.Location = new System.Drawing.Point(47, 266);
+			this.BleTp25DirectionLabel.Name = "BleTp25DirectionLabel";
+			this.BleTp25DirectionLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp25DirectionLabel.TabIndex = 16;
+			this.BleTp25DirectionLabel.Text = "In";
+			this.BleTp25DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleIntSureFiTxInProgressBit
+			// 
+			this.BleIntSureFiTxInProgressBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleIntSureFiTxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleIntSureFiTxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleIntSureFiTxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleIntSureFiTxInProgressBit.Location = new System.Drawing.Point(253, 236);
+			this.BleIntSureFiTxInProgressBit.Name = "BleIntSureFiTxInProgressBit";
+			this.BleIntSureFiTxInProgressBit.Size = new System.Drawing.Size(21, 21);
+			this.BleIntSureFiTxInProgressBit.TabIndex = 16;
+			this.BleIntSureFiTxInProgressBit.Text = "D";
+			this.BleIntSureFiTxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp6DirectionLabel
+			// 
+			this.BleTp6DirectionLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp6DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp6DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp6DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp6DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp6DirectionLabel.Location = new System.Drawing.Point(47, 242);
+			this.BleTp6DirectionLabel.Name = "BleTp6DirectionLabel";
+			this.BleTp6DirectionLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp6DirectionLabel.TabIndex = 16;
+			this.BleTp6DirectionLabel.Text = "In";
+			this.BleTp6DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp4ValueLabel
+			// 
+			this.BleTp4ValueLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp4ValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp4ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp4ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp4ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp4ValueLabel.Location = new System.Drawing.Point(133, 196);
+			this.BleTp4ValueLabel.Name = "BleTp4ValueLabel";
+			this.BleTp4ValueLabel.Size = new System.Drawing.Size(38, 21);
+			this.BleTp4ValueLabel.TabIndex = 16;
+			this.BleTp4ValueLabel.Text = "Low";
+			this.BleTp4ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp5DirectionLabel
+			// 
+			this.BleTp5DirectionLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp5DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp5DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp5DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp5DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp5DirectionLabel.Location = new System.Drawing.Point(47, 219);
+			this.BleTp5DirectionLabel.Name = "BleTp5DirectionLabel";
+			this.BleTp5DirectionLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp5DirectionLabel.TabIndex = 16;
+			this.BleTp5DirectionLabel.Text = "In";
+			this.BleTp5DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleSureFiTxInProgressBit
+			// 
+			this.BleSureFiTxInProgressBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleSureFiTxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleSureFiTxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleSureFiTxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleSureFiTxInProgressBit.Location = new System.Drawing.Point(253, 98);
+			this.BleSureFiTxInProgressBit.Name = "BleSureFiTxInProgressBit";
+			this.BleSureFiTxInProgressBit.Size = new System.Drawing.Size(21, 21);
+			this.BleSureFiTxInProgressBit.TabIndex = 16;
+			this.BleSureFiTxInProgressBit.Text = "0";
+			this.BleSureFiTxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp4DirectionLabel
+			// 
+			this.BleTp4DirectionLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp4DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp4DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp4DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp4DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp4DirectionLabel.Location = new System.Drawing.Point(47, 196);
+			this.BleTp4DirectionLabel.Name = "BleTp4DirectionLabel";
+			this.BleTp4DirectionLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp4DirectionLabel.TabIndex = 16;
+			this.BleTp4DirectionLabel.Text = "In";
+			this.BleTp4DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp3ValueLabel
+			// 
+			this.BleTp3ValueLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp3ValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp3ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp3ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp3ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp3ValueLabel.Location = new System.Drawing.Point(133, 172);
+			this.BleTp3ValueLabel.Name = "BleTp3ValueLabel";
+			this.BleTp3ValueLabel.Size = new System.Drawing.Size(38, 21);
+			this.BleTp3ValueLabel.TabIndex = 16;
+			this.BleTp3ValueLabel.Text = "Low";
+			this.BleTp3ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleTp3DirectionLabel
+			// 
+			this.BleTp3DirectionLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp3DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp3DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp3DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp3DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp3DirectionLabel.Location = new System.Drawing.Point(47, 172);
+			this.BleTp3DirectionLabel.Name = "BleTp3DirectionLabel";
+			this.BleTp3DirectionLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp3DirectionLabel.TabIndex = 16;
+			this.BleTp3DirectionLabel.Text = "In";
+			this.BleTp3DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleIntWasResetBit
+			// 
+			this.BleIntWasResetBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleIntWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleIntWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleIntWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleIntWasResetBit.Location = new System.Drawing.Point(253, 144);
+			this.BleIntWasResetBit.Name = "BleIntWasResetBit";
+			this.BleIntWasResetBit.Size = new System.Drawing.Size(21, 21);
+			this.BleIntWasResetBit.TabIndex = 16;
+			this.BleIntWasResetBit.Text = "D";
+			this.BleIntWasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// BleWasResetBit
+			// 
+			this.BleWasResetBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleWasResetBit.Location = new System.Drawing.Point(253, 6);
+			this.BleWasResetBit.Name = "BleWasResetBit";
+			this.BleWasResetBit.Size = new System.Drawing.Size(21, 21);
+			this.BleWasResetBit.TabIndex = 16;
+			this.BleWasResetBit.Text = "0";
+			this.BleWasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// TxTextbox
 			// 
 			this.TxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TxTextbox.Location = new System.Drawing.Point(29, 350);
+			this.TxTextbox.Location = new System.Drawing.Point(29, 376);
 			this.TxTextbox.Name = "TxTextbox";
 			this.TxTextbox.Size = new System.Drawing.Size(289, 20);
 			this.TxTextbox.TabIndex = 6;
@@ -2654,7 +3660,7 @@
 			// TransmitButton
 			// 
 			this.TransmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.TransmitButton.Location = new System.Drawing.Point(324, 348);
+			this.TransmitButton.Location = new System.Drawing.Point(324, 374);
 			this.TransmitButton.Name = "TransmitButton";
 			this.TransmitButton.Size = new System.Drawing.Size(75, 23);
 			this.TransmitButton.TabIndex = 7;
@@ -2665,7 +3671,7 @@
 			// RxTextbox
 			// 
 			this.RxTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxTextbox.Location = new System.Drawing.Point(480, 349);
+			this.RxTextbox.Location = new System.Drawing.Point(480, 375);
 			this.RxTextbox.Name = "RxTextbox";
 			this.RxTextbox.ReadOnly = true;
 			this.RxTextbox.Size = new System.Drawing.Size(215, 20);
@@ -2674,7 +3680,7 @@
 			// RxClearButton
 			// 
 			this.RxClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.RxClearButton.Location = new System.Drawing.Point(700, 348);
+			this.RxClearButton.Location = new System.Drawing.Point(700, 374);
 			this.RxClearButton.Name = "RxClearButton";
 			this.RxClearButton.Size = new System.Drawing.Size(50, 23);
 			this.RxClearButton.TabIndex = 12;
@@ -2688,7 +3694,7 @@
 			this.TxHexCheckbox.AutoSize = true;
 			this.TxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.TxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 348);
+			this.TxHexCheckbox.Location = new System.Drawing.Point(4, 374);
 			this.TxHexCheckbox.Name = "TxHexCheckbox";
 			this.TxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.TxHexCheckbox.TabIndex = 13;
@@ -2700,7 +3706,7 @@
 			// 
 			this.AckTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.AckTextbox.Location = new System.Drawing.Point(29, 390);
+			this.AckTextbox.Location = new System.Drawing.Point(29, 416);
 			this.AckTextbox.Name = "AckTextbox";
 			this.AckTextbox.ReadOnly = true;
 			this.AckTextbox.Size = new System.Drawing.Size(289, 20);
@@ -2709,7 +3715,7 @@
 			// AckClearButton
 			// 
 			this.AckClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AckClearButton.Location = new System.Drawing.Point(324, 388);
+			this.AckClearButton.Location = new System.Drawing.Point(324, 414);
 			this.AckClearButton.Name = "AckClearButton";
 			this.AckClearButton.Size = new System.Drawing.Size(75, 23);
 			this.AckClearButton.TabIndex = 15;
@@ -2722,7 +3728,7 @@
 			this.TxSuccessLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxSuccessLabel.AutoSize = true;
 			this.TxSuccessLabel.ForeColor = System.Drawing.Color.DarkGreen;
-			this.TxSuccessLabel.Location = new System.Drawing.Point(405, 347);
+			this.TxSuccessLabel.Location = new System.Drawing.Point(405, 373);
 			this.TxSuccessLabel.Name = "TxSuccessLabel";
 			this.TxSuccessLabel.Size = new System.Drawing.Size(48, 13);
 			this.TxSuccessLabel.TabIndex = 17;
@@ -2733,7 +3739,7 @@
 			this.TxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxLengthLabel.AutoSize = true;
 			this.TxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxLengthLabel.Location = new System.Drawing.Point(186, 337);
+			this.TxLengthLabel.Location = new System.Drawing.Point(186, 363);
 			this.TxLengthLabel.Name = "TxLengthLabel";
 			this.TxLengthLabel.Size = new System.Drawing.Size(69, 13);
 			this.TxLengthLabel.TabIndex = 18;
@@ -2744,7 +3750,7 @@
 			this.TxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxCountLabel.AutoSize = true;
 			this.TxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxCountLabel.Location = new System.Drawing.Point(272, 337);
+			this.TxCountLabel.Location = new System.Drawing.Point(272, 363);
 			this.TxCountLabel.Name = "TxCountLabel";
 			this.TxCountLabel.Size = new System.Drawing.Size(47, 13);
 			this.TxCountLabel.TabIndex = 18;
@@ -2755,7 +3761,7 @@
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(478, 336);
+			this.label3.Location = new System.Drawing.Point(478, 362);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(47, 13);
 			this.label3.TabIndex = 18;
@@ -2766,7 +3772,7 @@
 			this.RxLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxLengthLabel.AutoSize = true;
 			this.RxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxLengthLabel.Location = new System.Drawing.Point(589, 336);
+			this.RxLengthLabel.Location = new System.Drawing.Point(589, 362);
 			this.RxLengthLabel.Name = "RxLengthLabel";
 			this.RxLengthLabel.Size = new System.Drawing.Size(52, 13);
 			this.RxLengthLabel.TabIndex = 18;
@@ -2777,7 +3783,7 @@
 			this.RxCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxCountLabel.AutoSize = true;
 			this.RxCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxCountLabel.Location = new System.Drawing.Point(649, 336);
+			this.RxCountLabel.Location = new System.Drawing.Point(649, 362);
 			this.RxCountLabel.Name = "RxCountLabel";
 			this.RxCountLabel.Size = new System.Drawing.Size(47, 13);
 			this.RxCountLabel.TabIndex = 18;
@@ -2788,7 +3794,7 @@
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(29, 337);
+			this.label6.Location = new System.Drawing.Point(29, 363);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(47, 13);
 			this.label6.TabIndex = 18;
@@ -2800,7 +3806,7 @@
 			this.RxHexCheckbox.AutoSize = true;
 			this.RxHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.RxHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxHexCheckbox.Location = new System.Drawing.Point(455, 348);
+			this.RxHexCheckbox.Location = new System.Drawing.Point(455, 374);
 			this.RxHexCheckbox.Name = "RxHexCheckbox";
 			this.RxHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.RxHexCheckbox.TabIndex = 13;
@@ -2813,7 +3819,7 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(27, 377);
+			this.label1.Location = new System.Drawing.Point(27, 403);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(95, 13);
 			this.label1.TabIndex = 18;
@@ -2825,7 +3831,7 @@
 			this.AckHexCheckbox.AutoSize = true;
 			this.AckHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.AckHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckHexCheckbox.Location = new System.Drawing.Point(5, 389);
+			this.AckHexCheckbox.Location = new System.Drawing.Point(5, 415);
 			this.AckHexCheckbox.Name = "AckHexCheckbox";
 			this.AckHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.AckHexCheckbox.TabIndex = 13;
@@ -2838,7 +3844,7 @@
 			this.AckLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckLengthLabel.AutoSize = true;
 			this.AckLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckLengthLabel.Location = new System.Drawing.Point(207, 377);
+			this.AckLengthLabel.Location = new System.Drawing.Point(207, 403);
 			this.AckLengthLabel.Name = "AckLengthLabel";
 			this.AckLengthLabel.Size = new System.Drawing.Size(52, 13);
 			this.AckLengthLabel.TabIndex = 18;
@@ -2849,7 +3855,7 @@
 			this.AckCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckCountLabel.AutoSize = true;
 			this.AckCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckCountLabel.Location = new System.Drawing.Point(272, 377);
+			this.AckCountLabel.Location = new System.Drawing.Point(272, 403);
 			this.AckCountLabel.Name = "AckCountLabel";
 			this.AckCountLabel.Size = new System.Drawing.Size(47, 13);
 			this.AckCountLabel.TabIndex = 18;
@@ -2860,7 +3866,7 @@
 			this.TxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxRssiLabel.AutoSize = true;
 			this.TxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxRssiLabel.Location = new System.Drawing.Point(400, 388);
+			this.TxRssiLabel.Location = new System.Drawing.Point(400, 414);
 			this.TxRssiLabel.Name = "TxRssiLabel";
 			this.TxRssiLabel.Size = new System.Drawing.Size(37, 12);
 			this.TxRssiLabel.TabIndex = 19;
@@ -2871,7 +3877,7 @@
 			this.TxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxSnrLabel.AutoSize = true;
 			this.TxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxSnrLabel.Location = new System.Drawing.Point(402, 399);
+			this.TxSnrLabel.Location = new System.Drawing.Point(402, 425);
 			this.TxSnrLabel.Name = "TxSnrLabel";
 			this.TxSnrLabel.Size = new System.Drawing.Size(35, 12);
 			this.TxSnrLabel.TabIndex = 19;
@@ -2882,7 +3888,7 @@
 			this.RxRssiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxRssiLabel.AutoSize = true;
 			this.RxRssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxRssiLabel.Location = new System.Drawing.Point(706, 374);
+			this.RxRssiLabel.Location = new System.Drawing.Point(706, 400);
 			this.RxRssiLabel.Name = "RxRssiLabel";
 			this.RxRssiLabel.Size = new System.Drawing.Size(37, 12);
 			this.RxRssiLabel.TabIndex = 19;
@@ -2893,7 +3899,7 @@
 			this.RxSnrLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.RxSnrLabel.AutoSize = true;
 			this.RxSnrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RxSnrLabel.Location = new System.Drawing.Point(708, 385);
+			this.RxSnrLabel.Location = new System.Drawing.Point(708, 411);
 			this.RxSnrLabel.Name = "RxSnrLabel";
 			this.RxSnrLabel.Size = new System.Drawing.Size(35, 12);
 			this.RxSnrLabel.TabIndex = 19;
@@ -2913,7 +3919,7 @@
 			// AckDataTextbox
 			// 
 			this.AckDataTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AckDataTextbox.Location = new System.Drawing.Point(480, 390);
+			this.AckDataTextbox.Location = new System.Drawing.Point(480, 416);
 			this.AckDataTextbox.Name = "AckDataTextbox";
 			this.AckDataTextbox.Size = new System.Drawing.Size(215, 20);
 			this.AckDataTextbox.TabIndex = 16;
@@ -2926,7 +3932,7 @@
 			this.AckDataLengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AckDataLengthLabel.AutoSize = true;
 			this.AckDataLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckDataLengthLabel.Location = new System.Drawing.Point(614, 377);
+			this.AckDataLengthLabel.Location = new System.Drawing.Point(614, 403);
 			this.AckDataLengthLabel.Name = "AckDataLengthLabel";
 			this.AckDataLengthLabel.Size = new System.Drawing.Size(69, 13);
 			this.AckDataLengthLabel.TabIndex = 17;
@@ -2938,7 +3944,7 @@
 			this.AckDataHexCheckbox.AutoSize = true;
 			this.AckDataHexCheckbox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.AckDataHexCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AckDataHexCheckbox.Location = new System.Drawing.Point(455, 390);
+			this.AckDataHexCheckbox.Location = new System.Drawing.Point(455, 416);
 			this.AckDataHexCheckbox.Name = "AckDataHexCheckbox";
 			this.AckDataHexCheckbox.Size = new System.Drawing.Size(25, 27);
 			this.AckDataHexCheckbox.TabIndex = 13;
@@ -2951,7 +3957,7 @@
 			this.TxRetriesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.TxRetriesLabel.AutoSize = true;
 			this.TxRetriesLabel.ForeColor = System.Drawing.Color.DarkGreen;
-			this.TxRetriesLabel.Location = new System.Drawing.Point(402, 358);
+			this.TxRetriesLabel.Location = new System.Drawing.Point(402, 384);
 			this.TxRetriesLabel.Name = "TxRetriesLabel";
 			this.TxRetriesLabel.Size = new System.Drawing.Size(55, 13);
 			this.TxRetriesLabel.TabIndex = 17;
@@ -2962,7 +3968,7 @@
 			this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label27.AutoSize = true;
 			this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label27.Location = new System.Drawing.Point(479, 377);
+			this.label27.Location = new System.Drawing.Point(479, 403);
 			this.label27.Name = "label27";
 			this.label27.Size = new System.Drawing.Size(52, 13);
 			this.label27.TabIndex = 18;
@@ -2980,113 +3986,114 @@
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
 			// 
-			// TableHoppingCheckbox
+			// BleTp3PullLabel
 			// 
-			this.TableHoppingCheckbox.AutoSize = true;
-			this.TableHoppingCheckbox.Location = new System.Drawing.Point(261, 178);
-			this.TableHoppingCheckbox.Name = "TableHoppingCheckbox";
-			this.TableHoppingCheckbox.Size = new System.Drawing.Size(96, 17);
-			this.TableHoppingCheckbox.TabIndex = 16;
-			this.TableHoppingCheckbox.Text = "Table Hopping";
-			this.TableHoppingCheckbox.UseVisualStyleBackColor = true;
-			this.TableHoppingCheckbox.CheckedChanged += new System.EventHandler(this.TableHoppingCheckbox_CheckedChanged);
+			this.BleTp3PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp3PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp3PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp3PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp3PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp3PullLabel.Location = new System.Drawing.Point(90, 172);
+			this.BleTp3PullLabel.Name = "BleTp3PullLabel";
+			this.BleTp3PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp3PullLabel.TabIndex = 16;
+			this.BleTp3PullLabel.Text = "None";
+			this.BleTp3PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// ChangingTablesBit
+			// label77
 			// 
-			this.ChangingTablesBit.BackColor = System.Drawing.Color.Transparent;
-			this.ChangingTablesBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.ChangingTablesBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ChangingTablesBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.ChangingTablesBit.Location = new System.Drawing.Point(8, 131);
-			this.ChangingTablesBit.Name = "ChangingTablesBit";
-			this.ChangingTablesBit.Size = new System.Drawing.Size(21, 21);
-			this.ChangingTablesBit.TabIndex = 12;
-			this.ChangingTablesBit.Text = "0";
-			this.ChangingTablesBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label77.AutoSize = true;
+			this.label77.Location = new System.Drawing.Point(98, 159);
+			this.label77.Name = "label77";
+			this.label77.Size = new System.Drawing.Size(24, 13);
+			this.label77.TabIndex = 43;
+			this.label77.Text = "Pull";
 			// 
-			// OnBaseTableBit
+			// BleTp4PullLabel
 			// 
-			this.OnBaseTableBit.BackColor = System.Drawing.Color.Transparent;
-			this.OnBaseTableBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.OnBaseTableBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OnBaseTableBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.OnBaseTableBit.Location = new System.Drawing.Point(8, 177);
-			this.OnBaseTableBit.Name = "OnBaseTableBit";
-			this.OnBaseTableBit.Size = new System.Drawing.Size(21, 21);
-			this.OnBaseTableBit.TabIndex = 12;
-			this.OnBaseTableBit.Text = "0";
-			this.OnBaseTableBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp4PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp4PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp4PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp4PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp4PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp4PullLabel.Location = new System.Drawing.Point(90, 195);
+			this.BleTp4PullLabel.Name = "BleTp4PullLabel";
+			this.BleTp4PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp4PullLabel.TabIndex = 44;
+			this.BleTp4PullLabel.Text = "None";
+			this.BleTp4PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label26
+			// BleTp5PullLabel
 			// 
-			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(35, 135);
-			this.label26.Name = "label26";
-			this.label26.Size = new System.Drawing.Size(87, 13);
-			this.label26.TabIndex = 17;
-			this.label26.Text = "Changing Tables";
+			this.BleTp5PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp5PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp5PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp5PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp5PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp5PullLabel.Location = new System.Drawing.Point(90, 219);
+			this.BleTp5PullLabel.Name = "BleTp5PullLabel";
+			this.BleTp5PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp5PullLabel.TabIndex = 44;
+			this.BleTp5PullLabel.Text = "None";
+			this.BleTp5PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label29
+			// BleTp6PullLabel
 			// 
-			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(35, 181);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(78, 13);
-			this.label29.TabIndex = 17;
-			this.label29.Text = "On Base Table";
+			this.BleTp6PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp6PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp6PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp6PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp6PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp6PullLabel.Location = new System.Drawing.Point(90, 242);
+			this.BleTp6PullLabel.Name = "BleTp6PullLabel";
+			this.BleTp6PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp6PullLabel.TabIndex = 44;
+			this.BleTp6PullLabel.Text = "None";
+			this.BleTp6PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// IntChangingTablesBit
+			// BleTp25PullLabel
 			// 
-			this.IntChangingTablesBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntChangingTablesBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntChangingTablesBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntChangingTablesBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntChangingTablesBit.Location = new System.Drawing.Point(8, 131);
-			this.IntChangingTablesBit.Name = "IntChangingTablesBit";
-			this.IntChangingTablesBit.Size = new System.Drawing.Size(21, 21);
-			this.IntChangingTablesBit.TabIndex = 31;
-			this.IntChangingTablesBit.Text = "D";
-			this.IntChangingTablesBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntChangingTablesBit.Click += new System.EventHandler(this.IntChangingTablesBit_Click);
+			this.BleTp25PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp25PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp25PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp25PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp25PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp25PullLabel.Location = new System.Drawing.Point(90, 266);
+			this.BleTp25PullLabel.Name = "BleTp25PullLabel";
+			this.BleTp25PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp25PullLabel.TabIndex = 44;
+			this.BleTp25PullLabel.Text = "None";
+			this.BleTp25PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// IntOnBaseTableBit
+			// BleTp28PullLabel
 			// 
-			this.IntOnBaseTableBit.BackColor = System.Drawing.Color.Transparent;
-			this.IntOnBaseTableBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.IntOnBaseTableBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IntOnBaseTableBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntOnBaseTableBit.Location = new System.Drawing.Point(8, 177);
-			this.IntOnBaseTableBit.Name = "IntOnBaseTableBit";
-			this.IntOnBaseTableBit.Size = new System.Drawing.Size(21, 21);
-			this.IntOnBaseTableBit.TabIndex = 31;
-			this.IntOnBaseTableBit.Text = "D";
-			this.IntOnBaseTableBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.IntOnBaseTableBit.Click += new System.EventHandler(this.IntOnBaseTableBit_Click);
+			this.BleTp28PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp28PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp28PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp28PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp28PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp28PullLabel.Location = new System.Drawing.Point(90, 290);
+			this.BleTp28PullLabel.Name = "BleTp28PullLabel";
+			this.BleTp28PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp28PullLabel.TabIndex = 44;
+			this.BleTp28PullLabel.Text = "None";
+			this.BleTp28PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label61
+			// label72
 			// 
-			this.label61.AutoSize = true;
-			this.label61.Location = new System.Drawing.Point(35, 135);
-			this.label61.Name = "label61";
-			this.label61.Size = new System.Drawing.Size(87, 13);
-			this.label61.TabIndex = 61;
-			this.label61.Text = "Changing Tables";
-			// 
-			// label62
-			// 
-			this.label62.AutoSize = true;
-			this.label62.Location = new System.Drawing.Point(35, 181);
-			this.label62.Name = "label62";
-			this.label62.Size = new System.Drawing.Size(78, 13);
-			this.label62.TabIndex = 61;
-			this.label62.Text = "On Base Table";
+			this.label72.AutoSize = true;
+			this.label72.Location = new System.Drawing.Point(7, 25);
+			this.label72.Name = "label72";
+			this.label72.Size = new System.Drawing.Size(22, 13);
+			this.label72.TabIndex = 17;
+			this.label72.Text = "2 +";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(755, 438);
+			this.ClientSize = new System.Drawing.Size(755, 464);
 			this.Controls.Add(this.PrintStatusCheckbox);
 			this.Controls.Add(this.AckDataLengthLabel);
 			this.Controls.Add(this.OutputClearButton);
@@ -3145,6 +4152,8 @@
 			this.TabPageStatus.PerformLayout();
 			this.TabPageInt.ResumeLayout(false);
 			this.TabPageInt.PerformLayout();
+			this.TabPageBluetooth.ResumeLayout(false);
+			this.TabPageBluetooth.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -3380,5 +4389,82 @@
 		private System.Windows.Forms.Label label61;
 		public System.Windows.Forms.Label IntOnBaseTableBit;
 		public System.Windows.Forms.Label IntChangingTablesBit;
+		private System.Windows.Forms.TabPage TabPageBluetooth;
+		public System.Windows.Forms.Label BleFirmwareVersionLabel;
+		private System.Windows.Forms.Label label78;
+		private System.Windows.Forms.Button BleGetVersionButton;
+		private System.Windows.Forms.Label label71;
+		private System.Windows.Forms.Label label59;
+		public System.Windows.Forms.TextBox BleAdvertisingDataTextbox;
+		public System.Windows.Forms.TextBox BleAdvertisingNameTextbox;
+		private System.Windows.Forms.Button BleCloseConnectionButton;
+		public System.Windows.Forms.Button BleStartAdvertisingButton;
+		private System.Windows.Forms.Label label76;
+		private System.Windows.Forms.Label label75;
+		private System.Windows.Forms.Label label74;
+		private System.Windows.Forms.Label label86;
+		private System.Windows.Forms.Label label30;
+		private System.Windows.Forms.Button BleGetStatusButton;
+		private System.Windows.Forms.Label label107;
+		private System.Windows.Forms.Label label92;
+		private System.Windows.Forms.Label label84;
+		private System.Windows.Forms.Label label106;
+		private System.Windows.Forms.Label label103;
+		private System.Windows.Forms.Label label100;
+		private System.Windows.Forms.Label label97;
+		private System.Windows.Forms.Label label94;
+		private System.Windows.Forms.Label label82;
+		private System.Windows.Forms.Button BleDisableAllButton;
+		private System.Windows.Forms.Button BleEnableAllButton;
+		private System.Windows.Forms.Button BleClearResetFlagButton;
+		private System.Windows.Forms.Label label91;
+		private System.Windows.Forms.Label label90;
+		private System.Windows.Forms.Label label89;
+		private System.Windows.Forms.Label label88;
+		private System.Windows.Forms.Label label87;
+		private System.Windows.Forms.Label label77;
+		public System.Windows.Forms.Label BleTp28PullLabel;
+		public System.Windows.Forms.Label BleTp25PullLabel;
+		public System.Windows.Forms.Label BleTp6PullLabel;
+		public System.Windows.Forms.Label BleTp5PullLabel;
+		public System.Windows.Forms.Label BleTp4PullLabel;
+		public System.Windows.Forms.Label BleTp3PullLabel;
+		public System.Windows.Forms.Label BleAdvertisingNameLengthLabel;
+		public System.Windows.Forms.Label BleAdvertisingDataLengthLabel;
+		public System.Windows.Forms.Label BleInDfuModeBit;
+		public System.Windows.Forms.Label BleAdvertisingBit;
+		public System.Windows.Forms.Label BleConnectedBit;
+		public System.Windows.Forms.Label BleSureFiTxInProgressBit;
+		public System.Windows.Forms.Label BleWasResetBit;
+		public System.Windows.Forms.CheckBox BleTp28AutoCheckbox;
+		public System.Windows.Forms.CheckBox BleTp25AutoCheckbox;
+		public System.Windows.Forms.CheckBox BleTp6AutoCheckbox;
+		public System.Windows.Forms.CheckBox BleTp5AutoCheckbox;
+		public System.Windows.Forms.CheckBox BleTp4AutoCheckbox;
+		public System.Windows.Forms.CheckBox BleTp3AutoCheckbox;
+		public System.Windows.Forms.Button BleTp28GetButton;
+		public System.Windows.Forms.Button BleTp25GetButton;
+		public System.Windows.Forms.Button BleTp6GetButton;
+		public System.Windows.Forms.Button BleTp5GetButton;
+		public System.Windows.Forms.Button BleTp4GetButton;
+		public System.Windows.Forms.Button BleTp3GetButton;
+		public System.Windows.Forms.Label BleIntInDfuModeBit;
+		public System.Windows.Forms.Label BleIntAdvertisingBit;
+		public System.Windows.Forms.Label BleTp28ValueLabel;
+		public System.Windows.Forms.Label BleTp25ValueLabel;
+		public System.Windows.Forms.Label BleIntConnectedBit;
+		public System.Windows.Forms.Label BleTp6ValueLabel;
+		public System.Windows.Forms.Label BleTp28DirectionLabel;
+		public System.Windows.Forms.Label BleTp5ValueLabel;
+		public System.Windows.Forms.Label BleTp25DirectionLabel;
+		public System.Windows.Forms.Label BleIntSureFiTxInProgressBit;
+		public System.Windows.Forms.Label BleTp6DirectionLabel;
+		public System.Windows.Forms.Label BleTp4ValueLabel;
+		public System.Windows.Forms.Label BleTp5DirectionLabel;
+		public System.Windows.Forms.Label BleTp4DirectionLabel;
+		public System.Windows.Forms.Label BleTp3ValueLabel;
+		public System.Windows.Forms.Label BleTp3DirectionLabel;
+		public System.Windows.Forms.Label BleIntWasResetBit;
+		private System.Windows.Forms.Label label72;
 	}
 }

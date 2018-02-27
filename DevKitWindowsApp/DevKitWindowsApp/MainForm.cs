@@ -621,7 +621,7 @@ namespace DevKitWindowsApp
 				packetSize += uid.Length;
 				packetSize += (int)PayloadSizeNumeric.Value;
 				if (packetSize > 0 && packetSize <= 64 &&
-					((packetSize+1) % 8) == 0)
+					((packetSize+2) % 16) == 0)
 				{
 					packetSizeGood = true;
 				}
@@ -651,7 +651,7 @@ namespace DevKitWindowsApp
 			}
 			else if (!packetSizeGood)
 			{
-				EncryptionReadyLabel.Text = "X Encryption: PacketSize+1 is not multiple of 8";
+				EncryptionReadyLabel.Text = "X Encryption: ReceivePacketSize+2 is not multiple of 16";
 				EncryptionReadyLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
 			}
 			else if (!acksEnabledGood)
@@ -825,16 +825,16 @@ namespace DevKitWindowsApp
 		// +==============================+
 		public void PushPacketSizeChange(bool onlyLabel)
 		{
-			int packetSize = 0;
 			byte[] rxUid = null;
 			if (TryParseHexString(RxUidTextbox.Text, out rxUid))
 			{
-				packetSize += rxUid.Length;
+				int packetSize = rxUid.Length;
 				packetSize += (int)PayloadSizeNumeric.Value;
+				int radioPacketSize = packetSize + 2;
 				
 				if (packetSize > 0 && packetSize <= 64)
 				{
-					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
+					RxPacketSizeLabel.Text = radioPacketSize.ToString() + " bytes (ReceivePacketSize = " + packetSize.ToString() + ")";
 					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
 					
 					if (!onlyLabel)
@@ -845,14 +845,14 @@ namespace DevKitWindowsApp
 				}
 				else
 				{
-					RxPacketSizeLabel.Text = packetSize.ToString() + " byte ReceivePacketSize";
+					RxPacketSizeLabel.Text = radioPacketSize.ToString() + " bytes (ReceivePacketSize = " + packetSize.ToString() + ")";
 					RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
 				}
 				
 			}
 			else
 			{
-				RxPacketSizeLabel.Text = "? byte ReceivePacketSize";
+				RxPacketSizeLabel.Text = "? bytes (ReceivePacketSize = ?)";
 				RxPacketSizeLabel.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
 			}
 		}
