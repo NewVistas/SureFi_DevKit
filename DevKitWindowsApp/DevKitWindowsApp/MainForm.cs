@@ -68,15 +68,17 @@ namespace DevKitWindowsApp
 				if (bit == 0x04) { bitLabel = this.RadioStateBit3;      }
 				if (bit == 0x08) { bitLabel = this.RadioStateBit4;      }
 				if (bit == 0x10) { bitLabel = this.BusyBit;             }
-				if (bit == 0x20) { bitLabel = this.EncryptionActiveBit; }
+				if (bit == 0x20) { bitLabel = this.ChangingTablesBit;   }
 				if (bit == 0x40) { bitLabel = this.RxInProgressBit;     }
-				if (bit == 0x80) { bitLabel = this.SettingsPendingBit;  }
+				if (bit == 0x80) { bitLabel = this.OnBaseTableBit;      }
 			}
 			if (statusByte == 1)
 			{
 				if (bit == 0x01) { bitLabel = this.DoingLightshowBit;   }
 				if (bit == 0x02) { bitLabel = this.ShowingQosBit;       }
 				if (bit == 0x04) { bitLabel = this.ButtonDownBit;       }
+				if (bit == 0x08) { bitLabel = this.EncryptionActiveBit; }
+				if (bit == 0x10) { bitLabel = this.SettingsPendingBit;  }
 			}
 			if (statusByte == 2)
 			{
@@ -117,15 +119,17 @@ namespace DevKitWindowsApp
 				if (bit == 0x04) { bitLabel = this.IntRadioStateBit3;      }
 				if (bit == 0x08) { bitLabel = this.IntRadioStateBit4;      }
 				if (bit == 0x10) { bitLabel = this.IntBusyBit;             }
-				if (bit == 0x20) { bitLabel = this.IntEncryptionActiveBit; }
+				if (bit == 0x20) { bitLabel = this.IntChangingTablesBit;   }
 				if (bit == 0x40) { bitLabel = this.IntRxInProgressBit;     }
-				if (bit == 0x80) { bitLabel = this.IntSettingsPendingBit;  }
+				if (bit == 0x80) { bitLabel = this.IntOnBaseTableBit;      }
 			}
 			if (statusByte == 1)
 			{
 				if (bit == 0x01) { bitLabel = this.IntDoingLightshowBit;   }
 				if (bit == 0x02) { bitLabel = this.IntShowingQosBit;       }
 				if (bit == 0x04) { bitLabel = this.IntButtonDownBit;       }
+				if (bit == 0x08) { bitLabel = this.IntEncryptionActiveBit; }
+				if (bit == 0x10) { bitLabel = this.IntSettingsPendingBit;  }
 			}
 			if (statusByte == 2)
 			{
@@ -340,9 +344,9 @@ namespace DevKitWindowsApp
 				this.TransmitButton.Enabled = false;
 			}
 			
-			if ((stateChanged & SureFi.StateFlags_EncryptionActiveBit) != 0)
+			if ((otherChanged & SureFi.OtherFlags_EncryptionActiveBit) != 0)
 			{
-				if ((stateFlags & SureFi.StateFlags_EncryptionActiveBit) != 0)
+				if ((otherFlags & SureFi.OtherFlags_EncryptionActiveBit) != 0)
 				{
 					StartEncryptionButton.Text = "Stop Encryption";
 				}
@@ -1066,6 +1070,22 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		// +==============================+
+		// |    Table Hopping Checkbox    |
+		// +==============================+
+		private void PushTableHoppingEnabled()
+		{
+			byte[] payload = { (byte)(TableHoppingCheckbox.Checked ? 0x01 : 0x00) };
+			this.port.PushTxCommand(SureCmd.SetTableHoppingEnabled, payload);
+		}
+		private void TableHoppingCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushTableHoppingEnabled();
+			}
+		}
+		
 		// +--------------------------------------------------------------+
 		// |                          Lower Area                          |
 		// +--------------------------------------------------------------+
@@ -1762,7 +1782,7 @@ namespace DevKitWindowsApp
 		}
 		private void StartEncryptionButton_Click(object sender, EventArgs e)
 		{
-			if ((savedStateFlags & SureFi.StateFlags_EncryptionActiveBit) != 0)
+			if ((savedOtherFlags & SureFi.OtherFlags_EncryptionActiveBit) != 0)
 			{
 				this.port.PushTxCommandNoBytes(SureCmd.StopEncryption);
 			}
@@ -1842,7 +1862,7 @@ namespace DevKitWindowsApp
 			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x10); }
 			PushIntEnableBits();
 		}
-		private void IntEncryptionActiveBit_Click(object sender, EventArgs e)
+		private void IntChangingTablesBit_Click(object sender, EventArgs e)
 		{
 			if ((intEnableBits[0] & 0x20) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x20)); }
 			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x20); }
@@ -1854,7 +1874,7 @@ namespace DevKitWindowsApp
 			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x40); }
 			PushIntEnableBits();
 		}
-		private void IntSettingsPendingBit_Click(object sender, EventArgs e)
+		private void IntOnBaseTableBit_Click(object sender, EventArgs e)
 		{
 			if ((intEnableBits[0] & 0x80) != 0x00) { intEnableBits[0] = (byte)(intEnableBits[0] & (~0x80)); }
 			else { intEnableBits[0] = (byte)(intEnableBits[0] | 0x80); }
@@ -1876,6 +1896,18 @@ namespace DevKitWindowsApp
 		{
 			if ((intEnableBits[1] & 0x04) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x04)); }
 			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x04); }
+			PushIntEnableBits();
+		}
+		private void IntEncryptionActiveBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x08) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x08)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x08); }
+			PushIntEnableBits();
+		}
+		private void IntSettingsPendingBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x10) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x10)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x10); }
 			PushIntEnableBits();
 		}
 		private void IntWasResetBit_Click(object sender, EventArgs e)

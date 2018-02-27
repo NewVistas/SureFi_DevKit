@@ -250,6 +250,15 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
+			this.TableHoppingCheckbox = new System.Windows.Forms.CheckBox();
+			this.ChangingTablesBit = new System.Windows.Forms.Label();
+			this.OnBaseTableBit = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.label29 = new System.Windows.Forms.Label();
+			this.IntChangingTablesBit = new System.Windows.Forms.Label();
+			this.IntOnBaseTableBit = new System.Windows.Forms.Label();
+			this.label61 = new System.Windows.Forms.Label();
+			this.label62 = new System.Windows.Forms.Label();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -346,6 +355,7 @@
 			// 
 			// TabPageRadio
 			// 
+			this.TabPageRadio.Controls.Add(this.TableHoppingCheckbox);
 			this.TabPageRadio.Controls.Add(this.QuietModeCheckbox);
 			this.TabPageRadio.Controls.Add(this.AcksEnabledCheckbox);
 			this.TabPageRadio.Controls.Add(this.EncryptionReadyLabel);
@@ -1344,6 +1354,8 @@
 			this.TabPageStatus.Controls.Add(this.label83);
 			this.TabPageStatus.Controls.Add(this.label67);
 			this.TabPageStatus.Controls.Add(this.label45);
+			this.TabPageStatus.Controls.Add(this.label29);
+			this.TabPageStatus.Controls.Add(this.label26);
 			this.TabPageStatus.Controls.Add(this.label36);
 			this.TabPageStatus.Controls.Add(this.label66);
 			this.TabPageStatus.Controls.Add(this.label81);
@@ -1380,6 +1392,8 @@
 			this.TabPageStatus.Controls.Add(this.EncryptionActiveBit);
 			this.TabPageStatus.Controls.Add(this.DoingLightshowBit);
 			this.TabPageStatus.Controls.Add(this.RadioStateBit2);
+			this.TabPageStatus.Controls.Add(this.OnBaseTableBit);
+			this.TabPageStatus.Controls.Add(this.ChangingTablesBit);
 			this.TabPageStatus.Controls.Add(this.BusyBit);
 			this.TabPageStatus.Controls.Add(this.RadioStateBit1);
 			this.TabPageStatus.Location = new System.Drawing.Point(4, 22);
@@ -1466,7 +1480,7 @@
 			// label70
 			// 
 			this.label70.AutoSize = true;
-			this.label70.Location = new System.Drawing.Point(276, 181);
+			this.label70.Location = new System.Drawing.Point(275, 180);
 			this.label70.Name = "label70";
 			this.label70.Size = new System.Drawing.Size(63, 13);
 			this.label70.TabIndex = 18;
@@ -1484,7 +1498,7 @@
 			// label69
 			// 
 			this.label69.AutoSize = true;
-			this.label69.Location = new System.Drawing.Point(276, 81);
+			this.label69.Location = new System.Drawing.Point(275, 80);
 			this.label69.Name = "label69";
 			this.label69.Size = new System.Drawing.Size(97, 13);
 			this.label69.TabIndex = 18;
@@ -1493,7 +1507,7 @@
 			// label37
 			// 
 			this.label37.AutoSize = true;
-			this.label37.Location = new System.Drawing.Point(35, 173);
+			this.label37.Location = new System.Drawing.Point(156, 111);
 			this.label37.Name = "label37";
 			this.label37.Size = new System.Drawing.Size(87, 13);
 			this.label37.TabIndex = 18;
@@ -1502,7 +1516,7 @@
 			// label68
 			// 
 			this.label68.AutoSize = true;
-			this.label68.Location = new System.Drawing.Point(276, 158);
+			this.label68.Location = new System.Drawing.Point(275, 157);
 			this.label68.Name = "label68";
 			this.label68.Size = new System.Drawing.Size(79, 13);
 			this.label68.TabIndex = 17;
@@ -1520,7 +1534,7 @@
 			// label67
 			// 
 			this.label67.AutoSize = true;
-			this.label67.Location = new System.Drawing.Point(276, 58);
+			this.label67.Location = new System.Drawing.Point(275, 57);
 			this.label67.Name = "label67";
 			this.label67.Size = new System.Drawing.Size(91, 13);
 			this.label67.TabIndex = 17;
@@ -1529,7 +1543,7 @@
 			// label45
 			// 
 			this.label45.AutoSize = true;
-			this.label45.Location = new System.Drawing.Point(156, 54);
+			this.label45.Location = new System.Drawing.Point(156, 57);
 			this.label45.Name = "label45";
 			this.label45.Size = new System.Drawing.Size(69, 13);
 			this.label45.TabIndex = 17;
@@ -1538,7 +1552,7 @@
 			// label36
 			// 
 			this.label36.AutoSize = true;
-			this.label36.Location = new System.Drawing.Point(35, 150);
+			this.label36.Location = new System.Drawing.Point(35, 158);
 			this.label36.Name = "label36";
 			this.label36.Size = new System.Drawing.Size(76, 13);
 			this.label36.TabIndex = 17;
@@ -1547,7 +1561,7 @@
 			// label66
 			// 
 			this.label66.AutoSize = true;
-			this.label66.Location = new System.Drawing.Point(276, 135);
+			this.label66.Location = new System.Drawing.Point(275, 134);
 			this.label66.Name = "label66";
 			this.label66.Size = new System.Drawing.Size(91, 13);
 			this.label66.TabIndex = 16;
@@ -1565,7 +1579,7 @@
 			// label65
 			// 
 			this.label65.AutoSize = true;
-			this.label65.Location = new System.Drawing.Point(276, 35);
+			this.label65.Location = new System.Drawing.Point(275, 34);
 			this.label65.Name = "label65";
 			this.label65.Size = new System.Drawing.Size(89, 13);
 			this.label65.TabIndex = 16;
@@ -1574,7 +1588,7 @@
 			// label44
 			// 
 			this.label44.AutoSize = true;
-			this.label44.Location = new System.Drawing.Point(156, 31);
+			this.label44.Location = new System.Drawing.Point(156, 34);
 			this.label44.Name = "label44";
 			this.label44.Size = new System.Drawing.Size(74, 13);
 			this.label44.TabIndex = 16;
@@ -1583,7 +1597,7 @@
 			// label35
 			// 
 			this.label35.AutoSize = true;
-			this.label35.Location = new System.Drawing.Point(35, 127);
+			this.label35.Location = new System.Drawing.Point(156, 80);
 			this.label35.Name = "label35";
 			this.label35.Size = new System.Drawing.Size(90, 13);
 			this.label35.TabIndex = 16;
@@ -1601,7 +1615,7 @@
 			// label64
 			// 
 			this.label64.AutoSize = true;
-			this.label64.Location = new System.Drawing.Point(276, 112);
+			this.label64.Location = new System.Drawing.Point(275, 111);
 			this.label64.Name = "label64";
 			this.label64.Size = new System.Drawing.Size(82, 13);
 			this.label64.TabIndex = 15;
@@ -1619,7 +1633,7 @@
 			// label63
 			// 
 			this.label63.AutoSize = true;
-			this.label63.Location = new System.Drawing.Point(276, 12);
+			this.label63.Location = new System.Drawing.Point(275, 11);
 			this.label63.Name = "label63";
 			this.label63.Size = new System.Drawing.Size(60, 13);
 			this.label63.TabIndex = 15;
@@ -1628,7 +1642,7 @@
 			// label43
 			// 
 			this.label43.AutoSize = true;
-			this.label43.Location = new System.Drawing.Point(156, 8);
+			this.label43.Location = new System.Drawing.Point(156, 11);
 			this.label43.Name = "label43";
 			this.label43.Size = new System.Drawing.Size(86, 13);
 			this.label43.TabIndex = 15;
@@ -1637,7 +1651,7 @@
 			// label34
 			// 
 			this.label34.AutoSize = true;
-			this.label34.Location = new System.Drawing.Point(35, 104);
+			this.label34.Location = new System.Drawing.Point(35, 112);
 			this.label34.Name = "label34";
 			this.label34.Size = new System.Drawing.Size(30, 13);
 			this.label34.TabIndex = 15;
@@ -1668,7 +1682,7 @@
 			this.ButtonHeldBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ButtonHeldBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ButtonHeldBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.ButtonHeldBit.Location = new System.Drawing.Point(249, 177);
+			this.ButtonHeldBit.Location = new System.Drawing.Point(248, 176);
 			this.ButtonHeldBit.Name = "ButtonHeldBit";
 			this.ButtonHeldBit.Size = new System.Drawing.Size(21, 21);
 			this.ButtonHeldBit.TabIndex = 12;
@@ -1694,7 +1708,7 @@
 			this.AckPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.AckPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.AckPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.AckPacketReadyBit.Location = new System.Drawing.Point(249, 77);
+			this.AckPacketReadyBit.Location = new System.Drawing.Point(248, 76);
 			this.AckPacketReadyBit.Name = "AckPacketReadyBit";
 			this.AckPacketReadyBit.Size = new System.Drawing.Size(21, 21);
 			this.AckPacketReadyBit.TabIndex = 12;
@@ -1707,7 +1721,7 @@
 			this.SettingsPendingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.SettingsPendingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SettingsPendingBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.SettingsPendingBit.Location = new System.Drawing.Point(8, 169);
+			this.SettingsPendingBit.Location = new System.Drawing.Point(129, 107);
 			this.SettingsPendingBit.Name = "SettingsPendingBit";
 			this.SettingsPendingBit.Size = new System.Drawing.Size(21, 21);
 			this.SettingsPendingBit.TabIndex = 12;
@@ -1720,7 +1734,7 @@
 			this.ButtonPressedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ButtonPressedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ButtonPressedBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.ButtonPressedBit.Location = new System.Drawing.Point(249, 154);
+			this.ButtonPressedBit.Location = new System.Drawing.Point(248, 153);
 			this.ButtonPressedBit.Name = "ButtonPressedBit";
 			this.ButtonPressedBit.Size = new System.Drawing.Size(21, 21);
 			this.ButtonPressedBit.TabIndex = 12;
@@ -1759,7 +1773,7 @@
 			this.RxPacketReadyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.RxPacketReadyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RxPacketReadyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.RxPacketReadyBit.Location = new System.Drawing.Point(249, 54);
+			this.RxPacketReadyBit.Location = new System.Drawing.Point(248, 53);
 			this.RxPacketReadyBit.Name = "RxPacketReadyBit";
 			this.RxPacketReadyBit.Size = new System.Drawing.Size(21, 21);
 			this.RxPacketReadyBit.TabIndex = 12;
@@ -1772,7 +1786,7 @@
 			this.ButtonDownBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ButtonDownBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ButtonDownBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.ButtonDownBit.Location = new System.Drawing.Point(129, 50);
+			this.ButtonDownBit.Location = new System.Drawing.Point(129, 53);
 			this.ButtonDownBit.Name = "ButtonDownBit";
 			this.ButtonDownBit.Size = new System.Drawing.Size(21, 21);
 			this.ButtonDownBit.TabIndex = 12;
@@ -1785,7 +1799,7 @@
 			this.RxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.RxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.RxInProgressBit.Location = new System.Drawing.Point(8, 146);
+			this.RxInProgressBit.Location = new System.Drawing.Point(8, 154);
 			this.RxInProgressBit.Name = "RxInProgressBit";
 			this.RxInProgressBit.Size = new System.Drawing.Size(21, 21);
 			this.RxInProgressBit.TabIndex = 12;
@@ -1798,7 +1812,7 @@
 			this.EncryptionRekeyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.EncryptionRekeyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.EncryptionRekeyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.EncryptionRekeyBit.Location = new System.Drawing.Point(249, 131);
+			this.EncryptionRekeyBit.Location = new System.Drawing.Point(248, 130);
 			this.EncryptionRekeyBit.Name = "EncryptionRekeyBit";
 			this.EncryptionRekeyBit.Size = new System.Drawing.Size(21, 21);
 			this.EncryptionRekeyBit.TabIndex = 12;
@@ -1837,7 +1851,7 @@
 			this.TransmitFinishedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.TransmitFinishedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TransmitFinishedBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.TransmitFinishedBit.Location = new System.Drawing.Point(249, 31);
+			this.TransmitFinishedBit.Location = new System.Drawing.Point(248, 30);
 			this.TransmitFinishedBit.Name = "TransmitFinishedBit";
 			this.TransmitFinishedBit.Size = new System.Drawing.Size(21, 21);
 			this.TransmitFinishedBit.TabIndex = 12;
@@ -1863,7 +1877,7 @@
 			this.ChecksumErrorBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ChecksumErrorBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ChecksumErrorBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.ChecksumErrorBit.Location = new System.Drawing.Point(249, 108);
+			this.ChecksumErrorBit.Location = new System.Drawing.Point(248, 107);
 			this.ChecksumErrorBit.Name = "ChecksumErrorBit";
 			this.ChecksumErrorBit.Size = new System.Drawing.Size(21, 21);
 			this.ChecksumErrorBit.TabIndex = 12;
@@ -1876,7 +1890,7 @@
 			this.ShowingQosBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ShowingQosBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ShowingQosBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.ShowingQosBit.Location = new System.Drawing.Point(129, 27);
+			this.ShowingQosBit.Location = new System.Drawing.Point(129, 30);
 			this.ShowingQosBit.Name = "ShowingQosBit";
 			this.ShowingQosBit.Size = new System.Drawing.Size(21, 21);
 			this.ShowingQosBit.TabIndex = 12;
@@ -1902,7 +1916,7 @@
 			this.WasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.WasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.WasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.WasResetBit.Location = new System.Drawing.Point(249, 8);
+			this.WasResetBit.Location = new System.Drawing.Point(248, 7);
 			this.WasResetBit.Name = "WasResetBit";
 			this.WasResetBit.Size = new System.Drawing.Size(21, 21);
 			this.WasResetBit.TabIndex = 12;
@@ -1915,7 +1929,7 @@
 			this.EncryptionActiveBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.EncryptionActiveBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.EncryptionActiveBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.EncryptionActiveBit.Location = new System.Drawing.Point(8, 123);
+			this.EncryptionActiveBit.Location = new System.Drawing.Point(129, 76);
 			this.EncryptionActiveBit.Name = "EncryptionActiveBit";
 			this.EncryptionActiveBit.Size = new System.Drawing.Size(21, 21);
 			this.EncryptionActiveBit.TabIndex = 12;
@@ -1928,7 +1942,7 @@
 			this.DoingLightshowBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.DoingLightshowBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.DoingLightshowBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.DoingLightshowBit.Location = new System.Drawing.Point(129, 4);
+			this.DoingLightshowBit.Location = new System.Drawing.Point(129, 7);
 			this.DoingLightshowBit.Name = "DoingLightshowBit";
 			this.DoingLightshowBit.Size = new System.Drawing.Size(21, 21);
 			this.DoingLightshowBit.TabIndex = 12;
@@ -1954,7 +1968,7 @@
 			this.BusyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BusyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BusyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BusyBit.Location = new System.Drawing.Point(8, 100);
+			this.BusyBit.Location = new System.Drawing.Point(8, 108);
 			this.BusyBit.Name = "BusyBit";
 			this.BusyBit.Size = new System.Drawing.Size(21, 21);
 			this.BusyBit.TabIndex = 12;
@@ -1990,6 +2004,8 @@
 			this.TabPageInt.Controls.Add(this.label41);
 			this.TabPageInt.Controls.Add(this.label42);
 			this.TabPageInt.Controls.Add(this.label46);
+			this.TabPageInt.Controls.Add(this.label62);
+			this.TabPageInt.Controls.Add(this.label61);
 			this.TabPageInt.Controls.Add(this.label47);
 			this.TabPageInt.Controls.Add(this.label48);
 			this.TabPageInt.Controls.Add(this.label49);
@@ -2012,6 +2028,8 @@
 			this.TabPageInt.Controls.Add(this.IntRxLedModeBit);
 			this.TabPageInt.Controls.Add(this.IntRxPacketReadyBit);
 			this.TabPageInt.Controls.Add(this.IntButtonDownBit);
+			this.TabPageInt.Controls.Add(this.IntOnBaseTableBit);
+			this.TabPageInt.Controls.Add(this.IntChangingTablesBit);
 			this.TabPageInt.Controls.Add(this.IntRxInProgressBit);
 			this.TabPageInt.Controls.Add(this.IntEncryptionRekeyBit);
 			this.TabPageInt.Controls.Add(this.IntAutoClearFlagsBit);
@@ -2126,7 +2144,7 @@
 			// label39
 			// 
 			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(35, 173);
+			this.label39.Location = new System.Drawing.Point(156, 112);
 			this.label39.Name = "label39";
 			this.label39.Size = new System.Drawing.Size(87, 13);
 			this.label39.TabIndex = 63;
@@ -2162,7 +2180,7 @@
 			// label46
 			// 
 			this.label46.AutoSize = true;
-			this.label46.Location = new System.Drawing.Point(156, 54);
+			this.label46.Location = new System.Drawing.Point(156, 58);
 			this.label46.Name = "label46";
 			this.label46.Size = new System.Drawing.Size(69, 13);
 			this.label46.TabIndex = 60;
@@ -2171,7 +2189,7 @@
 			// label47
 			// 
 			this.label47.AutoSize = true;
-			this.label47.Location = new System.Drawing.Point(35, 150);
+			this.label47.Location = new System.Drawing.Point(35, 158);
 			this.label47.Name = "label47";
 			this.label47.Size = new System.Drawing.Size(76, 13);
 			this.label47.TabIndex = 61;
@@ -2207,7 +2225,7 @@
 			// label51
 			// 
 			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(156, 31);
+			this.label51.Location = new System.Drawing.Point(156, 35);
 			this.label51.Name = "label51";
 			this.label51.Size = new System.Drawing.Size(74, 13);
 			this.label51.TabIndex = 54;
@@ -2216,7 +2234,7 @@
 			// label52
 			// 
 			this.label52.AutoSize = true;
-			this.label52.Location = new System.Drawing.Point(35, 127);
+			this.label52.Location = new System.Drawing.Point(156, 81);
 			this.label52.Name = "label52";
 			this.label52.Size = new System.Drawing.Size(90, 13);
 			this.label52.TabIndex = 53;
@@ -2261,7 +2279,7 @@
 			// label57
 			// 
 			this.label57.AutoSize = true;
-			this.label57.Location = new System.Drawing.Point(156, 8);
+			this.label57.Location = new System.Drawing.Point(156, 12);
 			this.label57.Name = "label57";
 			this.label57.Size = new System.Drawing.Size(86, 13);
 			this.label57.TabIndex = 47;
@@ -2270,7 +2288,7 @@
 			// label58
 			// 
 			this.label58.AutoSize = true;
-			this.label58.Location = new System.Drawing.Point(35, 104);
+			this.label58.Location = new System.Drawing.Point(35, 112);
 			this.label58.Name = "label58";
 			this.label58.Size = new System.Drawing.Size(30, 13);
 			this.label58.TabIndex = 52;
@@ -2334,7 +2352,7 @@
 			this.IntSettingsPendingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntSettingsPendingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntSettingsPendingBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntSettingsPendingBit.Location = new System.Drawing.Point(8, 169);
+			this.IntSettingsPendingBit.Location = new System.Drawing.Point(129, 108);
 			this.IntSettingsPendingBit.Name = "IntSettingsPendingBit";
 			this.IntSettingsPendingBit.Size = new System.Drawing.Size(21, 21);
 			this.IntSettingsPendingBit.TabIndex = 25;
@@ -2404,7 +2422,7 @@
 			this.IntButtonDownBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntButtonDownBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntButtonDownBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntButtonDownBit.Location = new System.Drawing.Point(129, 50);
+			this.IntButtonDownBit.Location = new System.Drawing.Point(129, 54);
 			this.IntButtonDownBit.Name = "IntButtonDownBit";
 			this.IntButtonDownBit.Size = new System.Drawing.Size(21, 21);
 			this.IntButtonDownBit.TabIndex = 30;
@@ -2418,7 +2436,7 @@
 			this.IntRxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntRxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntRxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntRxInProgressBit.Location = new System.Drawing.Point(8, 146);
+			this.IntRxInProgressBit.Location = new System.Drawing.Point(8, 154);
 			this.IntRxInProgressBit.Name = "IntRxInProgressBit";
 			this.IntRxInProgressBit.Size = new System.Drawing.Size(21, 21);
 			this.IntRxInProgressBit.TabIndex = 31;
@@ -2516,7 +2534,7 @@
 			this.IntShowingQosBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntShowingQosBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntShowingQosBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntShowingQosBit.Location = new System.Drawing.Point(129, 27);
+			this.IntShowingQosBit.Location = new System.Drawing.Point(129, 31);
 			this.IntShowingQosBit.Name = "IntShowingQosBit";
 			this.IntShowingQosBit.Size = new System.Drawing.Size(21, 21);
 			this.IntShowingQosBit.TabIndex = 37;
@@ -2558,7 +2576,7 @@
 			this.IntEncryptionActiveBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntEncryptionActiveBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntEncryptionActiveBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntEncryptionActiveBit.Location = new System.Drawing.Point(8, 123);
+			this.IntEncryptionActiveBit.Location = new System.Drawing.Point(129, 77);
 			this.IntEncryptionActiveBit.Name = "IntEncryptionActiveBit";
 			this.IntEncryptionActiveBit.Size = new System.Drawing.Size(21, 21);
 			this.IntEncryptionActiveBit.TabIndex = 40;
@@ -2572,7 +2590,7 @@
 			this.IntDoingLightshowBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntDoingLightshowBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntDoingLightshowBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntDoingLightshowBit.Location = new System.Drawing.Point(129, 4);
+			this.IntDoingLightshowBit.Location = new System.Drawing.Point(129, 8);
 			this.IntDoingLightshowBit.Name = "IntDoingLightshowBit";
 			this.IntDoingLightshowBit.Size = new System.Drawing.Size(21, 21);
 			this.IntDoingLightshowBit.TabIndex = 41;
@@ -2600,7 +2618,7 @@
 			this.IntBusyBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IntBusyBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IntBusyBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.IntBusyBit.Location = new System.Drawing.Point(8, 100);
+			this.IntBusyBit.Location = new System.Drawing.Point(8, 108);
 			this.IntBusyBit.Name = "IntBusyBit";
 			this.IntBusyBit.Size = new System.Drawing.Size(21, 21);
 			this.IntBusyBit.TabIndex = 44;
@@ -2962,6 +2980,107 @@
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
 			// 
+			// TableHoppingCheckbox
+			// 
+			this.TableHoppingCheckbox.AutoSize = true;
+			this.TableHoppingCheckbox.Location = new System.Drawing.Point(261, 178);
+			this.TableHoppingCheckbox.Name = "TableHoppingCheckbox";
+			this.TableHoppingCheckbox.Size = new System.Drawing.Size(96, 17);
+			this.TableHoppingCheckbox.TabIndex = 16;
+			this.TableHoppingCheckbox.Text = "Table Hopping";
+			this.TableHoppingCheckbox.UseVisualStyleBackColor = true;
+			this.TableHoppingCheckbox.CheckedChanged += new System.EventHandler(this.TableHoppingCheckbox_CheckedChanged);
+			// 
+			// ChangingTablesBit
+			// 
+			this.ChangingTablesBit.BackColor = System.Drawing.Color.Transparent;
+			this.ChangingTablesBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ChangingTablesBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChangingTablesBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.ChangingTablesBit.Location = new System.Drawing.Point(8, 131);
+			this.ChangingTablesBit.Name = "ChangingTablesBit";
+			this.ChangingTablesBit.Size = new System.Drawing.Size(21, 21);
+			this.ChangingTablesBit.TabIndex = 12;
+			this.ChangingTablesBit.Text = "0";
+			this.ChangingTablesBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// OnBaseTableBit
+			// 
+			this.OnBaseTableBit.BackColor = System.Drawing.Color.Transparent;
+			this.OnBaseTableBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.OnBaseTableBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.OnBaseTableBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.OnBaseTableBit.Location = new System.Drawing.Point(8, 177);
+			this.OnBaseTableBit.Name = "OnBaseTableBit";
+			this.OnBaseTableBit.Size = new System.Drawing.Size(21, 21);
+			this.OnBaseTableBit.TabIndex = 12;
+			this.OnBaseTableBit.Text = "0";
+			this.OnBaseTableBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(35, 135);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(87, 13);
+			this.label26.TabIndex = 17;
+			this.label26.Text = "Changing Tables";
+			// 
+			// label29
+			// 
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(35, 181);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(78, 13);
+			this.label29.TabIndex = 17;
+			this.label29.Text = "On Base Table";
+			// 
+			// IntChangingTablesBit
+			// 
+			this.IntChangingTablesBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntChangingTablesBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntChangingTablesBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntChangingTablesBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntChangingTablesBit.Location = new System.Drawing.Point(8, 131);
+			this.IntChangingTablesBit.Name = "IntChangingTablesBit";
+			this.IntChangingTablesBit.Size = new System.Drawing.Size(21, 21);
+			this.IntChangingTablesBit.TabIndex = 31;
+			this.IntChangingTablesBit.Text = "D";
+			this.IntChangingTablesBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntChangingTablesBit.Click += new System.EventHandler(this.IntChangingTablesBit_Click);
+			// 
+			// IntOnBaseTableBit
+			// 
+			this.IntOnBaseTableBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntOnBaseTableBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntOnBaseTableBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntOnBaseTableBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntOnBaseTableBit.Location = new System.Drawing.Point(8, 177);
+			this.IntOnBaseTableBit.Name = "IntOnBaseTableBit";
+			this.IntOnBaseTableBit.Size = new System.Drawing.Size(21, 21);
+			this.IntOnBaseTableBit.TabIndex = 31;
+			this.IntOnBaseTableBit.Text = "D";
+			this.IntOnBaseTableBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntOnBaseTableBit.Click += new System.EventHandler(this.IntOnBaseTableBit_Click);
+			// 
+			// label61
+			// 
+			this.label61.AutoSize = true;
+			this.label61.Location = new System.Drawing.Point(35, 135);
+			this.label61.Name = "label61";
+			this.label61.Size = new System.Drawing.Size(87, 13);
+			this.label61.TabIndex = 61;
+			this.label61.Text = "Changing Tables";
+			// 
+			// label62
+			// 
+			this.label62.AutoSize = true;
+			this.label62.Location = new System.Drawing.Point(35, 181);
+			this.label62.Name = "label62";
+			this.label62.Size = new System.Drawing.Size(78, 13);
+			this.label62.TabIndex = 61;
+			this.label62.Text = "On Base Table";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3252,5 +3371,14 @@
 		private System.Windows.Forms.Label label25;
 		private System.Windows.Forms.Button GetRegisteredSerialButton;
 		public System.Windows.Forms.Label RegisteredSerialLabel;
+		public System.Windows.Forms.CheckBox TableHoppingCheckbox;
+		private System.Windows.Forms.Label label29;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.Label OnBaseTableBit;
+		private System.Windows.Forms.Label ChangingTablesBit;
+		private System.Windows.Forms.Label label62;
+		private System.Windows.Forms.Label label61;
+		public System.Windows.Forms.Label IntOnBaseTableBit;
+		public System.Windows.Forms.Label IntChangingTablesBit;
 	}
 }

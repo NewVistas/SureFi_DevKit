@@ -41,6 +41,7 @@ namespace DevKitWindowsApp
 		SetRadioPolarity,
 		SetTransmitPower,
 		SetAckData,
+		SetTableHoppingEnabled,
 		
 		SetQosConfig = 0x60,
 		SetIndications,
@@ -58,6 +59,7 @@ namespace DevKitWindowsApp
 		GetRadioPolarity,
 		GetTransmitPower,
 		GetAckData,
+		GetTableHoppingEnabled,
 		
 		GetQosConfig = 0x80,
 		GetIndications,
@@ -93,6 +95,7 @@ namespace DevKitWindowsApp
 		RadioPolarity,
 		TransmitPower,
 		AckData,
+		TableHoppingEnabled,
 		
 		QosConfig = 0x80,
 		Indications,
@@ -224,13 +227,15 @@ namespace DevKitWindowsApp
 	{
 		public const byte StateFlags_RadioStateBits          = 0x0F;
 		public const byte StateFlags_BusyBit                 = 0x10;
-		public const byte StateFlags_EncryptionActiveBit     = 0x20;
+		public const byte StateFlags_ChangingTablesBit       = 0x20;
 		public const byte StateFlags_RxInProgressBit         = 0x40;
-		public const byte StateFlags_SettingsPendingBit      = 0x80;
+		public const byte StateFlags_OnBaseTableBit          = 0x80;
 		
 		public const byte OtherFlags_DoingLightshowBit       = 0x01;
 		public const byte OtherFlags_ShowingQosBit           = 0x02;
 		public const byte OtherFlags_ButtonDownBit           = 0x04;
+		public const byte OtherFlags_EncryptionActiveBit     = 0x08;
+		public const byte OtherFlags_SettingsPendingBit      = 0x10;
 		
 		public const byte ClearableFlags_WasResetBit         = 0x01;
 		public const byte ClearableFlags_TransmitFinishedBit = 0x02;
@@ -247,58 +252,60 @@ namespace DevKitWindowsApp
 		public const byte ConfigFlags_TxLedModeBit           = 0x08;
 		public const byte ConfigFlags_AutoRekeyBit           = 0x10;
 		
-		public static bool gotModuleStatus      = false;
-		public static bool gotIntEnableBits     = false;
-		public static bool gotModuleVersion     = false;
-		public static bool gotPacketTimeOnAir   = false;
-		public static bool gotRandomNumber      = false;
-		public static bool gotRxPacket          = false;
-		public static bool gotAckPacket         = false;
-		public static bool gotRxInfo            = false;
-		public static bool gotTxInfo            = false;
-		public static bool gotRegisteredSerial  = false;
-		public static bool gotAllSettings       = false;
-		public static bool gotRadioMode         = false;
-		public static bool gotFhssTable         = false;
-		public static bool gotReceiveUid        = false;
-		public static bool gotTransmitUid       = false;
-		public static bool gotReceivePacketSize = false;
-		public static bool gotRadioPolarity     = false;
-		public static bool gotTransmitPower     = false;
-		public static bool gotAckData           = false;
-		public static bool gotQosConfig         = false;
-		public static bool gotIndications       = false;
-		public static bool gotQuietMode         = false;
-		public static bool gotButtonConfig      = false;
-		public static bool gotAcksEnabled       = false;
-		public static bool gotNumRetries        = false;
+		public static bool gotModuleStatus        = false;
+		public static bool gotIntEnableBits       = false;
+		public static bool gotModuleVersion       = false;
+		public static bool gotPacketTimeOnAir     = false;
+		public static bool gotRandomNumber        = false;
+		public static bool gotRxPacket            = false;
+		public static bool gotAckPacket           = false;
+		public static bool gotRxInfo              = false;
+		public static bool gotTxInfo              = false;
+		public static bool gotRegisteredSerial    = false;
+		public static bool gotAllSettings         = false;
+		public static bool gotRadioMode           = false;
+		public static bool gotFhssTable           = false;
+		public static bool gotReceiveUid          = false;
+		public static bool gotTransmitUid         = false;
+		public static bool gotReceivePacketSize   = false;
+		public static bool gotRadioPolarity       = false;
+		public static bool gotTransmitPower       = false;
+		public static bool gotAckData             = false;
+		public static bool gotTableHoppingEnabled = false;
+		public static bool gotQosConfig           = false;
+		public static bool gotIndications         = false;
+		public static bool gotQuietMode           = false;
+		public static bool gotButtonConfig        = false;
+		public static bool gotAcksEnabled         = false;
+		public static bool gotNumRetries          = false;
 		
 		public static void ClearGotFlags()
 		{
-			gotModuleStatus      = false;
-			gotIntEnableBits     = false;
-			gotModuleVersion     = false;
-			gotPacketTimeOnAir   = false;
-			gotRandomNumber      = false;
-			gotRxPacket          = false;
-			gotAckPacket         = false;
-			gotRxInfo            = false;
-			gotTxInfo            = false;
-			gotAllSettings       = false;
-			gotRadioMode         = false;
-			gotFhssTable         = false;
-			gotReceiveUid        = false;
-			gotTransmitUid       = false;
-			gotReceivePacketSize = false;
-			gotRadioPolarity     = false;
-			gotTransmitPower     = false;
-			gotAckData           = false;
-			gotQosConfig         = false;
-			gotIndications       = false;
-			gotQuietMode         = false;
-			gotButtonConfig      = false;
-			gotAcksEnabled       = false;
-			gotNumRetries        = false;
+			gotModuleStatus        = false;
+			gotIntEnableBits       = false;
+			gotModuleVersion       = false;
+			gotPacketTimeOnAir     = false;
+			gotRandomNumber        = false;
+			gotRxPacket            = false;
+			gotAckPacket           = false;
+			gotRxInfo              = false;
+			gotTxInfo              = false;
+			gotAllSettings         = false;
+			gotRadioMode           = false;
+			gotFhssTable           = false;
+			gotReceiveUid          = false;
+			gotTransmitUid         = false;
+			gotReceivePacketSize   = false;
+			gotRadioPolarity       = false;
+			gotTransmitPower       = false;
+			gotAckData             = false;
+			gotTableHoppingEnabled = false;
+			gotQosConfig           = false;
+			gotIndications         = false;
+			gotQuietMode           = false;
+			gotButtonConfig        = false;
+			gotAcksEnabled         = false;
+			gotNumRetries          = false;
 		}
 		
 		static byte TruncateInt(int intValue)
@@ -492,16 +499,6 @@ namespace DevKitWindowsApp
 						mainForm.TxLedModeCombobox.SelectedIndex = (txLedMode ? 1 : 0);
 						
 						mainForm.RadioStateStrLabel.Text = radioState.ToString();
-						// switch (radioState)
-						// {
-						// 	case RadioState.Initializing:  { mainForm.RadioStateStrLabel.Text = "Initializing";  } break;
-						// 	case RadioState.Receiving:     { mainForm.RadioStateStrLabel.Text = "Receiving";     } break;
-						// 	case RadioState.Transmitting:  { mainForm.RadioStateStrLabel.Text = "Transmitting";  } break;
-						// 	case RadioState.WaitingForAck: { mainForm.RadioStateStrLabel.Text = "WaitingForAck"; } break;
-						// 	case RadioState.Acknowledging: { mainForm.RadioStateStrLabel.Text = "Acknowledging"; } break;
-						// 	case RadioState.Sleeping:      { mainForm.RadioStateStrLabel.Text = "Sleeping";      } break;
-						// 	default:                       { mainForm.RadioStateStrLabel.Text = "Unknown";       } break;
-						// }
 						
 						mainForm.updatingElement = false;
 						
@@ -727,19 +724,20 @@ namespace DevKitWindowsApp
 				// +==============================+
 				case SureRsp.TransmitInfo:
 				{
-					if (rspPayload.Length == 6)
+					if (rspPayload.Length == 7)
 					{
 						byte succcessByte  = rspPayload[0];
 						short rssi         = (short)(rspPayload[1] + (rspPayload[2] << 8));
 						sbyte snr          = (sbyte)(rspPayload[3]);
 						byte numRetries    = rspPayload[4];
-						byte ackDataLength = rspPayload[5];
+						byte maxRetries    = rspPayload[5];
+						byte ackDataLength = rspPayload[6];
 						
 						mainForm.updatingElement = true;
 						
 						mainForm.TxRssiLabel.Text = "RSSI: " + rssi.ToString();
 						mainForm.TxSnrLabel.Text  = "SNR: " + snr.ToString();
-						mainForm.TxRetriesLabel.Text = numRetries.ToString() + "/" + mainForm.NumRetriesNumeric.Value.ToString() + " retries";
+						mainForm.TxRetriesLabel.Text = numRetries.ToString() + "/" + maxRetries.ToString() + " retries";
 						if (succcessByte != 0x00)
 						{
 							mainForm.TxSuccessLabel.Text = "Success";
@@ -827,7 +825,7 @@ namespace DevKitWindowsApp
 						byte receivePacketSize   = rspPayload[2];
 						byte radioPolarity       = rspPayload[3];
 						byte transmitPower       = rspPayload[4];
-						byte tableHoppingEnabled = rspPayload[5];
+						bool tableHoppingEnabled = (rspPayload[5] != 0x00);
 						byte qosConfig           = rspPayload[6];
 						byte indication1         = (byte)((rspPayload[7]>>0) & 0x0F);
 						byte indication2         = (byte)((rspPayload[7]>>4) & 0x0F);
@@ -849,6 +847,7 @@ namespace DevKitWindowsApp
 						mainForm.UpdatePacketSize();
 						mainForm.PolarityCombobox.SelectedIndex = radioPolarity;
 						mainForm.TransmitPowerCombobox.SelectedIndex = transmitPower - 0x01;
+						mainForm.TableHoppingCheckbox.Checked = tableHoppingEnabled;
 						
 						mainForm.QosConfigCombobox.SelectedIndex = (qosConfig - 0x01);
 						
@@ -1085,6 +1084,24 @@ namespace DevKitWindowsApp
 					mainForm.updatingElement = false;
 					
 					gotAckData = true;
+				} break;
+				
+				// +==============================+
+				// | SureRsp.TableHoppingEnabled  |
+				// +==============================+
+				case SureRsp.TableHoppingEnabled:
+				{
+					if (rspPayload.Length == 1)
+					{
+						bool tableHoppingEnabled = (rspPayload[0] != 0x00);
+						
+						mainForm.updatingElement = true;
+						
+						mainForm.TableHoppingCheckbox.Checked = tableHoppingEnabled;
+						
+						mainForm.updatingElement = false;
+					}
+					gotTableHoppingEnabled = true;
 				} break;
 				
 				// +==============================+
