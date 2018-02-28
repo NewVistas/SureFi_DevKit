@@ -225,17 +225,17 @@ namespace DevKitWindowsApp
 	
 	class SureFi
 	{
-		public const byte StateFlags_RadioStateBits          = 0x0F;
-		public const byte StateFlags_BusyBit                 = 0x10;
-		public const byte StateFlags_ChangingTablesBit       = 0x20;
-		public const byte StateFlags_RxInProgressBit         = 0x40;
-		public const byte StateFlags_OnBaseTableBit          = 0x80;
+		public const byte StateFlags_RadioStateBits    = 0x0F;
+		public const byte StateFlags_BusyBit           = 0x10;
+		public const byte StateFlags_ChangingTablesBit = 0x20;
+		public const byte StateFlags_RxInProgressBit   = 0x40;
+		public const byte StateFlags_OnBaseTableBit    = 0x80;
 		
-		public const byte OtherFlags_DoingLightshowBit       = 0x01;
-		public const byte OtherFlags_ShowingQosBit           = 0x02;
-		public const byte OtherFlags_ButtonDownBit           = 0x04;
-		public const byte OtherFlags_EncryptionActiveBit     = 0x08;
-		public const byte OtherFlags_SettingsPendingBit      = 0x10;
+		public const byte OtherFlags_DoingLightshowBit   = 0x01;
+		public const byte OtherFlags_ShowingQosBit       = 0x02;
+		public const byte OtherFlags_ButtonDownBit       = 0x04;
+		public const byte OtherFlags_EncryptionActiveBit = 0x08;
+		public const byte OtherFlags_SettingsPendingBit  = 0x10;
 		
 		public const byte ClearableFlags_WasResetBit         = 0x01;
 		public const byte ClearableFlags_TransmitFinishedBit = 0x02;
@@ -246,11 +246,17 @@ namespace DevKitWindowsApp
 		public const byte ClearableFlags_ButtonPressedBit    = 0x40;
 		public const byte ClearableFlags_ButtonHeldBit       = 0x80;
 		
-		public const byte ConfigFlags_InterruptDrivenBit     = 0x01;
-		public const byte ConfigFlags_AutoClearFlagsBit      = 0x02;
-		public const byte ConfigFlags_RxLedModeBit           = 0x04;
-		public const byte ConfigFlags_TxLedModeBit           = 0x08;
-		public const byte ConfigFlags_AutoRekeyBit           = 0x10;
+		public const byte ConfigFlags_InterruptDrivenBit = 0x01;
+		public const byte ConfigFlags_AutoClearFlagsBit  = 0x02;
+		public const byte ConfigFlags_RxLedModeBit       = 0x04;
+		public const byte ConfigFlags_TxLedModeBit       = 0x08;
+		public const byte ConfigFlags_AutoRekeyBit       = 0x10;
+		
+		public const byte BleFlags_WasResetBit           = 0x01;
+		public const byte BleFlags_ConnectedBit          = 0x02;
+		public const byte BleFlags_AdvertisingBit        = 0x04;
+		public const byte BleFlags_InDfuModeBit          = 0x08;
+		public const byte BleFlags_SureFiTxInProgressBit = 0x10;
 		
 		public static bool gotModuleStatus        = false;
 		public static bool gotIntEnableBits       = false;
@@ -279,6 +285,16 @@ namespace DevKitWindowsApp
 		public static bool gotAcksEnabled         = false;
 		public static bool gotNumRetries          = false;
 		
+		public static bool gotBleExmemData         = false;
+		public static bool gotBleFirmwareVersion   = false;
+		public static bool gotBleStatus            = false;
+		public static bool gotBleStatusUpdateBits  = false;
+		public static bool gotBleAdvertisingData   = false;
+		public static bool gotBleAdvertisingName   = false;
+		public static bool gotBleTemporaryData     = false;
+		public static bool gotBleGpioValue         = false;
+		public static bool gotBleGpioUpdateEnabled = false;
+		
 		public static void ClearGotFlags()
 		{
 			gotModuleStatus        = false;
@@ -306,6 +322,16 @@ namespace DevKitWindowsApp
 			gotButtonConfig        = false;
 			gotAcksEnabled         = false;
 			gotNumRetries          = false;
+			
+			gotBleExmemData         = false;
+			gotBleFirmwareVersion   = false;
+			gotBleStatus            = false;
+			gotBleStatusUpdateBits  = false;
+			gotBleAdvertisingData   = false;
+			gotBleAdvertisingName   = false;
+			gotBleTemporaryData     = false;
+			gotBleGpioValue         = false;
+			gotBleGpioUpdateEnabled = false;
 		}
 		
 		static byte TruncateInt(int intValue)
@@ -1343,9 +1369,225 @@ namespace DevKitWindowsApp
 			// string rspString = GetHumanReadableBleResponseStr(responseBytes);
 			// Console.WriteLine("Got " + rspString);
 			
+			
 			switch (rspCmd)
 			{
-				//TODO: Add handlers for all the responses
+				// +==============================+
+				// |    BleRsp.DfuNeedAdvData     |
+				// +==============================+
+				// case BleRsp.DfuNeedAdvData:
+				// {
+				// 	//TODO: Implement me
+				// } break;
+				
+				// +==============================+
+				// |       BleRsp.ExmemData       |
+				// +==============================+
+				// case BleRsp.ExmemData:
+				// {
+				// 	//TODO: Implement me
+				// } break;
+				
+				// +==============================+
+				// |    BleRsp.FirmwareVersion    |
+				// +==============================+
+				case BleRsp.FirmwareVersion:
+				{
+					if (rspPayload.Length == 4)
+					{
+						byte firmwareMajor = rspPayload[0];
+						byte firmwareMinor = rspPayload[1];
+						UInt16 firmwareBuild = (UInt16)(
+							(rspPayload[2] << 0) +
+							(rspPayload[3] << 8)
+						);
+						
+						mainForm.BleFirmwareVersionLabel.Text = "Firmware: " + firmwareMajor.ToString() + "." + firmwareMinor.ToString() + " (" + firmwareBuild.ToString() + ")";
+						
+						gotModuleVersion = true;
+					}
+				} break;
+				
+				// +==============================+
+				// |        BleRsp.Status         |
+				// +==============================+
+				case BleRsp.Status:
+				{
+					if (rspPayload.Length == 1)
+					{
+						// Console.WriteLine("Got BLE status!");
+						// mainForm.BleStatusLabel.Text = "Status: 0x"     + rspPayload[0].ToString("X2");
+						for (int bitIndex = 0; bitIndex < 8; bitIndex++)
+						{
+							byte bit = (byte)(0x01 << bitIndex);
+							bool isBitSet = (rspPayload[0] & bit) > 0;
+							mainForm.SetBleStatusBit(bit, isBitSet);
+						}
+						
+						byte bleFlags = rspPayload[0];
+						
+						mainForm.updatingElement = true;
+						
+						if ((bleFlags & BleFlags_AdvertisingBit) != 0)
+						{
+							mainForm.BleStartAdvertisingButton.Text = "Stop Advertising";
+						}
+						else
+						{
+							mainForm.BleStartAdvertisingButton.Text = "Start Advertising";
+						}
+						
+						mainForm.updatingElement = false;
+						
+						mainForm.HandleBleStatusUpdate(bleFlags);
+						
+						gotBleStatus = true;
+					}
+				} break;
+				
+				// +==============================+
+				// |        BleRsp.Success        |
+				// +==============================+
+				case BleRsp.Success:
+				{
+					if (rspPayload.Length == 1)
+					{
+						byte cmdByte = rspPayload[0];
+						BleCmd bleCmd = (BleCmd)cmdByte;
+						
+						mainForm.HandleBleSuccessResponse(bleCmd);
+					}
+				} break;
+				
+				// +==============================+
+				// |        BleRsp.Failure        |
+				// +==============================+
+				case BleRsp.Failure:
+				{
+					if (rspPayload.Length == 2)
+					{
+						byte cmdByte = rspPayload[0];
+						byte errorByte = rspPayload[1];
+						BleCmd bleCmd = (BleCmd)cmdByte;
+						BleError bleError = (BleError)errorByte;
+						
+						mainForm.HandleBleFailureResponse(bleCmd, bleError);
+					}
+				} break;
+				
+				// +==============================+
+				// |      BleRsp.UartTimeout      |
+				// +==============================+
+				case BleRsp.UartTimeout:
+				{
+					//TODO: Do something?
+				} break;
+				
+				// +==============================+
+				// |   BleRsp.StatusUpdateBits    |
+				// +==============================+
+				case BleRsp.StatusUpdateBits:
+				{
+					if (rspPayload.Length == 1)
+					{
+						mainForm.bleStatusUpdateBits = rspPayload[0];
+						mainForm.PushBleStatusUpdateBits(false);
+						
+						gotBleStatusUpdateBits = true;
+					}
+				} break;
+				
+				// +==============================+
+				// |    BleRsp.AdvertisingData    |
+				// +==============================+
+				case BleRsp.AdvertisingData:
+				{
+					mainForm.updatingElement = true;
+					
+					int numBytes = 0;
+					mainForm.BleAdvertisingDataTextbox.Text = "";
+					foreach (byte b in rspPayload)
+					{
+						mainForm.BleAdvertisingDataTextbox.Text += b.ToString("X2");
+						numBytes++;
+					}
+					mainForm.BleAdvertisingDataLengthLabel.Text = numBytes.ToString() + " bytes";
+					
+					mainForm.updatingElement = false;
+					
+					gotBleAdvertisingData = true;
+				} break;
+				
+				// +==============================+
+				// |    BleRsp.AdvertisingName    |
+				// +==============================+
+				case BleRsp.AdvertisingName:
+				{
+					mainForm.updatingElement = true;
+					
+					int numBytes = 0;
+					mainForm.BleAdvertisingNameTextbox.Text = "";
+					foreach (byte b in rspPayload)
+					{
+						mainForm.BleAdvertisingNameTextbox.Text += (char)b;
+						numBytes++;
+					}
+					mainForm.BleAdvertisingNameLengthLabel.Text = numBytes.ToString() + " bytes";
+					
+					mainForm.updatingElement = false;
+					
+					gotBleAdvertisingName = true;
+				} break;
+				
+				// +==============================+
+				// |     BleRsp.TemporaryData     |
+				// +==============================+
+				case BleRsp.TemporaryData:
+				{
+					mainForm.updatingElement = true;
+					
+					//TODO: Add temporary data textbox to the UI
+					// int numBytes = 0;
+					// mainForm.BleTemporaryDataTextbox.Text = "";
+					// foreach (byte b in rspPayload)
+					// {
+					// 	mainForm.BleTemporaryDataTextbox.Text += b.ToString("X2");
+					// 	numBytes++;
+					// }
+					// mainForm.BleTemporaryDataLengthLabel.Text = numBytes.ToString() + " bytes";
+					
+					mainForm.updatingElement = false;
+					
+					gotBleTemporaryData = true;
+				} break;
+				
+				// +==============================+
+				// |       BleRsp.GpioValue       |
+				// +==============================+
+				case BleRsp.GpioValue:
+				{
+					if (rspPayload.Length == 2)
+					{
+						byte gpioNumber = rspPayload[0];
+						byte gpioValue = rspPayload[1];
+						mainForm.PushBleGpioValue(gpioNumber, gpioValue, false);
+					}
+					gotBleGpioValue = true;
+				} break;
+				
+				// +==============================+
+				// |   BleRsp.GpioUpdateEnabled   |
+				// +==============================+
+				case BleRsp.GpioUpdateEnabled:
+				{
+					if (rspPayload.Length == 2)
+					{
+						byte gpioNumber = rspPayload[0];
+						bool gpioUpdateEnabled = (rspPayload[1] != 0);
+						mainForm.PushBleGpioAutoUpdateEnabled(gpioNumber, gpioUpdateEnabled, false);
+					}
+					gotBleGpioUpdateEnabled = true;
+				} break;
 				
 				default:
 				{

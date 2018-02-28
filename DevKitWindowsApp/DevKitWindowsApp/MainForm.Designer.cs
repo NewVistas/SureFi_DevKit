@@ -38,6 +38,7 @@
 			this.HumanReadableCheckbox = new System.Windows.Forms.CheckBox();
 			this.MainTabControl = new System.Windows.Forms.TabControl();
 			this.TabPageRadio = new System.Windows.Forms.TabPage();
+			this.label72 = new System.Windows.Forms.Label();
 			this.TableHoppingCheckbox = new System.Windows.Forms.CheckBox();
 			this.QuietModeCheckbox = new System.Windows.Forms.CheckBox();
 			this.AcksEnabledCheckbox = new System.Windows.Forms.CheckBox();
@@ -230,6 +231,12 @@
 			this.IntBusyBit = new System.Windows.Forms.Label();
 			this.IntRadioStateBit1 = new System.Windows.Forms.Label();
 			this.TabPageBluetooth = new System.Windows.Forms.TabPage();
+			this.BleTp28PullLabel = new System.Windows.Forms.Label();
+			this.BleTp25PullLabel = new System.Windows.Forms.Label();
+			this.BleTp6PullLabel = new System.Windows.Forms.Label();
+			this.BleTp5PullLabel = new System.Windows.Forms.Label();
+			this.BleTp4PullLabel = new System.Windows.Forms.Label();
+			this.label77 = new System.Windows.Forms.Label();
 			this.BleTp28AutoCheckbox = new System.Windows.Forms.CheckBox();
 			this.BleTp25AutoCheckbox = new System.Windows.Forms.CheckBox();
 			this.BleTp6AutoCheckbox = new System.Windows.Forms.CheckBox();
@@ -295,6 +302,7 @@
 			this.BleSureFiTxInProgressBit = new System.Windows.Forms.Label();
 			this.BleTp4DirectionLabel = new System.Windows.Forms.Label();
 			this.BleTp3ValueLabel = new System.Windows.Forms.Label();
+			this.BleTp3PullLabel = new System.Windows.Forms.Label();
 			this.BleTp3DirectionLabel = new System.Windows.Forms.Label();
 			this.BleIntWasResetBit = new System.Windows.Forms.Label();
 			this.BleWasResetBit = new System.Windows.Forms.Label();
@@ -328,14 +336,6 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
-			this.BleTp3PullLabel = new System.Windows.Forms.Label();
-			this.label77 = new System.Windows.Forms.Label();
-			this.BleTp4PullLabel = new System.Windows.Forms.Label();
-			this.BleTp5PullLabel = new System.Windows.Forms.Label();
-			this.BleTp6PullLabel = new System.Windows.Forms.Label();
-			this.BleTp25PullLabel = new System.Windows.Forms.Label();
-			this.BleTp28PullLabel = new System.Windows.Forms.Label();
-			this.label72 = new System.Windows.Forms.Label();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -471,6 +471,15 @@
 			this.TabPageRadio.TabIndex = 0;
 			this.TabPageRadio.Text = "Radio Settings";
 			this.TabPageRadio.UseVisualStyleBackColor = true;
+			// 
+			// label72
+			// 
+			this.label72.AutoSize = true;
+			this.label72.Location = new System.Drawing.Point(7, 25);
+			this.label72.Name = "label72";
+			this.label72.Size = new System.Drawing.Size(22, 13);
+			this.label72.TabIndex = 17;
+			this.label72.Text = "2 +";
 			// 
 			// TableHoppingCheckbox
 			// 
@@ -2931,6 +2940,90 @@
 			this.TabPageBluetooth.Text = "Bluetooth";
 			this.TabPageBluetooth.UseVisualStyleBackColor = true;
 			// 
+			// BleTp28PullLabel
+			// 
+			this.BleTp28PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp28PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp28PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp28PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp28PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp28PullLabel.Location = new System.Drawing.Point(90, 290);
+			this.BleTp28PullLabel.Name = "BleTp28PullLabel";
+			this.BleTp28PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp28PullLabel.TabIndex = 44;
+			this.BleTp28PullLabel.Text = "None";
+			this.BleTp28PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp28PullLabel.Click += new System.EventHandler(this.BleTp28PullLabel_Click);
+			// 
+			// BleTp25PullLabel
+			// 
+			this.BleTp25PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp25PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp25PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp25PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp25PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp25PullLabel.Location = new System.Drawing.Point(90, 266);
+			this.BleTp25PullLabel.Name = "BleTp25PullLabel";
+			this.BleTp25PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp25PullLabel.TabIndex = 44;
+			this.BleTp25PullLabel.Text = "None";
+			this.BleTp25PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp25PullLabel.Click += new System.EventHandler(this.BleTp25PullLabel_Click);
+			// 
+			// BleTp6PullLabel
+			// 
+			this.BleTp6PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp6PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp6PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp6PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp6PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp6PullLabel.Location = new System.Drawing.Point(90, 242);
+			this.BleTp6PullLabel.Name = "BleTp6PullLabel";
+			this.BleTp6PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp6PullLabel.TabIndex = 44;
+			this.BleTp6PullLabel.Text = "None";
+			this.BleTp6PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp6PullLabel.Click += new System.EventHandler(this.BleTp6PullLabel_Click);
+			// 
+			// BleTp5PullLabel
+			// 
+			this.BleTp5PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp5PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp5PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp5PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp5PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp5PullLabel.Location = new System.Drawing.Point(90, 219);
+			this.BleTp5PullLabel.Name = "BleTp5PullLabel";
+			this.BleTp5PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp5PullLabel.TabIndex = 44;
+			this.BleTp5PullLabel.Text = "None";
+			this.BleTp5PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp5PullLabel.Click += new System.EventHandler(this.BleTp5PullLabel_Click);
+			// 
+			// BleTp4PullLabel
+			// 
+			this.BleTp4PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp4PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp4PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp4PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp4PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp4PullLabel.Location = new System.Drawing.Point(90, 195);
+			this.BleTp4PullLabel.Name = "BleTp4PullLabel";
+			this.BleTp4PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp4PullLabel.TabIndex = 44;
+			this.BleTp4PullLabel.Text = "None";
+			this.BleTp4PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp4PullLabel.Click += new System.EventHandler(this.BleTp4PullLabel_Click);
+			// 
+			// label77
+			// 
+			this.label77.AutoSize = true;
+			this.label77.Location = new System.Drawing.Point(98, 159);
+			this.label77.Name = "label77";
+			this.label77.Size = new System.Drawing.Size(24, 13);
+			this.label77.TabIndex = 43;
+			this.label77.Text = "Pull";
+			// 
 			// BleTp28AutoCheckbox
 			// 
 			this.BleTp28AutoCheckbox.AutoSize = true;
@@ -2939,6 +3032,7 @@
 			this.BleTp28AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp28AutoCheckbox.TabIndex = 42;
 			this.BleTp28AutoCheckbox.UseVisualStyleBackColor = true;
+			this.BleTp28AutoCheckbox.CheckedChanged += new System.EventHandler(this.BleTp28AutoCheckbox_CheckedChanged);
 			// 
 			// BleTp25AutoCheckbox
 			// 
@@ -2948,6 +3042,7 @@
 			this.BleTp25AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp25AutoCheckbox.TabIndex = 42;
 			this.BleTp25AutoCheckbox.UseVisualStyleBackColor = true;
+			this.BleTp25AutoCheckbox.CheckedChanged += new System.EventHandler(this.BleTp25AutoCheckbox_CheckedChanged);
 			// 
 			// BleTp6AutoCheckbox
 			// 
@@ -2957,6 +3052,7 @@
 			this.BleTp6AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp6AutoCheckbox.TabIndex = 42;
 			this.BleTp6AutoCheckbox.UseVisualStyleBackColor = true;
+			this.BleTp6AutoCheckbox.CheckedChanged += new System.EventHandler(this.BleTp6AutoCheckbox_CheckedChanged);
 			// 
 			// BleTp5AutoCheckbox
 			// 
@@ -2966,6 +3062,7 @@
 			this.BleTp5AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp5AutoCheckbox.TabIndex = 42;
 			this.BleTp5AutoCheckbox.UseVisualStyleBackColor = true;
+			this.BleTp5AutoCheckbox.CheckedChanged += new System.EventHandler(this.BleTp5AutoCheckbox_CheckedChanged);
 			// 
 			// BleTp4AutoCheckbox
 			// 
@@ -2975,6 +3072,7 @@
 			this.BleTp4AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp4AutoCheckbox.TabIndex = 42;
 			this.BleTp4AutoCheckbox.UseVisualStyleBackColor = true;
+			this.BleTp4AutoCheckbox.CheckedChanged += new System.EventHandler(this.BleTp4AutoCheckbox_CheckedChanged);
 			// 
 			// BleTp3AutoCheckbox
 			// 
@@ -2984,6 +3082,7 @@
 			this.BleTp3AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp3AutoCheckbox.TabIndex = 42;
 			this.BleTp3AutoCheckbox.UseVisualStyleBackColor = true;
+			this.BleTp3AutoCheckbox.CheckedChanged += new System.EventHandler(this.BleTp3AutoCheckbox_CheckedChanged);
 			// 
 			// label107
 			// 
@@ -3030,6 +3129,7 @@
 			this.BleTp28GetButton.TabIndex = 39;
 			this.BleTp28GetButton.Text = "Get";
 			this.BleTp28GetButton.UseVisualStyleBackColor = true;
+			this.BleTp28GetButton.Click += new System.EventHandler(this.BleTp28GetButton_Click);
 			// 
 			// label103
 			// 
@@ -3049,6 +3149,7 @@
 			this.BleTp25GetButton.TabIndex = 39;
 			this.BleTp25GetButton.Text = "Get";
 			this.BleTp25GetButton.UseVisualStyleBackColor = true;
+			this.BleTp25GetButton.Click += new System.EventHandler(this.BleTp25GetButton_Click);
 			// 
 			// label100
 			// 
@@ -3068,6 +3169,7 @@
 			this.BleTp6GetButton.TabIndex = 39;
 			this.BleTp6GetButton.Text = "Get";
 			this.BleTp6GetButton.UseVisualStyleBackColor = true;
+			this.BleTp6GetButton.Click += new System.EventHandler(this.BleTp6GetButton_Click);
 			// 
 			// label97
 			// 
@@ -3087,6 +3189,7 @@
 			this.BleTp5GetButton.TabIndex = 39;
 			this.BleTp5GetButton.Text = "Get";
 			this.BleTp5GetButton.UseVisualStyleBackColor = true;
+			this.BleTp5GetButton.Click += new System.EventHandler(this.BleTp5GetButton_Click);
 			// 
 			// label94
 			// 
@@ -3106,6 +3209,7 @@
 			this.BleTp4GetButton.TabIndex = 39;
 			this.BleTp4GetButton.Text = "Get";
 			this.BleTp4GetButton.UseVisualStyleBackColor = true;
+			this.BleTp4GetButton.Click += new System.EventHandler(this.BleTp4GetButton_Click);
 			// 
 			// label82
 			// 
@@ -3125,6 +3229,7 @@
 			this.BleTp3GetButton.TabIndex = 39;
 			this.BleTp3GetButton.Text = "Get";
 			this.BleTp3GetButton.UseVisualStyleBackColor = true;
+			this.BleTp3GetButton.Click += new System.EventHandler(this.BleTp3GetButton_Click);
 			// 
 			// BleDisableAllButton
 			// 
@@ -3134,6 +3239,7 @@
 			this.BleDisableAllButton.TabIndex = 38;
 			this.BleDisableAllButton.Text = "Disable All";
 			this.BleDisableAllButton.UseVisualStyleBackColor = true;
+			this.BleDisableAllButton.Click += new System.EventHandler(this.BleDisableAllButton_Click);
 			// 
 			// BleEnableAllButton
 			// 
@@ -3143,6 +3249,7 @@
 			this.BleEnableAllButton.TabIndex = 38;
 			this.BleEnableAllButton.Text = "Enable All";
 			this.BleEnableAllButton.UseVisualStyleBackColor = true;
+			this.BleEnableAllButton.Click += new System.EventHandler(this.BleEnableAllButton_Click);
 			// 
 			// BleClearResetFlagButton
 			// 
@@ -3152,6 +3259,7 @@
 			this.BleClearResetFlagButton.TabIndex = 36;
 			this.BleClearResetFlagButton.Text = "Clear Reset Flag";
 			this.BleClearResetFlagButton.UseVisualStyleBackColor = true;
+			this.BleClearResetFlagButton.Click += new System.EventHandler(this.BleClearResetFlagButton_Click);
 			// 
 			// BleGetStatusButton
 			// 
@@ -3161,6 +3269,7 @@
 			this.BleGetStatusButton.TabIndex = 35;
 			this.BleGetStatusButton.Text = "Get Status";
 			this.BleGetStatusButton.UseVisualStyleBackColor = true;
+			this.BleGetStatusButton.Click += new System.EventHandler(this.BleGetStatusButton_Click);
 			// 
 			// BleFirmwareVersionLabel
 			// 
@@ -3189,6 +3298,7 @@
 			this.BleGetVersionButton.TabIndex = 23;
 			this.BleGetVersionButton.Text = "Get";
 			this.BleGetVersionButton.UseVisualStyleBackColor = true;
+			this.BleGetVersionButton.Click += new System.EventHandler(this.BleGetVersionButton_Click);
 			// 
 			// BleAdvertisingNameLengthLabel
 			// 
@@ -3232,6 +3342,7 @@
 			this.BleAdvertisingDataTextbox.Name = "BleAdvertisingDataTextbox";
 			this.BleAdvertisingDataTextbox.Size = new System.Drawing.Size(226, 20);
 			this.BleAdvertisingDataTextbox.TabIndex = 20;
+			this.BleAdvertisingDataTextbox.TextChanged += new System.EventHandler(this.BleAdvertisingDataTextbox_TextChanged);
 			// 
 			// BleAdvertisingNameTextbox
 			// 
@@ -3239,6 +3350,9 @@
 			this.BleAdvertisingNameTextbox.Name = "BleAdvertisingNameTextbox";
 			this.BleAdvertisingNameTextbox.Size = new System.Drawing.Size(226, 20);
 			this.BleAdvertisingNameTextbox.TabIndex = 19;
+			this.BleAdvertisingNameTextbox.TextChanged += new System.EventHandler(this.BleAdvertisingNameTextbox_TextChanged);
+			this.BleAdvertisingNameTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BleAdvertisingNameTextbox_KeyDown);
+			this.BleAdvertisingNameTextbox.Leave += new System.EventHandler(this.BleAdvertisingNameTextbox_Leave);
 			// 
 			// BleCloseConnectionButton
 			// 
@@ -3248,6 +3362,7 @@
 			this.BleCloseConnectionButton.TabIndex = 18;
 			this.BleCloseConnectionButton.Text = "Close Connection";
 			this.BleCloseConnectionButton.UseVisualStyleBackColor = true;
+			this.BleCloseConnectionButton.Click += new System.EventHandler(this.BleCloseConnectionButton_Click);
 			// 
 			// BleStartAdvertisingButton
 			// 
@@ -3257,6 +3372,7 @@
 			this.BleStartAdvertisingButton.TabIndex = 18;
 			this.BleStartAdvertisingButton.Text = "Start Advertising";
 			this.BleStartAdvertisingButton.UseVisualStyleBackColor = true;
+			this.BleStartAdvertisingButton.Click += new System.EventHandler(this.BleStartAdvertisingButton_Click);
 			// 
 			// label91
 			// 
@@ -3360,6 +3476,7 @@
 			this.BleIntInDfuModeBit.TabIndex = 16;
 			this.BleIntInDfuModeBit.Text = "D";
 			this.BleIntInDfuModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleIntInDfuModeBit.Click += new System.EventHandler(this.BleIntInDfuModeBit_Click);
 			// 
 			// BleInDfuModeBit
 			// 
@@ -3386,6 +3503,7 @@
 			this.BleIntAdvertisingBit.TabIndex = 16;
 			this.BleIntAdvertisingBit.Text = "D";
 			this.BleIntAdvertisingBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleIntAdvertisingBit.Click += new System.EventHandler(this.BleIntAdvertisingBit_Click);
 			// 
 			// BleTp28ValueLabel
 			// 
@@ -3400,6 +3518,7 @@
 			this.BleTp28ValueLabel.TabIndex = 16;
 			this.BleTp28ValueLabel.Text = "Low";
 			this.BleTp28ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp28ValueLabel.Click += new System.EventHandler(this.BleTp28ValueLabel_Click);
 			// 
 			// BleAdvertisingBit
 			// 
@@ -3427,6 +3546,7 @@
 			this.BleTp25ValueLabel.TabIndex = 16;
 			this.BleTp25ValueLabel.Text = "Low";
 			this.BleTp25ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp25ValueLabel.Click += new System.EventHandler(this.BleTp25ValueLabel_Click);
 			// 
 			// BleIntConnectedBit
 			// 
@@ -3440,6 +3560,7 @@
 			this.BleIntConnectedBit.TabIndex = 16;
 			this.BleIntConnectedBit.Text = "D";
 			this.BleIntConnectedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleIntConnectedBit.Click += new System.EventHandler(this.BleIntConnectedBit_Click);
 			// 
 			// BleTp6ValueLabel
 			// 
@@ -3454,6 +3575,7 @@
 			this.BleTp6ValueLabel.TabIndex = 16;
 			this.BleTp6ValueLabel.Text = "Low";
 			this.BleTp6ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp6ValueLabel.Click += new System.EventHandler(this.BleTp6ValueLabel_Click);
 			// 
 			// BleConnectedBit
 			// 
@@ -3481,6 +3603,7 @@
 			this.BleTp28DirectionLabel.TabIndex = 16;
 			this.BleTp28DirectionLabel.Text = "In";
 			this.BleTp28DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp28DirectionLabel.Click += new System.EventHandler(this.BleTp28DirectionLabel_Click);
 			// 
 			// BleTp5ValueLabel
 			// 
@@ -3495,6 +3618,7 @@
 			this.BleTp5ValueLabel.TabIndex = 16;
 			this.BleTp5ValueLabel.Text = "Low";
 			this.BleTp5ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp5ValueLabel.Click += new System.EventHandler(this.BleTp5ValueLabel_Click);
 			// 
 			// BleTp25DirectionLabel
 			// 
@@ -3509,6 +3633,7 @@
 			this.BleTp25DirectionLabel.TabIndex = 16;
 			this.BleTp25DirectionLabel.Text = "In";
 			this.BleTp25DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp25DirectionLabel.Click += new System.EventHandler(this.BleTp25DirectionLabel_Click);
 			// 
 			// BleIntSureFiTxInProgressBit
 			// 
@@ -3522,6 +3647,7 @@
 			this.BleIntSureFiTxInProgressBit.TabIndex = 16;
 			this.BleIntSureFiTxInProgressBit.Text = "D";
 			this.BleIntSureFiTxInProgressBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleIntSureFiTxInProgressBit.Click += new System.EventHandler(this.BleIntSureFiTxInProgressBit_Click);
 			// 
 			// BleTp6DirectionLabel
 			// 
@@ -3536,6 +3662,7 @@
 			this.BleTp6DirectionLabel.TabIndex = 16;
 			this.BleTp6DirectionLabel.Text = "In";
 			this.BleTp6DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp6DirectionLabel.Click += new System.EventHandler(this.BleTp6DirectionLabel_Click);
 			// 
 			// BleTp4ValueLabel
 			// 
@@ -3550,6 +3677,7 @@
 			this.BleTp4ValueLabel.TabIndex = 16;
 			this.BleTp4ValueLabel.Text = "Low";
 			this.BleTp4ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp4ValueLabel.Click += new System.EventHandler(this.BleTp4ValueLabel_Click);
 			// 
 			// BleTp5DirectionLabel
 			// 
@@ -3564,6 +3692,7 @@
 			this.BleTp5DirectionLabel.TabIndex = 16;
 			this.BleTp5DirectionLabel.Text = "In";
 			this.BleTp5DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp5DirectionLabel.Click += new System.EventHandler(this.BleTp5DirectionLabel_Click);
 			// 
 			// BleSureFiTxInProgressBit
 			// 
@@ -3591,6 +3720,7 @@
 			this.BleTp4DirectionLabel.TabIndex = 16;
 			this.BleTp4DirectionLabel.Text = "In";
 			this.BleTp4DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp4DirectionLabel.Click += new System.EventHandler(this.BleTp4DirectionLabel_Click);
 			// 
 			// BleTp3ValueLabel
 			// 
@@ -3605,6 +3735,22 @@
 			this.BleTp3ValueLabel.TabIndex = 16;
 			this.BleTp3ValueLabel.Text = "Low";
 			this.BleTp3ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp3ValueLabel.Click += new System.EventHandler(this.BleTp3ValueLabel_Click);
+			// 
+			// BleTp3PullLabel
+			// 
+			this.BleTp3PullLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BleTp3PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleTp3PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.BleTp3PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleTp3PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleTp3PullLabel.Location = new System.Drawing.Point(90, 172);
+			this.BleTp3PullLabel.Name = "BleTp3PullLabel";
+			this.BleTp3PullLabel.Size = new System.Drawing.Size(41, 21);
+			this.BleTp3PullLabel.TabIndex = 16;
+			this.BleTp3PullLabel.Text = "None";
+			this.BleTp3PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp3PullLabel.Click += new System.EventHandler(this.BleTp3PullLabel_Click);
 			// 
 			// BleTp3DirectionLabel
 			// 
@@ -3619,6 +3765,7 @@
 			this.BleTp3DirectionLabel.TabIndex = 16;
 			this.BleTp3DirectionLabel.Text = "In";
 			this.BleTp3DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleTp3DirectionLabel.Click += new System.EventHandler(this.BleTp3DirectionLabel_Click);
 			// 
 			// BleIntWasResetBit
 			// 
@@ -3632,6 +3779,7 @@
 			this.BleIntWasResetBit.TabIndex = 16;
 			this.BleIntWasResetBit.Text = "D";
 			this.BleIntWasResetBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleIntWasResetBit.Click += new System.EventHandler(this.BleIntWasResetBit_Click);
 			// 
 			// BleWasResetBit
 			// 
@@ -3985,108 +4133,6 @@
 			this.PrintStatusCheckbox.Text = "Status";
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
-			// 
-			// BleTp3PullLabel
-			// 
-			this.BleTp3PullLabel.BackColor = System.Drawing.Color.Transparent;
-			this.BleTp3PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.BleTp3PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.BleTp3PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BleTp3PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp3PullLabel.Location = new System.Drawing.Point(90, 172);
-			this.BleTp3PullLabel.Name = "BleTp3PullLabel";
-			this.BleTp3PullLabel.Size = new System.Drawing.Size(41, 21);
-			this.BleTp3PullLabel.TabIndex = 16;
-			this.BleTp3PullLabel.Text = "None";
-			this.BleTp3PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label77
-			// 
-			this.label77.AutoSize = true;
-			this.label77.Location = new System.Drawing.Point(98, 159);
-			this.label77.Name = "label77";
-			this.label77.Size = new System.Drawing.Size(24, 13);
-			this.label77.TabIndex = 43;
-			this.label77.Text = "Pull";
-			// 
-			// BleTp4PullLabel
-			// 
-			this.BleTp4PullLabel.BackColor = System.Drawing.Color.Transparent;
-			this.BleTp4PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.BleTp4PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.BleTp4PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BleTp4PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp4PullLabel.Location = new System.Drawing.Point(90, 195);
-			this.BleTp4PullLabel.Name = "BleTp4PullLabel";
-			this.BleTp4PullLabel.Size = new System.Drawing.Size(41, 21);
-			this.BleTp4PullLabel.TabIndex = 44;
-			this.BleTp4PullLabel.Text = "None";
-			this.BleTp4PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// BleTp5PullLabel
-			// 
-			this.BleTp5PullLabel.BackColor = System.Drawing.Color.Transparent;
-			this.BleTp5PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.BleTp5PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.BleTp5PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BleTp5PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp5PullLabel.Location = new System.Drawing.Point(90, 219);
-			this.BleTp5PullLabel.Name = "BleTp5PullLabel";
-			this.BleTp5PullLabel.Size = new System.Drawing.Size(41, 21);
-			this.BleTp5PullLabel.TabIndex = 44;
-			this.BleTp5PullLabel.Text = "None";
-			this.BleTp5PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// BleTp6PullLabel
-			// 
-			this.BleTp6PullLabel.BackColor = System.Drawing.Color.Transparent;
-			this.BleTp6PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.BleTp6PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.BleTp6PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BleTp6PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp6PullLabel.Location = new System.Drawing.Point(90, 242);
-			this.BleTp6PullLabel.Name = "BleTp6PullLabel";
-			this.BleTp6PullLabel.Size = new System.Drawing.Size(41, 21);
-			this.BleTp6PullLabel.TabIndex = 44;
-			this.BleTp6PullLabel.Text = "None";
-			this.BleTp6PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// BleTp25PullLabel
-			// 
-			this.BleTp25PullLabel.BackColor = System.Drawing.Color.Transparent;
-			this.BleTp25PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.BleTp25PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.BleTp25PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BleTp25PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp25PullLabel.Location = new System.Drawing.Point(90, 266);
-			this.BleTp25PullLabel.Name = "BleTp25PullLabel";
-			this.BleTp25PullLabel.Size = new System.Drawing.Size(41, 21);
-			this.BleTp25PullLabel.TabIndex = 44;
-			this.BleTp25PullLabel.Text = "None";
-			this.BleTp25PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// BleTp28PullLabel
-			// 
-			this.BleTp28PullLabel.BackColor = System.Drawing.Color.Transparent;
-			this.BleTp28PullLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.BleTp28PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.BleTp28PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BleTp28PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp28PullLabel.Location = new System.Drawing.Point(90, 290);
-			this.BleTp28PullLabel.Name = "BleTp28PullLabel";
-			this.BleTp28PullLabel.Size = new System.Drawing.Size(41, 21);
-			this.BleTp28PullLabel.TabIndex = 44;
-			this.BleTp28PullLabel.Text = "None";
-			this.BleTp28PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label72
-			// 
-			this.label72.AutoSize = true;
-			this.label72.Location = new System.Drawing.Point(7, 25);
-			this.label72.Name = "label72";
-			this.label72.Size = new System.Drawing.Size(22, 13);
-			this.label72.TabIndex = 17;
-			this.label72.Text = "2 +";
 			// 
 			// MainForm
 			// 

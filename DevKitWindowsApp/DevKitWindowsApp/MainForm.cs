@@ -24,6 +24,7 @@ namespace DevKitWindowsApp
 		byte savedOtherFlags = 0x00;
 		byte savedClearableFlags = 0x00;
 		byte savedConfigFlags = 0x00;
+		byte savedBleFlags = 0x00;
 		
 		public delegate void ConnectionResultHandler(object sender, bool success, string message);
 		public event ConnectionResultHandler OnConnectionFinished;
@@ -150,6 +151,48 @@ namespace DevKitWindowsApp
 				if (bit == 0x08) { bitLabel = this.IntTxLedModeBit;       }
 				if (bit == 0x10) { bitLabel = this.IntAutoRekeyBit;       }
 			}
+			
+			string newText = filled ? "E" : "D";
+			if (bitLabel != null && bitLabel.Text != newText)
+			{
+				bitLabel.Text = newText;
+				bitLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.DeepSkyBlue : KnownColor.Transparent);
+				bitLabel.ForeColor = Color.FromKnownColor(filled ? KnownColor.Control : KnownColor.ControlText);
+			}
+		}
+		
+		public void SetBleStatusBit(byte bit, bool filled)
+		{
+			Label bitLabel = null;
+			if (bit == 0x01) { bitLabel = this.BleWasResetBit; }
+			if (bit == 0x02) { bitLabel = this.BleConnectedBit; }
+			if (bit == 0x04) { bitLabel = this.BleAdvertisingBit; }
+			if (bit == 0x08) { bitLabel = this.BleInDfuModeBit; }
+			if (bit == 0x10) { bitLabel = this.BleSureFiTxInProgressBit; }
+			// if (bit == 0x20) { bitLabel = this.Bit; }
+			// if (bit == 0x40) { bitLabel = this.Bit; }
+			// if (bit == 0x80) { bitLabel = this.Bit; }
+			
+			string newText = filled ? "1" : "0";
+			if (bitLabel != null && bitLabel.Text != newText)
+			{
+				bitLabel.Text = newText;
+				bitLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.DeepSkyBlue : KnownColor.Transparent);
+				bitLabel.ForeColor = Color.FromKnownColor(filled ? KnownColor.Control : KnownColor.ControlText);
+			}
+		}
+		
+		public void SetBleIntEnableBit(byte bit, bool filled)
+		{
+			Label bitLabel = null;
+			if (bit == 0x01) { bitLabel = this.BleIntWasResetBit; }
+			if (bit == 0x02) { bitLabel = this.BleIntConnectedBit; }
+			if (bit == 0x04) { bitLabel = this.BleIntAdvertisingBit; }
+			if (bit == 0x08) { bitLabel = this.BleIntInDfuModeBit; }
+			if (bit == 0x10) { bitLabel = this.BleIntSureFiTxInProgressBit; }
+			// if (bit == 0x20) { bitLabel = this.Bit; }
+			// if (bit == 0x40) { bitLabel = this.Bit; }
+			// if (bit == 0x80) { bitLabel = this.Bit; }
 			
 			string newText = filled ? "E" : "D";
 			if (bitLabel != null && bitLabel.Text != newText)
@@ -422,6 +465,31 @@ namespace DevKitWindowsApp
 			}
 		}
 		
+		public void HandleBleSuccessResponse(BleCmd cmd)
+		{
+			//TODO: Handle any specific Success responses?
+		}
+		public void HandleBleFailureResponse(BleCmd cmd, BleError error)
+		{
+			ShowErrorMesage("Command Failed", "BleCmd_" + cmd.ToString() + " Failed", "Error: " + error.ToString());
+			
+			if (cmd == BleCmd.SetAdvertisingName)
+			{
+				BleAdvertisingNameTextbox.ForeColor = Color.FromKnownColor(KnownColor.OrangeRed);
+			}
+		}
+		
+		public void HandleBleStatusUpdate(byte bleFlags)
+		{
+			//perform an XOR to find which bits have changed since last update
+			byte bleChanged = (byte)(bleFlags ^ this.savedBleFlags);
+			
+			//TODO: Process anything?
+			
+			this.savedBleFlags = bleFlags;
+		}
+		
+		
 		// +==============================+
 		// |         Form Events          |
 		// +==============================+
@@ -465,6 +533,25 @@ namespace DevKitWindowsApp
 			this.port.PushTxCommandNoBytes(SureCmd.GetRadioMode);
 			this.port.PushTxCommandNoBytes(SureCmd.GetAllSettings);
 			this.port.PushTxCommandNoBytes(SureCmd.GetAckData);
+			
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetFirmwareVersion);
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetStatus);
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetStatusUpdateBits);
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetAdvertisingData);
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetAdvertisingName);
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetTemporaryData);
+			this.port.PushBleTxCommand(BleCmd.GetGpioValue, new byte[]{ 3 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioValue, new byte[]{ 4 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioValue, new byte[]{ 5 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioValue, new byte[]{ 6 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioValue, new byte[]{ 25 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioValue, new byte[]{ 28 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioUpdateEnabled, new byte[]{ 3 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioUpdateEnabled, new byte[]{ 4 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioUpdateEnabled, new byte[]{ 5 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioUpdateEnabled, new byte[]{ 6 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioUpdateEnabled, new byte[]{ 25 });
+			this.port.PushBleTxCommand(BleCmd.GetGpioUpdateEnabled, new byte[]{ 28 });
 			
 			this.OutputTextbox.Text = "";
 			this.isConnecting = true;
@@ -2004,6 +2091,586 @@ namespace DevKitWindowsApp
 			intEnableBits[2] = 0x00;
 			intEnableBits[3] = 0x00;
 			PushIntEnableBits();
+		}
+		
+		// +--------------------------------------------------------------+
+		// |                        Bluetooth Tab                         |
+		// +--------------------------------------------------------------+
+		// +==============================+
+		// | Ble Advertising Name Events  |
+		// +==============================+
+		private bool advertisingNameChanged = false;
+		private void PushAdvertisingName()
+		{
+			byte[] payload = Encoding.ASCII.GetBytes(BleAdvertisingNameTextbox.Text);
+			this.port.PushBleTxCommand(BleCmd.SetAdvertisingName, payload);
+			BleAdvertisingNameTextbox.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+			this.advertisingNameChanged = false;
+		}
+		private void BleAdvertisingNameTextbox_TextChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				if (BleAdvertisingNameTextbox.Text.Length > 22)
+				{
+					updatingElement = true;
+					int selectionPos = BleAdvertisingNameTextbox.SelectionStart;
+					BleAdvertisingNameTextbox.Text = BleAdvertisingNameTextbox.Text.Substring(0, 22);
+					if (selectionPos > 22) { selectionPos = 22; }
+					BleAdvertisingNameTextbox.SelectionStart = selectionPos;
+					BleAdvertisingNameTextbox.SelectionLength = 0;
+					updatingElement = false;
+				}
+				BleAdvertisingNameLengthLabel.Text = BleAdvertisingNameTextbox.Text.Length.ToString() + " bytes";
+				BleAdvertisingNameTextbox.ForeColor = Color.FromKnownColor(KnownColor.DarkGreen);
+				advertisingNameChanged = true;
+			}
+		}
+		private void BleAdvertisingNameTextbox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				e.SuppressKeyPress = true;
+				PushAdvertisingName();
+			}
+		}
+		private void BleAdvertisingNameTextbox_Leave(object sender, EventArgs e)
+		{
+			if (!updatingElement && this.advertisingNameChanged)
+			{
+				PushAdvertisingName();
+			}
+		}
+		
+		// +==============================+
+		// | Ble Advertising Data Events  |
+		// +==============================+
+		private void BleAdvertisingDataTextbox_TextChanged(object sender, EventArgs e)
+		{
+			
+		}
+		
+		// +==============================+
+		// |  Ble Command Button Events   |
+		// +==============================+
+		private void BleStartAdvertisingButton_Click(object sender, EventArgs e)
+		{
+			if ((savedBleFlags & SureFi.BleFlags_AdvertisingBit) != 0)
+			{
+				this.port.PushBleTxCommandNoBytes(BleCmd.StopAdvertising);
+			}
+			else
+			{
+				this.port.PushBleTxCommandNoBytes(BleCmd.StartAdvertising);
+			}
+		}
+		private void BleCloseConnectionButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushBleTxCommandNoBytes(BleCmd.CloseConnection);
+		}
+		private void BleGetVersionButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetFirmwareVersion);
+		}
+		
+		// +==============================+
+		// |   Ble Status Button Events   |
+		// +==============================+
+		private void BleClearResetFlagButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushBleTxCommandNoBytes(BleCmd.ClearResetFlag);
+		}
+		private void BleGetStatusButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetStatus);
+		}
+		
+		// +==============================+
+		// |   BLE Interrupt Bit Events   |
+		// +==============================+
+		public byte bleStatusUpdateBits = 0x00;
+		public void PushBleStatusUpdateBits(bool sendCommands)
+		{
+			for (int bitIndex = 0; bitIndex < 8; bitIndex++)
+			{
+				byte bit = (byte)(0x01 << bitIndex);
+				bool isBitSet = (bleStatusUpdateBits & bit) > 0;
+				this.SetBleIntEnableBit(bit, isBitSet);
+			}
+			
+			// this.BleIntStatusLabel.Text = "Update: 0x" + bleStatusUpdateBits.ToString("X2");
+			
+			if (sendCommands)
+			{
+				byte[] payload = { bleStatusUpdateBits };
+				this.port.PushBleTxCommand(BleCmd.SetStatusUpdateBits, payload);
+			}
+		}
+		private void BleEnableAllButton_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				bleStatusUpdateBits = 0xFF;
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleDisableAllButton_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				bleStatusUpdateBits = 0x00;
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleIntWasResetBit_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				if ((bleStatusUpdateBits & 0x01) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x01)); }
+				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x01); }
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleIntConnectedBit_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				if ((bleStatusUpdateBits & 0x02) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x02)); }
+				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x02); }
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleIntAdvertisingBit_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				if ((bleStatusUpdateBits & 0x04) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x04)); }
+				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x04); }
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleIntInDfuModeBit_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				if ((bleStatusUpdateBits & 0x08) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x08)); }
+				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x08); }
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleIntSureFiTxInProgressBit_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				if ((bleStatusUpdateBits & 0x10) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x10)); }
+				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x10); }
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		
+		// +==============================+
+		// |    Gpio Helper Functions     |
+		// +==============================+
+		private Label GetBleGpioDirectionLabel(byte gpioNumber)
+		{
+			if (gpioNumber == 3)  { return this.BleTp3DirectionLabel; }
+			if (gpioNumber == 4)  { return this.BleTp4DirectionLabel; }
+			if (gpioNumber == 5)  { return this.BleTp5DirectionLabel; }
+			if (gpioNumber == 6)  { return this.BleTp6DirectionLabel; }
+			if (gpioNumber == 25) { return this.BleTp25DirectionLabel; }
+			if (gpioNumber == 28) { return this.BleTp28DirectionLabel; }
+			return null;
+		}
+		private Label GetBleGpioPullLabel(byte gpioNumber)
+		{
+			if (gpioNumber == 3)  { return this.BleTp3PullLabel; }
+			if (gpioNumber == 4)  { return this.BleTp4PullLabel; }
+			if (gpioNumber == 5)  { return this.BleTp5PullLabel; }
+			if (gpioNumber == 6)  { return this.BleTp6PullLabel; }
+			if (gpioNumber == 25) { return this.BleTp25PullLabel; }
+			if (gpioNumber == 28) { return this.BleTp28PullLabel; }
+			return null;
+		}
+		private Label GetBleGpioValueLabel(byte gpioNumber)
+		{
+			if (gpioNumber == 3)  { return this.BleTp3ValueLabel; }
+			if (gpioNumber == 4)  { return this.BleTp4ValueLabel; }
+			if (gpioNumber == 5)  { return this.BleTp5ValueLabel; }
+			if (gpioNumber == 6)  { return this.BleTp6ValueLabel; }
+			if (gpioNumber == 25) { return this.BleTp25ValueLabel; }
+			if (gpioNumber == 28) { return this.BleTp28ValueLabel; }
+			return null;
+		}
+		private Button GetBleGpioGetButton(byte gpioNumber)
+		{
+			if (gpioNumber == 3)  { return this.BleTp3GetButton; }
+			if (gpioNumber == 4)  { return this.BleTp4GetButton; }
+			if (gpioNumber == 5)  { return this.BleTp5GetButton; }
+			if (gpioNumber == 6)  { return this.BleTp6GetButton; }
+			if (gpioNumber == 25) { return this.BleTp25GetButton; }
+			if (gpioNumber == 28) { return this.BleTp28GetButton; }
+			return null;
+		}
+		private CheckBox GetBleGpioAutoUpdateCheckbox(byte gpioNumber)
+		{
+			if (gpioNumber == 3)  { return this.BleTp3AutoCheckbox; }
+			if (gpioNumber == 4)  { return this.BleTp4AutoCheckbox; }
+			if (gpioNumber == 5)  { return this.BleTp5AutoCheckbox; }
+			if (gpioNumber == 6)  { return this.BleTp6AutoCheckbox; }
+			if (gpioNumber == 25) { return this.BleTp25AutoCheckbox; }
+			if (gpioNumber == 28) { return this.BleTp28AutoCheckbox; }
+			return null;
+		}
+		public void PushBleGpioDirection(byte gpioNumber, byte gpioDirection, byte gpioPull, bool sendCommands)
+		{
+			Label directionLabel = GetBleGpioDirectionLabel(gpioNumber);
+			Label pullLabel = GetBleGpioPullLabel(gpioNumber);
+			Label valueLabel = GetBleGpioValueLabel(gpioNumber);
+			Button getButton = GetBleGpioGetButton(gpioNumber);
+			CheckBox autoUpdateCheckbox = GetBleGpioAutoUpdateCheckbox(gpioNumber);
+			if (directionLabel == null || pullLabel == null || valueLabel == null || 
+				getButton == null || autoUpdateCheckbox == null)
+			{
+				Console.WriteLine("Unknown gpioNumber " + gpioNumber.ToString());
+				return;
+			}
+			
+			bool changedDirection = false;
+			if (gpioDirection == 0x00) //Output
+			{
+				if (directionLabel.Text != "Out") { changedDirection = true; }
+				directionLabel.Text = "Out";
+				directionLabel.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				directionLabel.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+				
+				pullLabel.Text = "None";
+				pullLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				pullLabel.BackColor = Color.FromKnownColor(KnownColor.ControlDark);
+				pullLabel.Cursor = Cursors.Default;
+				
+				valueLabel.Cursor = Cursors.Hand;
+				
+				getButton.Enabled = false;
+				autoUpdateCheckbox.Enabled = false;
+				this.updatingElement = true;
+				autoUpdateCheckbox.Checked = false;
+				this.updatingElement = false;
+			}
+			else //Input
+			{
+				if (directionLabel.Text != "In") { changedDirection = true; }
+				directionLabel.Text = "In";
+				directionLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				directionLabel.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+				
+				if (gpioPull == 0x01) //Pull-up
+				{
+					pullLabel.Text = "Up";
+					pullLabel.ForeColor = Color.FromKnownColor(KnownColor.Control);
+					pullLabel.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+				}
+				else if (gpioPull == 0x02) //Pull-down
+				{
+					pullLabel.Text = "Down";
+					pullLabel.ForeColor = Color.FromKnownColor(KnownColor.Control);
+					pullLabel.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+				}
+				else
+				{
+					pullLabel.Text = "None";
+					pullLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+					pullLabel.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+				}
+				pullLabel.Cursor = Cursors.Hand;
+				
+				valueLabel.Cursor = Cursors.Default;
+				
+				autoUpdateCheckbox.Enabled = true;
+				if (changedDirection)
+				{
+					getButton.Enabled = true;
+					this.updatingElement = true;
+					autoUpdateCheckbox.Checked = false;
+					this.updatingElement = false;
+				}
+			}
+			
+			if (sendCommands)
+			{
+				if (gpioDirection == 0x00) //Output
+				{
+					byte[] payload = { gpioNumber, gpioDirection };
+					this.port.PushBleTxCommand(BleCmd.SetGpioDirection, payload);
+				}
+				else //Input
+				{
+					byte[] payload = { gpioNumber, gpioDirection, gpioPull };
+					this.port.PushBleTxCommand(BleCmd.SetGpioDirection, payload);
+					if (changedDirection)
+					{
+						byte[] payload2 = { gpioNumber, 0x00 };
+						this.port.PushBleTxCommand(BleCmd.SetGpioUpdateEnabled, payload2);
+					}
+				}
+			}
+		}
+		public void PushBleGpioValue(byte gpioNumber, byte gpioValue, bool sendCommands)
+		{
+			Label directionLabel = GetBleGpioDirectionLabel(gpioNumber);
+			Label pullLabel = GetBleGpioPullLabel(gpioNumber);
+			Label valueLabel = GetBleGpioValueLabel(gpioNumber);
+			Button getButton = GetBleGpioGetButton(gpioNumber);
+			CheckBox autoUpdateCheckbox = GetBleGpioAutoUpdateCheckbox(gpioNumber);
+			if (directionLabel == null || pullLabel == null || valueLabel == null || 
+				getButton == null || autoUpdateCheckbox == null)
+			{
+				Console.WriteLine("Unknown gpioNumber " + gpioNumber.ToString());
+				return;
+			}
+			
+			if (gpioValue > 0)
+			{
+				valueLabel.Text = "High";
+				valueLabel.ForeColor = Color.FromKnownColor(KnownColor.Control);
+				valueLabel.BackColor = Color.FromKnownColor(KnownColor.DeepSkyBlue);
+			}
+			else
+			{
+				valueLabel.Text = "Low";
+				valueLabel.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+				valueLabel.BackColor = Color.FromKnownColor(KnownColor.Transparent);
+			}
+			
+			if (sendCommands)
+			{
+				byte[] payload = { gpioNumber, gpioValue };
+				this.port.PushBleTxCommand(BleCmd.SetGpioValue, payload);
+			}
+		}
+		public void PushBleGpioAutoUpdateEnabled(byte gpioNumber, bool enabled, bool sendCommands)
+		{
+			Label directionLabel = GetBleGpioDirectionLabel(gpioNumber);
+			Label pullLabel = GetBleGpioPullLabel(gpioNumber);
+			Label valueLabel = GetBleGpioValueLabel(gpioNumber);
+			Button getButton = GetBleGpioGetButton(gpioNumber);
+			CheckBox autoUpdateCheckbox = GetBleGpioAutoUpdateCheckbox(gpioNumber);
+			if (directionLabel == null || pullLabel == null || valueLabel == null || 
+				getButton == null || autoUpdateCheckbox == null)
+			{
+				Console.WriteLine("Unknown gpioNumber " + gpioNumber.ToString());
+				return;
+			}
+			
+			this.updatingElement = true;
+			autoUpdateCheckbox.Checked = enabled;
+			this.updatingElement = false;
+			getButton.Enabled = !enabled;
+			
+			if (sendCommands)
+			{
+				byte[] payload = { gpioNumber, 0x00 };
+				if (enabled) { payload[1] = 0x01; }
+				this.port.PushBleTxCommand(BleCmd.SetGpioUpdateEnabled, payload);
+			}
+		}
+		
+		// +==============================+
+		// |        Ble TP3 Events        |
+		// +==============================+
+		private void BleTp3DirectionLabel_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				byte pullValue = 0x00;
+				if (BleTp3PullLabel.Text == "Up")   { pullValue = 0x01; }
+				if (BleTp3PullLabel.Text == "Down") { pullValue = 0x02; }
+				
+				byte dirValue = 0x00;
+				if (BleTp3DirectionLabel.Text == "In")
+				{
+					dirValue = 0x00; //Change to Output
+				}
+				else if (BleTp3DirectionLabel.Text == "Out")
+				{
+					dirValue = 0x01; //Change to Input
+				}
+				
+				PushBleGpioDirection(3, dirValue, pullValue, true);
+			}
+		}
+		private void BleTp3PullLabel_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement && BleTp3DirectionLabel.Text == "In")
+			{
+				byte pullValue = 0x00;
+				if (BleTp3PullLabel.Text == "None")
+				{
+					pullValue = 0x01; //Change to Up
+				}
+				else if (BleTp3PullLabel.Text == "Up")
+				{
+					pullValue = 0x02; //Change to Down
+				}
+				else if (BleTp3PullLabel.Text == "Down")
+				{
+					pullValue = 0x00; //Change to None
+				}
+				
+				byte dirValue = 0x01; //Input
+				PushBleGpioDirection(3, dirValue, pullValue, true);
+			}
+		}
+		private void BleTp3ValueLabel_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement && this.BleTp3DirectionLabel.Text == "Out")
+			{
+				byte gpioValue = 0x00;
+				if (BleTp3ValueLabel.Text == "High")
+				{
+					gpioValue = 0x00; //Change to Low
+				}
+				else if (BleTp3ValueLabel.Text == "Low")
+				{
+					gpioValue = 0x01; //Change to High
+				}
+				
+				PushBleGpioValue(3, gpioValue, true);
+			}
+		}
+		private void BleTp3GetButton_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				byte[] payload = { 3 };
+				this.port.PushBleTxCommand(BleCmd.GetGpioValue, payload);
+			}
+		}
+		private void BleTp3AutoCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				PushBleGpioAutoUpdateEnabled(3, BleTp3AutoCheckbox.Checked, true);
+			}
+		}
+		
+		// +==============================+
+		// |        Ble TP4 Events        |
+		// +==============================+
+		private void BleTp4DirectionLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp4PullLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp4ValueLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp4GetButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp4AutoCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		
+		// +==============================+
+		// |        Ble TP5 Events        |
+		// +==============================+
+		private void BleTp5DirectionLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp5PullLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp5ValueLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp5GetButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp5AutoCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		
+		// +==============================+
+		// |        Ble TP6 Events        |
+		// +==============================+
+		private void BleTp6DirectionLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp6PullLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp6ValueLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp6GetButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp6AutoCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		
+		// +==============================+
+		// |       Ble TP25 Events        |
+		// +==============================+
+		private void BleTp25DirectionLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp25PullLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp25ValueLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp25GetButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp25AutoCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		
+		// +==============================+
+		// |       Ble TP28 Events        |
+		// +==============================+
+		private void BleTp28DirectionLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp28PullLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp28ValueLabel_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp28GetButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void BleTp28AutoCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }
