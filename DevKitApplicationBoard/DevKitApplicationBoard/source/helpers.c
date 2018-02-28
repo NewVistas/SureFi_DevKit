@@ -147,7 +147,6 @@ const char* GetBleCmdStr(u8 bleCmd)
 		case BleCmd_ReadExmem:            return "ReadExmem";
 		case BleCmd_WriteExmem:           return "WriteExmem";
 		case BleCmd_ClearExmem:           return "ClearExmem";
-		case BleCmd_SetGpioDirection:     return "SetGpioDirection";
 		case BleCmd_ClearResetFlag:       return "ClearResetFlag";
 		case BleCmd_GetFirmwareVersion:   return "GetFirmwareVersion";
 		case BleCmd_GetStatus:            return "GetStatus";
@@ -155,12 +154,14 @@ const char* GetBleCmdStr(u8 bleCmd)
 		case BleCmd_SetAdvertisingData:   return "SetAdvertisingData";
 		case BleCmd_SetAdvertisingName:   return "SetAdvertisingName";
 		case BleCmd_SetTemporaryData:     return "SetTemporaryData";
+		case BleCmd_SetGpioConfiguration: return "SetGpioConfiguration";
 		case BleCmd_SetGpioValue:         return "SetGpioValue";
 		case BleCmd_SetGpioUpdateEnabled: return "SetGpioUpdateEnabled";
 		case BleCmd_GetStatusUpdateBits:  return "GetStatusUpdateBits";
 		case BleCmd_GetAdvertisingData:   return "GetAdvertisingData";
 		case BleCmd_GetAdvertisingName:   return "GetAdvertisingName";
 		case BleCmd_GetTemporaryData:     return "GetTemporaryData";
+		case BleCmd_GetGpioConfiguration: return "GetGpioConfiguration";
 		case BleCmd_GetGpioValue:         return "GetGpioValue";
 		case BleCmd_GetGpioUpdateEnabled: return "GetGpioUpdateEnabled";
 		default: return "Unknown";

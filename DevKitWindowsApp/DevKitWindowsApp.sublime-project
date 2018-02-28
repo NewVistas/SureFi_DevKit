@@ -4,5 +4,23 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings":
+	{
+		"build_options":
+		[
+		],
+		"custom_constants":
+		[
+		],
+		"custom_functions":
+		[
+		],
+		"custom_globals":
+		[
+		],
+		"custom_types":
+		[
+		]
+	}
 }

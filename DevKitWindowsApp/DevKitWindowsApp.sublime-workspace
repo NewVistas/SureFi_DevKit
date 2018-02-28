@@ -523,7 +523,7 @@
 			"file": "/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 21921,
+				"buffer_size": 22017,
 				"line_ending": "Windows"
 			}
 		},
@@ -540,7 +540,7 @@
 			"file": "DevKitWindowsApp/MainForm.cs",
 			"settings":
 			{
-				"buffer_size": 83492,
+				"buffer_size": 83824,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -549,7 +549,7 @@
 			"file": "DevKitWindowsApp/SureFi.cs",
 			"settings":
 			{
-				"buffer_size": 45280,
+				"buffer_size": 45329,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -1234,15 +1234,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21921,
+						"buffer_size": 22017,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19205,
-								19205
+								0,
+								19364
 							]
 						],
 						"settings":
@@ -1250,16 +1250,16 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 11880.0,
+						"translation.y": 11988.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1297,15 +1297,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 83492,
+						"buffer_size": 83824,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								73639,
-								73639
+								67943,
+								67943
 							]
 						],
 						"settings":
@@ -1314,10 +1314,10 @@
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 14432.0,
+						"translation.y": 10724.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1326,15 +1326,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 45280,
+						"buffer_size": 45329,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42304,
-								42304
+								3232,
+								3232
 							]
 						],
 						"settings":
@@ -1343,10 +1343,10 @@
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 13568.0,
+						"translation.y": 3078.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1374,7 +1374,7 @@
 						"translation.y": 3853.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

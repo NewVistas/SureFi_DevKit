@@ -2953,7 +2953,7 @@
 			this.BleTp28PullLabel.TabIndex = 44;
 			this.BleTp28PullLabel.Text = "None";
 			this.BleTp28PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp28PullLabel.Click += new System.EventHandler(this.BleTp28PullLabel_Click);
+			this.BleTp28PullLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp28PullLabel_Click);
 			// 
 			// BleTp25PullLabel
 			// 
@@ -2968,7 +2968,7 @@
 			this.BleTp25PullLabel.TabIndex = 44;
 			this.BleTp25PullLabel.Text = "None";
 			this.BleTp25PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp25PullLabel.Click += new System.EventHandler(this.BleTp25PullLabel_Click);
+			this.BleTp25PullLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp25PullLabel_Click);
 			// 
 			// BleTp6PullLabel
 			// 
@@ -2983,7 +2983,7 @@
 			this.BleTp6PullLabel.TabIndex = 44;
 			this.BleTp6PullLabel.Text = "None";
 			this.BleTp6PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp6PullLabel.Click += new System.EventHandler(this.BleTp6PullLabel_Click);
+			this.BleTp6PullLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp6PullLabel_Click);
 			// 
 			// BleTp5PullLabel
 			// 
@@ -2998,7 +2998,7 @@
 			this.BleTp5PullLabel.TabIndex = 44;
 			this.BleTp5PullLabel.Text = "None";
 			this.BleTp5PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp5PullLabel.Click += new System.EventHandler(this.BleTp5PullLabel_Click);
+			this.BleTp5PullLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp5PullLabel_Click);
 			// 
 			// BleTp4PullLabel
 			// 
@@ -3013,7 +3013,7 @@
 			this.BleTp4PullLabel.TabIndex = 44;
 			this.BleTp4PullLabel.Text = "None";
 			this.BleTp4PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp4PullLabel.Click += new System.EventHandler(this.BleTp4PullLabel_Click);
+			this.BleTp4PullLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp4PullLabel_Click);
 			// 
 			// label77
 			// 
@@ -3518,7 +3518,7 @@
 			this.BleTp28ValueLabel.TabIndex = 16;
 			this.BleTp28ValueLabel.Text = "Low";
 			this.BleTp28ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp28ValueLabel.Click += new System.EventHandler(this.BleTp28ValueLabel_Click);
+			this.BleTp28ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp28ValueLabel_Click);
 			// 
 			// BleAdvertisingBit
 			// 
@@ -3546,7 +3546,7 @@
 			this.BleTp25ValueLabel.TabIndex = 16;
 			this.BleTp25ValueLabel.Text = "Low";
 			this.BleTp25ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp25ValueLabel.Click += new System.EventHandler(this.BleTp25ValueLabel_Click);
+			this.BleTp25ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp25ValueLabel_Click);
 			// 
 			// BleIntConnectedBit
 			// 
@@ -3575,7 +3575,7 @@
 			this.BleTp6ValueLabel.TabIndex = 16;
 			this.BleTp6ValueLabel.Text = "Low";
 			this.BleTp6ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp6ValueLabel.Click += new System.EventHandler(this.BleTp6ValueLabel_Click);
+			this.BleTp6ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp6ValueLabel_Click);
 			// 
 			// BleConnectedBit
 			// 
@@ -3603,7 +3603,7 @@
 			this.BleTp28DirectionLabel.TabIndex = 16;
 			this.BleTp28DirectionLabel.Text = "In";
 			this.BleTp28DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp28DirectionLabel.Click += new System.EventHandler(this.BleTp28DirectionLabel_Click);
+			this.BleTp28DirectionLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp28DirectionLabel_Click);
 			// 
 			// BleTp5ValueLabel
 			// 
@@ -3618,7 +3618,7 @@
 			this.BleTp5ValueLabel.TabIndex = 16;
 			this.BleTp5ValueLabel.Text = "Low";
 			this.BleTp5ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp5ValueLabel.Click += new System.EventHandler(this.BleTp5ValueLabel_Click);
+			this.BleTp5ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp5ValueLabel_Click);
 			// 
 			// BleTp25DirectionLabel
 			// 
@@ -3633,7 +3633,7 @@
 			this.BleTp25DirectionLabel.TabIndex = 16;
 			this.BleTp25DirectionLabel.Text = "In";
 			this.BleTp25DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp25DirectionLabel.Click += new System.EventHandler(this.BleTp25DirectionLabel_Click);
+			this.BleTp25DirectionLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp25DirectionLabel_Click);
 			// 
 			// BleIntSureFiTxInProgressBit
 			// 
@@ -3662,7 +3662,7 @@
 			this.BleTp6DirectionLabel.TabIndex = 16;
 			this.BleTp6DirectionLabel.Text = "In";
 			this.BleTp6DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp6DirectionLabel.Click += new System.EventHandler(this.BleTp6DirectionLabel_Click);
+			this.BleTp6DirectionLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp6DirectionLabel_Click);
 			// 
 			// BleTp4ValueLabel
 			// 
@@ -3677,7 +3677,7 @@
 			this.BleTp4ValueLabel.TabIndex = 16;
 			this.BleTp4ValueLabel.Text = "Low";
 			this.BleTp4ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp4ValueLabel.Click += new System.EventHandler(this.BleTp4ValueLabel_Click);
+			this.BleTp4ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp4ValueLabel_Click);
 			// 
 			// BleTp5DirectionLabel
 			// 
@@ -3692,7 +3692,7 @@
 			this.BleTp5DirectionLabel.TabIndex = 16;
 			this.BleTp5DirectionLabel.Text = "In";
 			this.BleTp5DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp5DirectionLabel.Click += new System.EventHandler(this.BleTp5DirectionLabel_Click);
+			this.BleTp5DirectionLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp5DirectionLabel_Click);
 			// 
 			// BleSureFiTxInProgressBit
 			// 
@@ -3720,7 +3720,7 @@
 			this.BleTp4DirectionLabel.TabIndex = 16;
 			this.BleTp4DirectionLabel.Text = "In";
 			this.BleTp4DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp4DirectionLabel.Click += new System.EventHandler(this.BleTp4DirectionLabel_Click);
+			this.BleTp4DirectionLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp4DirectionLabel_Click);
 			// 
 			// BleTp3ValueLabel
 			// 
@@ -3735,7 +3735,7 @@
 			this.BleTp3ValueLabel.TabIndex = 16;
 			this.BleTp3ValueLabel.Text = "Low";
 			this.BleTp3ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp3ValueLabel.Click += new System.EventHandler(this.BleTp3ValueLabel_Click);
+			this.BleTp3ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp3ValueLabel_Click);
 			// 
 			// BleTp3PullLabel
 			// 
@@ -3750,7 +3750,7 @@
 			this.BleTp3PullLabel.TabIndex = 16;
 			this.BleTp3PullLabel.Text = "None";
 			this.BleTp3PullLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp3PullLabel.Click += new System.EventHandler(this.BleTp3PullLabel_Click);
+			this.BleTp3PullLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp3PullLabel_Click);
 			// 
 			// BleTp3DirectionLabel
 			// 
@@ -3765,7 +3765,7 @@
 			this.BleTp3DirectionLabel.TabIndex = 16;
 			this.BleTp3DirectionLabel.Text = "In";
 			this.BleTp3DirectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BleTp3DirectionLabel.Click += new System.EventHandler(this.BleTp3DirectionLabel_Click);
+			this.BleTp3DirectionLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp3DirectionLabel_Click);
 			// 
 			// BleIntWasResetBit
 			// 

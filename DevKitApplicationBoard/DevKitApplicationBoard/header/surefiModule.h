@@ -648,7 +648,6 @@ enum //BleCmd_
 	BleCmd_ReadExmem,               // 5 bytes
 	BleCmd_WriteExmem,              // Variable Length
 	BleCmd_ClearExmem,              // 4 bytes
-	BleCmd_SetGpioDirection,        // 2 bytes
 	BleCmd_ClearResetFlag,          // 0 bytes
 	
 	// +==============================+
@@ -664,6 +663,7 @@ enum //BleCmd_
 	BleCmd_SetAdvertisingData,         // Variable Length
 	BleCmd_SetAdvertisingName,         // Variable Length
 	BleCmd_SetTemporaryData,           // Variable Length
+	BleCmd_SetGpioConfiguration,       // 2-3 bytes
 	BleCmd_SetGpioValue,               // 2 bytes
 	BleCmd_SetGpioUpdateEnabled,       // 2 bytes
 	
@@ -674,7 +674,8 @@ enum //BleCmd_
 	BleCmd_GetAdvertisingData,         // 0 bytes
 	BleCmd_GetAdvertisingName,         // 0 bytes
 	BleCmd_GetTemporaryData,           // 0 bytes
-	BleCmd_GetGpioValue,               // 0 bytes
+	BleCmd_GetGpioConfiguration,       // 1 byte
+	BleCmd_GetGpioValue,               // 1 byte
 	BleCmd_GetGpioUpdateEnabled,       // 1 byte
 };
 
@@ -709,6 +710,7 @@ enum //BleRsp_
 	BleRsp_AdvertisingData,         // Variable Length
 	BleRsp_AdvertisingName,         // Variable Length
 	BleRsp_TemporaryData,           // Variable Length
+	BleRsp_GpioConfiguration,       // 2-3 bytes
 	BleRsp_GpioValue,               // 2 bytes
 	BleRsp_GpioUpdateEnabled,       // 2 bytes
 };

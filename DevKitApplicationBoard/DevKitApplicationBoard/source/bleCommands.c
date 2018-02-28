@@ -135,16 +135,6 @@ void BleClearExmem(u32 address)
 	BleSendCommand(bleCmd);
 }
 
-void BleSetGpioOutput(u8 gpioIndex)
-{
-	BleSendTwoBytePayload(BleCmd_SetGpioDirection, gpioIndex, BleGpioDir_Output);
-}
-
-void BleSetGpioInput(u8 gpioIndex, u8 pull)
-{
-	BleSendThreeBytePayload(BleCmd_SetGpioDirection, gpioIndex, BleGpioDir_Input, pull);
-}
-
 void BleClearResetFlag()
 {
 	BleSendNoPayload(BleCmd_ClearResetFlag);
@@ -204,6 +194,16 @@ void BleSetTemporaryData(const u8* dataPntr, u8 dataLength)
 	BleSendCommand(bleCmd);
 }
 
+void BleSetGpioOutput(u8 gpioIndex)
+{
+	BleSendTwoBytePayload(BleCmd_SetGpioConfiguration, gpioIndex, BleGpioDir_Output);
+}
+
+void BleSetGpioInput(u8 gpioIndex, u8 pull)
+{
+	BleSendThreeBytePayload(BleCmd_SetGpioConfiguration, gpioIndex, BleGpioDir_Input, pull);
+}
+
 void BleSetGpioValue(u8 gpioIndex, u8 value)
 {
 	BleSendTwoBytePayload(BleCmd_SetGpioValue, gpioIndex, value);
@@ -232,6 +232,11 @@ void BleGetAdvertisingName()
 void BleGetTemporaryData()
 {
 	BleSendNoPayload(BleCmd_GetTemporaryData);
+}
+
+void BleGetGpioConfiguration(u8 gpioIndex)
+{
+	BleSendOneBytePayload(BleCmd_GetGpioConfiguration, gpioIndex);
 }
 
 void BleGetGpioValue(u8 gpioIndex)
@@ -282,19 +287,6 @@ bool BleHandleDebugCommand(const char* commandStr)
 	// {
 	// 	return true;
 	// }
-	else if (commandLength == 16+2+1+2 && strncmp(commandStr, "bleSetGpioInput ", 16) == 0)
-	{
-		u8 gpioNumber = ParseHexByte(&commandStr[16]);
-		u8 gpioPull = ParseHexByte(&commandStr[16+3]);
-		BleSetGpioInput(gpioNumber, gpioPull);
-		return true;
-	}
-	else if (commandLength == 17+2 && strncmp(commandStr, "bleSetGpioOutput ", 17) == 0)
-	{
-		u8 gpioNumber = ParseHexByte(&commandStr[17]);
-		BleSetGpioOutput(gpioNumber);
-		return true;
-	}
 	else if (strcmp(commandStr, "bleClearResetFlag") == 0)
 	{
 		BleClearResetFlag();
@@ -344,6 +336,19 @@ bool BleHandleDebugCommand(const char* commandStr)
 		BleSetTemporaryData(payloadBuffer, pIndex);
 		return true;
 	}
+	else if (commandLength == 16+2+1+2 && strncmp(commandStr, "bleSetGpioInput ", 16) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[16]);
+		u8 gpioPull = ParseHexByte(&commandStr[16+3]);
+		BleSetGpioInput(gpioNumber, gpioPull);
+		return true;
+	}
+	else if (commandLength == 17+2 && strncmp(commandStr, "bleSetGpioOutput ", 17) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[17]);
+		BleSetGpioOutput(gpioNumber);
+		return true;
+	}
 	else if (commandLength == 16+2+1+2 && strncmp(commandStr, "bleSetGpioValue ", 16) == 0)
 	{
 		u8 gpioNumber = ParseHexByte(&commandStr[16]);
@@ -376,6 +381,12 @@ bool BleHandleDebugCommand(const char* commandStr)
 	else if (strcmp(commandStr, "bleGetTemporaryData") == 0)
 	{
 		BleGetTemporaryData();
+		return true;
+	}
+	else if (commandLength == 24+2 && strncmp(commandStr, "bleGetGpioConfiguration ", 24) == 0)
+	{
+		u8 gpioNumber = ParseHexByte(&commandStr[24]);
+		BleGetGpioConfiguration(gpioNumber);
 		return true;
 	}
 	else if (commandLength == 16+2 && strncmp(commandStr, "bleGetGpioValue ", 16) == 0)

@@ -532,7 +532,7 @@
 			"file": "DevKitApplicationBoard/header/surefiModule.h",
 			"settings":
 			{
-				"buffer_size": 20972,
+				"buffer_size": 21068,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -542,55 +542,6 @@
 			"settings":
 			{
 				"buffer_size": 4941,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/source/main.c",
-			"settings":
-			{
-				"buffer_size": 5648,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/header/micro.h",
-			"settings":
-			{
-				"buffer_size": 3560,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/source/micro.c",
-			"settings":
-			{
-				"buffer_size": 1592,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/src/board.h",
-			"settings":
-			{
-				"buffer_size": 403,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/src/Config/conf_clock.h",
-			"settings":
-			{
-				"buffer_size": 4235,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/src/ASF/common/services/clock/sam4s/sysclk.c",
-			"settings":
-			{
-				"buffer_size": 7246,
 				"line_ending": "Windows"
 			}
 		},
@@ -616,7 +567,7 @@
 			"file": "DevKitApplicationBoard/source/bleCommands.c",
 			"settings":
 			{
-				"buffer_size": 10323,
+				"buffer_size": 10645,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -626,15 +577,6 @@
 			"settings":
 			{
 				"buffer_size": 8904,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/source/uartFifos.c",
-			"settings":
-			{
-				"buffer_size": 14776,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -916,13 +858,20 @@
 	],
 	"file_history":
 	[
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleCommands.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/main.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/micro.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/micro.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/board.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/Config/conf_clock.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/ASF/common/services/clock/sam4s/sysclk.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/uartFifos.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/ASF/common/services/ioport/ioport.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/ASF/common/services/ioport/sam/ioport_pio.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/ASF/common/services/clock/sam4s/sysclk.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/app.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/ASF/sam/utils/cmsis/sam4s/include/sam4s16b.h",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleResponses.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleApp.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/sureResponses.c",
@@ -933,7 +882,6 @@
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/uartFifos.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/debugCommands.c",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/uartFifos.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/helpers.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/debugCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard.sublime-project",
@@ -1037,13 +985,7 @@
 		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/.gitignore",
 		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/matrix.h",
 		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/Device_Startup/system_sam4s.c",
-		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/main.c",
-		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/templates/library.c",
-		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/sam.h",
-		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/efc.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/ioport/sam/ioport_pio.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/common/services/ioport/ioport.h",
-		"/C/Users/robbitay/Documents/Atmel Studio/7.0/GccBoardProject1/GccBoardProject1/src/ASF/sam/boards/sam4s_xplained_pro/init.c"
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/main.c"
 	],
 	"find":
 	{
@@ -1322,7 +1264,7 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1331,15 +1273,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20972,
+						"buffer_size": 21068,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								18865,
+								18865
 							]
 						],
 						"settings":
@@ -1347,10 +1289,10 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 8257.0,
+						"translation.y": 11155.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1378,179 +1320,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "DevKitApplicationBoard/source/main.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5648,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4157,
-								4168
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2130.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "DevKitApplicationBoard/header/micro.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3560,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3424,
-								3424
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1320.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "DevKitApplicationBoard/source/micro.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1592,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								456,
-								456
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "DevKitApplicationBoard/src/board.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 403,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								381,
-								381
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "DevKitApplicationBoard/src/Config/conf_clock.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4235,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3195,
-								3216
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 810.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "DevKitApplicationBoard/src/ASF/common/services/clock/sam4s/sysclk.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4704,
-								4704
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2652.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
+					"buffer": 3,
 					"file": "DevKitApplicationBoard/source/app.c",
 					"semi_transient": false,
 					"settings":
@@ -1578,7 +1352,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 4,
 					"file": "DevKitApplicationBoard/source/bleApp.c",
 					"semi_transient": false,
 					"settings":
@@ -1599,27 +1373,27 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1458.0,
+						"translation.y": 1256.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 5,
 					"file": "DevKitApplicationBoard/source/bleCommands.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10323,
+						"buffer_size": 10645,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								8028,
+								8028
 							]
 						],
 						"settings":
@@ -1627,14 +1401,14 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2148.0,
+						"translation.y": 5586.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 6,
 					"file": "DevKitApplicationBoard/source/bleResponses.c",
 					"semi_transient": false,
 					"settings":
@@ -1646,8 +1420,8 @@
 						"selection":
 						[
 							[
-								3339,
-								3339
+								3634,
+								3634
 							]
 						],
 						"settings":
@@ -1655,38 +1429,10 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1728.0,
+						"translation.y": 1536.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "DevKitApplicationBoard/source/uartFifos.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14776,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6135,
-								5759
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3510.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1764,6 +1510,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"helpers",
+				"DevKitApplicationBoard\\source\\helpers.c"
+			],
 			[
 				"conf",
 				"DevKitApplicationBoard\\src\\Config\\conf_clock.h"
@@ -1887,10 +1637,6 @@
 			[
 				"ticktimer",
 				"AtmelStudioTest\\AtmelStudioTest\\src\\tickTimer.c"
-			],
-			[
-				"helpers",
-				"AtmelStudioTest\\AtmelStudioTest\\src\\helpers.c"
 			],
 			[
 				"suref",

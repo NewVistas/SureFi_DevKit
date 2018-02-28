@@ -27,8 +27,6 @@ void BleStartDfuMode();
 void BleReadExmem(u32 address, u8 numBytes);
 void BleWriteExmem(u32 address, const u8* dataPntr, u8 dataLength);
 void BleClearExmem(u32 address);
-void BleSetGpioOutput(u8 gpioIndex);
-void BleSetGpioInput(u8 gpioIndex, u8 pull);
 void BleClearResetFlag();
 
 void BleGetFirmwareVersion();
@@ -38,6 +36,8 @@ void BleSetStatusUpdateBits(u8 updateBits);
 void BleSetAdvertisingData(const u8* dataPntr, u8 dataLength);
 void BleSetAdvertisingName(const char* namePntr, u8 nameLength);
 void BleSetTemporaryData(const u8* dataPntr, u8 dataLength);
+void BleSetGpioOutput(u8 gpioIndex);
+void BleSetGpioInput(u8 gpioIndex, u8 pull);
 void BleSetGpioValue(u8 gpioIndex, u8 value);
 void BleSetGpioUpdateEnabled(u8 gpioIndex, bool enabled);
 
@@ -45,6 +45,7 @@ void BleGetStatusUpdateBits();
 void BleGetAdvertisingData();
 void BleGetAdvertisingName();
 void BleGetTemporaryData();
+void BleGetGpioConfiguration(u8 gpioIndex);
 void BleGetGpioValue(u8 gpioIndex);
 void BleGetGpioUpdateEnabled(u8 gpioIndex);
 

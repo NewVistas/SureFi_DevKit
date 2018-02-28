@@ -167,7 +167,6 @@ namespace DevKitWindowsApp
 		ReadExmem,
 		WriteExmem,
 		ClearExmem,
-		SetGpioDirection,
 		ClearResetFlag,
 		
 		GetFirmwareVersion = 0x40,
@@ -177,6 +176,7 @@ namespace DevKitWindowsApp
 		SetAdvertisingData,
 		SetAdvertisingName,
 		SetTemporaryData,
+		SetGpioConfiguration,
 		SetGpioValue,
 		SetGpioUpdateEnabled,
 		
@@ -184,6 +184,7 @@ namespace DevKitWindowsApp
 		GetAdvertisingData,
 		GetAdvertisingName,
 		GetTemporaryData,
+		GetGpioConfiguration,
 		GetGpioValue,
 		GetGpioUpdateEnabled,
 	};
@@ -204,6 +205,7 @@ namespace DevKitWindowsApp
 		AdvertisingData,
 		AdvertisingName,
 		TemporaryData,
+		GpioConfiguration,
 		GpioValue,
 		GpioUpdateEnabled,
 	};
@@ -292,6 +294,7 @@ namespace DevKitWindowsApp
 		public static bool gotBleAdvertisingData   = false;
 		public static bool gotBleAdvertisingName   = false;
 		public static bool gotBleTemporaryData     = false;
+		public static bool gotBleGpioConfiguration = false;
 		public static bool gotBleGpioValue         = false;
 		public static bool gotBleGpioUpdateEnabled = false;
 		
@@ -322,7 +325,10 @@ namespace DevKitWindowsApp
 			gotButtonConfig        = false;
 			gotAcksEnabled         = false;
 			gotNumRetries          = false;
-			
+		}
+		
+		public static void ClearBleGotFlags()
+		{
 			gotBleExmemData         = false;
 			gotBleFirmwareVersion   = false;
 			gotBleStatus            = false;
@@ -330,6 +336,7 @@ namespace DevKitWindowsApp
 			gotBleAdvertisingData   = false;
 			gotBleAdvertisingName   = false;
 			gotBleTemporaryData     = false;
+			gotBleGpioConfiguration = false;
 			gotBleGpioValue         = false;
 			gotBleGpioUpdateEnabled = false;
 		}
@@ -1559,6 +1566,29 @@ namespace DevKitWindowsApp
 					mainForm.updatingElement = false;
 					
 					gotBleTemporaryData = true;
+				} break;
+				
+				// +==============================+
+				// |   BleRsp.GpioConfiguration   |
+				// +==============================+
+				case BleRsp.GpioConfiguration:
+				{
+					if (rspPayload.Length == 3)
+					{
+						byte gpioNumber = rspPayload[0];
+						byte gpioDirection = rspPayload[1];
+						byte gpioOther = rspPayload[2]; //(Either gpioPull or gpioValue)
+						if (gpioDirection == 0x01) //Input
+						{
+							mainForm.PushBleGpioDirection(gpioNumber, gpioDirection, gpioOther, false);
+						}
+						else //Output
+						{
+							mainForm.PushBleGpioDirection(gpioNumber, gpioDirection, 0x00, false);
+							mainForm.PushBleGpioValue(gpioNumber, gpioOther, false);
+						}
+					}
+					gotBleGpioConfiguration = true;
 				} break;
 				
 				// +==============================+
