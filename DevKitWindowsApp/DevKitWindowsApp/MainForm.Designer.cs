@@ -538,6 +538,11 @@
 			// FhssTableNumeric
 			// 
 			this.FhssTableNumeric.Location = new System.Drawing.Point(233, 101);
+			this.FhssTableNumeric.Maximum = new decimal(new int[] {
+            215,
+            0,
+            0,
+            0});
 			this.FhssTableNumeric.Name = "FhssTableNumeric";
 			this.FhssTableNumeric.Size = new System.Drawing.Size(62, 20);
 			this.FhssTableNumeric.TabIndex = 12;

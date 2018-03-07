@@ -51,11 +51,11 @@ static bool otherButtonDown = false;
 static bool otherModuleButtonDown = false;
 
 #if 0
-static const u8 rxUid[APP_UID_SIZE] = { 0x10, 0x00, 0x01 };
-static const u8 txUid[APP_UID_SIZE] = { 0x20, 0x00, 0x01 };
+static const u8 rxUid[APP_UID_SIZE] = { 0x10, 0x00, 0x0D };
+static const u8 txUid[APP_UID_SIZE] = { 0x20, 0x00, 0x0D };
 #else
-static const u8 rxUid[APP_UID_SIZE] = { 0x20, 0x00, 0x01 };
-static const u8 txUid[APP_UID_SIZE] = { 0x10, 0x00, 0x01 };
+static const u8 rxUid[APP_UID_SIZE] = { 0x20, 0x00, 0x0D };
+static const u8 txUid[APP_UID_SIZE] = { 0x10, 0x00, 0x0D };
 #endif
 
 // +--------------------------------------------------------------+
