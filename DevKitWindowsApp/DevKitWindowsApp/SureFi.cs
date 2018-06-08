@@ -20,6 +20,8 @@ namespace DevKitWindowsApp
 		StartEncryption,
 		StopEncryption,
 		ShowQualityOfService,
+		SetRxLED,
+		SetTxLED,
 		
 		GetStatus = 0x40,
 		GetIntEnableBits,
@@ -168,9 +170,11 @@ namespace DevKitWindowsApp
 		WriteExmem,
 		ClearExmem,
 		ClearResetFlag,
+		ClearConnAttemptFlag,
 		
 		GetFirmwareVersion = 0x40,
 		GetStatus,
+		GetMacAddress,
 		
 		SetStatusUpdateBits = 0x50,
 		SetAdvertisingData,
@@ -179,6 +183,7 @@ namespace DevKitWindowsApp
 		SetGpioConfiguration,
 		SetGpioValue,
 		SetGpioUpdateEnabled,
+		SetRejectConnections,
 		
 		GetStatusUpdateBits = 0x70,
 		GetAdvertisingData,
@@ -187,6 +192,7 @@ namespace DevKitWindowsApp
 		GetGpioConfiguration,
 		GetGpioValue,
 		GetGpioUpdateEnabled,
+		GetRejectConnections,
 	};
 	
 	public enum BleRsp : byte
@@ -196,10 +202,12 @@ namespace DevKitWindowsApp
 		
 		FirmwareVersion = 0x40,
 		Status,
+		MacAddress,
 		
 		Success = 0x50,
 		Failure,
 		UartTimeout,
+		BleWriteTimeout,
 		
 		StatusUpdateBits = 0x70,
 		AdvertisingData,
@@ -208,6 +216,7 @@ namespace DevKitWindowsApp
 		GpioConfiguration,
 		GpioValue,
 		GpioUpdateEnabled,
+		RejectConnections,
 	};
 	
 	public enum BleError : byte
@@ -238,6 +247,8 @@ namespace DevKitWindowsApp
 		public const byte OtherFlags_ButtonDownBit       = 0x04;
 		public const byte OtherFlags_EncryptionActiveBit = 0x08;
 		public const byte OtherFlags_SettingsPendingBit  = 0x10;
+		public const byte OtherFlags_RxLedOnBit          = 0x20;
+		public const byte OtherFlags_TxLedOnBit          = 0x40;
 		
 		public const byte ClearableFlags_WasResetBit         = 0x01;
 		public const byte ClearableFlags_TransmitFinishedBit = 0x02;
@@ -253,12 +264,14 @@ namespace DevKitWindowsApp
 		public const byte ConfigFlags_RxLedModeBit       = 0x04;
 		public const byte ConfigFlags_TxLedModeBit       = 0x08;
 		public const byte ConfigFlags_AutoRekeyBit       = 0x10;
+		public const byte ConfigFlags_RxTxLedsManualBit  = 0x20;
 		
-		public const byte BleFlags_WasResetBit           = 0x01;
-		public const byte BleFlags_ConnectedBit          = 0x02;
-		public const byte BleFlags_AdvertisingBit        = 0x04;
-		public const byte BleFlags_InDfuModeBit          = 0x08;
-		public const byte BleFlags_SureFiTxInProgressBit = 0x10;
+		public const byte BleFlags_WasResetBit            = 0x01;
+		public const byte BleFlags_ConnectedBit           = 0x02;
+		public const byte BleFlags_AdvertisingBit         = 0x04;
+		public const byte BleFlags_InDfuModeBit           = 0x08;
+		public const byte BleFlags_SureFiTxInProgressBit  = 0x10;
+		public const byte BleFlags_ConnectionAttemptedBit = 0x10;
 		
 		public static bool gotModuleStatus        = false;
 		public static bool gotIntEnableBits       = false;
@@ -290,6 +303,7 @@ namespace DevKitWindowsApp
 		public static bool gotBleExmemData         = false;
 		public static bool gotBleFirmwareVersion   = false;
 		public static bool gotBleStatus            = false;
+		public static bool gotBleMacAddress        = false;
 		public static bool gotBleStatusUpdateBits  = false;
 		public static bool gotBleAdvertisingData   = false;
 		public static bool gotBleAdvertisingName   = false;
@@ -297,6 +311,7 @@ namespace DevKitWindowsApp
 		public static bool gotBleGpioConfiguration = false;
 		public static bool gotBleGpioValue         = false;
 		public static bool gotBleGpioUpdateEnabled = false;
+		public static bool gotBleRejectConnections = false;
 		
 		public static void ClearGotFlags()
 		{
@@ -332,6 +347,7 @@ namespace DevKitWindowsApp
 			gotBleExmemData         = false;
 			gotBleFirmwareVersion   = false;
 			gotBleStatus            = false;
+			gotBleMacAddress        = false;
 			gotBleStatusUpdateBits  = false;
 			gotBleAdvertisingData   = false;
 			gotBleAdvertisingName   = false;
@@ -339,6 +355,7 @@ namespace DevKitWindowsApp
 			gotBleGpioConfiguration = false;
 			gotBleGpioValue         = false;
 			gotBleGpioUpdateEnabled = false;
+			gotBleRejectConnections = false;
 		}
 		
 		static byte TruncateInt(int intValue)
@@ -521,6 +538,7 @@ namespace DevKitWindowsApp
 						bool autoClearFlagsEnabled = ((configFlags & ConfigFlags_AutoClearFlagsBit) != 0x00);
 						bool rxLedMode             = ((configFlags & ConfigFlags_RxLedModeBit) != 0x00);
 						bool txLedMode             = ((configFlags & ConfigFlags_TxLedModeBit) != 0x00);
+						bool rxTxLedsManual        = ((configFlags & ConfigFlags_RxTxLedsManualBit) != 0x00);
 						
 						RadioState radioState = (RadioState)(stateFlags & StateFlags_RadioStateBits);
 						
@@ -530,6 +548,29 @@ namespace DevKitWindowsApp
 						mainForm.ClearFlagsButton.Enabled = !autoClearFlagsEnabled;
 						mainForm.RxLedModeCombobox.SelectedIndex = (rxLedMode ? 1 : 0);
 						mainForm.TxLedModeCombobox.SelectedIndex = (txLedMode ? 1 : 0);
+						if (rxTxLedsManual)
+						{
+							mainForm.RxLedModeCombobox.Enabled = false;
+							mainForm.TxLedModeCombobox.Enabled = false;
+							mainForm.RxLedPulseTimeNumeric.Enabled = true;
+							mainForm.RxLedPulseButton.Enabled      = true;
+							mainForm.RxLedTurnOnButton.Enabled     = true;
+							mainForm.TxLedPulseTimeNumeric.Enabled = true;
+							mainForm.TxLedPulseButton.Enabled      = true;
+							mainForm.TxLedTurnOnButton.Enabled     = true;
+						}
+						else
+						{
+							mainForm.RxLedModeCombobox.Enabled = true;
+							mainForm.TxLedModeCombobox.Enabled = true;
+							mainForm.RxLedPulseTimeNumeric.Enabled = false;
+							mainForm.RxLedPulseButton.Enabled      = false;
+							mainForm.RxLedTurnOnButton.Enabled     = false;
+							mainForm.TxLedPulseTimeNumeric.Enabled = false;
+							mainForm.TxLedPulseButton.Enabled      = false;
+							mainForm.TxLedTurnOnButton.Enabled     = false;
+						}
+						mainForm.RxTxLedsManualCheckbox.Checked = rxTxLedsManual;
 						
 						mainForm.RadioStateStrLabel.Text = radioState.ToString();
 						
@@ -1453,6 +1494,27 @@ namespace DevKitWindowsApp
 				} break;
 				
 				// +==============================+
+				// |      BleRsp.MacAddress       |
+				// +==============================+
+				case BleRsp.MacAddress:
+				{
+					string macAddressStr = "";
+					foreach (byte b in rspPayload)
+					{
+						if (macAddressStr != "") { macAddressStr = ":" + macAddressStr; }
+						macAddressStr = b.ToString("X2") + macAddressStr;
+					}
+					
+					mainForm.updatingElement = true;
+					
+					mainForm.MacAddressLabel.Text = macAddressStr;
+					
+					mainForm.updatingElement = false;
+					
+					gotBleMacAddress = true;
+				} break;
+				
+				// +==============================+
 				// |        BleRsp.Success        |
 				// +==============================+
 				case BleRsp.Success:
@@ -1486,6 +1548,14 @@ namespace DevKitWindowsApp
 				// |      BleRsp.UartTimeout      |
 				// +==============================+
 				case BleRsp.UartTimeout:
+				{
+					//TODO: Do something?
+				} break;
+				
+				// +==============================+
+				// |    BleRsp.BleWriteTimeout    |
+				// +==============================+
+				case BleRsp.BleWriteTimeout:
 				{
 					//TODO: Do something?
 				} break;
@@ -1617,6 +1687,24 @@ namespace DevKitWindowsApp
 						mainForm.PushBleGpioAutoUpdateEnabled(gpioNumber, gpioUpdateEnabled, false);
 					}
 					gotBleGpioUpdateEnabled = true;
+				} break;
+				
+				// +==============================+
+				// |   BleRsp.RejectConnections   |
+				// +==============================+
+				case BleRsp.RejectConnections:
+				{
+					mainForm.updatingElement = true;
+					
+					if (rspPayload.Length == 1)
+					{
+						byte rejectConnections = rspPayload[0];
+						mainForm.RejectConnectionsCheckbox.Checked = (rejectConnections != 0x00);
+					}
+					
+					mainForm.updatingElement = false;
+					
+					gotBleRejectConnections = true;
 				} break;
 				
 				default:

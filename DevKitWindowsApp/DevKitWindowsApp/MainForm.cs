@@ -80,6 +80,8 @@ namespace DevKitWindowsApp
 				if (bit == 0x04) { bitLabel = this.ButtonDownBit;       }
 				if (bit == 0x08) { bitLabel = this.EncryptionActiveBit; }
 				if (bit == 0x10) { bitLabel = this.SettingsPendingBit;  }
+				if (bit == 0x20) { bitLabel = this.RxLedOnBit;          }
+				if (bit == 0x40) { bitLabel = this.TxLedOnBit;          }
 			}
 			if (statusByte == 2)
 			{
@@ -99,6 +101,7 @@ namespace DevKitWindowsApp
 				if (bit == 0x04) { bitLabel = this.RxLedModeBit;       }
 				if (bit == 0x08) { bitLabel = this.TxLedModeBit;       }
 				if (bit == 0x10) { bitLabel = this.AutoRekeyBit;       }
+				if (bit == 0x20) { bitLabel = this.RxTxLedsManualBit;  }
 			}
 			
 			string newText = filled ? "1" : "0";
@@ -107,6 +110,19 @@ namespace DevKitWindowsApp
 				bitLabel.Text = newText;
 				bitLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.DeepSkyBlue : KnownColor.Transparent);
 				bitLabel.ForeColor = Color.FromKnownColor(filled ? KnownColor.Control : KnownColor.ControlText);
+				
+				if (bitLabel == this.RxLedOnBit)
+				{
+					this.RxLedOnLabel.Text = bitLabel.Text;
+					this.RxLedOnLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.Red : KnownColor.Transparent);
+					this.RxLedOnLabel.ForeColor = bitLabel.ForeColor;
+				}
+				else if (bitLabel == this.TxLedOnBit)
+				{
+					this.TxLedOnLabel.Text = bitLabel.Text;
+					this.TxLedOnLabel.BackColor = Color.FromKnownColor(filled ? KnownColor.Orange : KnownColor.Transparent);
+					this.TxLedOnLabel.ForeColor = bitLabel.ForeColor;
+				}
 			}
 		}
 		
@@ -131,6 +147,8 @@ namespace DevKitWindowsApp
 				if (bit == 0x04) { bitLabel = this.IntButtonDownBit;       }
 				if (bit == 0x08) { bitLabel = this.IntEncryptionActiveBit; }
 				if (bit == 0x10) { bitLabel = this.IntSettingsPendingBit;  }
+				if (bit == 0x20) { bitLabel = this.IntRxLedOnBit;          }
+				if (bit == 0x40) { bitLabel = this.IntTxLedOnBit;          }
 			}
 			if (statusByte == 2)
 			{
@@ -150,6 +168,7 @@ namespace DevKitWindowsApp
 				if (bit == 0x04) { bitLabel = this.IntRxLedModeBit;       }
 				if (bit == 0x08) { bitLabel = this.IntTxLedModeBit;       }
 				if (bit == 0x10) { bitLabel = this.IntAutoRekeyBit;       }
+				if (bit == 0x20) { bitLabel = this.IntRxTxLedsManualBit;  }
 			}
 			
 			string newText = filled ? "E" : "D";
@@ -169,7 +188,7 @@ namespace DevKitWindowsApp
 			if (bit == 0x04) { bitLabel = this.BleAdvertisingBit; }
 			if (bit == 0x08) { bitLabel = this.BleInDfuModeBit; }
 			if (bit == 0x10) { bitLabel = this.BleSureFiTxInProgressBit; }
-			// if (bit == 0x20) { bitLabel = this.Bit; }
+			if (bit == 0x20) { bitLabel = this.BleConnectionAttemptedBit; }
 			// if (bit == 0x40) { bitLabel = this.Bit; }
 			// if (bit == 0x80) { bitLabel = this.Bit; }
 			
@@ -190,7 +209,7 @@ namespace DevKitWindowsApp
 			if (bit == 0x04) { bitLabel = this.BleIntAdvertisingBit; }
 			if (bit == 0x08) { bitLabel = this.BleIntInDfuModeBit; }
 			if (bit == 0x10) { bitLabel = this.BleIntSureFiTxInProgressBit; }
-			// if (bit == 0x20) { bitLabel = this.Bit; }
+			if (bit == 0x20) { bitLabel = this.BleIntConnectionAttemptedBit; }
 			// if (bit == 0x40) { bitLabel = this.Bit; }
 			// if (bit == 0x80) { bitLabel = this.Bit; }
 			
@@ -496,6 +515,7 @@ namespace DevKitWindowsApp
 				this.port.PushBleTxCommandNoBytes(BleCmd.GetAdvertisingData);
 				this.port.PushBleTxCommandNoBytes(BleCmd.GetAdvertisingName);
 				this.port.PushBleTxCommandNoBytes(BleCmd.GetTemporaryData);
+				this.port.PushBleTxCommandNoBytes(BleCmd.GetRejectConnections);
 				this.port.PushBleTxCommand(BleCmd.GetGpioConfiguration, new byte[]{ 3 });
 				this.port.PushBleTxCommand(BleCmd.GetGpioConfiguration, new byte[]{ 4 });
 				this.port.PushBleTxCommand(BleCmd.GetGpioConfiguration, new byte[]{ 5 });
@@ -571,6 +591,7 @@ namespace DevKitWindowsApp
 			this.port.PushBleTxCommandNoBytes(BleCmd.GetAdvertisingData);
 			this.port.PushBleTxCommandNoBytes(BleCmd.GetAdvertisingName);
 			this.port.PushBleTxCommandNoBytes(BleCmd.GetTemporaryData);
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetRejectConnections);
 			this.port.PushBleTxCommand(BleCmd.GetGpioConfiguration, new byte[]{ 3 });
 			this.port.PushBleTxCommand(BleCmd.GetGpioConfiguration, new byte[]{ 4 });
 			this.port.PushBleTxCommand(BleCmd.GetGpioConfiguration, new byte[]{ 5 });
@@ -1818,6 +1839,7 @@ namespace DevKitWindowsApp
 			if (RxLedModeCombobox.SelectedIndex > 0) { newValue += SureFi.ConfigFlags_RxLedModeBit; }
 			if (TxLedModeCombobox.SelectedIndex > 0) { newValue += SureFi.ConfigFlags_TxLedModeBit; }
 			if (AutoClearFlagsCheckbox.Checked)      { newValue += SureFi.ConfigFlags_AutoClearFlagsBit; }
+			if (RxTxLedsManualCheckbox.Checked)      { newValue += SureFi.ConfigFlags_RxTxLedsManualBit; }
 			byte[] payload = { newValue };
 			this.port.PushTxCommand(SureCmd.WriteConfig, payload);
 		}
@@ -1833,6 +1855,89 @@ namespace DevKitWindowsApp
 			if (!updatingElement)
 			{
 				PushConfigByte();
+			}
+		}
+		private void RxTxLedsManualCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				PushConfigByte();
+				if (RxTxLedsManualCheckbox.Checked)
+				{
+					this.RxLedModeCombobox.Enabled = false;
+					this.TxLedModeCombobox.Enabled = false;
+					this.RxLedPulseTimeNumeric.Enabled = true;
+					this.RxLedPulseButton.Enabled      = true;
+					this.RxLedTurnOnButton.Enabled     = true;
+					this.TxLedPulseTimeNumeric.Enabled = true;
+					this.TxLedPulseButton.Enabled      = true;
+					this.TxLedTurnOnButton.Enabled     = true;
+				}
+				else
+				{
+					this.RxLedModeCombobox.Enabled = true;
+					this.TxLedModeCombobox.Enabled = true;
+					this.RxLedPulseTimeNumeric.Enabled = false;
+					this.RxLedPulseButton.Enabled      = false;
+					this.RxLedTurnOnButton.Enabled     = false;
+					this.TxLedPulseTimeNumeric.Enabled = false;
+					this.TxLedPulseButton.Enabled      = false;
+					this.TxLedTurnOnButton.Enabled     = false;
+				}
+			}
+		}
+		private void RxLedPulseButton_Click(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				byte[] payload = { 0x01, 0x00, 0x00 };
+				UInt16 time = (UInt16)this.RxLedPulseTimeNumeric.Value;
+				payload[1] = (byte)((time >> 0) & 0xFF);
+				payload[2] = (byte)((time >> 8) & 0xFF);
+				this.port.PushTxCommand(SureCmd.SetRxLED, payload);
+			}
+		}
+		private void TxLedPulseButton_Click(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				byte[] payload = { 0x01, 0x00, 0x00 };
+				UInt16 time = (UInt16)this.TxLedPulseTimeNumeric.Value;
+				payload[1] = (byte)((time >> 0) & 0xFF);
+				payload[2] = (byte)((time >> 8) & 0xFF);
+				this.port.PushTxCommand(SureCmd.SetTxLED, payload);
+			}
+		}
+		private void RxLedTurnOnButton_Click(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				if (this.RxLedOnLabel.Text == "0")
+				{
+					byte[] payload = { 0x01, 0x00, 0x00 };
+					this.port.PushTxCommand(SureCmd.SetRxLED, payload);
+				}
+				else
+				{
+					byte[] payload = { 0x00, 0x00, 0x00 };
+					this.port.PushTxCommand(SureCmd.SetRxLED, payload);
+				}
+			}
+		}
+		private void TxLedTurnOnButton_Click(object sender, EventArgs e)
+		{
+			if (!updatingElement)
+			{
+				if (this.TxLedOnLabel.Text == "0")
+				{
+					byte[] payload = { 0x01, 0x00, 0x00 };
+					this.port.PushTxCommand(SureCmd.SetTxLED, payload);
+				}
+				else
+				{
+					byte[] payload = { 0x00, 0x00, 0x00 };
+					this.port.PushTxCommand(SureCmd.SetTxLED, payload);
+				}
 			}
 		}
 		
@@ -1930,6 +2035,10 @@ namespace DevKitWindowsApp
 		private void GetRegisteredSerialButton_Click(object sender, EventArgs e)
 		{
 			this.port.PushTxCommandNoBytes(SureCmd.GetRegisteredSerial);
+		}
+		private void GetMacAddressButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushBleTxCommandNoBytes(BleCmd.GetMacAddress);
 		}
 		
 		// +--------------------------------------------------------------+
@@ -2034,6 +2143,18 @@ namespace DevKitWindowsApp
 			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x10); }
 			PushIntEnableBits();
 		}
+		private void IntRxLedOnBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x20) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x20)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x20); }
+			PushIntEnableBits();
+		}
+		private void IntTxLedOnBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[1] & 0x40) != 0x00) { intEnableBits[1] = (byte)(intEnableBits[1] & (~0x40)); }
+			else { intEnableBits[1] = (byte)(intEnableBits[1] | 0x40); }
+			PushIntEnableBits();
+		}
 		private void IntWasResetBit_Click(object sender, EventArgs e)
 		{
 			if ((intEnableBits[2] & 0x01) != 0x00) { intEnableBits[2] = (byte)(intEnableBits[2] & (~0x01)); }
@@ -2110,6 +2231,12 @@ namespace DevKitWindowsApp
 		{
 			if ((intEnableBits[3] & 0x10) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x10)); }
 			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x10); }
+			PushIntEnableBits();
+		}
+		private void IntRxTxLedsManualBit_Click(object sender, EventArgs e)
+		{
+			if ((intEnableBits[3] & 0x20) != 0x00) { intEnableBits[3] = (byte)(intEnableBits[3] & (~0x20)); }
+			else { intEnableBits[3] = (byte)(intEnableBits[3] | 0x20); }
 			PushIntEnableBits();
 		}
 		
@@ -2209,6 +2336,12 @@ namespace DevKitWindowsApp
 		{
 			this.port.PushBleTxCommandNoBytes(BleCmd.GetFirmwareVersion);
 		}
+		private void RejectConnectionsCheckbox_CheckedChanged(object sender, EventArgs e)
+		{
+			byte[] payload = { 0x00 };
+			if (RejectConnectionsCheckbox.Checked) { payload[0] = 0x01; }
+			this.port.PushBleTxCommand(BleCmd.SetRejectConnections, payload);
+		}
 		
 		// +==============================+
 		// |   Ble Status Button Events   |
@@ -2216,6 +2349,10 @@ namespace DevKitWindowsApp
 		private void BleClearResetFlagButton_Click(object sender, EventArgs e)
 		{
 			this.port.PushBleTxCommandNoBytes(BleCmd.ClearResetFlag);
+		}
+		private void BleClearConnectionAttemptedButton_Click(object sender, EventArgs e)
+		{
+			this.port.PushBleTxCommandNoBytes(BleCmd.ClearConnAttemptFlag);
 		}
 		private void BleGetStatusButton_Click(object sender, EventArgs e)
 		{
@@ -2301,6 +2438,15 @@ namespace DevKitWindowsApp
 			{
 				if ((bleStatusUpdateBits & 0x10) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x10)); }
 				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x10); }
+				PushBleStatusUpdateBits(true);
+			}
+		}
+		private void BleIntConnectionAttemptedBit_Click(object sender, EventArgs e)
+		{
+			if (!this.updatingElement)
+			{
+				if ((bleStatusUpdateBits & 0x20) != 0x00) { bleStatusUpdateBits = (byte)(bleStatusUpdateBits & (~0x20)); }
+				else { bleStatusUpdateBits = (byte)(bleStatusUpdateBits | 0x20); }
 				PushBleStatusUpdateBits(true);
 			}
 		}

@@ -2,6 +2,7 @@
 File:   surefiModule.h
 Author: Taylor Robbins
 Date:   11\29\2017
+Modifications: Colby Robbins 3/15/2018
 */
 
 #ifndef _SUREFI_MODULE_H
@@ -197,6 +198,17 @@ enum
 	BleGpioPull_Down,
 };
 
+// +==============================+
+// |      BleExmemEraseSize_      |
+// +==============================+
+enum
+{
+	BleExmemEraseSize_4kB = 0x01,
+	BleExmemEraseSize_32kB,
+	BleExmemEraseSize_64kB,
+	BleExmemEraseSize_Whole,
+};
+
 // +================================+
 // | Module Status Bit Enumerations |
 // +================================+
@@ -216,6 +228,8 @@ enum //otherFlags
 	OtherFlags_ButtonDownBit       = 0x04,
 	OtherFlags_EncryptionActiveBit = 0x08,
 	OtherFlags_SettingsPendingBit  = 0x10,
+	OtherFlags_RxLedOnBit          = 0x20,
+	OtherFlags_TxLedOnBit          = 0x40,
 };
 
 enum //clearableFlags
@@ -237,6 +251,7 @@ enum //configFlags
 	ConfigFlags_RxLedModeBit        = 0x04,
 	ConfigFlags_TxLedModeBit        = 0x08,
 	ConfigFlags_AutoRekeyBit        = 0x10,
+	ConfigFlags_RxTxLedsManualBit   = 0x20,
 };
 
 // +==============================+
@@ -244,12 +259,12 @@ enum //configFlags
 // +==============================+
 enum
 {
-	BleFlags_WasResetBit           = 0x01,
-	BleFlags_ConnectedBit          = 0x02,
-	BleFlags_AdvertisingBit        = 0x04,
-	BleFlags_InDfuModeBit          = 0x08,
-	BleFlags_SureFiTxInProgressBit = 0x10,
-	// BleFlags_ReservedBit           = 0x20,
+	BleFlags_WasResetBit            = 0x01,
+	BleFlags_ConnectedBit           = 0x02,
+	BleFlags_AdvertisingBit         = 0x04,
+	BleFlags_InDfuModeBit           = 0x08,
+	BleFlags_SureFiTxInProgressBit  = 0x10,
+	BleFlags_ConnectionAttemptedBit = 0x20,
 	// BleFlags_ReservedBit           = 0x40,
 	// BleFlags_ReservedBit           = 0x80,
 };
@@ -259,17 +274,17 @@ enum
 // +--------------------------------------------------------------+
 typedef struct __attribute__((packed))
 {
-	uint8_t  success;
+	uint8_t success;
 	int16_t rssi;
 	int8_t  snr;
-	uint8_t  numRetries;
-	uint8_t  maxRetries;
-	uint8_t  ackDataLength;
+	uint8_t numRetries;
+	uint8_t maxRetries;
+	uint8_t ackDataLength;
 } TransmitInfo_t;
 
 typedef struct __attribute__((packed))
 {
-	uint8_t  success;
+	uint8_t success;
 	int16_t rssi;
 	int8_t  snr;
 } ReceiveInfo_t;
@@ -277,7 +292,7 @@ typedef struct __attribute__((packed))
 typedef struct __attribute__((packed))
 {
 	uint32_t id;
-	uint8_t revision;
+	uint8_t  revision;
 } McuVersion_t;
 
 typedef struct __attribute__((packed))
@@ -298,6 +313,13 @@ typedef struct __attribute__((packed))
 	uint8_t  minor;
 	uint16_t build;
 } FullVersion_t;
+
+typedef struct __attribute__((packed))
+{
+	FullVersion_t firmware;
+	HardwareVersion_t hardware;
+	McuVersion_t mcu;
+} AppVersion_t;
 
 typedef struct __attribute__((packed))
 {
@@ -350,7 +372,9 @@ typedef union __attribute__((packed))
 		unsigned buttonDown:1;
 		unsigned encryptionActive:1;
 		unsigned settingsPending:1;
-		unsigned :3;
+		unsigned rxLedOn:1;
+		unsigned txLedOn:1;
+		unsigned :1;
 		
 		//Clearable Flags
 		unsigned wasReset:1;
@@ -368,7 +392,8 @@ typedef union __attribute__((packed))
 		unsigned rxLedMode:1;
 		unsigned txLedMode:1;
 		unsigned autoRekey:1;
-		unsigned :3;
+		unsigned rxTxLedsManual:1;
+		unsigned :2;
 	};
 } ModuleStatus_t;
 
@@ -386,12 +411,13 @@ typedef union __attribute__((packed))
 		unsigned inDfuMode:1;
 		
 		unsigned sureFiTxInProgress:1;
-		unsigned reserved:3;
+		unsigned connectionAttempted:1;
+		unsigned reserved:2;
 	};
 } BleStatus_t;
 
 // +--------------------------------------------------------------+
-// |                      Command Structure                       |
+// |               Sure-Fi Module Command Structure               |
 // +--------------------------------------------------------------+
 #define SURE_COMMAND_HEADER_SIZE      (3)
 #define SURE_COMMAND_PAYLOAD_MAX_SIZE (MAX_RX_PACKET_LENGTH)
@@ -404,13 +430,19 @@ typedef struct __attribute__((packed))
 	{
 		uint8_t bytes[SURE_COMMAND_PAYLOAD_MAX_SIZE];
 		
+		int16_t i16Values[32];
+		uint16_t u16Values[32];
+		int32_t i32Values[16];
+		uint32_t u32Values[16];
+		int64_t i64Values[8];
+		uint64_t u64Values[8];
+		
 		ModuleStatus_t status;
 		ModuleVersion_t moduleVersion;
 		TransmitInfo_t txInfo;
 		ReceiveInfo_t rxInfo;
 		uint16_t timeOnAir;
 		uint32_t randomNumber;
-		uint32_t intEnableBits;
 		
 		ModuleSettings_t allSettings;
 		uint8_t radioMode;
@@ -437,6 +469,13 @@ typedef struct __attribute__((packed))
 			uint8_t spreadingFactor;
 			uint8_t bandwidth;
 		} customMode;
+		
+		//Used for SureCmd_SetRxLED and SureCmd_SetTxLED
+		struct __attribute__((packed))
+		{
+			uint8_t on;
+			uint16_t time;
+		} led;
 	} payload;
 } SureCommand_t;
 
@@ -449,7 +488,6 @@ typedef struct __attribute__((packed))
 // +--------------------------------------------------------------+
 enum //SureCmd_
 {
-	// SureCmd_SetDebugMode        = 0x29, // 1 byte
 	// +==============================+
 	// |      Run Time Commands       |
 	// +==============================+
@@ -464,6 +502,8 @@ enum //SureCmd_
 	SureCmd_StartEncryption,        // 0 bytes
 	SureCmd_StopEncryption,         // 0 bytes
 	SureCmd_ShowQualityOfService,   // 0 bytes
+	SureCmd_SetRxLED,               // 3 bytes
+	SureCmd_SetTxLED,               // 3 bytes
 	
 	// +==============================+
 	// |   Get Information Commands   |
@@ -591,7 +631,7 @@ enum //SureError_
 // |                 Bluetooth Command Structure                  |
 // +--------------------------------------------------------------+
 #define BLE_COMMAND_HEADER_SIZE      (3)
-#define BLE_COMMAND_PAYLOAD_MAX_SIZE (64)
+#define BLE_COMMAND_PAYLOAD_MAX_SIZE (255)
 
 typedef struct __attribute__((packed))
 {
@@ -601,6 +641,13 @@ typedef struct __attribute__((packed))
 	union __attribute__((packed))
 	{
 		uint8_t bytes[BLE_COMMAND_PAYLOAD_MAX_SIZE];
+		
+		int16_t i16Values[32];
+		uint16_t u16Values[32];
+		int32_t i32Values[16];
+		uint32_t u32Values[16];
+		int64_t i64Values[8];
+		uint64_t u64Values[8];
 		
 		BleStatus_t status;
 		BleStatus_t updateBits;
@@ -615,7 +662,11 @@ typedef struct __attribute__((packed))
 				uint8_t value;
 				uint8_t updateEnabled;
 			};
-			uint8_t pull;
+			union __attribute__((packed))
+			{
+				uint8_t pull;
+				uint8_t initialValue;
+			};
 		} gpio;
 		struct __attribute__((packed))
 		{
@@ -623,14 +674,15 @@ typedef struct __attribute__((packed))
 			union __attribute__((packed))
 			{
 				uint8_t numBytes;
-				uint8_t data[1];//NOTE: This is just a placeholder array to indicate where the data starts
+				uint8_t eraseSize;
+				uint8_t bytes[1];//NOTE: This is just a placeholder array to indicate where the data starts
 			};
 		} exmem;
 	} payload;
 } BleCommand_t;
 
-#define Alloc_BleCommand(BufferName, PointerName, PayloadSize) \
-	uint8_t BufferName[BLE_COMMAND_HEADER_SIZE + (PayloadSize)];    \
+#define Alloc_BleCommand(BufferName, PointerName, PayloadSize)   \
+	uint8_t BufferName[BLE_COMMAND_HEADER_SIZE + (PayloadSize)]; \
 	BleCommand_t* PointerName = (BleCommand_t*)&BufferName[0]
 
 // +--------------------------------------------------------------+
@@ -649,12 +701,14 @@ enum //BleCmd_
 	BleCmd_WriteExmem,              // Variable Length
 	BleCmd_ClearExmem,              // 4 bytes
 	BleCmd_ClearResetFlag,          // 0 bytes
+	BleCmd_ClearConnAttemptFlag,    // 0 bytes
 	
 	// +==============================+
 	// |   Get Information Commands   |
 	// +==============================+
 	BleCmd_GetFirmwareVersion = 0x40, // 0 bytes
 	BleCmd_GetStatus,                 // 0 bytes
+	BleCmd_GetMacAddress,             // 0 bytes
 	
 	// +==============================+
 	// |     Set Setting Commands     |
@@ -663,9 +717,10 @@ enum //BleCmd_
 	BleCmd_SetAdvertisingData,         // Variable Length
 	BleCmd_SetAdvertisingName,         // Variable Length
 	BleCmd_SetTemporaryData,           // Variable Length
-	BleCmd_SetGpioConfiguration,       // 2-3 bytes
+	BleCmd_SetGpioConfiguration,       // 3 bytes
 	BleCmd_SetGpioValue,               // 2 bytes
 	BleCmd_SetGpioUpdateEnabled,       // 2 bytes
+	BleCmd_SetRejectConnections,       // 1 byte
 	
 	// +==============================+
 	// |     Get Setting Commands     |
@@ -677,6 +732,7 @@ enum //BleCmd_
 	BleCmd_GetGpioConfiguration,       // 1 byte
 	BleCmd_GetGpioValue,               // 1 byte
 	BleCmd_GetGpioUpdateEnabled,       // 1 byte
+	BleCmd_GetRejectConnections,       // 0 bytes
 };
 
 // +--------------------------------------------------------------+
@@ -688,13 +744,14 @@ enum //BleRsp_
 	// |      Run Time Responses      |
 	// +==============================+
 	BleRsp_DfuNeedAdvData = 0x30, // 0 bytes
-	BleRsp_ExmemData,             // Variable Length
+	BleRsp_ExmemData,
 	
 	// +==============================+
 	// |        Info Responses        |
 	// +==============================+
 	BleRsp_FirmwareVersion = 0x40, // 4 bytes (FullVersion_t)
 	BleRsp_Status,                 // 1 byte (BleStatus_t)
+	BleRsp_MacAddress,             // 6 bytes
 	
 	// +==============================+
 	// |  Success/Failure Responses   |
@@ -702,6 +759,7 @@ enum //BleRsp_
 	BleRsp_Success = 0x50, // 1 byte
 	BleRsp_Failure,        // 2 bytes
 	BleRsp_UartTimeout,    // 3 bytes
+	BleRsp_BleWriteTimeout,// 3 bytes
 	
 	// +==============================+
 	// |    Get Setting Responses     |
@@ -710,9 +768,10 @@ enum //BleRsp_
 	BleRsp_AdvertisingData,         // Variable Length
 	BleRsp_AdvertisingName,         // Variable Length
 	BleRsp_TemporaryData,           // Variable Length
-	BleRsp_GpioConfiguration,       // 2-3 bytes
+	BleRsp_GpioConfiguration,       // 3 bytes
 	BleRsp_GpioValue,               // 2 bytes
 	BleRsp_GpioUpdateEnabled,       // 2 bytes
+	BleRsp_RejectConnections,       // 1 byte
 };
 
 enum //BleError_

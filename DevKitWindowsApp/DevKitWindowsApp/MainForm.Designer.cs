@@ -69,9 +69,18 @@
 			this.TxUidTextbox = new System.Windows.Forms.TextBox();
 			this.RxUidTextbox = new System.Windows.Forms.TextBox();
 			this.TabPageOther = new System.Windows.Forms.TabPage();
+			this.TxLedTurnOnButton = new System.Windows.Forms.Button();
+			this.RxLedTurnOnButton = new System.Windows.Forms.Button();
+			this.TxLedPulseTimeNumeric = new System.Windows.Forms.NumericUpDown();
+			this.RxLedPulseTimeNumeric = new System.Windows.Forms.NumericUpDown();
+			this.TxLedPulseButton = new System.Windows.Forms.Button();
+			this.RxLedPulseButton = new System.Windows.Forms.Button();
+			this.RxTxLedsManualCheckbox = new System.Windows.Forms.CheckBox();
 			this.ClearIndicationsButton = new System.Windows.Forms.Button();
 			this.label24 = new System.Windows.Forms.Label();
 			this.LedCombo1 = new System.Windows.Forms.ComboBox();
+			this.TxLedOnLabel = new System.Windows.Forms.Label();
+			this.RxLedOnLabel = new System.Windows.Forms.Label();
 			this.LedLabel1 = new System.Windows.Forms.Label();
 			this.LedCombo2 = new System.Windows.Forms.ComboBox();
 			this.LedLabel2 = new System.Windows.Forms.Label();
@@ -84,6 +93,12 @@
 			this.LedCombo6 = new System.Windows.Forms.ComboBox();
 			this.LedLabel6 = new System.Windows.Forms.Label();
 			this.label22 = new System.Windows.Forms.Label();
+			this.label110 = new System.Windows.Forms.Label();
+			this.label112 = new System.Windows.Forms.Label();
+			this.label109 = new System.Windows.Forms.Label();
+			this.label111 = new System.Windows.Forms.Label();
+			this.label105 = new System.Windows.Forms.Label();
+			this.label93 = new System.Windows.Forms.Label();
 			this.label21 = new System.Windows.Forms.Label();
 			this.TxLedModeCombobox = new System.Windows.Forms.ComboBox();
 			this.RxLedModeCombobox = new System.Windows.Forms.ComboBox();
@@ -127,6 +142,8 @@
 			this.label70 = new System.Windows.Forms.Label();
 			this.label85 = new System.Windows.Forms.Label();
 			this.label69 = new System.Windows.Forms.Label();
+			this.label98 = new System.Windows.Forms.Label();
+			this.label95 = new System.Windows.Forms.Label();
 			this.label37 = new System.Windows.Forms.Label();
 			this.label68 = new System.Windows.Forms.Label();
 			this.label83 = new System.Windows.Forms.Label();
@@ -140,6 +157,7 @@
 			this.label65 = new System.Windows.Forms.Label();
 			this.label44 = new System.Windows.Forms.Label();
 			this.label35 = new System.Windows.Forms.Label();
+			this.label73 = new System.Windows.Forms.Label();
 			this.label80 = new System.Windows.Forms.Label();
 			this.label64 = new System.Windows.Forms.Label();
 			this.label79 = new System.Windows.Forms.Label();
@@ -149,7 +167,9 @@
 			this.RadioStateStrLabel = new System.Windows.Forms.Label();
 			this.label32 = new System.Windows.Forms.Label();
 			this.ButtonHeldBit = new System.Windows.Forms.Label();
+			this.TxLedOnBit = new System.Windows.Forms.Label();
 			this.TxLedModeBit = new System.Windows.Forms.Label();
+			this.RxLedOnBit = new System.Windows.Forms.Label();
 			this.AckPacketReadyBit = new System.Windows.Forms.Label();
 			this.SettingsPendingBit = new System.Windows.Forms.Label();
 			this.ButtonPressedBit = new System.Windows.Forms.Label();
@@ -162,6 +182,7 @@
 			this.AutoClearFlagsBit = new System.Windows.Forms.Label();
 			this.RadioStateBit3 = new System.Windows.Forms.Label();
 			this.TransmitFinishedBit = new System.Windows.Forms.Label();
+			this.RxTxLedsManualBit = new System.Windows.Forms.Label();
 			this.AutoRekeyBit = new System.Windows.Forms.Label();
 			this.ChecksumErrorBit = new System.Windows.Forms.Label();
 			this.ShowingQosBit = new System.Windows.Forms.Label();
@@ -184,6 +205,8 @@
 			this.label31 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
 			this.label38 = new System.Windows.Forms.Label();
+			this.label104 = new System.Windows.Forms.Label();
+			this.label101 = new System.Windows.Forms.Label();
 			this.label39 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.label41 = new System.Windows.Forms.Label();
@@ -197,6 +220,7 @@
 			this.label50 = new System.Windows.Forms.Label();
 			this.label51 = new System.Windows.Forms.Label();
 			this.label52 = new System.Windows.Forms.Label();
+			this.label96 = new System.Windows.Forms.Label();
 			this.label53 = new System.Windows.Forms.Label();
 			this.label54 = new System.Windows.Forms.Label();
 			this.label55 = new System.Windows.Forms.Label();
@@ -205,7 +229,9 @@
 			this.label58 = new System.Windows.Forms.Label();
 			this.label60 = new System.Windows.Forms.Label();
 			this.IntButtonHeldBit = new System.Windows.Forms.Label();
+			this.IntTxLedOnBit = new System.Windows.Forms.Label();
 			this.IntTxLedModeBit = new System.Windows.Forms.Label();
+			this.IntRxLedOnBit = new System.Windows.Forms.Label();
 			this.IntAckPacketReadyBit = new System.Windows.Forms.Label();
 			this.IntSettingsPendingBit = new System.Windows.Forms.Label();
 			this.IntButtonPressedBit = new System.Windows.Forms.Label();
@@ -219,6 +245,7 @@
 			this.IntEncryptionRekeyBit = new System.Windows.Forms.Label();
 			this.IntAutoClearFlagsBit = new System.Windows.Forms.Label();
 			this.IntRadioStateBit3 = new System.Windows.Forms.Label();
+			this.IntRxTxLedsManualBit = new System.Windows.Forms.Label();
 			this.IntTransmitFinishedBit = new System.Windows.Forms.Label();
 			this.IntAutoRekeyBit = new System.Windows.Forms.Label();
 			this.IntChecksumErrorBit = new System.Windows.Forms.Label();
@@ -279,7 +306,9 @@
 			this.label75 = new System.Windows.Forms.Label();
 			this.label89 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
+			this.label102 = new System.Windows.Forms.Label();
 			this.label88 = new System.Windows.Forms.Label();
+			this.label99 = new System.Windows.Forms.Label();
 			this.label86 = new System.Windows.Forms.Label();
 			this.label87 = new System.Windows.Forms.Label();
 			this.label30 = new System.Windows.Forms.Label();
@@ -294,10 +323,12 @@
 			this.BleConnectedBit = new System.Windows.Forms.Label();
 			this.BleTp28DirectionLabel = new System.Windows.Forms.Label();
 			this.BleTp5ValueLabel = new System.Windows.Forms.Label();
+			this.BleIntConnectionAttemptedBit = new System.Windows.Forms.Label();
 			this.BleTp25DirectionLabel = new System.Windows.Forms.Label();
 			this.BleIntSureFiTxInProgressBit = new System.Windows.Forms.Label();
 			this.BleTp6DirectionLabel = new System.Windows.Forms.Label();
 			this.BleTp4ValueLabel = new System.Windows.Forms.Label();
+			this.BleConnectionAttemptedBit = new System.Windows.Forms.Label();
 			this.BleTp5DirectionLabel = new System.Windows.Forms.Label();
 			this.BleSureFiTxInProgressBit = new System.Windows.Forms.Label();
 			this.BleTp4DirectionLabel = new System.Windows.Forms.Label();
@@ -336,6 +367,11 @@
 			this.TxRetriesLabel = new System.Windows.Forms.Label();
 			this.label27 = new System.Windows.Forms.Label();
 			this.PrintStatusCheckbox = new System.Windows.Forms.CheckBox();
+			this.button1 = new System.Windows.Forms.Button();
+			this.GetMacAddressButton = new System.Windows.Forms.Button();
+			this.label108 = new System.Windows.Forms.Label();
+			this.MacAddressLabel = new System.Windows.Forms.Label();
+			this.RejectConnectionsCheckbox = new System.Windows.Forms.CheckBox();
 			this.StatusBar.SuspendLayout();
 			this.MainTabControl.SuspendLayout();
 			this.TabPageRadio.SuspendLayout();
@@ -343,6 +379,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.NumRetriesNumeric)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.PayloadSizeNumeric)).BeginInit();
 			this.TabPageOther.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.TxLedPulseTimeNumeric)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.RxLedPulseTimeNumeric)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ButtonHoldTimeNumeric)).BeginInit();
 			this.TabPageCommands.SuspendLayout();
 			this.TabPageStatus.SuspendLayout();
@@ -829,9 +867,18 @@
 			// 
 			// TabPageOther
 			// 
+			this.TabPageOther.Controls.Add(this.TxLedTurnOnButton);
+			this.TabPageOther.Controls.Add(this.RxLedTurnOnButton);
+			this.TabPageOther.Controls.Add(this.TxLedPulseTimeNumeric);
+			this.TabPageOther.Controls.Add(this.RxLedPulseTimeNumeric);
+			this.TabPageOther.Controls.Add(this.TxLedPulseButton);
+			this.TabPageOther.Controls.Add(this.RxLedPulseButton);
+			this.TabPageOther.Controls.Add(this.RxTxLedsManualCheckbox);
 			this.TabPageOther.Controls.Add(this.ClearIndicationsButton);
 			this.TabPageOther.Controls.Add(this.label24);
 			this.TabPageOther.Controls.Add(this.LedCombo1);
+			this.TabPageOther.Controls.Add(this.TxLedOnLabel);
+			this.TabPageOther.Controls.Add(this.RxLedOnLabel);
 			this.TabPageOther.Controls.Add(this.LedLabel1);
 			this.TabPageOther.Controls.Add(this.LedCombo2);
 			this.TabPageOther.Controls.Add(this.LedLabel2);
@@ -844,6 +891,12 @@
 			this.TabPageOther.Controls.Add(this.LedCombo6);
 			this.TabPageOther.Controls.Add(this.LedLabel6);
 			this.TabPageOther.Controls.Add(this.label22);
+			this.TabPageOther.Controls.Add(this.label110);
+			this.TabPageOther.Controls.Add(this.label112);
+			this.TabPageOther.Controls.Add(this.label109);
+			this.TabPageOther.Controls.Add(this.label111);
+			this.TabPageOther.Controls.Add(this.label105);
+			this.TabPageOther.Controls.Add(this.label93);
 			this.TabPageOther.Controls.Add(this.label21);
 			this.TabPageOther.Controls.Add(this.TxLedModeCombobox);
 			this.TabPageOther.Controls.Add(this.RxLedModeCombobox);
@@ -861,6 +914,81 @@
 			this.TabPageOther.TabIndex = 1;
 			this.TabPageOther.Text = "Other Settings";
 			this.TabPageOther.UseVisualStyleBackColor = true;
+			// 
+			// TxLedTurnOnButton
+			// 
+			this.TxLedTurnOnButton.Location = new System.Drawing.Point(448, 154);
+			this.TxLedTurnOnButton.Name = "TxLedTurnOnButton";
+			this.TxLedTurnOnButton.Size = new System.Drawing.Size(75, 23);
+			this.TxLedTurnOnButton.TabIndex = 18;
+			this.TxLedTurnOnButton.Text = "Toggle";
+			this.TxLedTurnOnButton.UseVisualStyleBackColor = true;
+			this.TxLedTurnOnButton.Click += new System.EventHandler(this.TxLedTurnOnButton_Click);
+			// 
+			// RxLedTurnOnButton
+			// 
+			this.RxLedTurnOnButton.Location = new System.Drawing.Point(448, 113);
+			this.RxLedTurnOnButton.Name = "RxLedTurnOnButton";
+			this.RxLedTurnOnButton.Size = new System.Drawing.Size(75, 23);
+			this.RxLedTurnOnButton.TabIndex = 18;
+			this.RxLedTurnOnButton.Text = "Toggle";
+			this.RxLedTurnOnButton.UseVisualStyleBackColor = true;
+			this.RxLedTurnOnButton.Click += new System.EventHandler(this.RxLedTurnOnButton_Click);
+			// 
+			// TxLedPulseTimeNumeric
+			// 
+			this.TxLedPulseTimeNumeric.Location = new System.Drawing.Point(304, 156);
+			this.TxLedPulseTimeNumeric.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.TxLedPulseTimeNumeric.Name = "TxLedPulseTimeNumeric";
+			this.TxLedPulseTimeNumeric.Size = new System.Drawing.Size(72, 20);
+			this.TxLedPulseTimeNumeric.TabIndex = 17;
+			// 
+			// RxLedPulseTimeNumeric
+			// 
+			this.RxLedPulseTimeNumeric.Location = new System.Drawing.Point(304, 115);
+			this.RxLedPulseTimeNumeric.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.RxLedPulseTimeNumeric.Name = "RxLedPulseTimeNumeric";
+			this.RxLedPulseTimeNumeric.Size = new System.Drawing.Size(72, 20);
+			this.RxLedPulseTimeNumeric.TabIndex = 17;
+			// 
+			// TxLedPulseButton
+			// 
+			this.TxLedPulseButton.Location = new System.Drawing.Point(393, 154);
+			this.TxLedPulseButton.Name = "TxLedPulseButton";
+			this.TxLedPulseButton.Size = new System.Drawing.Size(52, 23);
+			this.TxLedPulseButton.TabIndex = 16;
+			this.TxLedPulseButton.Text = "Pulse";
+			this.TxLedPulseButton.UseVisualStyleBackColor = true;
+			this.TxLedPulseButton.Click += new System.EventHandler(this.TxLedPulseButton_Click);
+			// 
+			// RxLedPulseButton
+			// 
+			this.RxLedPulseButton.Location = new System.Drawing.Point(393, 113);
+			this.RxLedPulseButton.Name = "RxLedPulseButton";
+			this.RxLedPulseButton.Size = new System.Drawing.Size(52, 23);
+			this.RxLedPulseButton.TabIndex = 16;
+			this.RxLedPulseButton.Text = "Pulse";
+			this.RxLedPulseButton.UseVisualStyleBackColor = true;
+			this.RxLedPulseButton.Click += new System.EventHandler(this.RxLedPulseButton_Click);
+			// 
+			// RxTxLedsManualCheckbox
+			// 
+			this.RxTxLedsManualCheckbox.AutoSize = true;
+			this.RxTxLedsManualCheckbox.Location = new System.Drawing.Point(256, 183);
+			this.RxTxLedsManualCheckbox.Name = "RxTxLedsManualCheckbox";
+			this.RxTxLedsManualCheckbox.Size = new System.Drawing.Size(61, 17);
+			this.RxTxLedsManualCheckbox.TabIndex = 15;
+			this.RxTxLedsManualCheckbox.Text = "Manual";
+			this.RxTxLedsManualCheckbox.UseVisualStyleBackColor = true;
+			this.RxTxLedsManualCheckbox.CheckedChanged += new System.EventHandler(this.RxTxLedsManualCheckbox_CheckedChanged);
 			// 
 			// ClearIndicationsButton
 			// 
@@ -899,6 +1027,32 @@
 			this.LedCombo1.TabIndex = 12;
 			this.LedCombo1.Text = "Off";
 			this.LedCombo1.SelectedIndexChanged += new System.EventHandler(this.LedCombo1_SelectedIndexChanged);
+			// 
+			// TxLedOnLabel
+			// 
+			this.TxLedOnLabel.BackColor = System.Drawing.Color.Transparent;
+			this.TxLedOnLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.TxLedOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxLedOnLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.TxLedOnLabel.Location = new System.Drawing.Point(140, 156);
+			this.TxLedOnLabel.Name = "TxLedOnLabel";
+			this.TxLedOnLabel.Size = new System.Drawing.Size(21, 21);
+			this.TxLedOnLabel.TabIndex = 11;
+			this.TxLedOnLabel.Text = "0";
+			this.TxLedOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RxLedOnLabel
+			// 
+			this.RxLedOnLabel.BackColor = System.Drawing.Color.Transparent;
+			this.RxLedOnLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RxLedOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxLedOnLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RxLedOnLabel.Location = new System.Drawing.Point(140, 113);
+			this.RxLedOnLabel.Name = "RxLedOnLabel";
+			this.RxLedOnLabel.Size = new System.Drawing.Size(21, 21);
+			this.RxLedOnLabel.TabIndex = 11;
+			this.RxLedOnLabel.Text = "0";
+			this.RxLedOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// LedLabel1
 			// 
@@ -1076,20 +1230,74 @@
 			// label22
 			// 
 			this.label22.AutoSize = true;
-			this.label22.Location = new System.Drawing.Point(225, 92);
+			this.label22.Location = new System.Drawing.Point(169, 140);
 			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(73, 13);
+			this.label22.Size = new System.Drawing.Size(34, 13);
 			this.label22.TabIndex = 10;
-			this.label22.Text = "Tx LED Mode";
+			this.label22.Text = "Mode";
+			// 
+			// label110
+			// 
+			this.label110.AutoSize = true;
+			this.label110.Location = new System.Drawing.Point(121, 160);
+			this.label110.Name = "label110";
+			this.label110.Size = new System.Drawing.Size(19, 13);
+			this.label110.TabIndex = 10;
+			this.label110.Text = "Tx";
+			// 
+			// label112
+			// 
+			this.label112.AutoSize = true;
+			this.label112.Location = new System.Drawing.Point(375, 160);
+			this.label112.Name = "label112";
+			this.label112.Size = new System.Drawing.Size(20, 13);
+			this.label112.TabIndex = 10;
+			this.label112.Text = "ms";
+			// 
+			// label109
+			// 
+			this.label109.AutoSize = true;
+			this.label109.Location = new System.Drawing.Point(121, 117);
+			this.label109.Name = "label109";
+			this.label109.Size = new System.Drawing.Size(20, 13);
+			this.label109.TabIndex = 10;
+			this.label109.Text = "Rx";
+			// 
+			// label111
+			// 
+			this.label111.AutoSize = true;
+			this.label111.Location = new System.Drawing.Point(300, 140);
+			this.label111.Name = "label111";
+			this.label111.Size = new System.Drawing.Size(59, 13);
+			this.label111.TabIndex = 10;
+			this.label111.Text = "Pulse Time";
+			// 
+			// label105
+			// 
+			this.label105.AutoSize = true;
+			this.label105.Location = new System.Drawing.Point(375, 119);
+			this.label105.Name = "label105";
+			this.label105.Size = new System.Drawing.Size(20, 13);
+			this.label105.TabIndex = 10;
+			this.label105.Text = "ms";
+			// 
+			// label93
+			// 
+			this.label93.AutoSize = true;
+			this.label93.Location = new System.Drawing.Point(300, 99);
+			this.label93.Name = "label93";
+			this.label93.Size = new System.Drawing.Size(59, 13);
+			this.label93.TabIndex = 10;
+			this.label93.Text = "Pulse Time";
 			// 
 			// label21
 			// 
 			this.label21.AutoSize = true;
-			this.label21.Location = new System.Drawing.Point(124, 92);
+			this.label21.Location = new System.Drawing.Point(169, 98);
 			this.label21.Name = "label21";
-			this.label21.Size = new System.Drawing.Size(74, 13);
+			this.label21.Size = new System.Drawing.Size(34, 13);
 			this.label21.TabIndex = 10;
-			this.label21.Text = "Rx LED Mode";
+			this.label21.Text = "Mode";
 			// 
 			// TxLedModeCombobox
 			// 
@@ -1097,7 +1305,7 @@
 			this.TxLedModeCombobox.Items.AddRange(new object[] {
             "Default",
             "During Tx"});
-			this.TxLedModeCombobox.Location = new System.Drawing.Point(228, 108);
+			this.TxLedModeCombobox.Location = new System.Drawing.Point(172, 156);
 			this.TxLedModeCombobox.Name = "TxLedModeCombobox";
 			this.TxLedModeCombobox.Size = new System.Drawing.Size(95, 21);
 			this.TxLedModeCombobox.TabIndex = 9;
@@ -1110,7 +1318,7 @@
 			this.RxLedModeCombobox.Items.AddRange(new object[] {
             "Default",
             "During Rx"});
-			this.RxLedModeCombobox.Location = new System.Drawing.Point(127, 108);
+			this.RxLedModeCombobox.Location = new System.Drawing.Point(172, 114);
 			this.RxLedModeCombobox.Name = "RxLedModeCombobox";
 			this.RxLedModeCombobox.Size = new System.Drawing.Size(95, 21);
 			this.RxLedModeCombobox.TabIndex = 9;
@@ -1210,12 +1418,15 @@
 			// 
 			// TabPageCommands
 			// 
+			this.TabPageCommands.Controls.Add(this.label108);
 			this.TabPageCommands.Controls.Add(this.label25);
+			this.TabPageCommands.Controls.Add(this.GetMacAddressButton);
 			this.TabPageCommands.Controls.Add(this.GetRegisteredSerialButton);
 			this.TabPageCommands.Controls.Add(this.GetRandomNumberButton);
 			this.TabPageCommands.Controls.Add(this.label23);
 			this.TabPageCommands.Controls.Add(this.label28);
 			this.TabPageCommands.Controls.Add(this.FirmwareVersionLabel);
+			this.TabPageCommands.Controls.Add(this.MacAddressLabel);
 			this.TabPageCommands.Controls.Add(this.RegisteredSerialLabel);
 			this.TabPageCommands.Controls.Add(this.RandomNumberLabel);
 			this.TabPageCommands.Controls.Add(this.TimeOnAirLabel);
@@ -1454,6 +1665,8 @@
 			this.TabPageStatus.Controls.Add(this.label70);
 			this.TabPageStatus.Controls.Add(this.label85);
 			this.TabPageStatus.Controls.Add(this.label69);
+			this.TabPageStatus.Controls.Add(this.label98);
+			this.TabPageStatus.Controls.Add(this.label95);
 			this.TabPageStatus.Controls.Add(this.label37);
 			this.TabPageStatus.Controls.Add(this.label68);
 			this.TabPageStatus.Controls.Add(this.label83);
@@ -1467,6 +1680,7 @@
 			this.TabPageStatus.Controls.Add(this.label65);
 			this.TabPageStatus.Controls.Add(this.label44);
 			this.TabPageStatus.Controls.Add(this.label35);
+			this.TabPageStatus.Controls.Add(this.label73);
 			this.TabPageStatus.Controls.Add(this.label80);
 			this.TabPageStatus.Controls.Add(this.label64);
 			this.TabPageStatus.Controls.Add(this.label79);
@@ -1476,7 +1690,9 @@
 			this.TabPageStatus.Controls.Add(this.RadioStateStrLabel);
 			this.TabPageStatus.Controls.Add(this.label32);
 			this.TabPageStatus.Controls.Add(this.ButtonHeldBit);
+			this.TabPageStatus.Controls.Add(this.TxLedOnBit);
 			this.TabPageStatus.Controls.Add(this.TxLedModeBit);
+			this.TabPageStatus.Controls.Add(this.RxLedOnBit);
 			this.TabPageStatus.Controls.Add(this.AckPacketReadyBit);
 			this.TabPageStatus.Controls.Add(this.SettingsPendingBit);
 			this.TabPageStatus.Controls.Add(this.ButtonPressedBit);
@@ -1489,6 +1705,7 @@
 			this.TabPageStatus.Controls.Add(this.AutoClearFlagsBit);
 			this.TabPageStatus.Controls.Add(this.RadioStateBit3);
 			this.TabPageStatus.Controls.Add(this.TransmitFinishedBit);
+			this.TabPageStatus.Controls.Add(this.RxTxLedsManualBit);
 			this.TabPageStatus.Controls.Add(this.AutoRekeyBit);
 			this.TabPageStatus.Controls.Add(this.ChecksumErrorBit);
 			this.TabPageStatus.Controls.Add(this.ShowingQosBit);
@@ -1609,6 +1826,24 @@
 			this.label69.TabIndex = 18;
 			this.label69.Text = "Ack Packet Ready";
 			// 
+			// label98
+			// 
+			this.label98.AutoSize = true;
+			this.label98.Location = new System.Drawing.Point(156, 157);
+			this.label98.Name = "label98";
+			this.label98.Size = new System.Drawing.Size(57, 13);
+			this.label98.TabIndex = 18;
+			this.label98.Text = "Tx Led On";
+			// 
+			// label95
+			// 
+			this.label95.AutoSize = true;
+			this.label95.Location = new System.Drawing.Point(156, 134);
+			this.label95.Name = "label95";
+			this.label95.Size = new System.Drawing.Size(58, 13);
+			this.label95.TabIndex = 18;
+			this.label95.Text = "Rx Led On";
+			// 
 			// label37
 			// 
 			this.label37.AutoSize = true;
@@ -1726,6 +1961,15 @@
 			this.label35.TabIndex = 16;
 			this.label35.Text = "Encryption Active";
 			// 
+			// label73
+			// 
+			this.label73.AutoSize = true;
+			this.label73.Location = new System.Drawing.Point(406, 135);
+			this.label73.Name = "label73";
+			this.label73.Size = new System.Drawing.Size(104, 13);
+			this.label73.TabIndex = 15;
+			this.label73.Text = "Rx/Tx LEDs Manual";
+			// 
 			// label80
 			// 
 			this.label80.AutoSize = true;
@@ -1812,6 +2056,19 @@
 			this.ButtonHeldBit.Text = "0";
 			this.ButtonHeldBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// TxLedOnBit
+			// 
+			this.TxLedOnBit.BackColor = System.Drawing.Color.Transparent;
+			this.TxLedOnBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.TxLedOnBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxLedOnBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.TxLedOnBit.Location = new System.Drawing.Point(129, 153);
+			this.TxLedOnBit.Name = "TxLedOnBit";
+			this.TxLedOnBit.Size = new System.Drawing.Size(21, 21);
+			this.TxLedOnBit.TabIndex = 12;
+			this.TxLedOnBit.Text = "0";
+			this.TxLedOnBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// TxLedModeBit
 			// 
 			this.TxLedModeBit.BackColor = System.Drawing.Color.Transparent;
@@ -1824,6 +2081,19 @@
 			this.TxLedModeBit.TabIndex = 12;
 			this.TxLedModeBit.Text = "0";
 			this.TxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RxLedOnBit
+			// 
+			this.RxLedOnBit.BackColor = System.Drawing.Color.Transparent;
+			this.RxLedOnBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RxLedOnBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxLedOnBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RxLedOnBit.Location = new System.Drawing.Point(129, 130);
+			this.RxLedOnBit.Name = "RxLedOnBit";
+			this.RxLedOnBit.Size = new System.Drawing.Size(21, 21);
+			this.RxLedOnBit.TabIndex = 12;
+			this.RxLedOnBit.Text = "0";
+			this.RxLedOnBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AckPacketReadyBit
 			// 
@@ -1980,6 +2250,19 @@
 			this.TransmitFinishedBit.TabIndex = 12;
 			this.TransmitFinishedBit.Text = "0";
 			this.TransmitFinishedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// RxTxLedsManualBit
+			// 
+			this.RxTxLedsManualBit.BackColor = System.Drawing.Color.Transparent;
+			this.RxTxLedsManualBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.RxTxLedsManualBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RxTxLedsManualBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.RxTxLedsManualBit.Location = new System.Drawing.Point(379, 131);
+			this.RxTxLedsManualBit.Name = "RxTxLedsManualBit";
+			this.RxTxLedsManualBit.Size = new System.Drawing.Size(21, 21);
+			this.RxTxLedsManualBit.TabIndex = 12;
+			this.RxTxLedsManualBit.Text = "0";
+			this.RxTxLedsManualBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AutoRekeyBit
 			// 
@@ -2148,6 +2431,8 @@
 			this.TabPageInt.Controls.Add(this.label31);
 			this.TabPageInt.Controls.Add(this.label33);
 			this.TabPageInt.Controls.Add(this.label38);
+			this.TabPageInt.Controls.Add(this.label104);
+			this.TabPageInt.Controls.Add(this.label101);
 			this.TabPageInt.Controls.Add(this.label39);
 			this.TabPageInt.Controls.Add(this.label40);
 			this.TabPageInt.Controls.Add(this.label41);
@@ -2161,6 +2446,7 @@
 			this.TabPageInt.Controls.Add(this.label50);
 			this.TabPageInt.Controls.Add(this.label51);
 			this.TabPageInt.Controls.Add(this.label52);
+			this.TabPageInt.Controls.Add(this.label96);
 			this.TabPageInt.Controls.Add(this.label53);
 			this.TabPageInt.Controls.Add(this.label54);
 			this.TabPageInt.Controls.Add(this.label55);
@@ -2169,7 +2455,9 @@
 			this.TabPageInt.Controls.Add(this.label58);
 			this.TabPageInt.Controls.Add(this.label60);
 			this.TabPageInt.Controls.Add(this.IntButtonHeldBit);
+			this.TabPageInt.Controls.Add(this.IntTxLedOnBit);
 			this.TabPageInt.Controls.Add(this.IntTxLedModeBit);
+			this.TabPageInt.Controls.Add(this.IntRxLedOnBit);
 			this.TabPageInt.Controls.Add(this.IntAckPacketReadyBit);
 			this.TabPageInt.Controls.Add(this.IntSettingsPendingBit);
 			this.TabPageInt.Controls.Add(this.IntButtonPressedBit);
@@ -2183,6 +2471,7 @@
 			this.TabPageInt.Controls.Add(this.IntEncryptionRekeyBit);
 			this.TabPageInt.Controls.Add(this.IntAutoClearFlagsBit);
 			this.TabPageInt.Controls.Add(this.IntRadioStateBit3);
+			this.TabPageInt.Controls.Add(this.IntRxTxLedsManualBit);
 			this.TabPageInt.Controls.Add(this.IntTransmitFinishedBit);
 			this.TabPageInt.Controls.Add(this.IntAutoRekeyBit);
 			this.TabPageInt.Controls.Add(this.IntChecksumErrorBit);
@@ -2289,6 +2578,24 @@
 			this.label38.Size = new System.Drawing.Size(97, 13);
 			this.label38.TabIndex = 64;
 			this.label38.Text = "Ack Packet Ready";
+			// 
+			// label104
+			// 
+			this.label104.AutoSize = true;
+			this.label104.Location = new System.Drawing.Point(156, 158);
+			this.label104.Name = "label104";
+			this.label104.Size = new System.Drawing.Size(57, 13);
+			this.label104.TabIndex = 63;
+			this.label104.Text = "Tx Led On";
+			// 
+			// label101
+			// 
+			this.label101.AutoSize = true;
+			this.label101.Location = new System.Drawing.Point(156, 135);
+			this.label101.Name = "label101";
+			this.label101.Size = new System.Drawing.Size(58, 13);
+			this.label101.TabIndex = 63;
+			this.label101.Text = "Rx Led On";
 			// 
 			// label39
 			// 
@@ -2407,6 +2714,15 @@
 			this.label52.TabIndex = 53;
 			this.label52.Text = "Encryption Active";
 			// 
+			// label96
+			// 
+			this.label96.AutoSize = true;
+			this.label96.Location = new System.Drawing.Point(406, 135);
+			this.label96.Name = "label96";
+			this.label96.Size = new System.Drawing.Size(104, 13);
+			this.label96.TabIndex = 51;
+			this.label96.Text = "Rx/Tx LEDs Manual";
+			// 
 			// label53
 			// 
 			this.label53.AutoSize = true;
@@ -2486,6 +2802,21 @@
 			this.IntButtonHeldBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.IntButtonHeldBit.Click += new System.EventHandler(this.IntButtonHeldBit_Click);
 			// 
+			// IntTxLedOnBit
+			// 
+			this.IntTxLedOnBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntTxLedOnBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntTxLedOnBit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.IntTxLedOnBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntTxLedOnBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntTxLedOnBit.Location = new System.Drawing.Point(129, 154);
+			this.IntTxLedOnBit.Name = "IntTxLedOnBit";
+			this.IntTxLedOnBit.Size = new System.Drawing.Size(21, 21);
+			this.IntTxLedOnBit.TabIndex = 25;
+			this.IntTxLedOnBit.Text = "D";
+			this.IntTxLedOnBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntTxLedOnBit.Click += new System.EventHandler(this.IntTxLedOnBit_Click);
+			// 
 			// IntTxLedModeBit
 			// 
 			this.IntTxLedModeBit.BackColor = System.Drawing.Color.Transparent;
@@ -2500,6 +2831,21 @@
 			this.IntTxLedModeBit.Text = "D";
 			this.IntTxLedModeBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.IntTxLedModeBit.Click += new System.EventHandler(this.IntTxLedModeBit_Click);
+			// 
+			// IntRxLedOnBit
+			// 
+			this.IntRxLedOnBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntRxLedOnBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxLedOnBit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.IntRxLedOnBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRxLedOnBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRxLedOnBit.Location = new System.Drawing.Point(129, 131);
+			this.IntRxLedOnBit.Name = "IntRxLedOnBit";
+			this.IntRxLedOnBit.Size = new System.Drawing.Size(21, 21);
+			this.IntRxLedOnBit.TabIndex = 25;
+			this.IntRxLedOnBit.Text = "D";
+			this.IntRxLedOnBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxLedOnBit.Click += new System.EventHandler(this.IntRxLedOnBit_Click);
 			// 
 			// IntAckPacketReadyBit
 			// 
@@ -2696,6 +3042,21 @@
 			this.IntRadioStateBit3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.IntRadioStateBit3.Click += new System.EventHandler(this.IntRadioStateBit3_Click);
 			// 
+			// IntRxTxLedsManualBit
+			// 
+			this.IntRxTxLedsManualBit.BackColor = System.Drawing.Color.Transparent;
+			this.IntRxTxLedsManualBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.IntRxTxLedsManualBit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.IntRxTxLedsManualBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.IntRxTxLedsManualBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.IntRxTxLedsManualBit.Location = new System.Drawing.Point(379, 131);
+			this.IntRxTxLedsManualBit.Name = "IntRxTxLedsManualBit";
+			this.IntRxTxLedsManualBit.Size = new System.Drawing.Size(21, 21);
+			this.IntRxTxLedsManualBit.TabIndex = 35;
+			this.IntRxTxLedsManualBit.Text = "D";
+			this.IntRxTxLedsManualBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.IntRxTxLedsManualBit.Click += new System.EventHandler(this.IntRxTxLedsManualBit_Click);
+			// 
 			// IntTransmitFinishedBit
 			// 
 			this.IntTransmitFinishedBit.BackColor = System.Drawing.Color.Transparent;
@@ -2863,6 +3224,7 @@
 			// 
 			// TabPageBluetooth
 			// 
+			this.TabPageBluetooth.Controls.Add(this.RejectConnectionsCheckbox);
 			this.TabPageBluetooth.Controls.Add(this.BleTp28PullLabel);
 			this.TabPageBluetooth.Controls.Add(this.BleTp25PullLabel);
 			this.TabPageBluetooth.Controls.Add(this.BleTp6PullLabel);
@@ -2892,6 +3254,7 @@
 			this.TabPageBluetooth.Controls.Add(this.BleTp3GetButton);
 			this.TabPageBluetooth.Controls.Add(this.BleDisableAllButton);
 			this.TabPageBluetooth.Controls.Add(this.BleEnableAllButton);
+			this.TabPageBluetooth.Controls.Add(this.button1);
 			this.TabPageBluetooth.Controls.Add(this.BleClearResetFlagButton);
 			this.TabPageBluetooth.Controls.Add(this.BleGetStatusButton);
 			this.TabPageBluetooth.Controls.Add(this.BleFirmwareVersionLabel);
@@ -2911,7 +3274,9 @@
 			this.TabPageBluetooth.Controls.Add(this.label75);
 			this.TabPageBluetooth.Controls.Add(this.label89);
 			this.TabPageBluetooth.Controls.Add(this.label74);
+			this.TabPageBluetooth.Controls.Add(this.label102);
 			this.TabPageBluetooth.Controls.Add(this.label88);
+			this.TabPageBluetooth.Controls.Add(this.label99);
 			this.TabPageBluetooth.Controls.Add(this.label86);
 			this.TabPageBluetooth.Controls.Add(this.label87);
 			this.TabPageBluetooth.Controls.Add(this.label30);
@@ -2926,10 +3291,12 @@
 			this.TabPageBluetooth.Controls.Add(this.BleConnectedBit);
 			this.TabPageBluetooth.Controls.Add(this.BleTp28DirectionLabel);
 			this.TabPageBluetooth.Controls.Add(this.BleTp5ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleIntConnectionAttemptedBit);
 			this.TabPageBluetooth.Controls.Add(this.BleTp25DirectionLabel);
 			this.TabPageBluetooth.Controls.Add(this.BleIntSureFiTxInProgressBit);
 			this.TabPageBluetooth.Controls.Add(this.BleTp6DirectionLabel);
 			this.TabPageBluetooth.Controls.Add(this.BleTp4ValueLabel);
+			this.TabPageBluetooth.Controls.Add(this.BleConnectionAttemptedBit);
 			this.TabPageBluetooth.Controls.Add(this.BleTp5DirectionLabel);
 			this.TabPageBluetooth.Controls.Add(this.BleSureFiTxInProgressBit);
 			this.TabPageBluetooth.Controls.Add(this.BleTp4DirectionLabel);
@@ -2952,7 +3319,7 @@
 			this.BleTp28PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp28PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp28PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp28PullLabel.Location = new System.Drawing.Point(90, 290);
+			this.BleTp28PullLabel.Location = new System.Drawing.Point(90, 302);
 			this.BleTp28PullLabel.Name = "BleTp28PullLabel";
 			this.BleTp28PullLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp28PullLabel.TabIndex = 44;
@@ -2967,7 +3334,7 @@
 			this.BleTp25PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp25PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp25PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp25PullLabel.Location = new System.Drawing.Point(90, 266);
+			this.BleTp25PullLabel.Location = new System.Drawing.Point(90, 278);
 			this.BleTp25PullLabel.Name = "BleTp25PullLabel";
 			this.BleTp25PullLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp25PullLabel.TabIndex = 44;
@@ -2982,7 +3349,7 @@
 			this.BleTp6PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp6PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp6PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp6PullLabel.Location = new System.Drawing.Point(90, 242);
+			this.BleTp6PullLabel.Location = new System.Drawing.Point(90, 254);
 			this.BleTp6PullLabel.Name = "BleTp6PullLabel";
 			this.BleTp6PullLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp6PullLabel.TabIndex = 44;
@@ -2997,7 +3364,7 @@
 			this.BleTp5PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp5PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp5PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp5PullLabel.Location = new System.Drawing.Point(90, 219);
+			this.BleTp5PullLabel.Location = new System.Drawing.Point(90, 231);
 			this.BleTp5PullLabel.Name = "BleTp5PullLabel";
 			this.BleTp5PullLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp5PullLabel.TabIndex = 44;
@@ -3012,7 +3379,7 @@
 			this.BleTp4PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp4PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp4PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp4PullLabel.Location = new System.Drawing.Point(90, 195);
+			this.BleTp4PullLabel.Location = new System.Drawing.Point(90, 207);
 			this.BleTp4PullLabel.Name = "BleTp4PullLabel";
 			this.BleTp4PullLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp4PullLabel.TabIndex = 44;
@@ -3023,7 +3390,7 @@
 			// label77
 			// 
 			this.label77.AutoSize = true;
-			this.label77.Location = new System.Drawing.Point(98, 159);
+			this.label77.Location = new System.Drawing.Point(98, 171);
 			this.label77.Name = "label77";
 			this.label77.Size = new System.Drawing.Size(24, 13);
 			this.label77.TabIndex = 43;
@@ -3032,7 +3399,7 @@
 			// BleTp28AutoCheckbox
 			// 
 			this.BleTp28AutoCheckbox.AutoSize = true;
-			this.BleTp28AutoCheckbox.Location = new System.Drawing.Point(221, 293);
+			this.BleTp28AutoCheckbox.Location = new System.Drawing.Point(221, 305);
 			this.BleTp28AutoCheckbox.Name = "BleTp28AutoCheckbox";
 			this.BleTp28AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp28AutoCheckbox.TabIndex = 42;
@@ -3042,7 +3409,7 @@
 			// BleTp25AutoCheckbox
 			// 
 			this.BleTp25AutoCheckbox.AutoSize = true;
-			this.BleTp25AutoCheckbox.Location = new System.Drawing.Point(221, 269);
+			this.BleTp25AutoCheckbox.Location = new System.Drawing.Point(221, 281);
 			this.BleTp25AutoCheckbox.Name = "BleTp25AutoCheckbox";
 			this.BleTp25AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp25AutoCheckbox.TabIndex = 42;
@@ -3052,7 +3419,7 @@
 			// BleTp6AutoCheckbox
 			// 
 			this.BleTp6AutoCheckbox.AutoSize = true;
-			this.BleTp6AutoCheckbox.Location = new System.Drawing.Point(221, 245);
+			this.BleTp6AutoCheckbox.Location = new System.Drawing.Point(221, 257);
 			this.BleTp6AutoCheckbox.Name = "BleTp6AutoCheckbox";
 			this.BleTp6AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp6AutoCheckbox.TabIndex = 42;
@@ -3062,7 +3429,7 @@
 			// BleTp5AutoCheckbox
 			// 
 			this.BleTp5AutoCheckbox.AutoSize = true;
-			this.BleTp5AutoCheckbox.Location = new System.Drawing.Point(221, 222);
+			this.BleTp5AutoCheckbox.Location = new System.Drawing.Point(221, 234);
 			this.BleTp5AutoCheckbox.Name = "BleTp5AutoCheckbox";
 			this.BleTp5AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp5AutoCheckbox.TabIndex = 42;
@@ -3072,7 +3439,7 @@
 			// BleTp4AutoCheckbox
 			// 
 			this.BleTp4AutoCheckbox.AutoSize = true;
-			this.BleTp4AutoCheckbox.Location = new System.Drawing.Point(221, 199);
+			this.BleTp4AutoCheckbox.Location = new System.Drawing.Point(221, 211);
 			this.BleTp4AutoCheckbox.Name = "BleTp4AutoCheckbox";
 			this.BleTp4AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp4AutoCheckbox.TabIndex = 42;
@@ -3082,7 +3449,7 @@
 			// BleTp3AutoCheckbox
 			// 
 			this.BleTp3AutoCheckbox.AutoSize = true;
-			this.BleTp3AutoCheckbox.Location = new System.Drawing.Point(221, 175);
+			this.BleTp3AutoCheckbox.Location = new System.Drawing.Point(221, 187);
 			this.BleTp3AutoCheckbox.Name = "BleTp3AutoCheckbox";
 			this.BleTp3AutoCheckbox.Size = new System.Drawing.Size(15, 14);
 			this.BleTp3AutoCheckbox.TabIndex = 42;
@@ -3092,7 +3459,7 @@
 			// label107
 			// 
 			this.label107.AutoSize = true;
-			this.label107.Location = new System.Drawing.Point(215, 160);
+			this.label107.Location = new System.Drawing.Point(215, 172);
 			this.label107.Name = "label107";
 			this.label107.Size = new System.Drawing.Size(29, 13);
 			this.label107.TabIndex = 41;
@@ -3101,7 +3468,7 @@
 			// label92
 			// 
 			this.label92.AutoSize = true;
-			this.label92.Location = new System.Drawing.Point(135, 159);
+			this.label92.Location = new System.Drawing.Point(135, 171);
 			this.label92.Name = "label92";
 			this.label92.Size = new System.Drawing.Size(34, 13);
 			this.label92.TabIndex = 41;
@@ -3110,7 +3477,7 @@
 			// label84
 			// 
 			this.label84.AutoSize = true;
-			this.label84.Location = new System.Drawing.Point(44, 159);
+			this.label84.Location = new System.Drawing.Point(44, 171);
 			this.label84.Name = "label84";
 			this.label84.Size = new System.Drawing.Size(49, 13);
 			this.label84.TabIndex = 41;
@@ -3120,7 +3487,7 @@
 			// 
 			this.label106.AutoSize = true;
 			this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label106.Location = new System.Drawing.Point(7, 294);
+			this.label106.Location = new System.Drawing.Point(7, 306);
 			this.label106.Name = "label106";
 			this.label106.Size = new System.Drawing.Size(37, 13);
 			this.label106.TabIndex = 40;
@@ -3128,7 +3495,7 @@
 			// 
 			// BleTp28GetButton
 			// 
-			this.BleTp28GetButton.Location = new System.Drawing.Point(173, 289);
+			this.BleTp28GetButton.Location = new System.Drawing.Point(173, 301);
 			this.BleTp28GetButton.Name = "BleTp28GetButton";
 			this.BleTp28GetButton.Size = new System.Drawing.Size(42, 23);
 			this.BleTp28GetButton.TabIndex = 39;
@@ -3140,7 +3507,7 @@
 			// 
 			this.label103.AutoSize = true;
 			this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label103.Location = new System.Drawing.Point(7, 270);
+			this.label103.Location = new System.Drawing.Point(7, 282);
 			this.label103.Name = "label103";
 			this.label103.Size = new System.Drawing.Size(37, 13);
 			this.label103.TabIndex = 40;
@@ -3148,7 +3515,7 @@
 			// 
 			// BleTp25GetButton
 			// 
-			this.BleTp25GetButton.Location = new System.Drawing.Point(173, 265);
+			this.BleTp25GetButton.Location = new System.Drawing.Point(173, 277);
 			this.BleTp25GetButton.Name = "BleTp25GetButton";
 			this.BleTp25GetButton.Size = new System.Drawing.Size(42, 23);
 			this.BleTp25GetButton.TabIndex = 39;
@@ -3160,7 +3527,7 @@
 			// 
 			this.label100.AutoSize = true;
 			this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label100.Location = new System.Drawing.Point(14, 246);
+			this.label100.Location = new System.Drawing.Point(14, 258);
 			this.label100.Name = "label100";
 			this.label100.Size = new System.Drawing.Size(30, 13);
 			this.label100.TabIndex = 40;
@@ -3168,7 +3535,7 @@
 			// 
 			// BleTp6GetButton
 			// 
-			this.BleTp6GetButton.Location = new System.Drawing.Point(173, 241);
+			this.BleTp6GetButton.Location = new System.Drawing.Point(173, 253);
 			this.BleTp6GetButton.Name = "BleTp6GetButton";
 			this.BleTp6GetButton.Size = new System.Drawing.Size(42, 23);
 			this.BleTp6GetButton.TabIndex = 39;
@@ -3180,7 +3547,7 @@
 			// 
 			this.label97.AutoSize = true;
 			this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label97.Location = new System.Drawing.Point(14, 223);
+			this.label97.Location = new System.Drawing.Point(14, 235);
 			this.label97.Name = "label97";
 			this.label97.Size = new System.Drawing.Size(30, 13);
 			this.label97.TabIndex = 40;
@@ -3188,7 +3555,7 @@
 			// 
 			// BleTp5GetButton
 			// 
-			this.BleTp5GetButton.Location = new System.Drawing.Point(173, 218);
+			this.BleTp5GetButton.Location = new System.Drawing.Point(173, 230);
 			this.BleTp5GetButton.Name = "BleTp5GetButton";
 			this.BleTp5GetButton.Size = new System.Drawing.Size(42, 23);
 			this.BleTp5GetButton.TabIndex = 39;
@@ -3200,7 +3567,7 @@
 			// 
 			this.label94.AutoSize = true;
 			this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label94.Location = new System.Drawing.Point(14, 200);
+			this.label94.Location = new System.Drawing.Point(14, 212);
 			this.label94.Name = "label94";
 			this.label94.Size = new System.Drawing.Size(30, 13);
 			this.label94.TabIndex = 40;
@@ -3208,7 +3575,7 @@
 			// 
 			// BleTp4GetButton
 			// 
-			this.BleTp4GetButton.Location = new System.Drawing.Point(173, 195);
+			this.BleTp4GetButton.Location = new System.Drawing.Point(173, 207);
 			this.BleTp4GetButton.Name = "BleTp4GetButton";
 			this.BleTp4GetButton.Size = new System.Drawing.Size(42, 23);
 			this.BleTp4GetButton.TabIndex = 39;
@@ -3220,7 +3587,7 @@
 			// 
 			this.label82.AutoSize = true;
 			this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label82.Location = new System.Drawing.Point(14, 176);
+			this.label82.Location = new System.Drawing.Point(14, 188);
 			this.label82.Name = "label82";
 			this.label82.Size = new System.Drawing.Size(30, 13);
 			this.label82.TabIndex = 40;
@@ -3228,7 +3595,7 @@
 			// 
 			// BleTp3GetButton
 			// 
-			this.BleTp3GetButton.Location = new System.Drawing.Point(173, 171);
+			this.BleTp3GetButton.Location = new System.Drawing.Point(173, 183);
 			this.BleTp3GetButton.Name = "BleTp3GetButton";
 			this.BleTp3GetButton.Size = new System.Drawing.Size(42, 23);
 			this.BleTp3GetButton.TabIndex = 39;
@@ -3238,7 +3605,7 @@
 			// 
 			// BleDisableAllButton
 			// 
-			this.BleDisableAllButton.Location = new System.Drawing.Point(351, 185);
+			this.BleDisableAllButton.Location = new System.Drawing.Point(347, 208);
 			this.BleDisableAllButton.Name = "BleDisableAllButton";
 			this.BleDisableAllButton.Size = new System.Drawing.Size(95, 23);
 			this.BleDisableAllButton.TabIndex = 38;
@@ -3248,7 +3615,7 @@
 			// 
 			// BleEnableAllButton
 			// 
-			this.BleEnableAllButton.Location = new System.Drawing.Point(351, 161);
+			this.BleEnableAllButton.Location = new System.Drawing.Point(347, 184);
 			this.BleEnableAllButton.Name = "BleEnableAllButton";
 			this.BleEnableAllButton.Size = new System.Drawing.Size(95, 23);
 			this.BleEnableAllButton.TabIndex = 38;
@@ -3258,9 +3625,9 @@
 			// 
 			// BleClearResetFlagButton
 			// 
-			this.BleClearResetFlagButton.Location = new System.Drawing.Point(351, 18);
+			this.BleClearResetFlagButton.Location = new System.Drawing.Point(347, 17);
 			this.BleClearResetFlagButton.Name = "BleClearResetFlagButton";
-			this.BleClearResetFlagButton.Size = new System.Drawing.Size(95, 23);
+			this.BleClearResetFlagButton.Size = new System.Drawing.Size(156, 23);
 			this.BleClearResetFlagButton.TabIndex = 36;
 			this.BleClearResetFlagButton.Text = "Clear Reset Flag";
 			this.BleClearResetFlagButton.UseVisualStyleBackColor = true;
@@ -3268,9 +3635,9 @@
 			// 
 			// BleGetStatusButton
 			// 
-			this.BleGetStatusButton.Location = new System.Drawing.Point(351, 42);
+			this.BleGetStatusButton.Location = new System.Drawing.Point(347, 68);
 			this.BleGetStatusButton.Name = "BleGetStatusButton";
-			this.BleGetStatusButton.Size = new System.Drawing.Size(95, 23);
+			this.BleGetStatusButton.Size = new System.Drawing.Size(156, 23);
 			this.BleGetStatusButton.TabIndex = 35;
 			this.BleGetStatusButton.Text = "Get Status";
 			this.BleGetStatusButton.UseVisualStyleBackColor = true;
@@ -3279,7 +3646,7 @@
 			// BleFirmwareVersionLabel
 			// 
 			this.BleFirmwareVersionLabel.AutoSize = true;
-			this.BleFirmwareVersionLabel.Location = new System.Drawing.Point(78, 135);
+			this.BleFirmwareVersionLabel.Location = new System.Drawing.Point(78, 146);
 			this.BleFirmwareVersionLabel.Name = "BleFirmwareVersionLabel";
 			this.BleFirmwareVersionLabel.Size = new System.Drawing.Size(94, 13);
 			this.BleFirmwareVersionLabel.TabIndex = 34;
@@ -3289,7 +3656,7 @@
 			// 
 			this.label78.AutoSize = true;
 			this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label78.Location = new System.Drawing.Point(78, 122);
+			this.label78.Location = new System.Drawing.Point(78, 133);
 			this.label78.Name = "label78";
 			this.label78.Size = new System.Drawing.Size(111, 13);
 			this.label78.TabIndex = 33;
@@ -3297,7 +3664,7 @@
 			// 
 			// BleGetVersionButton
 			// 
-			this.BleGetVersionButton.Location = new System.Drawing.Point(6, 122);
+			this.BleGetVersionButton.Location = new System.Drawing.Point(6, 133);
 			this.BleGetVersionButton.Name = "BleGetVersionButton";
 			this.BleGetVersionButton.Size = new System.Drawing.Size(66, 23);
 			this.BleGetVersionButton.TabIndex = 23;
@@ -3382,7 +3749,7 @@
 			// label91
 			// 
 			this.label91.AutoSize = true;
-			this.label91.Location = new System.Drawing.Point(277, 217);
+			this.label91.Location = new System.Drawing.Point(273, 240);
 			this.label91.Name = "label91";
 			this.label91.Size = new System.Drawing.Size(71, 13);
 			this.label91.TabIndex = 17;
@@ -3391,7 +3758,7 @@
 			// label76
 			// 
 			this.label76.AutoSize = true;
-			this.label76.Location = new System.Drawing.Point(277, 79);
+			this.label76.Location = new System.Drawing.Point(273, 78);
 			this.label76.Name = "label76";
 			this.label76.Size = new System.Drawing.Size(71, 13);
 			this.label76.TabIndex = 17;
@@ -3400,7 +3767,7 @@
 			// label90
 			// 
 			this.label90.AutoSize = true;
-			this.label90.Location = new System.Drawing.Point(277, 194);
+			this.label90.Location = new System.Drawing.Point(273, 217);
 			this.label90.Name = "label90";
 			this.label90.Size = new System.Drawing.Size(59, 13);
 			this.label90.TabIndex = 17;
@@ -3409,7 +3776,7 @@
 			// label75
 			// 
 			this.label75.AutoSize = true;
-			this.label75.Location = new System.Drawing.Point(277, 56);
+			this.label75.Location = new System.Drawing.Point(273, 55);
 			this.label75.Name = "label75";
 			this.label75.Size = new System.Drawing.Size(59, 13);
 			this.label75.TabIndex = 17;
@@ -3418,7 +3785,7 @@
 			// label89
 			// 
 			this.label89.AutoSize = true;
-			this.label89.Location = new System.Drawing.Point(277, 171);
+			this.label89.Location = new System.Drawing.Point(273, 194);
 			this.label89.Name = "label89";
 			this.label89.Size = new System.Drawing.Size(59, 13);
 			this.label89.TabIndex = 17;
@@ -3427,25 +3794,43 @@
 			// label74
 			// 
 			this.label74.AutoSize = true;
-			this.label74.Location = new System.Drawing.Point(277, 33);
+			this.label74.Location = new System.Drawing.Point(273, 32);
 			this.label74.Name = "label74";
 			this.label74.Size = new System.Drawing.Size(59, 13);
 			this.label74.TabIndex = 17;
 			this.label74.Text = "Connected";
 			// 
+			// label102
+			// 
+			this.label102.AutoSize = true;
+			this.label102.Location = new System.Drawing.Point(273, 287);
+			this.label102.Name = "label102";
+			this.label102.Size = new System.Drawing.Size(112, 13);
+			this.label102.TabIndex = 17;
+			this.label102.Text = "Connection Attempted";
+			// 
 			// label88
 			// 
 			this.label88.AutoSize = true;
-			this.label88.Location = new System.Drawing.Point(277, 240);
+			this.label88.Location = new System.Drawing.Point(273, 263);
 			this.label88.Name = "label88";
 			this.label88.Size = new System.Drawing.Size(111, 13);
 			this.label88.TabIndex = 17;
 			this.label88.Text = "Sure-Fi Tx In Progress";
 			// 
+			// label99
+			// 
+			this.label99.AutoSize = true;
+			this.label99.Location = new System.Drawing.Point(273, 125);
+			this.label99.Name = "label99";
+			this.label99.Size = new System.Drawing.Size(112, 13);
+			this.label99.TabIndex = 17;
+			this.label99.Text = "Connection Attempted";
+			// 
 			// label86
 			// 
 			this.label86.AutoSize = true;
-			this.label86.Location = new System.Drawing.Point(277, 102);
+			this.label86.Location = new System.Drawing.Point(273, 101);
 			this.label86.Name = "label86";
 			this.label86.Size = new System.Drawing.Size(111, 13);
 			this.label86.TabIndex = 17;
@@ -3454,7 +3839,7 @@
 			// label87
 			// 
 			this.label87.AutoSize = true;
-			this.label87.Location = new System.Drawing.Point(277, 148);
+			this.label87.Location = new System.Drawing.Point(273, 171);
 			this.label87.Name = "label87";
 			this.label87.Size = new System.Drawing.Size(60, 13);
 			this.label87.TabIndex = 17;
@@ -3463,7 +3848,7 @@
 			// label30
 			// 
 			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(277, 10);
+			this.label30.Location = new System.Drawing.Point(273, 9);
 			this.label30.Name = "label30";
 			this.label30.Size = new System.Drawing.Size(60, 13);
 			this.label30.TabIndex = 17;
@@ -3475,7 +3860,7 @@
 			this.BleIntInDfuModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleIntInDfuModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleIntInDfuModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleIntInDfuModeBit.Location = new System.Drawing.Point(253, 213);
+			this.BleIntInDfuModeBit.Location = new System.Drawing.Point(249, 236);
 			this.BleIntInDfuModeBit.Name = "BleIntInDfuModeBit";
 			this.BleIntInDfuModeBit.Size = new System.Drawing.Size(21, 21);
 			this.BleIntInDfuModeBit.TabIndex = 16;
@@ -3489,7 +3874,7 @@
 			this.BleInDfuModeBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleInDfuModeBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleInDfuModeBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleInDfuModeBit.Location = new System.Drawing.Point(253, 75);
+			this.BleInDfuModeBit.Location = new System.Drawing.Point(249, 74);
 			this.BleInDfuModeBit.Name = "BleInDfuModeBit";
 			this.BleInDfuModeBit.Size = new System.Drawing.Size(21, 21);
 			this.BleInDfuModeBit.TabIndex = 16;
@@ -3502,7 +3887,7 @@
 			this.BleIntAdvertisingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleIntAdvertisingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleIntAdvertisingBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleIntAdvertisingBit.Location = new System.Drawing.Point(253, 190);
+			this.BleIntAdvertisingBit.Location = new System.Drawing.Point(249, 213);
 			this.BleIntAdvertisingBit.Name = "BleIntAdvertisingBit";
 			this.BleIntAdvertisingBit.Size = new System.Drawing.Size(21, 21);
 			this.BleIntAdvertisingBit.TabIndex = 16;
@@ -3517,7 +3902,7 @@
 			this.BleTp28ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp28ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp28ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp28ValueLabel.Location = new System.Drawing.Point(133, 290);
+			this.BleTp28ValueLabel.Location = new System.Drawing.Point(133, 302);
 			this.BleTp28ValueLabel.Name = "BleTp28ValueLabel";
 			this.BleTp28ValueLabel.Size = new System.Drawing.Size(38, 21);
 			this.BleTp28ValueLabel.TabIndex = 16;
@@ -3531,7 +3916,7 @@
 			this.BleAdvertisingBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleAdvertisingBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleAdvertisingBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleAdvertisingBit.Location = new System.Drawing.Point(253, 52);
+			this.BleAdvertisingBit.Location = new System.Drawing.Point(249, 51);
 			this.BleAdvertisingBit.Name = "BleAdvertisingBit";
 			this.BleAdvertisingBit.Size = new System.Drawing.Size(21, 21);
 			this.BleAdvertisingBit.TabIndex = 16;
@@ -3545,7 +3930,7 @@
 			this.BleTp25ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp25ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp25ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp25ValueLabel.Location = new System.Drawing.Point(133, 266);
+			this.BleTp25ValueLabel.Location = new System.Drawing.Point(133, 278);
 			this.BleTp25ValueLabel.Name = "BleTp25ValueLabel";
 			this.BleTp25ValueLabel.Size = new System.Drawing.Size(38, 21);
 			this.BleTp25ValueLabel.TabIndex = 16;
@@ -3559,7 +3944,7 @@
 			this.BleIntConnectedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleIntConnectedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleIntConnectedBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleIntConnectedBit.Location = new System.Drawing.Point(253, 167);
+			this.BleIntConnectedBit.Location = new System.Drawing.Point(249, 190);
 			this.BleIntConnectedBit.Name = "BleIntConnectedBit";
 			this.BleIntConnectedBit.Size = new System.Drawing.Size(21, 21);
 			this.BleIntConnectedBit.TabIndex = 16;
@@ -3574,7 +3959,7 @@
 			this.BleTp6ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp6ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp6ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp6ValueLabel.Location = new System.Drawing.Point(133, 242);
+			this.BleTp6ValueLabel.Location = new System.Drawing.Point(133, 254);
 			this.BleTp6ValueLabel.Name = "BleTp6ValueLabel";
 			this.BleTp6ValueLabel.Size = new System.Drawing.Size(38, 21);
 			this.BleTp6ValueLabel.TabIndex = 16;
@@ -3588,7 +3973,7 @@
 			this.BleConnectedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleConnectedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleConnectedBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleConnectedBit.Location = new System.Drawing.Point(253, 29);
+			this.BleConnectedBit.Location = new System.Drawing.Point(249, 28);
 			this.BleConnectedBit.Name = "BleConnectedBit";
 			this.BleConnectedBit.Size = new System.Drawing.Size(21, 21);
 			this.BleConnectedBit.TabIndex = 16;
@@ -3602,7 +3987,7 @@
 			this.BleTp28DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp28DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp28DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp28DirectionLabel.Location = new System.Drawing.Point(47, 290);
+			this.BleTp28DirectionLabel.Location = new System.Drawing.Point(47, 302);
 			this.BleTp28DirectionLabel.Name = "BleTp28DirectionLabel";
 			this.BleTp28DirectionLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp28DirectionLabel.TabIndex = 16;
@@ -3617,13 +4002,27 @@
 			this.BleTp5ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp5ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp5ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp5ValueLabel.Location = new System.Drawing.Point(133, 219);
+			this.BleTp5ValueLabel.Location = new System.Drawing.Point(133, 231);
 			this.BleTp5ValueLabel.Name = "BleTp5ValueLabel";
 			this.BleTp5ValueLabel.Size = new System.Drawing.Size(38, 21);
 			this.BleTp5ValueLabel.TabIndex = 16;
 			this.BleTp5ValueLabel.Text = "Low";
 			this.BleTp5ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.BleTp5ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp5ValueLabel_Click);
+			// 
+			// BleIntConnectionAttemptedBit
+			// 
+			this.BleIntConnectionAttemptedBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleIntConnectionAttemptedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleIntConnectionAttemptedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleIntConnectionAttemptedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleIntConnectionAttemptedBit.Location = new System.Drawing.Point(249, 283);
+			this.BleIntConnectionAttemptedBit.Name = "BleIntConnectionAttemptedBit";
+			this.BleIntConnectionAttemptedBit.Size = new System.Drawing.Size(21, 21);
+			this.BleIntConnectionAttemptedBit.TabIndex = 16;
+			this.BleIntConnectionAttemptedBit.Text = "D";
+			this.BleIntConnectionAttemptedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BleIntConnectionAttemptedBit.Click += new System.EventHandler(this.BleIntConnectionAttemptedBit_Click);
 			// 
 			// BleTp25DirectionLabel
 			// 
@@ -3632,7 +4031,7 @@
 			this.BleTp25DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp25DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp25DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp25DirectionLabel.Location = new System.Drawing.Point(47, 266);
+			this.BleTp25DirectionLabel.Location = new System.Drawing.Point(47, 278);
 			this.BleTp25DirectionLabel.Name = "BleTp25DirectionLabel";
 			this.BleTp25DirectionLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp25DirectionLabel.TabIndex = 16;
@@ -3646,7 +4045,7 @@
 			this.BleIntSureFiTxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleIntSureFiTxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleIntSureFiTxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleIntSureFiTxInProgressBit.Location = new System.Drawing.Point(253, 236);
+			this.BleIntSureFiTxInProgressBit.Location = new System.Drawing.Point(249, 259);
 			this.BleIntSureFiTxInProgressBit.Name = "BleIntSureFiTxInProgressBit";
 			this.BleIntSureFiTxInProgressBit.Size = new System.Drawing.Size(21, 21);
 			this.BleIntSureFiTxInProgressBit.TabIndex = 16;
@@ -3661,7 +4060,7 @@
 			this.BleTp6DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp6DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp6DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp6DirectionLabel.Location = new System.Drawing.Point(47, 242);
+			this.BleTp6DirectionLabel.Location = new System.Drawing.Point(47, 254);
 			this.BleTp6DirectionLabel.Name = "BleTp6DirectionLabel";
 			this.BleTp6DirectionLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp6DirectionLabel.TabIndex = 16;
@@ -3676,13 +4075,26 @@
 			this.BleTp4ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp4ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp4ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp4ValueLabel.Location = new System.Drawing.Point(133, 196);
+			this.BleTp4ValueLabel.Location = new System.Drawing.Point(133, 208);
 			this.BleTp4ValueLabel.Name = "BleTp4ValueLabel";
 			this.BleTp4ValueLabel.Size = new System.Drawing.Size(38, 21);
 			this.BleTp4ValueLabel.TabIndex = 16;
 			this.BleTp4ValueLabel.Text = "Low";
 			this.BleTp4ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.BleTp4ValueLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BleTp4ValueLabel_Click);
+			// 
+			// BleConnectionAttemptedBit
+			// 
+			this.BleConnectionAttemptedBit.BackColor = System.Drawing.Color.Transparent;
+			this.BleConnectionAttemptedBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.BleConnectionAttemptedBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BleConnectionAttemptedBit.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.BleConnectionAttemptedBit.Location = new System.Drawing.Point(249, 121);
+			this.BleConnectionAttemptedBit.Name = "BleConnectionAttemptedBit";
+			this.BleConnectionAttemptedBit.Size = new System.Drawing.Size(21, 21);
+			this.BleConnectionAttemptedBit.TabIndex = 16;
+			this.BleConnectionAttemptedBit.Text = "0";
+			this.BleConnectionAttemptedBit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// BleTp5DirectionLabel
 			// 
@@ -3691,7 +4103,7 @@
 			this.BleTp5DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp5DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp5DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp5DirectionLabel.Location = new System.Drawing.Point(47, 219);
+			this.BleTp5DirectionLabel.Location = new System.Drawing.Point(47, 231);
 			this.BleTp5DirectionLabel.Name = "BleTp5DirectionLabel";
 			this.BleTp5DirectionLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp5DirectionLabel.TabIndex = 16;
@@ -3705,7 +4117,7 @@
 			this.BleSureFiTxInProgressBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleSureFiTxInProgressBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleSureFiTxInProgressBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleSureFiTxInProgressBit.Location = new System.Drawing.Point(253, 98);
+			this.BleSureFiTxInProgressBit.Location = new System.Drawing.Point(249, 97);
 			this.BleSureFiTxInProgressBit.Name = "BleSureFiTxInProgressBit";
 			this.BleSureFiTxInProgressBit.Size = new System.Drawing.Size(21, 21);
 			this.BleSureFiTxInProgressBit.TabIndex = 16;
@@ -3719,7 +4131,7 @@
 			this.BleTp4DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp4DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp4DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp4DirectionLabel.Location = new System.Drawing.Point(47, 196);
+			this.BleTp4DirectionLabel.Location = new System.Drawing.Point(47, 208);
 			this.BleTp4DirectionLabel.Name = "BleTp4DirectionLabel";
 			this.BleTp4DirectionLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp4DirectionLabel.TabIndex = 16;
@@ -3734,7 +4146,7 @@
 			this.BleTp3ValueLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp3ValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp3ValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp3ValueLabel.Location = new System.Drawing.Point(133, 172);
+			this.BleTp3ValueLabel.Location = new System.Drawing.Point(133, 184);
 			this.BleTp3ValueLabel.Name = "BleTp3ValueLabel";
 			this.BleTp3ValueLabel.Size = new System.Drawing.Size(38, 21);
 			this.BleTp3ValueLabel.TabIndex = 16;
@@ -3749,7 +4161,7 @@
 			this.BleTp3PullLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp3PullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp3PullLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp3PullLabel.Location = new System.Drawing.Point(90, 172);
+			this.BleTp3PullLabel.Location = new System.Drawing.Point(90, 184);
 			this.BleTp3PullLabel.Name = "BleTp3PullLabel";
 			this.BleTp3PullLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp3PullLabel.TabIndex = 16;
@@ -3764,7 +4176,7 @@
 			this.BleTp3DirectionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.BleTp3DirectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleTp3DirectionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleTp3DirectionLabel.Location = new System.Drawing.Point(47, 172);
+			this.BleTp3DirectionLabel.Location = new System.Drawing.Point(47, 184);
 			this.BleTp3DirectionLabel.Name = "BleTp3DirectionLabel";
 			this.BleTp3DirectionLabel.Size = new System.Drawing.Size(41, 21);
 			this.BleTp3DirectionLabel.TabIndex = 16;
@@ -3778,7 +4190,7 @@
 			this.BleIntWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleIntWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleIntWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleIntWasResetBit.Location = new System.Drawing.Point(253, 144);
+			this.BleIntWasResetBit.Location = new System.Drawing.Point(249, 167);
 			this.BleIntWasResetBit.Name = "BleIntWasResetBit";
 			this.BleIntWasResetBit.Size = new System.Drawing.Size(21, 21);
 			this.BleIntWasResetBit.TabIndex = 16;
@@ -3792,7 +4204,7 @@
 			this.BleWasResetBit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BleWasResetBit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BleWasResetBit.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.BleWasResetBit.Location = new System.Drawing.Point(253, 6);
+			this.BleWasResetBit.Location = new System.Drawing.Point(249, 5);
 			this.BleWasResetBit.Name = "BleWasResetBit";
 			this.BleWasResetBit.Size = new System.Drawing.Size(21, 21);
 			this.BleWasResetBit.TabIndex = 16;
@@ -4139,6 +4551,56 @@
 			this.PrintStatusCheckbox.UseVisualStyleBackColor = true;
 			this.PrintStatusCheckbox.CheckedChanged += new System.EventHandler(this.PrintStatusCheckbox_CheckedChanged);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(347, 43);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(156, 23);
+			this.button1.TabIndex = 36;
+			this.button1.Text = "Clear Connection Attempted";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.BleClearConnectionAttemptedButton_Click);
+			// 
+			// GetMacAddressButton
+			// 
+			this.GetMacAddressButton.Location = new System.Drawing.Point(9, 289);
+			this.GetMacAddressButton.Name = "GetMacAddressButton";
+			this.GetMacAddressButton.Size = new System.Drawing.Size(75, 23);
+			this.GetMacAddressButton.TabIndex = 35;
+			this.GetMacAddressButton.Text = "Get";
+			this.GetMacAddressButton.UseVisualStyleBackColor = true;
+			this.GetMacAddressButton.Click += new System.EventHandler(this.GetMacAddressButton_Click);
+			// 
+			// label108
+			// 
+			this.label108.AutoSize = true;
+			this.label108.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label108.Location = new System.Drawing.Point(90, 294);
+			this.label108.Name = "label108";
+			this.label108.Size = new System.Drawing.Size(113, 13);
+			this.label108.TabIndex = 36;
+			this.label108.Text = "BLE MAC Address:";
+			// 
+			// MacAddressLabel
+			// 
+			this.MacAddressLabel.AutoSize = true;
+			this.MacAddressLabel.Location = new System.Drawing.Point(202, 295);
+			this.MacAddressLabel.Name = "MacAddressLabel";
+			this.MacAddressLabel.Size = new System.Drawing.Size(53, 13);
+			this.MacAddressLabel.TabIndex = 32;
+			this.MacAddressLabel.Text = "Unknown";
+			// 
+			// RejectConnectionsCheckbox
+			// 
+			this.RejectConnectionsCheckbox.AutoSize = true;
+			this.RejectConnectionsCheckbox.Location = new System.Drawing.Point(53, 112);
+			this.RejectConnectionsCheckbox.Name = "RejectConnectionsCheckbox";
+			this.RejectConnectionsCheckbox.Size = new System.Drawing.Size(119, 17);
+			this.RejectConnectionsCheckbox.TabIndex = 45;
+			this.RejectConnectionsCheckbox.Text = "Reject Connections";
+			this.RejectConnectionsCheckbox.UseVisualStyleBackColor = true;
+			this.RejectConnectionsCheckbox.CheckedChanged += new System.EventHandler(this.RejectConnectionsCheckbox_CheckedChanged);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4196,6 +4658,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.PayloadSizeNumeric)).EndInit();
 			this.TabPageOther.ResumeLayout(false);
 			this.TabPageOther.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.TxLedPulseTimeNumeric)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.RxLedPulseTimeNumeric)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ButtonHoldTimeNumeric)).EndInit();
 			this.TabPageCommands.ResumeLayout(false);
 			this.TabPageCommands.PerformLayout();
@@ -4517,5 +4981,41 @@
 		public System.Windows.Forms.Label BleTp3DirectionLabel;
 		public System.Windows.Forms.Label BleIntWasResetBit;
 		private System.Windows.Forms.Label label72;
+		private System.Windows.Forms.Label label98;
+		private System.Windows.Forms.Label label95;
+		private System.Windows.Forms.Label label73;
+		private System.Windows.Forms.Label TxLedOnBit;
+		private System.Windows.Forms.Label RxLedOnBit;
+		private System.Windows.Forms.Label RxTxLedsManualBit;
+		private System.Windows.Forms.Label label104;
+		private System.Windows.Forms.Label label101;
+		private System.Windows.Forms.Label label96;
+		public System.Windows.Forms.Label IntTxLedOnBit;
+		public System.Windows.Forms.Label IntRxLedOnBit;
+		public System.Windows.Forms.Label IntRxTxLedsManualBit;
+		private System.Windows.Forms.Label label93;
+		private System.Windows.Forms.Label label102;
+		private System.Windows.Forms.Label label99;
+		public System.Windows.Forms.Label BleIntConnectionAttemptedBit;
+		public System.Windows.Forms.Label BleConnectionAttemptedBit;
+		private System.Windows.Forms.Label label105;
+		private System.Windows.Forms.Label label110;
+		private System.Windows.Forms.Label label109;
+		private System.Windows.Forms.Label label112;
+		private System.Windows.Forms.Label label111;
+		public System.Windows.Forms.Button RxLedTurnOnButton;
+		public System.Windows.Forms.NumericUpDown RxLedPulseTimeNumeric;
+		public System.Windows.Forms.Button RxLedPulseButton;
+		public System.Windows.Forms.CheckBox RxTxLedsManualCheckbox;
+		public System.Windows.Forms.Label RxLedOnLabel;
+		public System.Windows.Forms.Label TxLedOnLabel;
+		public System.Windows.Forms.Button TxLedTurnOnButton;
+		public System.Windows.Forms.NumericUpDown TxLedPulseTimeNumeric;
+		public System.Windows.Forms.Button TxLedPulseButton;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label label108;
+		private System.Windows.Forms.Button GetMacAddressButton;
+		public System.Windows.Forms.Label MacAddressLabel;
+		public System.Windows.Forms.CheckBox RejectConnectionsCheckbox;
 	}
 }
