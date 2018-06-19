@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"com",
+				"commandStr"
+			],
+			[
 				"QosConfig_",
 				"QosConfig_Manual\tCustom Constant"
 			],
@@ -510,41 +514,11 @@
 			[
 				"versionFi",
 				"versionFilePath"
-			],
-			[
-				"DEbugOut",
-				"DebugOutput\t(outputLevel, functionName, charPntr, numChars)"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
-			"settings":
-			{
-				"buffer_size": 5692,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/header/surefiModule.h",
-			"settings":
-			{
-				"buffer_size": 22508,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/header/defines.h",
-			"settings":
-			{
-				"buffer_size": 4941,
-				"line_ending": "Windows"
-			}
-		},
 		{
 			"file": "DevKitApplicationBoard/source/app.c",
 			"settings":
@@ -567,7 +541,7 @@
 			"file": "DevKitApplicationBoard/source/bleCommands.c",
 			"settings":
 			{
-				"buffer_size": 10645,
+				"buffer_size": 9604,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -576,9 +550,19 @@
 			"file": "DevKitApplicationBoard/source/debugCommands.c",
 			"settings":
 			{
-				"buffer_size": 18666,
+				"buffer_size": 21364,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 27 files for \"HandleDebugCommand\" (case sensitive)\n\nC:\\Users\\bqjensen\\Documents\\Colby\\Firmware\\SureFi_DevKit\\DevKitApplicationBoard\\DevKitApplicationBoard\\source\\bleCommands.c:\n  216  // |                   Parse Debug Input String                   |\n  217  // +--------------------------------------------------------------+\n  218: bool BleHandleDebugCommand(const char* commandStr)\n  219  {\n  220  \tu32 commandLength = (u32)strlen(commandStr);\n\nC:\\Users\\bqjensen\\Documents\\Colby\\Firmware\\SureFi_DevKit\\DevKitApplicationBoard\\DevKitApplicationBoard\\source\\debugCommands.c:\n   24  // +--------------------------------------------------------------+\n   25  \n   26: void HandleDebugCommand(const char* commandStr)\n   27  {\n   28  \tu32 commandLength = (u32)strlen(commandStr);\n   ..\n  404  \t\tPrintLine_I(\"Sent %u bytes to radio\", numBytesSent);\n  405  \t}\n  406: \telse if (SureHandleDebugCommand(commandStr))\n  407  \t{\n  408  \t\t//sureCommands.c handled the command\n  409  \t}\n  410: \telse if (BleHandleDebugCommand(commandStr))\n  411  \t{\n  412  \t\t//bleCommands.c handled the command\n\nC:\\Users\\bqjensen\\Documents\\Colby\\Firmware\\SureFi_DevKit\\DevKitApplicationBoard\\DevKitApplicationBoard\\source\\main.c:\n  190  \t\t\tPrintLine_O(\"Input >> \\\"%s\\\"\", commandStr);\n  191  \t\t\t\n  192: \t\t\tHandleDebugCommand(commandStr);\n  193  \t\t\t\n  194  \t\t\tClearDebugInput();\n\nC:\\Users\\bqjensen\\Documents\\Colby\\Firmware\\SureFi_DevKit\\DevKitApplicationBoard\\DevKitApplicationBoard\\source\\sureCommands.c:\n  389  // |                   Parse Debug Input String                   |\n  390  // +--------------------------------------------------------------+\n  391: bool SureHandleDebugCommand(const char* commandStr)\n  392  {\n  393  \tu32 commandLength = (u32)strlen(commandStr);\n\n6 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 1779,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
@@ -601,8 +585,58 @@
 			"file": "DevKitApplicationBoard/source/bleResponses.c",
 			"settings":
 			{
-				"buffer_size": 8904,
+				"buffer_size": 8332,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/sureCommands.c",
+			"settings":
+			{
+				"buffer_size": 17685,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/source/main.c",
+			"settings":
+			{
+				"buffer_size": 5648,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/header/bleCommands.h",
+			"settings":
+			{
+				"buffer_size": 2127,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/header/surefiModule.h",
+			"settings":
+			{
+				"buffer_size": 22540,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "look module status called and print out Rx and Tx bits\n[ ] debug commands\nnew commands be able to set manually from debug uart\n[ ] ~setRxLedOn\n[ ] ~setTxLedOn (3 bytes, 1 bit on off, 2 byte milSec on/off (0 indefinitely))\n\n[ ] maybe make 4 different commands \n\t{ } setRxLedON (with number of miliseconds on)\n\t{ } setTxLedON (with number of miliseconds on)\n\t{ } setTxLedOff\n\t{ } setRxLedOff\n\t{ } sure responses\n[ ] setHooppingtableEnable\n[ ] getRegisteredSerial\n",
+			"settings":
+			{
+				"buffer_size": 461,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "DevKitApplicationBoard/header/defines.h",
+			"settings":
+			{
+				"buffer_size": 4941,
 				"line_ending": "Windows"
 			}
 		}
@@ -675,9 +709,13 @@
 	"command_palette":
 	{
 		"height": 170.0,
-		"last_filter": "my c",
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"tod",
+				"Set Syntax: TODO List Syntax"
+			],
 			[
 				"my c",
 				"Set Syntax: My C Syntax"
@@ -879,10 +917,15 @@
 	},
 	"expanded_folders":
 	[
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard"
+		"/C/Users/bqjensen/Documents/Colby/Firmware/SureFi_DevKit/DevKitApplicationBoard",
+		"/C/Users/bqjensen/Documents/Colby/Firmware/SureFi_DevKit/DevKitApplicationBoard/DevKitApplicationBoard",
+		"/C/Users/bqjensen/Documents/Colby/Firmware/SureFi_DevKit/DevKitApplicationBoard/DevKitApplicationBoard/header",
+		"/C/Users/bqjensen/Documents/Colby/Firmware/SureFi_DevKit/DevKitApplicationBoard/DevKitApplicationBoard/source"
 	],
 	"file_history":
 	[
+		"/C/Users/bqjensen/Documents/Colby/Firmware/SureFi_DevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/defines.h",
+		"/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/transmitQueue.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
@@ -1008,13 +1051,11 @@
 		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/pio.h",
 		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/pio/sam4s16b.h",
 		"/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/common.h",
-		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/.gitignore",
-		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/matrix.h",
-		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/Device_Startup/system_sam4s.c"
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/.gitignore"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 27.3333333333
 	},
 	"find_in_files":
 	{
@@ -1079,6 +1120,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"HandleDebugCommand",
+			"SureModuleStatus",
 			"AppUartPopCommand",
 			"QosConfig_OnTransmit",
 			"SureGetAckPacket",
@@ -1204,9 +1247,7 @@
 			"_ZTAL",
 			"_XTAL_FREQ",
 			"PA_VPC_",
-			"DEBUG_MODE_ENABLED",
-			"#include \"appDefines.h\"",
-			"#include \"defines.h\""
+			"DEBUG_MODE_ENABLED"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1261,95 +1302,11 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5692,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/TODO.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 486.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "DevKitApplicationBoard/header/surefiModule.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 22508,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								21541,
-								21541
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 13500.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "DevKitApplicationBoard/header/defines.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4941,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3446,
-								3446
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2106.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "DevKitApplicationBoard/source/app.c",
 					"semi_transient": false,
 					"settings":
@@ -1367,17 +1324,18 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1511.0,
+						"translation.y": 1511.33333333,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 1,
 					"file": "DevKitApplicationBoard/source/bleApp.c",
 					"semi_transient": false,
 					"settings":
@@ -1389,79 +1347,148 @@
 						"selection":
 						[
 							[
-								2182,
-								2570
+								2825,
+								2825
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1256.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "DevKitApplicationBoard/source/bleCommands.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10645,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8028,
-								8028
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 5600.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "DevKitApplicationBoard/source/debugCommands.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18666,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15139,
-								15139
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2451.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 2,
+					"file": "DevKitApplicationBoard/source/bleCommands.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2662,
+								2662
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1602.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "DevKitApplicationBoard/source/debugCommands.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								635,
+								617
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1779,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										352,
+										370
+									],
+									[
+										680,
+										698
+									],
+									[
+										884,
+										902
+									],
+									[
+										1002,
+										1020
+									],
+									[
+										1283,
+										1301
+									],
+									[
+										1648,
+										1666
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1661,
+								1661
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "DevKitApplicationBoard/source/sureResponses.c",
 					"semi_transient": false,
 					"settings":
@@ -1473,23 +1500,24 @@
 						"selection":
 						[
 							[
-								7403,
-								7403
+								6708,
+								6708
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3228.0,
+						"translation.y": 2936.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 6,
 					"file": "DevKitApplicationBoard/source/transmitQueue.c",
 					"semi_transient": false,
 					"settings":
@@ -1507,30 +1535,124 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 2538.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 7,
 					"file": "DevKitApplicationBoard/source/bleResponses.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8904,
+						"buffer_size": 8332,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3634,
-								3634
+								3661,
+								3661
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "DevKitApplicationBoard/source/sureCommands.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10208,
+								10208
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7032.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "DevKitApplicationBoard/source/main.c",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 10,
+					"file": "DevKitApplicationBoard/header/bleCommands.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1538,10 +1660,94 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1536.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "DevKitApplicationBoard/header/surefiModule.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14890,
+								14890
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9613.33333333,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								409
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/TODO.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "DevKitApplicationBoard/header/defines.h",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								201,
+								201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1549,7 +1755,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 27.3333333333
 	},
 	"input":
 	{
@@ -1564,11 +1770,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.644564598748,
 			1.0
 		],
 		"rows":
@@ -1610,7 +1823,7 @@
 	"project": "DevKitApplicationBoard.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 50.6666666667
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1619,6 +1832,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"defines.h",
+				"DevKitApplicationBoard\\header\\defines.h"
+			],
 			[
 				"transmitq",
 				"DevKitApplicationBoard\\header\\transmitQueue.h"
@@ -1686,10 +1903,6 @@
 			[
 				"appuart",
 				"DevKitApplicationBoard\\source\\uartFifos.c"
-			],
-			[
-				"defines.h",
-				"DevKitApplicationBoard\\header\\defines.h"
 			],
 			[
 				"app.c",
@@ -2142,7 +2355,7 @@
 		[
 			[
 				"",
-				"C:\\MyStuff\\SureFi\\Projects\\SureFiDevKit\\DevKitWindowsApp\\DevKitWindowsApp.sublime-project"
+				"C:\\Users\\bqjensen\\Documents\\Colby\\Firmware\\SureFiTestFixture\\TestFixture.X\\TestFixture.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -2251,8 +2464,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 322.0,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

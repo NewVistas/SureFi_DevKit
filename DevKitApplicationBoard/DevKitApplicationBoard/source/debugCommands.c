@@ -66,6 +66,8 @@ void HandleDebugCommand(const char* commandStr)
 		PrintLine_I("ButtonDown:       %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_ButtonDownBit)           ? "1" : "0", OtherFlags_ButtonDownBit,           (SureIntEnableBits.otherFlags     & OtherFlags_ButtonDownBit)           ? "INT" : "");
 		PrintLine_I("EncryptionActive: %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_EncryptionActiveBit)     ? "1" : "0", OtherFlags_EncryptionActiveBit,     (SureIntEnableBits.otherFlags     & OtherFlags_EncryptionActiveBit)     ? "INT" : "");
 		PrintLine_I("SettingsPending:  %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_SettingsPendingBit)      ? "1" : "0", OtherFlags_SettingsPendingBit,      (SureIntEnableBits.otherFlags     & OtherFlags_SettingsPendingBit)      ? "INT" : "");
+		PrintLine_I("RxLedOnBit:       %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_RxLedOnBit)              ? "1" : "0", OtherFlags_RxLedOnBit,              (SureIntEnableBits.otherFlags     & OtherFlags_RxLedOnBit)              ? "INT" : "");
+		PrintLine_I("RxLedOnBit:       %s (0x%02X) %s", (SureModuleStatus.otherFlags     & OtherFlags_TxLedOnBit)              ? "1" : "0", OtherFlags_TxLedOnBit,              (SureIntEnableBits.otherFlags     & OtherFlags_TxLedOnBit)              ? "INT" : "");
 		WriteLine_I("");
 		PrintLine_I("WasReset:         %s (0x%02X) %s", (SureModuleStatus.clearableFlags & ClearableFlags_WasResetBit)         ? "1" : "0", ClearableFlags_WasResetBit,         (SureIntEnableBits.clearableFlags & ClearableFlags_WasResetBit)         ? "INT" : "");
 		PrintLine_I("TransmitFinished: %s (0x%02X) %s", (SureModuleStatus.clearableFlags & ClearableFlags_TransmitFinishedBit) ? "1" : "0", ClearableFlags_TransmitFinishedBit, (SureIntEnableBits.clearableFlags & ClearableFlags_TransmitFinishedBit) ? "INT" : "");
@@ -81,6 +83,7 @@ void HandleDebugCommand(const char* commandStr)
 		PrintLine_I("RxLedMode:        %s (0x%02X) %s", (SureModuleStatus.configFlags    & ConfigFlags_RxLedModeBit)           ? "1" : "0", ConfigFlags_RxLedModeBit,           (SureIntEnableBits.configFlags    & ConfigFlags_RxLedModeBit)           ? "INT" : "");
 		PrintLine_I("TxLedMode:        %s (0x%02X) %s", (SureModuleStatus.configFlags    & ConfigFlags_TxLedModeBit)           ? "1" : "0", ConfigFlags_TxLedModeBit,           (SureIntEnableBits.configFlags    & ConfigFlags_TxLedModeBit)           ? "INT" : "");
 		PrintLine_I("AutoRekey:        %s (0x%02X) %s", (SureModuleStatus.configFlags    & ConfigFlags_AutoRekeyBit)           ? "1" : "0", ConfigFlags_AutoRekeyBit,           (SureIntEnableBits.configFlags    & ConfigFlags_AutoRekeyBit)           ? "INT" : "");
+		PrintLine_I("rxTxLedsManual:   %s (0x%02X) %s", (SureModuleStatus.configFlags    & ConfigFlags_RxTxLedsManualBit)      ? "1" : "0", ConfigFlags_RxTxLedsManualBit,      (SureIntEnableBits.configFlags    & ConfigFlags_RxTxLedsManualBit)      ? "INT" : "");
 	}
 	// +==============================+
 	// |          radioInfo           |
@@ -203,6 +206,40 @@ void HandleDebugCommand(const char* commandStr)
 		BleSetAdvertisingData(dataBuffer, numBytes);
 	}
 	// +==============================+
+	// |       rxLedOn [time]         |
+	// +==============================+
+	else if (commandLength >= 8 && strncmp(commandStr, "rxLedOn ", 8) == 0)
+	{
+		u16 milSecondsOn = ParseHexByte(&commandStr[8]) << 8 | ParseHexByte(&commandStr[10]);
+		SureSendThreeBytePayload(SureCmd_SetRxLED, 0x01, ParseHexByte(&commandStr[8]), ParseHexByte(&commandStr[9]));
+		PrintLine_I("Setting Rx LED on time to %d mS", milSecondsOn);
+	}
+	// +==============================+
+	// |          rxLedOff            |
+	// +==============================+
+	else if (strcmp(commandStr, "rxLedOff ") == 0)
+	{
+		SureSendThreeBytePayload(SureCmd_SetRxLED, 0x00, 0x00, 0x00);
+		PrintLine_I("Setting Rx LED off");
+	}
+	// +==============================+
+	// |       txLedOn [time]         |
+	// +==============================+
+	else if (commandLength >= 8 && strncmp(commandStr, "txLedOn ", 8) == 0)
+	{
+		u16 milSecondsOn = ParseHexByte(&commandStr[8]) << 8 | ParseHexByte(&commandStr[10]);
+		SureSendThreeBytePayload(SureCmd_SetTxLED, 0x01, ParseHexByte(&commandStr[8]), ParseHexByte(&commandStr[9]));
+		PrintLine_I("Setting Tx LED on time to %d mS", milSecondsOn);
+	}
+	// +==============================+
+	// |          txLedOff            |
+	// +==============================+
+	else if (strcmp(commandStr, "txLedOff ") == 0)
+	{
+		SureSendThreeBytePayload(SureCmd_SetTxLED, 0x00, 0x00, 0x00);
+		PrintLine_I("Setting Tx LED off");
+	}
+	// +==============================+
 	// |         listCommands         |
 	// +==============================+
 	else if (strcmp(commandStr, "listCommands") == 0)
@@ -210,61 +247,66 @@ void HandleDebugCommand(const char* commandStr)
 		WriteLine_O(" +==============================+");
 		WriteLine_O(" |    Sure-Fi Radio Commands    |");
 		WriteLine_O(" +==============================+");
-		WriteLine_I("SureCmd_DefaultSettings      = 0x30");
-		WriteLine_I("SureCmd_ClearStatusFlags     = 0x31");
-		WriteLine_I("SureCmd_WriteConfig          = 0x32");
-		WriteLine_I("SureCmd_SetIntEnableBits     = 0x33");
-		WriteLine_I("SureCmd_Reset                = 0x34");
-		WriteLine_I("SureCmd_Sleep                = 0x35");
-		WriteLine_I("SureCmd_QosLightshow         = 0x36");
-		WriteLine_I("SureCmd_TransmitData         = 0x37");
-		WriteLine_I("SureCmd_StartEncryption      = 0x38");
-		WriteLine_I("SureCmd_StopEncryption       = 0x39");
-		WriteLine_I("SureCmd_ShowQualityOfService = 0x3A");
+		WriteLine_I("SureCmd_DefaultSettings        = 0x30");
+		WriteLine_I("SureCmd_ClearStatusFlags       = 0x31");
+		WriteLine_I("SureCmd_WriteConfig            = 0x32");
+		WriteLine_I("SureCmd_SetIntEnableBits       = 0x33");
+		WriteLine_I("SureCmd_Reset                  = 0x34");
+		WriteLine_I("SureCmd_Sleep                  = 0x35");
+		WriteLine_I("SureCmd_QosLightshow           = 0x36");
+		WriteLine_I("SureCmd_TransmitData           = 0x37");
+		WriteLine_I("SureCmd_StartEncryption        = 0x38");
+		WriteLine_I("SureCmd_StopEncryption         = 0x39");
+		WriteLine_I("SureCmd_ShowQualityOfService   = 0x3A");
+		WriteLine_I("SureCmd_SetRxLED               = 0x3B");
+		WriteLine_I("SureCmd_SetTxLED               = 0x3C");
 		WriteLine_I("");
-		WriteLine_I("SureCmd_GetStatus            = 0x40");
-		WriteLine_I("SureCmd_GetIntEnableBits     = 0x41");
-		WriteLine_I("SureCmd_GetModuleVersion     = 0x42");
-		WriteLine_I("SureCmd_GetPacketTimeOnAir   = 0x43");
-		WriteLine_I("SureCmd_GetRandomNumber      = 0x44");
-		WriteLine_I("SureCmd_GetPacket            = 0x45");
-		WriteLine_I("SureCmd_GetAckPacket         = 0x46");
-		WriteLine_I("SureCmd_GetReceiveInfo       = 0x47");
-		WriteLine_I("SureCmd_GetTransmitInfo      = 0x48");
+		WriteLine_I("SureCmd_GetStatus              = 0x40");
+		WriteLine_I("SureCmd_GetIntEnableBits       = 0x41");
+		WriteLine_I("SureCmd_GetModuleVersion       = 0x42");
+		WriteLine_I("SureCmd_GetPacketTimeOnAir     = 0x43");
+		WriteLine_I("SureCmd_GetRandomNumber        = 0x44");
+		WriteLine_I("SureCmd_GetPacket              = 0x45");
+		WriteLine_I("SureCmd_GetAckPacket           = 0x46");
+		WriteLine_I("SureCmd_GetReceiveInfo         = 0x47");
+		WriteLine_I("SureCmd_GetTransmitInfo        = 0x48");
+		WriteLine_I("SureCmd_GetRegisteredSerial    = 0x49");
 		WriteLine_I("");
-		WriteLine_I("SureCmd_SetAllSettings       = 0x50");
-		WriteLine_I("SureCmd_SetRadioMode         = 0x51");
-		WriteLine_I("SureCmd_SetFhssTable         = 0x52");
-		WriteLine_I("SureCmd_SetReceiveUID        = 0x53");
-		WriteLine_I("SureCmd_SetTransmitUID       = 0x54");
-		WriteLine_I("SureCmd_SetReceivePacketSize = 0x55");
-		WriteLine_I("SureCmd_SetRadioPolarity     = 0x56");
-		WriteLine_I("SureCmd_SetTransmitPower     = 0x57");
-		WriteLine_I("SureCmd_SetAckData           = 0x58");
+		WriteLine_I("SureCmd_SetAllSettings         = 0x50");
+		WriteLine_I("SureCmd_SetRadioMode           = 0x51");
+		WriteLine_I("SureCmd_SetFhssTable           = 0x52");
+		WriteLine_I("SureCmd_SetReceiveUID          = 0x53");
+		WriteLine_I("SureCmd_SetTransmitUID         = 0x54");
+		WriteLine_I("SureCmd_SetReceivePacketSize   = 0x55");
+		WriteLine_I("SureCmd_SetRadioPolarity       = 0x56");
+		WriteLine_I("SureCmd_SetTransmitPower       = 0x57");
+		WriteLine_I("SureCmd_SetAckData             = 0x58");
+		WriteLine_I("SureCmd_SetTableHoppingEnabled = 0x59");
 		WriteLine_I("");
-		WriteLine_I("SureCmd_SetQosConfig         = 0x60");
-		WriteLine_I("SureCmd_SetIndications       = 0x61");
-		WriteLine_I("SureCmd_SetQuietMode         = 0x62");
-		WriteLine_I("SureCmd_SetButtonConfig      = 0x63");
-		WriteLine_I("SureCmd_SetAcksEnabled       = 0x64");
-		WriteLine_I("SureCmd_SetNumRetries        = 0x65");
+		WriteLine_I("SureCmd_SetQosConfig           = 0x60");
+		WriteLine_I("SureCmd_SetIndications         = 0x61");
+		WriteLine_I("SureCmd_SetQuietMode           = 0x62");
+		WriteLine_I("SureCmd_SetButtonConfig        = 0x63");
+		WriteLine_I("SureCmd_SetAcksEnabled         = 0x64");
+		WriteLine_I("SureCmd_SetNumRetries          = 0x65");
 		WriteLine_I("");
-		WriteLine_I("SureCmd_GetAllSettings       = 0x70");
-		WriteLine_I("SureCmd_GetRadioMode         = 0x71");
-		WriteLine_I("SureCmd_GetFhssTable         = 0x72");
-		WriteLine_I("SureCmd_GetReceiveUID        = 0x73");
-		WriteLine_I("SureCmd_GetTransmitUID       = 0x74");
-		WriteLine_I("SureCmd_GetReceivePacketSize = 0x75");
-		WriteLine_I("SureCmd_GetRadioPolarity     = 0x76");
-		WriteLine_I("SureCmd_GetTransmitPower     = 0x77");
-		WriteLine_I("SureCmd_GetAckData           = 0x78");
+		WriteLine_I("SureCmd_GetAllSettings         = 0x70");
+		WriteLine_I("SureCmd_GetRadioMode           = 0x71");
+		WriteLine_I("SureCmd_GetFhssTable           = 0x72");
+		WriteLine_I("SureCmd_GetReceiveUID          = 0x73");
+		WriteLine_I("SureCmd_GetTransmitUID         = 0x74");
+		WriteLine_I("SureCmd_GetReceivePacketSize   = 0x75");
+		WriteLine_I("SureCmd_GetRadioPolarity       = 0x76");
+		WriteLine_I("SureCmd_GetTransmitPower       = 0x77");
+		WriteLine_I("SureCmd_GetAckData             = 0x78");
+		WriteLine_I("SureCmd_GetTableHoppingEnabled = 0x79");
 		WriteLine_I("");
-		WriteLine_I("SureCmd_GetQosConfig         = 0x80");
-		WriteLine_I("SureCmd_GetIndications       = 0x81");
-		WriteLine_I("SureCmd_GetQuietMode         = 0x82");
-		WriteLine_I("SureCmd_GetButtonConfig      = 0x83");
-		WriteLine_I("SureCmd_GetAcksEnabled       = 0x84");
-		WriteLine_I("SureCmd_GetNumRetries        = 0x85");
+		WriteLine_I("SureCmd_GetQosConfig           = 0x80");
+		WriteLine_I("SureCmd_GetIndications         = 0x81");
+		WriteLine_I("SureCmd_GetQuietMode           = 0x82");
+		WriteLine_I("SureCmd_GetButtonConfig        = 0x83");
+		WriteLine_I("SureCmd_GetAcksEnabled         = 0x84");
+		WriteLine_I("SureCmd_GetNumRetries          = 0x85");
 	}
 	// +==============================+
 	// |        listResponses         |
@@ -274,37 +316,38 @@ void HandleDebugCommand(const char* commandStr)
 		WriteLine_O(" +==============================+");
 		WriteLine_O(" |   Sure-Fi Radio Responses    |");
 		WriteLine_O(" +==============================+");
-		WriteLine_I("SureRsp_Status            = 0x40");
-		WriteLine_I("SureRsp_IntEnableBits     = 0x41");
-		WriteLine_I("SureRsp_ModuleVersion     = 0x42");
-		WriteLine_I("SureRsp_PacketTimeOnAir   = 0x43");
-		WriteLine_I("SureRsp_RandomNumber      = 0x44");
-		WriteLine_I("SureRsp_Packet            = 0x45");
-		WriteLine_I("SureRsp_AckPacket         = 0x46");
-		WriteLine_I("SureRsp_ReceiveInfo       = 0x47");
-		WriteLine_I("SureRsp_TransmitInfo      = 0x48");
+		WriteLine_I("SureRsp_Status              = 0x40");
+		WriteLine_I("SureRsp_IntEnableBits       = 0x41");
+		WriteLine_I("SureRsp_ModuleVersion       = 0x42");
+		WriteLine_I("SureRsp_PacketTimeOnAir     = 0x43");
+		WriteLine_I("SureRsp_RandomNumber        = 0x44");
+		WriteLine_I("SureRsp_Packet              = 0x45");
+		WriteLine_I("SureRsp_AckPacket           = 0x46");
+		WriteLine_I("SureRsp_ReceiveInfo         = 0x47");
+		WriteLine_I("SureRsp_TransmitInfo        = 0x48");
+		WriteLine_I("SureRsp_RegisteredSerial    = 0x49");
 		WriteLine_I("");
-		WriteLine_I("SureRsp_Success           = 0x50");
-		WriteLine_I("SureRsp_Failure           = 0x51");
-		WriteLine_I("SureRsp_Unsupported       = 0x52");
-		WriteLine_I("SureRsp_UartTimeout       = 0x53");
+		WriteLine_I("SureRsp_Success             = 0x50");
+		WriteLine_I("SureRsp_Failure             = 0x51");
+		WriteLine_I("SureRsp_UartTimeout         = 0x52");
 		WriteLine_I("");
-		WriteLine_I("SureRsp_AllSettings       = 0x70");
-		WriteLine_I("SureRsp_RadioMode         = 0x71");
-		WriteLine_I("SureRsp_FhssTable         = 0x72");
-		WriteLine_I("SureRsp_ReceiveUID        = 0x73");
-		WriteLine_I("SureRsp_TransmitUID       = 0x74");
-		WriteLine_I("SureRsp_ReceivePacketSize = 0x75");
-		WriteLine_I("SureRsp_RadioPolarity     = 0x76");
-		WriteLine_I("SureRsp_TransmitPower     = 0x77");
-		WriteLine_I("SureRsp_AckData           = 0x78");
+		WriteLine_I("SureRsp_AllSettings         = 0x70");
+		WriteLine_I("SureRsp_RadioMode           = 0x71");
+		WriteLine_I("SureRsp_FhssTable           = 0x72");
+		WriteLine_I("SureRsp_ReceiveUID          = 0x73");
+		WriteLine_I("SureRsp_TransmitUID         = 0x74");
+		WriteLine_I("SureRsp_ReceivePacketSize   = 0x75");
+		WriteLine_I("SureRsp_RadioPolarity       = 0x76");
+		WriteLine_I("SureRsp_TransmitPower       = 0x77");
+		WriteLine_I("SureRsp_AckData             = 0x78");
+		WriteLine_I("SureRsp_TableHoppingEnabled = 0x79");
 		WriteLine_I("");
-		WriteLine_I("SureRsp_QosConfig         = 0x80");
-		WriteLine_I("SureRsp_Indications       = 0x81");
-		WriteLine_I("SureRsp_QuietMode         = 0x82");
-		WriteLine_I("SureRsp_ButtonConfig      = 0x83");
-		WriteLine_I("SureRsp_AcksEnabled       = 0x84");
-		WriteLine_I("SureRsp_NumRetries        = 0x85");
+		WriteLine_I("SureRsp_QosConfig           = 0x80");
+		WriteLine_I("SureRsp_Indications         = 0x81");
+		WriteLine_I("SureRsp_QuietMode           = 0x82");
+		WriteLine_I("SureRsp_ButtonConfig        = 0x83");
+		WriteLine_I("SureRsp_AcksEnabled         = 0x84");
+		WriteLine_I("SureRsp_NumRetries          = 0x85");
 	}
 	// +==============================+
 	// |          send [HEX]          |

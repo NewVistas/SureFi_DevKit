@@ -438,6 +438,7 @@ typedef struct __attribute__((packed))
 		uint64_t u64Values[8];
 		
 		ModuleStatus_t status;
+		ModuleStatus_t intEnableBits;
 		ModuleVersion_t moduleVersion;
 		TransmitInfo_t txInfo;
 		ReceiveInfo_t rxInfo;
