@@ -523,7 +523,7 @@
 			"file": "/C/Users/robbitay/Dropbox/Firmware/SureFi/Files/Firmware.todo",
 			"settings":
 			{
-				"buffer_size": 4621,
+				"buffer_size": 5692,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -555,14 +555,6 @@
 			}
 		},
 		{
-			"file": "DevKitApplicationBoard/source/micro.c",
-			"settings":
-			{
-				"buffer_size": 1592,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "DevKitApplicationBoard/source/bleApp.c",
 			"settings":
 			{
@@ -577,22 +569,6 @@
 			{
 				"buffer_size": 10645,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/src/board.h",
-			"settings":
-			{
-				"buffer_size": 403,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "DevKitApplicationBoard/src/asf.h",
-			"settings":
-			{
-				"buffer_size": 2813,
 				"line_ending": "Windows"
 			}
 		},
@@ -903,19 +879,15 @@
 	},
 	"expanded_folders":
 	[
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source"
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard"
 	],
 	"file_history":
 	[
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/micro.h",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/ASF/common/utils/interrupt/interrupt_sam_nvic.h",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/main.c",
-		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/jumper.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/transmitQueue.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleCommands.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/helpers.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/main.c",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/micro.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/micro.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/board.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/src/Config/conf_clock.h",
@@ -930,6 +902,7 @@
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/bleApp.h",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/sureResponses.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureResponses.h",
+		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/jumper.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/bleCommands.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/source/sureCommands.c",
 		"/C/MyStuff/SureFi/Projects/SureFiDevKit/DevKitApplicationBoard/DevKitApplicationBoard/header/sureCommands.h",
@@ -1036,11 +1009,12 @@
 		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/pio/sam4s16b.h",
 		"/C/MyStuff/SureFi/Projects/AccessControlBridge/Common/common.h",
 		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/.gitignore",
-		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/matrix.h"
+		"/C/Program Files (x86)/Atmel/Studio/7.0/packs/atmel/SAM4S_DFP/1.0.57/sam4s/include/component/matrix.h",
+		"/C/MyStuff/SureFi/Projects/Atmel/AtmelStudioTest/Device_Startup/system_sam4s.c"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -1105,9 +1079,6 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"BleWriteExmem",
-			"BleReadExmem",
-			"exmem",
 			"AppUartPopCommand",
 			"QosConfig_OnTransmit",
 			"SureGetAckPacket",
@@ -1232,7 +1203,10 @@
 			"DUMMY",
 			"_ZTAL",
 			"_XTAL_FREQ",
-			"PA_VPC_"
+			"PA_VPC_",
+			"DEBUG_MODE_ENABLED",
+			"#include \"appDefines.h\"",
+			"#include \"defines.h\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1287,7 +1261,7 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1296,7 +1270,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4621,
+						"buffer_size": 5692,
 						"regions":
 						{
 						},
@@ -1315,7 +1289,7 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1331,8 +1305,8 @@
 						"selection":
 						[
 							[
-								15760,
-								15760
+								21541,
+								21541
 							]
 						],
 						"settings":
@@ -1340,10 +1314,10 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3672.0,
+						"translation.y": 13500.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1371,7 +1345,7 @@
 						"translation.y": 2106.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1387,8 +1361,8 @@
 						"selection":
 						[
 							[
-								6795,
-								6795
+								3586,
+								3599
 							]
 						],
 						"settings":
@@ -1396,42 +1370,14 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3919.0,
+						"translation.y": 1511.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "DevKitApplicationBoard/source/micro.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1592,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "DevKitApplicationBoard/source/bleApp.c",
 					"semi_transient": false,
 					"settings":
@@ -1452,14 +1398,14 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1256.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "DevKitApplicationBoard/source/bleCommands.c",
 					"semi_transient": false,
 					"settings":
@@ -1471,8 +1417,8 @@
 						"selection":
 						[
 							[
-								2474,
-								2474
+								8028,
+								8028
 							]
 						],
 						"settings":
@@ -1480,70 +1426,14 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1392.0,
+						"translation.y": 5600.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "DevKitApplicationBoard/src/board.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 403,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "DevKitApplicationBoard/src/asf.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2813,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2064,
-								2063
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 594.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
+					"buffer": 6,
 					"file": "DevKitApplicationBoard/source/debugCommands.c",
 					"semi_transient": false,
 					"settings":
@@ -1567,11 +1457,11 @@
 						"translation.y": 2451.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 7,
 					"file": "DevKitApplicationBoard/source/sureResponses.c",
 					"semi_transient": false,
 					"settings":
@@ -1583,8 +1473,8 @@
 						"selection":
 						[
 							[
-								28919,
-								28919
+								7403,
+								7403
 							]
 						],
 						"settings":
@@ -1592,14 +1482,14 @@
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 15512.0,
+						"translation.y": 3228.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 8,
 					"file": "DevKitApplicationBoard/source/transmitQueue.c",
 					"semi_transient": false,
 					"settings":
@@ -1623,11 +1513,11 @@
 						"translation.y": 2538.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 9,
 					"file": "DevKitApplicationBoard/source/bleResponses.c",
 					"semi_transient": false,
 					"settings":
@@ -1651,7 +1541,7 @@
 						"translation.y": 1536.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1720,7 +1610,7 @@
 	"project": "DevKitApplicationBoard.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2259,18 +2149,10 @@
 	},
 	"select_symbol":
 	{
-		"height": 392.0,
-		"last_filter": "PIOIS",
+		"height": 38.0,
+		"last_filter": "",
 		"selected_items":
 		[
-			[
-				"PIOIS",
-				"PIOA ISR"
-			],
-			[
-				"ISR",
-				"ISR"
-			],
 			[
 				"PIOA",
 				"PIOA"
@@ -2278,6 +2160,10 @@
 			[
 				"NVIC_Ena",
 				"NVIC_EnableIRQ"
+			],
+			[
+				"ISR",
+				"ISR"
 			],
 			[
 				"WDT",
@@ -2356,7 +2242,7 @@
 				"FW_MAJOR_VERSION"
 			]
 		],
-		"width": 592.0
+		"width": 460.0
 	},
 	"selected_group": 0,
 	"settings":

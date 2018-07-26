@@ -98,43 +98,6 @@ void BleStartDfuMode()
 	BleSendNoPayload(BleCmd_StartDfuMode);
 }
 
-void BleReadExmem(u32 address, u8 numBytes)
-{
-	BleCommand_t* bleCmd = (BleCommand_t*)&commandBuffer[0];
-	bleCmd->attn = BLE_ATTN_CHAR;
-	bleCmd->cmd = BleCmd_ReadExmem;
-	bleCmd->length = sizeof(u32) + sizeof(u8);
-	bleCmd->payload.exmem.address = address;
-	bleCmd->payload.exmem.numBytes = numBytes;
-	BleSendCommand(bleCmd);
-}
-
-void BleWriteExmem(u32 address, const u8* dataPntr, u8 dataLength)
-{
-	if (dataLength > 255-sizeof(u32))
-	{
-		//Too many bytes, can't fit in command
-		return;
-	}
-	BleCommand_t* bleCmd = (BleCommand_t*)&commandBuffer[0];
-	bleCmd->attn = BLE_ATTN_CHAR;
-	bleCmd->cmd = BleCmd_WriteExmem;
-	bleCmd->length = sizeof(u32) + dataLength;
-	bleCmd->payload.exmem.address = address;
-	memcpy(bleCmd->payload.exmem.data, dataPntr, dataLength);
-	BleSendCommand(bleCmd);
-}
-
-void BleClearExmem(u32 address)
-{
-	BleCommand_t* bleCmd = (BleCommand_t*)&commandBuffer[0];
-	bleCmd->attn = BLE_ATTN_CHAR;
-	bleCmd->cmd = BleCmd_ClearExmem;
-	bleCmd->length = sizeof(u32);
-	bleCmd->payload.exmem.address = address;
-	BleSendCommand(bleCmd);
-}
-
 void BleClearResetFlag()
 {
 	BleSendNoPayload(BleCmd_ClearResetFlag);

@@ -84,22 +84,6 @@ void HandleBleResponse(const BleCommand_t* rsp)
 		// } break;
 		
 		// +==============================+
-		// |       BleRsp_ExmemData       |
-		// +==============================+
-		case BleRsp_ExmemData:
-		{
-			if (PrintBleResponses)
-			{
-				PrintLine_D("BleRsp_ExmemData[%u] %08X", rsp->length, rsp->payload);
-			}
-			BleExmemDataAddress = rsp->payload.exmem.address;
-			BleExmemDataLength = (rsp->length-sizeof(u32));
-			if (BleExmemDataLength > ArrayCount(BleExmemData)) { BleExmemDataLength = ArrayCount(BleExmemData); }
-			memcpy(BleExmemData, rsp->payload.exmem.data, BleExmemDataLength);
-			BleGotExmemData = true;
-		} break;
-		
-		// +==============================+
 		// |    BleRsp_FirmwareVersion    |
 		// +==============================+
 		case BleRsp_FirmwareVersion:

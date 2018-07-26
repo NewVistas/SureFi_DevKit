@@ -98,7 +98,7 @@ void SureSetIntEnableBits(u32 intEnableBits)
 	sureCmd->attn = ATTN_CHAR;
 	sureCmd->cmd = SureCmd_SetIntEnableBits;
 	sureCmd->length = sizeof(u32);
-	sureCmd->payload.intEnableBits = intEnableBits;
+	sureCmd->payload.intEnableBits.fullValue = intEnableBits;
 	SureSendCommand(sureCmd);
 }
 
