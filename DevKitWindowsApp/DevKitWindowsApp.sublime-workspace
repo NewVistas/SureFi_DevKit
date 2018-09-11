@@ -1247,6 +1247,8 @@
 						],
 						"settings":
 						{
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/TaylorAddons/My C.sublime-syntax"
 						},
 						"translation.x": 0.0,
@@ -1276,13 +1278,15 @@
 						"settings":
 						{
 							"history_list_is_closing": true,
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 22424.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1310,6 +1314,8 @@
 						],
 						"settings":
 						{
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -1340,13 +1346,15 @@
 						"settings":
 						{
 							"history_list_is_closing": true,
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/TaylorAddons/My C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 36158.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1368,6 +1376,8 @@
 						],
 						"settings":
 						{
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
